@@ -1,0 +1,2 @@
+module HouseFitmentsHelper
+end

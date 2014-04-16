@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @show_house.title %>
+</p>
+
+<p>
+  <b>Area:</b>
+  <%= @show_house.area %>
+</p>
+
+<p>
+  <b>House type:</b>
+  <%= @show_house.house_type %>
+</p>
+
+<p>
+  <b>Brief:</b>
+  <%= @show_house.brief %>
+</p>
+
+<p>
+  <b>Overview:</b>
+  <%= @show_house.overview %>
+</p>
+
+<p>
+  <b>Style:</b>
+  <%= @show_house.style %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @show_house.price %>
+</p>
+
+<p>
+  <b>Need to know:</b>
+  <%= @show_house.need_to_know %>
+</p>
+
+
+<%= link_to 'Edit', edit_show_house_path(@show_house) %> |
+<%= link_to 'Back', show_houses_path %>

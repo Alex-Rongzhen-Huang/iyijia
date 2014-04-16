@@ -1,0 +1,27 @@
+<h1>Listing house_fitments</h1>
+
+<table>
+  <tr>
+    <th>Contact</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @house_fitments.each do |house_fitment| %>
+  <tr>
+    <td><%= house_fitment.contact %></td>
+    <td><%= house_fitment.phone %></td>
+    <td><%= house_fitment.address %></td>
+    <td><%= link_to 'Show', house_fitment %></td>
+    <td><%= link_to 'Edit', edit_house_fitment_path(house_fitment) %></td>
+    <td><%= link_to 'Destroy', house_fitment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New House fitment', new_house_fitment_path %>

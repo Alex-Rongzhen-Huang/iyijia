@@ -1,0 +1,2 @@
+module ShowHousesHelper
+end

@@ -1,0 +1,25 @@
+<h1>Listing color_surfaces</h1>
+
+<table>
+  <tr>
+    <th>Brief</th>
+    <th>Picture</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @color_surfaces.each do |color_surface| %>
+  <tr>
+    <td><%= color_surface.brief %></td>
+    <td><%= color_surface.picture %></td>
+    <td><%= link_to 'Show', color_surface %></td>
+    <td><%= link_to 'Edit', edit_color_surface_path(color_surface) %></td>
+    <td><%= link_to 'Destroy', color_surface, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Color surface', new_color_surface_path %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @decorate_company.name %>
+</p>
+
+<p>
+  <b>Brief:</b>
+  <%= @decorate_company.brief %>
+</p>
+
+
+<%= link_to 'Edit', edit_decorate_company_path(@decorate_company) %> |
+<%= link_to 'Back', decorate_companies_path %>

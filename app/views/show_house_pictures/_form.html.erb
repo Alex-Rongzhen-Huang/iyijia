@@ -1,0 +1,29 @@
+<%= form_for(@show_house_picture) do |f| %>
+  <% if @show_house_picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@show_house_picture.errors.count, "error") %> prohibited this show_house_picture from being saved:</h2>
+
+      <ul>
+      <% @show_house_picture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :path %><br />
+    <%= f.text_field :path %>
+  </div>
+  <div class="field">
+    <%= f.label :brief %><br />
+    <%= f.text_field :brief %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

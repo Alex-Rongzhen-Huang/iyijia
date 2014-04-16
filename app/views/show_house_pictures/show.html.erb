@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Path:</b>
+  <%= @show_house_picture.path %>
+</p>
+
+<p>
+  <b>Brief:</b>
+  <%= @show_house_picture.brief %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @show_house_picture.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_show_house_picture_path(@show_house_picture) %> |
+<%= link_to 'Back', show_house_pictures_path %>

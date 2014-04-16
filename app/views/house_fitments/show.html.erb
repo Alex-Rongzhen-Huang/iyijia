@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contact:</b>
+  <%= @house_fitment.contact %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @house_fitment.phone %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @house_fitment.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_house_fitment_path(@house_fitment) %> |
+<%= link_to 'Back', house_fitments_path %>

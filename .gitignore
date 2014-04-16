@@ -16,6 +16,9 @@
 
 public/uploads/**
 
+# ignore compiled assets by default
+public/assets/**
+
 /.idea/
 
 *.rbc

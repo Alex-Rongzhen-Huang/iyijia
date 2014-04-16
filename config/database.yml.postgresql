@@ -1,0 +1,27 @@
+# Postgresql version x.x
+#   gem install pg
+#
+#   Ensure the pg gem is defined in your Gemfile
+#   gem 'pg'
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: iyijia_development
+  pool: 5
+  username: postgres
+  password: postgres
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: iyijia_test
+  pool: 5
+  username: postgres
+  password: postgres
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: iyijia_production
+  pool: 5
+  username: postgres
+  password: postgres

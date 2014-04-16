@@ -1,0 +1,2 @@
+module ShowHousePicturesHelper
+end
