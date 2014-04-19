@@ -12,7 +12,7 @@ ActiveAdmin.register DecorateCompany do
       row :id
       row :name
       row :brief
-      row :admin_user_id if current_admin_user.role != 'super'
+      row :user_id
       row :created_at
       row :updated_at
     end
@@ -21,7 +21,7 @@ ActiveAdmin.register DecorateCompany do
   form(:html => { :multipart=>true}) do |f|
     f.inputs "DecorateCompany" do
       f.input :name
-      f.input :admin_user_id, as: :select, collection: AdminUser.all() if  current_admin_user.role == 'super'
+      f.input :user_id, as: :select, collection: options_for_select(User.where(:role=>'decorator'), User.where(:role=>'decorator').first())
 
       f.input :brief
 

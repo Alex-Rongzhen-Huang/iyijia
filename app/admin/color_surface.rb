@@ -10,7 +10,8 @@ ActiveAdmin.register ColorSurface do
   form(:html => { :multipart=>true}) do |f|
        f.inputs "ColorSurface" do
          f.input :title
-         f.input :decorate_company_id, as: :select, collection: DecorateCompany.all()
+         # Note: superadmin can select any decorator
+         f.input :decorate_company_id, as: :select, collection: options_for_select(DecorateCompany.all(), DecorateCompany.all().first())
 
          f.input :picture, :as => :file, :hint => image_tag(f.object.picture, width:"50%")
 

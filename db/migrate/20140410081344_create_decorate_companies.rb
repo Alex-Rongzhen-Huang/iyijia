@@ -4,7 +4,7 @@ class CreateDecorateCompanies < ActiveRecord::Migration
       t.string :name
       t.text :brief
 
-      t.references :admin_user
+      t.references :user
 
       t.timestamps
     end
