@@ -4,14 +4,151 @@
   <title>Iyijia</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+
+  <%= javascript_include_tag params[:controller] %>
+  <%= stylesheet_link_tag  params[:controller] %>
+
   <%= csrf_meta_tags %>
+
+  <!-- Google Web Font -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+  <!-- Include the bootstrap stylesheet -->
+  <link href="css/bootstrap.css" rel="stylesheet" media="all">
+
+  <!-- Include the Bootstrap responsive utitlities stylesheet -->
+  <link href="css/_responsive-utilities.css" rel="stylesheet" media="all">
+
+
+  <!-- Include the Awesome Font stylesheet -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" media="all">
+
+  <!-- Include the bootstrap responsive stylesheet -->
+  <link href="css/responsive.css" rel="stylesheet" media="all">
+
+  <!-- Flexslider stylesheet -->
+  <link href="js/flexslider/flexslider.css" rel="stylesheet" media="all">
+
+  <!-- Pretty Photo stylesheet -->
+  <link href="js/prettyphoto/prettyPhoto.css" rel="stylesheet" media="all">
+
+  <!-- Pretty Photo stylesheet -->
+  <link href="js/swipebox/swipebox.css" rel="stylesheet" media="all">
+
+  <!-- Include the site main stylesheet -->
+  <link href="css/main.css" rel="stylesheet" media="all">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
 </head>
 <body>
 
+
+<!-- Start Header -->
+<div class="header-wrapper">
+
+  <div class="container"><!-- Start Header Container -->
+
+    <header id="header" class="clearfix">
+
+      <!-- Logo -->
+      <div id="logo">
+
+        <a title="Real Homes" href="index.html">
+          <img src="images/logo.png" alt="Real Homes">
+        </a>
+
+        <div class="tag-line">
+          <span> </span>
+        </div>
+      </div>
+
+
+      <div class="menu-and-contact-wrap">
+
+        <h3  class="contact-number" style="font-size: medium;"><i class="icon-user" style="padding:0px 10px;"></i>
+          <span class="outer-strip"></span>
+
+          <%= link_to '登录', new_user_session_path %>
+          <%= link_to '注册', new_user_registration_path %>
+        </h3>
+        <!-- Start Main Menu-->
+        <nav class="main-menu">
+          <div class="menu-main-menu-container">
+            <ul id="menu-main-menu" class="clearfix">
+              <li class="current-menu-item current_page_item"><a href="index.html">首页</a></li>
+              <li><a href="simple-listing.html">样板房</a>
+                <ul>
+                  <li><a href="simple-listing.html">列表视图</a></li>
+                  <li><a href="grid-listing.html">大图视图</a></li>
+                </ul>
+              </li>
+              <li><a href="news.html">施工队</a></li>
+              <li><a href="two-columns-gallery.html">装修达人</a></li>
+
+            </ul>
+
+
+          </div>
+        </nav><!-- End Main Menu -->
+
+      </div><!-- End .menu-and-contact-wrap -->
+
+    </header>
+
+  </div> <!-- End Header Container -->
+
+</div><!-- End Header -->
+<% if not (notice.nil? || alert.nil?)  %>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+                     </div>
+    </div>
+ </div> <!--End notice bar -->
 
+ <% end%>
 <%= yield %>
+
+
+<footer id="footer-wrapper">
+
+
+  <!-- Footer Bottom -->
+  <div id="footer-bottom" class="container">
+
+    <div class="row">
+      <div class="span12">
+        <p class="copyright" style="text-align: center">Copyright © <%= DateTime.now.year %>. <%= t("iyijia.site_title") %> All Rights Reserved.</p>
+      </div>
+    </div>
+
+  </div>
+  <!-- End Footer Bottom -->
+
+</footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/flexslider/jquery.flexslider.js"></script>
+<script src="js/elastislide/jquery.easing.1.3.js"></script>
+<script src="js/elastislide/jquery.elastislide.js"></script>
+<script src="js/prettyphoto/jquery.prettyPhoto.js"></script>
+<script src="js/swipebox/jquery.swipebox.min.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
+<script src="js/jquery.jcarousel.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/jquery.form.js"></script>
+<script src="js/jquery.selectbox.js"></script>
+<script src="js/jquery.transit.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
 
 </body>
 </html>
