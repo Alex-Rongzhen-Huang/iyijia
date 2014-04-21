@@ -1,45 +1,162 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @show_house.title %>
-</p>
 
-<p>
-  <b>Area:</b>
-  <%= @show_house.area %>
-</p>
+<div class="container contents lisitng-grid-layout">
 
-<p>
-  <b>House type:</b>
-  <%= @show_house.house_type %>
-</p>
+<div class="row">
 
-<p>
-  <b>Brief:</b>
-  <%= @show_house.brief %>
-</p>
+<div class="span12 main-wrap">
 
-<p>
-  <b>Overview:</b>
-  <%= @show_house.overview %>
-</p>
+  <!-- Main Content -->
+  <div class="main">
 
-<p>
-  <b>Style:</b>
-  <%= @show_house.style %>
-</p>
+    <section id="overview">
 
-<p>
-  <b>Price:</b>
-  <%= @show_house.price %>
-</p>
+      <article class="property-item clearfix">
+      <div class="wrap" style="margin-bottom: 0px">
 
-<p>
-  <b>Need to know:</b>
-  <%= @show_house.need_to_know %>
-</p>
+        <div class="wrap clearfix">
+          <h4 class="title"><%= @show_house.title %></h4>
+          <h5 class="price">
+                                    <span class="status-label">
+                                       <small> <%= @show_house.price %>万</small>
+                                    </span>
+                                    <span>
+                                        <%= @show_house.house_type %> - <%= @show_house.style %></small>
+                                    </span>
+          </h5>
+        </div>
+        <div class="wrap clearfix" style="margin: -16px 0px 0px 0px;">  <%# TODO: fix style %>
+          <p><%=@show_house.brief.html_safe %></p>
+          <p style="text-align: right">
+            浏览 | 赞 | 收藏 | 分享 | <%= @show_house.created_at %>
+          </p>
+        </div>
+      </div>
+    </article>
+      <div id="property-detail-flexslider" class="clearfix">
+        <div class="flexslider">
 
 
-<%= link_to 'Edit', edit_show_house_path(@show_house) %> |
-<%= link_to 'Back', show_houses_path %>
+          <ul class="slides">
+            <li data-thumb="/images/temp-images/property1.jpg">
+              <a href="/images/temp-images/property1.jpg" class="swipebox">
+                <img src="/images/temp-images/property1.jpg" alt="image1">
+              </a>
+            </li>
+            <li data-thumb="/images/temp-images/property2.jpg">
+              <a href="/images/temp-images/property2.jpg" class="swipebox">
+                <img src="/images/temp-images/property2.jpg" alt="image2">
+              </a>
+            </li>
+            <li data-thumb="/images/temp-images/property3.jpg">
+              <a href="/images/temp-images/property3.jpg" class="swipebox">
+                <img src="/images/temp-images/property3.jpg" alt="image3">
+              </a>
+            </li>
+            <li data-thumb="/images/temp-images/property4.jpg">
+              <a href="/images/temp-images/property4.jpg" class="swipebox">
+                <img src="/images/temp-images/property4.jpg" alt="image4">
+              </a>
+            </li>
+            <li data-thumb="/images/temp-images/property5.jpg">
+              <a href="/images/temp-images/property5.jpg" class="swipebox">
+                <img src="/images/temp-images/property5.jpg" alt="image5">
+              </a>
+            </li>
+            <li data-thumb="/images/temp-images/property6.jpg">
+              <a href="/images/temp-images/property6.jpg" class="swipebox">
+                <img src="/images/temp-images/property6.jpg" alt="image5">
+              </a>
+            </li>
+            <li data-thumb="/images/temp-images/property7.jpg">
+              <a href="/images/temp-images/property7.jpg" class="swipebox">
+                <img src="/images/temp-images/property7.jpg" alt="image5">
+              </a>
+            </li>
+            <li data-thumb="/images/temp-images/property8.jpg">
+              <a href="/images/temp-images/property8.jpg" class="swipebox">
+                <img src="/images/temp-images/property8.jpg" alt="image5">
+              </a>
+            </li>
+
+          </ul>
+
+
+        </div>
+      </div>
+
+      <article class="property-item clearfix">
+
+
+
+        <div class="property-meta clearfix" style="display: none;">
+          <span><i class="icon-area"></i>概述&nbsp;</span>
+          <span><i class="icon-bed"></i>施工进程</span>
+          <span><i class="icon-bath"></i>装修报价</span>
+          <span><i class="icon-garage"></i>装修须知</span>
+          <!-- Print Icon -->
+          <span class="printer-icon"><a href="javascript:window.print()">Print this page</a></span>
+        </div>
+
+        <ul class="nav nav-tabs">
+          <li><a href="#show-house-overview" data-toggle="tab"><i class="icon-adjust"></i>概述&nbsp;</a></li>
+          <li><a href="#show-house-progress" data-toggle="tab"><i class="icon-bell"></i>施工进程&nbsp;</a></li>
+          <li><a href="#show-house-price" data-toggle="tab"><i class="icon-paper-clip"></i>装修报价&nbsp;</a></li>
+          <li><a href="#show-house-need-to-know" data-toggle="tab"><i class="icon-inbox"></i>装修须知&nbsp;</a></li>
+          <li style="margin-left: 53%"><a href="javascript:window.print()"><i class="icon-print"></i>打印报价单</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane active" id="show-house-overview">
+            <div class="content clearfix">
+              <p>
+                <%= @show_house.overview.html_safe %>
+              </p>
+              <p><%= link_to 'Edit', edit_show_house_path(@show_house) %> |
+                <%= link_to 'Back', show_houses_path %>
+              </p>
+            </div>
+          </div>
+          <div class="tab-pane" id="show-house-progress">
+            <div class="content clearfix">
+              <p>
+                show-house-progress
+              </p>
+              <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            </div>
+          </div>
+          <div class="tab-pane" id="show-house-price">
+            <div class="content clearfix">
+              <p>
+                <%= @show_house.price %>万
+              </p>
+              <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            </div>
+          </div>
+          <div class="tab-pane" id="show-house-need-to-know">
+            <div class="content clearfix">
+              <p>
+                <%= @show_house.need_to_know.html_safe %>
+              </p>
+              <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </article>
+  </section>
+  </div>
+  </div>
+
+</div> <!-- End span9 -->
+
+
+
+</div><!-- End contents row -->
+
+</div>
