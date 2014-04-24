@@ -1,0 +1,6 @@
+"zh-CN":
+  time:
+     formats:
+       default: "%Y/%m/%d"
+       short: "%b %d"
+       long: "%Y-%m-%d %H:%M:%S"

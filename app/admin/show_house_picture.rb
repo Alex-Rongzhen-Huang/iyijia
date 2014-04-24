@@ -1,12 +1,13 @@
 ActiveAdmin.register ShowHousePicture do
-  menu :priority => 3,  :label => proc{ I18n.t("admin.show_house_pictures") }
-  breadcrumb do
-    [
-        link_to(I18n.t("active_admin.dashboard"), '/admin'),
-        link_to(I18n.t("admin.show_houses"), '/admin/show_houses'),
-        #slink_to(proc {|t| t.show_house.title}, proc{|t| admin_show_house_path(t.show_house)}),
-    ]
-  end
+  menu :priority => 3
+  #menu :priority => 3,  :label => proc{ I18n.t("admin.show_house_pictures") }
+  #breadcrumb do
+  #  [
+  #      link_to(I18n.t("active_admin.dashboard"), '/admin'),
+  #      link_to(I18n.t("admin.show_houses"), '/admin/show_houses'),
+  #      #slink_to(proc {|t| t.show_house.title}, proc{|t| admin_show_house_path(t.show_house)}),
+  #  ]
+  #end
 
   # 嵌套式的url结构，顶层菜单将没有样板房图片
   #belongs_to :show_house
@@ -14,7 +15,8 @@ ActiveAdmin.register ShowHousePicture do
   index do
     selectable_column
     column :id
-    column I18n.t("admin.show_house_picture.path"), :path
+    #column I18n.t("admin.show_house_picture.path"), :path
+    column :path
     #column :path do |product|
     #  link_to(image_tag(product.path, :width => "50px"), admin_show_house_picture_path(product))
     #end

@@ -1,10 +1,4 @@
 "zh-CN":
-  time:
-     formats:
-       default: "%Y/%m/%d"
-       short: "%b %d"
-       long: "%Y-%m-%d %H:%M:%S"
-
   active_admin:
     dashboard: "控制面板"
     dashboard_welcome:
@@ -93,22 +87,3 @@
         sign_in: "登录"
         forgot_your_password: "忘记密码？"
         sign_in_with_omniauth_provider: "登入%{provider}"
-
-
-  admin:
-    color_surface: "色面样板"
-    comments : "评论"
-    decorate_company: "装修公司"
-    house_fitment: "待装修房"
-    show_houses: "样板房"
-    show_house_pictures: "样板房图片"
-    order: "订单"
-
-    show_house:
-      details: "样板房详细"
-    show_house_picture:
-      path: "服务器路径"
-    admin_user: "超级管理员"
-
-  iyijia:
-    site_title: "爱逸家"

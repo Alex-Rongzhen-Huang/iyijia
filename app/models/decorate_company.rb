@@ -4,7 +4,11 @@ class DecorateCompany < ActiveRecord::Base
   has_many :color_surfaces
   belongs_to :user
 
+  #def to_s
+  #  "#{self.name}"
+  #end
+
   def to_s
-    "#{self.name}"
+    "#{self.id} - #{self.name}"
   end
 end

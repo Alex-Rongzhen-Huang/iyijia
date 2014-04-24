@@ -1,11 +1,12 @@
 ActiveAdmin.register ShowHouse do
-  menu :priority => 3, :label => proc{ I18n.t("admin.show_houses") }
-  breadcrumb do
-    [
-        link_to(I18n.t("active_admin.dashboard"), '/admin'),
-        link_to(I18n.t("admin.show_houses"), '/admin/show_houses'),
-    ]
-  end
+  menu :priority => 3
+#  menu :priority => 3, :label => proc{ I18n.t("admin.show_houses") }
+#  breadcrumb do
+#    [
+#        link_to(I18n.t("active_admin.dashboard"), '/admin'),
+#        link_to(I18n.t("admin.show_houses"), '/admin/show_houses'),
+#    ]
+#  end
 
   # 嵌套式的结构
   #sidebar I18n.t("admin.show_house.details"), only: [:show, :edit] do
@@ -21,7 +22,7 @@ ActiveAdmin.register ShowHouse do
   end
 
   form(:html => { :multipart=>true}) do |f|
-    f.inputs "ShowHouse" do
+    f.inputs ShowHouse.model_name.human do
       f.input :title
       f.input :decorate_company_id, as: :select, collection: DecorateCompany.all()
       f.input :area

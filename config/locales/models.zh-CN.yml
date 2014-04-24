@@ -1,0 +1,63 @@
+"zh-CN":
+
+#  admin:
+#    color_surface: "色面样板"
+#    comments : "评论"
+#    decorate_company: "装修公司"
+#    house_fitment: "待装修房"
+#    show_houses: "样板房"
+#    show_house_pictures: "样板房图片"
+#    order: "订单"
+#
+#
+#    admin_user: "超级管理员"
+#
+#    decorate_companies:
+#      label:
+#        name: "名称"
+#        brief: "公司简介"
+#        user: "用户"
+
+  iyijia:
+    site_title: "爱逸家"
+
+  activerecord:
+    models:
+      decorate_company: "装修公司"
+      color_surface: "色面样板"
+      comment : "评论"
+      house_fitment: "待装修房"
+      show_house: "样板房"
+      show_house_picture: "样板房图片"
+      order: "订单"
+      admin_user: "超级管理员"
+      user: "用户"
+
+    attributes:
+      decorate_company:
+        name: "名称"
+        brief: "公司简介"
+        user: "用户"
+      show_house:
+        details: "样板房详细"
+        title: "标题"
+        area: "面积"
+        house_type: "房型"
+        brief:  "简介"
+        overview: "概述"
+        style: "风格"
+        price: "装修报价"
+        need_to_know: "装修须知"
+        decorate_company_id: "装修公司"
+      color_surface:
+        decorate_company: "装修公司"
+        title: "名称"
+        picture: "图片"
+      show_house_picture:
+        path: "服务器路径"
+        brief: "简介"
+        show_house: "样板房"
+      house_fitment:
+        contact: "联系人"
+        phone: "手机号"
+        address: "待装修房地址"
