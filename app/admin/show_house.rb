@@ -15,9 +15,9 @@ ActiveAdmin.register ShowHouse do
   #  end
   #end
 
-  sidebar I18n.t("admin.show_house.details"), only: [:show, :edit] do
+  sidebar ShowHousePicture.model_name.human, only: [:show, :edit] do
     ul do
-      li link_to(I18n.t("admin.show_house_pictures"), admin_show_house_pictures_path)
+      li link_to(ShowHousePicture.model_name.human, admin_show_house_pictures_path)
     end
   end
 
@@ -26,9 +26,11 @@ ActiveAdmin.register ShowHouse do
       f.input :title
       f.input :decorate_company_id, as: :select, collection: DecorateCompany.all()
       f.input :area
-      f.input :house_type
+      f.input :house_type, :as => :select, collection: ShowHouse::HOUSE_TYPES
       f.input :price
-      f.input :style
+      f.input :style, :as => :select, collection: ShowHouse::STYLE_TYPES
+      f.input :concept
+      f.input :usage
       f.input :need_to_know, :as => :ckeditor
       f.input :overview, :as => :ckeditor
       f.input :brief, :as => :ckeditor
@@ -40,6 +42,8 @@ ActiveAdmin.register ShowHouse do
 
         end
       end
+
+      f.input :main_material_brand_ids, as: :select, collection: MainMaterialBrand.all, multiple: true
 
     end
 

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @main_material_brand.name %>
+</p>
+
+<p>
+  <b>Logo path:</b>
+  <%= @main_material_brand.logo_path %>
+</p>
+
+
+<%= link_to 'Edit', edit_main_material_brand_path(@main_material_brand) %> |
+<%= link_to 'Back', main_material_brands_path %>

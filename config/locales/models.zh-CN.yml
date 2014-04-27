@@ -35,18 +35,21 @@
 
     attributes:
       decorate_company:
-        name: "名称"
+        name: "公司名称"
         brief: "公司简介"
         user: "用户"
+        logo_path: "公司Logo"
       show_house:
         details: "样板房详细"
         title: "标题"
         area: "面积"
-        house_type: "房型"
         brief:  "简介"
+        price: "最低造价"
+        house_type: "房型"
         overview: "概述"
+        concept: "设计概念"
         style: "风格"
-        price: "装修报价"
+        usage: "用途"
         need_to_know: "装修须知"
         decorate_company_id: "装修公司"
       color_surface:

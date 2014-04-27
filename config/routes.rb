@@ -1,4 +1,7 @@
 Iyijia::Application.routes.draw do
+  resources :main_material_brands
+
+
   get "home/index"
 
   devise_for :users

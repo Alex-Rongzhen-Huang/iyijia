@@ -4,3 +4,6 @@
        default: "%Y/%m/%d"
        short: "%b %d"
        long: "%Y-%m-%d %H:%M:%S"
+  date:
+     formats:
+       long:  "%Y-%m-%d"

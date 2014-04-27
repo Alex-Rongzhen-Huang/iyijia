@@ -14,7 +14,7 @@ ActiveAdmin.register ColorSurface do
          f.input :title
          # Note: superadmin can select any decorator
          f.input :decorate_company, as: :select, collection: options_for_select(DecorateCompany.all().collect{|x| [x.name, x.id]}, f.object.decorate_company.nil? ? DecorateCompany.all().first().id : f.object.decorate_company.id)
-         #f.input :decorate_company, as: :select, collection: options_for_select(DecorateCompany.all(), DecorateCompany.all().first())
+         #f.input :decorate_company_id, as: :select, collection: options_for_select(DecorateCompany.all, DecorateCompany.all().first)
 
          f.input :picture, :as => :file, :hint => image_tag(f.object.picture, width:"50%")
 

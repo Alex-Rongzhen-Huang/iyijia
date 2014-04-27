@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140419065644) do
+ActiveRecord::Schema.define(:version => 20140426142349) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -73,9 +73,11 @@ ActiveRecord::Schema.define(:version => 20140419065644) do
   create_table "decorate_companies", :force => true do |t|
     t.string   "name"
     t.text     "brief"
+    t.date     "created_date"
+    t.string   "logo_path"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "house_fitments", :force => true do |t|
@@ -86,10 +88,22 @@ ActiveRecord::Schema.define(:version => 20140419065644) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "main_material_brands", :force => true do |t|
+    t.string "name"
+    t.string "logo_path"
+  end
+
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "show_house_main_material_brands", :force => true do |t|
+    t.integer  "main_material_brand_id"
+    t.integer  "show_house_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "show_house_pictures", :force => true do |t|
@@ -107,6 +121,8 @@ ActiveRecord::Schema.define(:version => 20140419065644) do
     t.text     "brief"
     t.text     "overview"
     t.string   "style"
+    t.string   "concept"
+    t.string   "usage"
     t.integer  "price"
     t.text     "need_to_know"
     t.integer  "decorate_company_id"

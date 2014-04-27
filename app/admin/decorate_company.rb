@@ -12,6 +12,9 @@ ActiveAdmin.register DecorateCompany do
     attributes_table do
       row :id
       row :name
+      row :logo_path do
+        image_tag(cs.logo_path)
+      end
       row :brief
       row :user
       #row I18n.t('admin.decorate_companies.label.user') do
@@ -27,11 +30,15 @@ ActiveAdmin.register DecorateCompany do
       f.input :name
       #f.input :user, as: :select, collection: options_for_select(User.where(:role=>'decorator'), User.where(:role=>'decorator').first())
       f.input :user, as: :select, collection: options_for_select(User.where(:role=>'decorator').collect{|x| [x.email, x.id]}, f.object.user.nil? ? User.where(:role=>'decorator').first().id : f.object.user.id)
+      f.input :created_date, :as => :datepicker
+      f.input :logo_path, :as => :file, :hint => image_tag(f.object.logo_path, width:"50%")
+
       f.input :brief
 
     end
 
     f.buttons
   end
+
 
 end
