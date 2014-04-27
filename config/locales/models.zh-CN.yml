@@ -62,5 +62,7 @@
         show_house: "样板房"
       house_fitment:
         contact: "联系人"
-        phone: "手机号"
+        phone: "联系电话"
+        email: "Email"
         address: "待装修房地址"
+        notes: "备注信息"

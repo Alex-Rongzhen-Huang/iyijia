@@ -83,7 +83,9 @@ ActiveRecord::Schema.define(:version => 20140426142349) do
   create_table "house_fitments", :force => true do |t|
     t.string   "contact"
     t.string   "phone"
+    t.string   "email"
     t.string   "address"
+    t.text     "notes"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -95,8 +97,11 @@ ActiveRecord::Schema.define(:version => 20140426142349) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "decorate_company_id"
+    t.integer  "show_house_id"
+    t.integer  "house_fitment_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "show_house_main_material_brands", :force => true do |t|
