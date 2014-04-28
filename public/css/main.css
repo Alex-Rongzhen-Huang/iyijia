@@ -111,7 +111,7 @@ a img.aligncenter {
 /*  Real Btn
 /*------------------------------------------------------*/
 .real-btn, .btn-blue, .btn-grey {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   display: inline-block;
   vertical-align: middle;
   font-size: 13px;
@@ -372,7 +372,7 @@ body {
   background-color: #ec894d;
 }
 .main-menu ul li a {
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   color: #afb4b5;
   font-size: 14px;
   display: block;
@@ -517,11 +517,11 @@ body {
 .slide-description span {
   font-size: 18px;
   color: #df5400;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 .slide-description .know-more {
   text-decoration: none;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   position: absolute;
   bottom: -34px;
   left: 0;
@@ -567,7 +567,7 @@ body {
 /* Advance Search
 /*------------------------------------------------------*/
 .advance-search {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   position: relative;
   background-color: white;
   border-bottom: 1px solid #dedede;
@@ -636,7 +636,7 @@ body {
 /*------------------------------------------------------*/
 input[type="text"],
 textarea {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   box-shadow: inset 0 0 2px #e9e9e9;
   border: 1px solid #cdcdcd;
   height: 24px;
@@ -653,7 +653,7 @@ textarea:focus {
 /* Select Box
 /*------------------------------------------------------*/
 .selectwrap {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   position: relative;
   display: block;
 }
@@ -742,7 +742,7 @@ textarea:focus {
     height: 252px;*/
 }
 .property-item h4, .property-item h4 a {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
   color: #394041;
   text-transform: capitalize;
@@ -795,7 +795,7 @@ textarea:focus {
 }
 .property-item .property-meta {
   overflow: hidden;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   border-top: 1px solid #dedede;
   background-color: #f5f5f5;
   margin: 0 -10px;
@@ -836,7 +836,7 @@ textarea:focus {
 }
 
 .more-details {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   color: #394041;
   display: inline-block;
   margin-bottom: 10px;
@@ -919,7 +919,7 @@ textarea:focus {
   margin-bottom: 6px;
 }
 .es-carousel-wrapper ul li h4, .es-carousel-wrapper ul li .property-item h4 a, .property-item h4 .es-carousel-wrapper ul li a, .es-carousel-wrapper ul li h4 a, .property-item h4 .es-carousel-wrapper ul li a a {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
   color: #394041;
 }
@@ -937,7 +937,7 @@ textarea:focus {
   color: #df5400;
 }
 .es-carousel-wrapper ul li .price {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   display: inline-block;
   padding: 3px 10px;
   margin-bottom: 10px;
@@ -1039,7 +1039,7 @@ $list_item_margin: 1px;*/
 }
 
 #footer .widget {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 13px;
   line-height: 22px;
   background: none;
@@ -1048,7 +1048,7 @@ $list_item_margin: 1px;*/
   min-height: 210px;
 }
 #footer .widget .title {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   margin-bottom: 26px;
   font-weight: normal;
   font-size: 20px;
@@ -1109,7 +1109,7 @@ $list_item_margin: 1px;*/
 }
 
 #footer-bottom {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   border-top: 1px solid #dedede;
   padding: 25px 0;
   margin-top: 38px;
@@ -1126,7 +1126,7 @@ $list_item_margin: 1px;*/
 /* widgets
 /*------------------------------------------------------*/
 .widget {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 13px;
   line-height: 22px;
   background-color: #f2f2f2;
@@ -1138,7 +1138,7 @@ $list_item_margin: 1px;*/
 }
 .widget .title {
   margin-bottom: 25px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 21px;
   font-weight: normal;
   margin: 0 0 16px;
@@ -1152,7 +1152,7 @@ $list_item_margin: 1px;*/
   padding: 5px 18px 49px 22px;
 }
 .widget ul li {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   color: #75797;
   background: url(../images/feature-list-bullet.png) no-repeat 2px 15px;
   border-bottom: 1px solid #dedede;
@@ -1507,7 +1507,7 @@ ul.featured-properties li .property-item h4 a,
 ul.featured-properties li h4 a,
 .property-item h4 ul.featured-properties li a a {
   font-size: 14px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
   color: #394041;
 }
@@ -1553,7 +1553,7 @@ ul.featured-properties li .price {
 }
 .page-head h1.page-title {
   font-size: 24px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: blod;
   text-transform: capitalize;
   margin: 0;
@@ -1651,7 +1651,7 @@ ul.featured-properties li .price {
 }
 .listing-layout h4, .listing-layout .property-item h4 a, .property-item h4 .listing-layout a, .listing-layout h4 a, .property-item h4 .listing-layout a a {
   font-size: 20px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
   color: #394041;
 }
@@ -1675,7 +1675,7 @@ ul.featured-properties li .price {
 }
 .listing-layout .contact-types {
   color: #394041;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 .listing-layout em {
   margin-right: 13px;
@@ -1869,7 +1869,7 @@ p.wp-caption-text {
 .post-title, .post-title a {
   font-size: 27px;
   line-height: 36px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
   color: #394041;
   word-spacing: -1px;
@@ -1884,7 +1884,7 @@ p.wp-caption-text {
 }
 
 .post-meta {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   border-top: 1px solid #dedede;
   border-bottom: 5px solid #4dc7ec;
   color: #394041;
@@ -2048,7 +2048,7 @@ article h1 span, article h2 span, article h3 span, article h4 span, article .pro
   padding: 12px 0 0;
   list-style: none;
   margin-bottom: 30px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 .common-list li, .disc-list ul li, .arrow-list ul li, .small-arrow-list ul li, .tick-list ul li {
   background: url(../images/feature-list-bullet.png) no-repeat left 7px;
@@ -2102,7 +2102,7 @@ address {
 #respond #reply-title, .form-heading {
   border-top: 2px solid #4dc7ec;
   background-color: #ededed;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 21px;
   font-weight: normal;
   margin: 0;
@@ -2231,7 +2231,7 @@ address {
 
 #contact-form,
 #respond {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   margin-top: 25px;
 }
 #contact-form #commentform,
@@ -2277,7 +2277,7 @@ address {
 /* Contact Page
 /*------------------------------------------------------*/
 .contact-page {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 .contact-page .inner-wrapper {
   padding: 30px 25px;
@@ -2407,7 +2407,7 @@ address {
 }
 .about-us h3 {
   font-size: 24px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
   margin: 0 0 20px;
 }
@@ -2556,7 +2556,7 @@ address {
 }
 
 #overview {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   background-color: white;
 }
 #overview .property-item {
@@ -2580,7 +2580,7 @@ address {
   float: right;
   margin: 0;
   padding: 0 0 0 15px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 #overview .property-item .price span {
   display: inline-block;
@@ -2685,7 +2685,7 @@ address {
   display: inline-block;
   padding: 6px 17px 8px 14px;
   color: white;
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: bold;
   font-size: 16px;
 }
@@ -2753,7 +2753,7 @@ address {
   padding: 16px 24px;
 }
 #overview .agent-detail h3 {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 20px;
   font-weight: normal;
   margin: 0 0 3px;
@@ -2914,7 +2914,7 @@ address {
 /* Gallery Template
 /*------------------------------------------------------*/
 #filter-by {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   margin: 30px 0 0;
   text-align: center;
 }
@@ -3002,7 +3002,7 @@ address {
   margin-bottom: 18px;
   font-size: 14px;
   font-weight: normal;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 .gallery-item .item-title a {
   color: #394041;
@@ -3142,7 +3142,7 @@ p.info {
   color: #38b6d7;
   padding: 12px 35px 12px 22px;
   margin-bottom: 18px;
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: 300;
   position: relative;
 }
@@ -3153,7 +3153,7 @@ p.tip {
   color: #6b6631;
   padding: 12px 35px 12px 22px;
   margin-bottom: 18px;
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: 300;
   position: relative;
 }
@@ -3164,7 +3164,7 @@ p.success {
   color: #284b13;
   padding: 12px 35px 12px 22px;
   margin-bottom: 18px;
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: 300;
   position: relative;
 }
@@ -3175,7 +3175,7 @@ p.error {
   color: #7e1613;
   padding: 12px 35px 12px 22px;
   margin-bottom: 18px;
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: 300;
   position: relative;
 }
@@ -3378,7 +3378,7 @@ p.error {
   margin-left: 10px;
 }
 #dsidx-listings .dsidx-address a {
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 18px;
   font-weight: normal;
   color: #fff;
@@ -3387,7 +3387,7 @@ p.error {
   color: #fff;
 }
 #dsidx-listings .dsidx-price {
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   color: #fff;
   font-size: 18px;
   font-weight: normal;
@@ -3404,7 +3404,7 @@ p.error {
   float: left;
   margin: 5px 3px;
   width: 40%;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 13px;
   line-height: 23px;
 }
@@ -3418,7 +3418,7 @@ p.error {
   background-color: #4dc7ec;
   color: #fff;
   padding: 8px 10px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
   text-transform: capitalize;
   margin: 0;
@@ -3439,7 +3439,7 @@ p.error {
   float: left;
   margin: 5px 3px;
   width: 19%;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 13px;
   line-height: 23px;
 }
@@ -3447,7 +3447,7 @@ p.error {
 /* Details Page Styles */
 #dsidx.dsidx-details #dsidx-actions {
   margin: 0 0 15px;
-  font-family: "Roboto",Helvetica,Arial,sans-serif;
+  font-family: "Roboto",Helvetica,Arial,"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
 }
 #dsidx.dsidx-details #dsidx-description {
@@ -3513,12 +3513,12 @@ p.error {
   padding: 5px 10px;
 }
 #dsidx.dsidx-details .dsidx-contact-form table label {
-  font-family: "Roboto",Helvetica,Arial,sans-serif;
+  font-family: "Roboto",Helvetica,Arial,"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   margin-top: 5px;
 }
 #dsidx.dsidx-details .dsidx-contact-form table input[type=button] {
   padding: 10px 18px;
-  font-family: "Roboto",Helvetica,Arial,sans-serif;
+  font-family: "Roboto",Helvetica,Arial,"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 14px;
 }
 #dsidx.dsidx-details .dsidx-contact-form table textarea.dsidx-contact-form-comments {
@@ -3548,13 +3548,13 @@ p.error {
   border: none;
   background: transparent;
   color: #636464;
-  font-family: "Roboto",Helvetica,Arial,sans-serif;
+  font-family: "Roboto",Helvetica,Arial,"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
 }
 #dsidx-header table#dsidx-primary-data td {
   border: none;
   color: #636464;
-  font-family: "Roboto",Helvetica,Arial,sans-serif;
+  font-family: "Roboto",Helvetica,Arial,"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
 }
 #dsidx-header .dsidx-secondary-row {
@@ -3583,7 +3583,7 @@ p.error {
   background-color: #4dc7ec;
   color: #fff;
   padding: 5px 5px 6px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
   text-transform: capitalize;
   margin: 0;
@@ -3611,7 +3611,7 @@ p.error {
   background-color: #4dc7ec;
   color: #fff;
   padding: 5px 5px 6px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: normal;
   text-transform: capitalize;
   margin: 0;
@@ -3638,7 +3638,7 @@ p.error {
   float: none;
   display: block;
   margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 12px;
   line-height: 20px;
 }
@@ -3661,7 +3661,7 @@ p.error {
   font-size: 13px;
 }
 .sidebar .widget .dsidx-search-widget span.select-wrapper {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   position: relative;
   display: block;
 }
@@ -3702,7 +3702,7 @@ p.error {
 }
 .sidebar .widget .dsidx-search-widget .dsidx-search-button .submit {
   padding: 8px 16px;
-  font-family: "Roboto",Helvetica,Arial,sans-serif;
+  font-family: "Roboto",Helvetica,Arial,"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 14px;
   text-transform: capitalize;
   color: #fff;
@@ -3714,7 +3714,7 @@ p.error {
   border: none;
 }
 .sidebar .widget .dsidx-widget-single-listing h3.widget-title {
-  font-family: "Roboto",Helvetica,Arial,sans-serif;
+  font-family: "Roboto",Helvetica,Arial,"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 .sidebar .widget .dsidx-controls {
   display: none;
