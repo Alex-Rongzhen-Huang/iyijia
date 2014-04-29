@@ -1,3 +1,43 @@
 // Place all the styles related to the ShowHouses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#overview .property-item .wrap {
+  background-color: #252a2b;
+  color: #ffffff;
+}
+#overview .property-item .wrap .title {
+  color: white;
+}
+#overview .property-item .wrap .area, #overview .property-item .wrap .lowest-price {
+  color: #ec894d;
+}
+#overview .property-item .area, #overview .property-item .lowest-price {
+  float: left;
+  margin-bottom: 0;
+  padding: 0 0 0 16px;
+  font-size: 18px;
+  line-height: 40px;
+
+}
+#overview .property-item .concept {
+  padding-left: 16px;
+  display: inline-block;
+  vertical-align: top;
+  width: 60%;
+}
+#overview .property-item .decorate-company {
+  display: inline-block;
+  text-align: right;
+  //float: right;
+  width: 37%;
+}
+#overview .property-item .decorate-company label{
+  display: inline-block;
+}
+#overview .property-item .decorate-company .lowest-price{
+  float: right;
+}
+/* flexslider style*/
+#property-detail-flexslider .flexslider .slides img {
+  width: 90%;
+}

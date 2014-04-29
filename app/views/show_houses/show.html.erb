@@ -17,19 +17,34 @@
 
         <div class="wrap clearfix">
           <h4 class="title"><%= @show_house.title %></h4>
+          <h4 class="area"><%= @show_house.area %>m<sup>2</sup></h4>
+          <!--
+          <h4 class="lowest-price">￥ <%= @show_house.price*10000 %>元起</h4>
+          -->
           <h5 class="price">
-                                    <span class="status-label">
-                                       <small> <%= @show_house.price %>万</small>
-                                    </span>
-                                    <span>
-                                        <%= @show_house.house_type %> - <%= @show_house.style %></small>
-                                    </span>
+            <span class="status-label">
+               <%= @show_house.house_type %>
+            </span>
+            <span>
+               <%= @show_house.style %></small>
+            </span>
           </h5>
         </div>
+        <div class="wrap clearfix">
+          <div class="concept"> <%= @show_house.concept.html_safe %></div>
+          <div class="decorate-company">
+            <%= image_tag(@show_house.decorate_company.logo_path, size: "128x128") %>
+            &nbsp;&nbsp;<label><%=@show_house.decorate_company.name %></label>
+            <br>
+            <h4 class="lowest-price">￥ <%= @show_house.price*10000 %>元起</h4>
+          </div>
+
+        </div>
+
         <div class="wrap clearfix" style="margin: -16px 0px 0px 0px;">  <%# TODO: fix style %>
           <p><%=@show_house.brief.html_safe %></p>
-          <p style="text-align: right">
-            浏览 | 赞 | 收藏 | 分享 | <%= @show_house.created_at %>
+          <p style="text-align: right;margin-right: 16px;">
+            浏览 | 赞 | 收藏 | 分享 | <%= @show_house.created_at.strftime("%Y-%m-%d") %>
           </p>
         </div>
       </div>
