@@ -32,6 +32,7 @@
       order: "订单"
       admin_user: "超级管理员"
       user: "用户"
+      main_material_brand: "主材品牌"
 
     attributes:
       decorate_company:
@@ -52,6 +53,7 @@
         usage: "用途"
         need_to_know: "装修须知"
         decorate_company_id: "装修公司"
+        main_material_brand_ids: "主材品牌"
       color_surface:
         decorate_company: "装修公司"
         title: "名称"
@@ -66,3 +68,6 @@
         email: "Email"
         address: "待装修房地址"
         notes: "备注信息"
+      main_material_brand:
+        name: "主材名称"
+        logo_path: "主材Logo"
