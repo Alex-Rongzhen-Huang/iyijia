@@ -11,3 +11,6 @@
  *= require_self
  *= #require_tree .
  */
+.contact-number a {
+    color: white;
+}
