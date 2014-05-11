@@ -1,5 +1,5 @@
 ActiveAdmin.register ShowHousePicture do
-  menu :priority => 3
+  menu :priority => 3, :parent =>  I18n.t("admin.menu.show_house_management")
   #menu :priority => 3,  :label => proc{ I18n.t("admin.show_house_pictures") }
   #breadcrumb do
   #  [
