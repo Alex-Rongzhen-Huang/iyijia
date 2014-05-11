@@ -18,6 +18,15 @@ ActiveAdmin.register ShowHouse do
   sidebar ShowHousePicture.model_name.human, only: [:show, :edit] do
     ul do
       li link_to(ShowHousePicture.model_name.human, admin_show_house_pictures_path)
+
+    end
+    div do
+      ul do
+        show_house.show_house_pictures.each do |x|
+          li link_to(image_tag(x.path, :width => "160px"), edit_admin_show_house_picture_path(x.id))
+        end
+      end
+
     end
   end
 
