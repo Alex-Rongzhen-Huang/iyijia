@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(:version => 20140426142349) do
   create_table "color_surfaces", :force => true do |t|
     t.string   "title"
     t.string   "picture"
+    t.string   "picture2"
+    t.string   "picture3"
+    t.string   "picture4"
+    t.string   "picture5"
     t.integer  "decorate_company_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false

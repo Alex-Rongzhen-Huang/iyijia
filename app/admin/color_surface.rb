@@ -17,6 +17,10 @@ ActiveAdmin.register ColorSurface do
          #f.input :decorate_company_id, as: :select, collection: options_for_select(DecorateCompany.all, DecorateCompany.all().first)
 
          f.input :picture, :as => :file, :hint => image_tag(f.object.picture, width:"50%")
+         f.input :picture2, :as => :file, :hint => image_tag(f.object.picture2, width:"50%")
+         f.input :picture3, :as => :file, :hint => image_tag(f.object.picture3, width:"50%")
+         f.input :picture4, :as => :file, :hint => image_tag(f.object.picture4, width:"50%")
+         f.input :picture5, :as => :file, :hint => image_tag(f.object.picture5, width:"50%")
 
        end
        f.buttons
@@ -29,6 +33,18 @@ ActiveAdmin.register ColorSurface do
        row :decorate_company
        row :picture do
          image_tag(cs.picture)
+       end
+       row :picture2 do
+         image_tag(cs.picture2)
+       end
+       row :picture3 do
+         image_tag(cs.picture3)
+       end
+       row :picture4 do
+         image_tag(cs.picture4)
+       end
+       row :picture5 do
+         image_tag(cs.picture5)
        end
        row :created_at
        row :updated_at
