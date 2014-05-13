@@ -12,8 +12,9 @@
 .property-items .property-items-container .span8 {
   margin-left: 0px;
 }
+// works best with when screen resolution width > 1024
 .property-items .property-items-container .span8 .detail {
-  width: 468px;
+  width: 63%;
 }
 .property-items .span4 h3 {
   text-align: left;
