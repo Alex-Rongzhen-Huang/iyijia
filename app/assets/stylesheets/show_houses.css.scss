@@ -1,6 +1,8 @@
 // Place all the styles related to the ShowHouses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$link-background-color: #ec894d;
+
 #overview .property-item .wrap {
   background-color: #252a2b;
   color: #ffffff;
@@ -43,4 +45,22 @@
 }
 #property-detail-flexslider .flex-viewport {
   width: 1024px;
+}
+/* search filter style*/
+
+.search-filter {
+  padding: 30px 0px; margin-bottom:0px;text-align: left;
+}
+.search-filter p span {
+  margin-left: 30px;
+  margin-right: 40px;
+  font-weight: bold;
+}
+.search-filter a {
+  display: inline-block;
+  padding: 4px 10px;
+}
+.search-filter a:hover, .search-filter a.active {
+  background-color: $link-background-color;
+  color: white;
 }
