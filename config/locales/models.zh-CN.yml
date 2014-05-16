@@ -37,6 +37,7 @@
       admin_user: "超级管理员"
       user: "用户"
       main_material_brand: "主材品牌"
+      home_image_setting: "主页图片设置"
 
     attributes:
       decorate_company:
@@ -75,3 +76,9 @@
       main_material_brand:
         name: "主材名称"
         logo_path: "主材Logo"
+      home_image_setting:
+         img1: "图片（1）"
+         img2: "图片（2）"
+         img3: "图片（3）"
+         img4: "图片（4）"
+         img5: "图片（5）"

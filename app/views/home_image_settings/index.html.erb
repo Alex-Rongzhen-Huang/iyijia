@@ -1,0 +1,31 @@
+<h1>Listing home_image_settings</h1>
+
+<table>
+  <tr>
+    <th>Img1</th>
+    <th>Img2</th>
+    <th>Img3</th>
+    <th>Img4</th>
+    <th>Img5</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @home_image_settings.each do |home_image_setting| %>
+  <tr>
+    <td><%= home_image_setting.img1 %></td>
+    <td><%= home_image_setting.img2 %></td>
+    <td><%= home_image_setting.img3 %></td>
+    <td><%= home_image_setting.img4 %></td>
+    <td><%= home_image_setting.img5 %></td>
+    <td><%= link_to 'Show', home_image_setting %></td>
+    <td><%= link_to 'Edit', edit_home_image_setting_path(home_image_setting) %></td>
+    <td><%= link_to 'Destroy', home_image_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Home image setting', new_home_image_setting_path %>

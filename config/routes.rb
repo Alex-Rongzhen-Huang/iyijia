@@ -1,4 +1,7 @@
 Iyijia::Application.routes.draw do
+  resources :home_image_settings
+
+
   resources :main_material_brands
 
 

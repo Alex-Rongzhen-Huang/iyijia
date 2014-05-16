@@ -1,0 +1,2 @@
+module HomeImageSettingsHelper
+end

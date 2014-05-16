@@ -1,0 +1,41 @@
+<% if @home_image_setting.nil? then %>
+    <% (1..5).each do |x| %>
+        <li>
+          <a href="#"><img src="/images/home/slider-image<%= x %>.jpg" ></a>
+        </li>
+    <% end %>
+<% else %>
+    <% if @home_image_setting.img1.present? %>
+        <li>
+          <a href="#"><img src="<%= @home_image_setting.img1 %>"></a>
+        </li>
+    <% else %>
+        <li>
+          <a href="#"><img src="/images/home/slider-image1.jpg" ></a>
+        </li>
+    <% end %>
+    <% if @home_image_setting.img2.present? %>
+        <li>
+          <a href="#"><img src="<%= @home_image_setting.img2 %>"></a>
+        </li>
+    <% else %>
+        <li>
+          <a href="#"><img src="/images/home/slider-image2.jpg" ></a>
+        </li>
+    <% end %>
+    <% if @home_image_setting.img3.present? %>
+        <li>
+          <a href="#"><img src="<%= @home_image_setting.img3 %>"></a>
+        </li>
+    <% end %>
+    <% if @home_image_setting.img4.present? %>
+        <li>
+          <a href="#"><img src="<%= @home_image_setting.img4 %>"></a>
+        </li>
+    <% end %>
+    <% if @home_image_setting.img5.present? %>
+        <li>
+          <a href="#"><img src="<%= @home_image_setting.img5 %>"></a>
+        </li>
+    <% end %>
+<% end %>

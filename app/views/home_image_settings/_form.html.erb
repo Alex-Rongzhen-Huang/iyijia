@@ -1,0 +1,37 @@
+<%= form_for(@home_image_setting) do |f| %>
+  <% if @home_image_setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@home_image_setting.errors.count, "error") %> prohibited this home_image_setting from being saved:</h2>
+
+      <ul>
+      <% @home_image_setting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :img1 %><br />
+    <%= f.text_field :img1 %>
+  </div>
+  <div class="field">
+    <%= f.label :img2 %><br />
+    <%= f.text_field :img2 %>
+  </div>
+  <div class="field">
+    <%= f.label :img3 %><br />
+    <%= f.text_field :img3 %>
+  </div>
+  <div class="field">
+    <%= f.label :img4 %><br />
+    <%= f.text_field :img4 %>
+  </div>
+  <div class="field">
+    <%= f.label :img5 %><br />
+    <%= f.text_field :img5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
