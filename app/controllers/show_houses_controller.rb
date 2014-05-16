@@ -2,7 +2,19 @@ class ShowHousesController < ApplicationController
   # GET /show_houses
   # GET /show_houses.json
   def index
-    @show_houses = ShowHouse.all
+
+    area_from,area_to = params[:area].split('-') unless (params[:area].blank? || params[:area] == 'all')
+    price_from,price_to = params[:price].split('-')  unless (params[:price].blank? || params[:price] == 'all')
+
+    @show_houses = ShowHouse.where(nil)
+    @show_houses = @show_houses.style_as(params[:style]) unless (params[:style].blank? || params[:style] == 'all')
+    @show_houses = @show_houses.usage_as(params[:usage]) unless (params[:usage].blank? || params[:usage] == 'all')
+    if valid_number_range?(params[:area])
+      @show_houses = @show_houses.area_in(area_from, area_to) unless (params[:area].blank? || params[:area] == 'all')
+    end
+    if valid_number_range?(params[:price])
+      @show_houses = @show_houses.price_in(price_from, price_to) unless (params[:price].blank? || params[:price] == 'all')
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,5 +91,11 @@ class ShowHousesController < ApplicationController
       format.html { redirect_to show_houses_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def valid_number_range?(range)
+    valid_range_regex = /([0-9]+)(-)([0-9]+)/
+    range.present? && range.match(valid_range_regex)
   end
 end

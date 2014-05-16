@@ -51,6 +51,10 @@ $link-background-color: #ec894d;
 .search-filter {
   padding: 30px 0px; margin-bottom:0px;text-align: left;
 }
+.search-filter h2 {
+  padding-left: 30px;
+  margin: -20px 0px 20px 0px;
+}
 .search-filter p span {
   margin-left: 30px;
   margin-right: 40px;
@@ -63,4 +67,105 @@ $link-background-color: #ec894d;
 .search-filter a:hover, .search-filter a.active {
   background-color: $link-background-color;
   color: white;
+}
+/*------------------------------------------------------*/
+/* Agent Listing Detail Page
+/*------------------------------------------------------*/
+.listing-layout .span6 {
+  width: auto;
+  float: none;
+  margin: 0 0 30px;
+}
+.listing-layout .property-item {
+  padding-bottom: 0;
+}
+.listing-layout .property-item .price {
+  margin: 0 -11px 10px -18px;
+  padding: 8px 20px 10px 13px;
+}
+.listing-layout .property-item figure {
+  margin: 0 0 20px;
+}
+.listing-layout .property-item img {
+  border: none;
+}
+.listing-layout .property-item .detail {
+  width: 73%;
+}
+.listing-layout .property-by .title-heading {
+  float: left;
+  position: static;
+}
+
+/*------------------------------------------------------*/
+/* Property Listing View
+/*------------------------------------------------------*/
+.lisitng-grid-layout .title-heading {
+  margin-top: -36px;
+}
+.view-type {
+  border-bottom: 1px solid #dedede;
+  background-color: white;
+  width: 100%;
+}
+.view-type a {
+  display: block;
+  float: right;
+  height: 34px;
+  width: 39px;
+  margin: 0;
+  cursor: pointer;
+}
+.view-type a.order {
+  float: left;
+  display: inline-block;
+  padding: 4px 30px;
+  line-height: 35px;
+  display: none;
+}
+.view-type a.list {
+  background: url(../images/icon-listing.png) no-repeat center 9px;
+  border-right: 1px solid #dedede;
+}
+.view-type a.grid {
+  background: url(../images/icon-grid.png) no-repeat center 9px;
+}
+.view-type a.list.active, .view-type a.grid.active, .view-type a:hover {
+  background-position: center -27px;
+}
+
+/*------------------------------------------------------*/
+/* Property Grid View
+/*------------------------------------------------------*/
+.property-grid .list-container {
+  margin-left: -30px;
+}
+.property-grid .property-item {
+  margin: 0 0 30px 30px;
+  padding: 0;
+  float: left;
+  border: 0;
+  width: 196px;
+  min-height: 340px;
+  height: auto !important;
+  height: 340px;
+}
+.property-grid .property-item figure {
+  margin: 0 0 18px;
+  width: auto;
+  float: none;
+}
+.property-grid .property-item h4, .property-grid .property-item h4 a, .property-grid .property-item h4 a {
+  font-size: 14px;
+}
+.property-grid .property-item h4, .property-grid .property-item h4 a {
+  margin-bottom: 4px;
+}
+.property-grid .property-item span {
+  color: #4dc7ec;
+  font-weight: bold;
+}
+.property-grid .property-item .more-details .icon-caret-right {
+  margin-left: 5px;
+  vertical-align: middle;
 }
