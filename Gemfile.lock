@@ -175,6 +175,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise (= 3.2.4)
   jquery-rails
+  kaminari (~> 0.15.0)
   mini_magick (= 3.7.0)
   pg
   rails (= 3.2.17)

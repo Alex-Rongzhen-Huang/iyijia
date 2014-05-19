@@ -169,3 +169,15 @@ $link-background-color: #ec894d;
   margin-left: 5px;
   vertical-align: middle;
 }
+
+.pagination span.current {
+display: inline-block;
+padding: 5px 4px;
+background-color: $link-background-color;
+width: 25px;
+color: white;
+}
+.pagination a:hover {
+  background-color: $link-background-color;
+  color: white;
+}

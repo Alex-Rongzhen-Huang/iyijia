@@ -16,6 +16,8 @@ class ShowHousesController < ApplicationController
       @show_houses = @show_houses.price_in(price_from, price_to) unless (params[:price].blank? || params[:price] == 'all')
     end
 
+    @show_houses = @show_houses.page(params[:page]).per(10)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @show_houses }

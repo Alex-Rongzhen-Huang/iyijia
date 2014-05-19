@@ -9,6 +9,8 @@ gem 'activeadmin', '~> 0.6.3'
 gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.7.0'
 gem 'ckeditor', '4.0.11'
+gem 'kaminari', '~> 0.15.0'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
