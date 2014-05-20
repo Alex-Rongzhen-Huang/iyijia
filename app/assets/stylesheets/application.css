@@ -14,3 +14,16 @@
 .contact-number a {
     color: white;
 }
+.header-wrapper {
+    background-color: #1f2b3b !important;
+}
+.main-menu ul li.current-menu-ancestor > a, .main-menu ul li.current-menu-parent > a, .main-menu ul li.current-menu-item > a, .main-menu ul li.current_page_item > a, .main-menu ul li:hover > a {
+    color: white;
+    background-color: #fd970f !important;
+}
+.main-menu ul li ul li > a {
+    background-color:  #fd970f !important;
+}
+.main-menu ul li ul li:hover > a {
+    background-color:  #ec894d !important;
+}
