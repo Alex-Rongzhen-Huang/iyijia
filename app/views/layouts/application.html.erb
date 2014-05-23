@@ -80,8 +80,8 @@
         <nav class="main-menu">
           <div class="menu-main-menu-container">
             <ul id="menu-main-menu" class="clearfix">
-              <li class="current-menu-item current_page_item"><a href="/">首页</a></li>
-              <li>
+              <li <%=  (request.fullpath=='/')? 'class="current-menu-item current_page_item"'.html_safe():''  %> ><a href="/">首页</a></li>
+              <li <%=  (request.fullpath=~ /\/show_houses.*/)? 'class="current-menu-item current_page_item"'.html_safe():''  %>>
                 <a href="/show_houses?style=all&usage=all&area=all&price=all&view=list">样板房</a>
                 <ul>
                   <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=list">列表视图</a></li>
