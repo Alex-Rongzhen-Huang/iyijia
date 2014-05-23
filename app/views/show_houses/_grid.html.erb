@@ -13,24 +13,23 @@
   <div class="list-container clearfix">
     <article class="property-item clearfix">
       <figure>
-        <a href="#" title="15421 Southwest 39th Terrace">
-          <img src="images/temp-images/property1.jpg" class="attachment-grid-view-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
+        <a href="#" >
+          <img src="images/temp-images/property1.jpg" class="attachment-grid-view-image wp-post-image" alt="" title="">
         </a>
 
-        <figcaption> On Rent </figcaption>
       </figure>
 
       <h4>
-        <a href="" title="15421 Southwest 39th Terrace">15421 Southwest 39th Terrace</a>
+        <a href="#" title="">演示用样板房</a>
       </h4>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam… <a class="more-details" href="#">More Details <i class="icon-caret-right"></i></a></p>
-      <span>$3,850 Per Month</span>
+      <p>这是一个演示用的样板房</p>
+      <span>￥18000元</span>
     </article>
 
     <% @show_houses.each do |show_house| %>
         <article class="property-item clearfix">
           <figure>
-            <a href="#" title="700 Front Street, Key West, FL">
+            <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>">
               <% if show_house.show_house_pictures.size == 0 %>
                   <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
               <% else %>
@@ -38,12 +37,12 @@
               <% end %>
             </a>
 
-            <figcaption> On Sale  </figcaption>
+            
           </figure>
 
           <h4><a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>"><%= show_house.title %></a></h4>
 
-          <p><%= show_house.brief %>… </p>
+          <p><%=h truncate(strip_tags(show_house.brief), :length => 40) %> </p>
           <span>￥<%= show_house.price %>元 </span>
         </article>
 

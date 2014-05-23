@@ -17,12 +17,12 @@
           <a href="#" title="15421 Southwest 39th Terrace">
             <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
           </a>
-          <figcaption> On Rent  </figcaption>
+          
         </figure>
 
         <div class="detail">
           <h5 class="">舒能实业装潢<small></small></h5>
-          <p>三室两厅 | 美式 | 147m2 | ￥19000元</p><p>简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条...</p>
+          <p>三室两厅 | 美式 | 147m<sup>2</sup> | ￥19000元</p><p>简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条...</p>
 
         </div>
 
@@ -39,29 +39,31 @@
             <h4><a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>"><%= show_house.title %></a></h4>
 
             <figure>
-              <a href="#" title="15421 Southwest 39th Terrace">
+              <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>">
                 <% if show_house.show_house_pictures.size == 0 %>
                     <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
                 <% else %>
                     <img src="<%= show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
                 <% end %>
               </a>
-              <figcaption> On Rent  </figcaption>
+              
             </figure>
 
             <div class="detail">
               <% if show_house.decorate_company.nil? %>
-                  <h5 class="">舒能实业装潢<small></small></h5>
-                  <% else %>
-                        <h5 class=""><%= show_house.decorate_company.name %><small></small></h5>
-                  <% end %>
-              <p><%= show_house.house_type %> | <%= show_house.style %> | <%= show_house.area %>m2 | ￥<%= show_house.price %>元</p>
-              <p><%= show_house.brief %></p>
+                  <h5 class="">舒能实业装潢
+                    <small></small>
+                  </h5>
+              <% else %>
+                  <h5 class=""><%= show_house.decorate_company.name %>
+                    <small></small></h5>
+              <% end %>
+              <p><%=h truncate(strip_tags(show_house.brief), :length => 500) %> </p>
             </div>
 
             <div class="property-meta">
               <span><i class="icon-area"></i><%= show_house.house_type %>&nbsp;</span>
-              <span><i class="icon-bed"></i><%= show_house.area %>m2</span>
+              <span><i class="icon-bed"></i><%= show_house.area %>m<sup>2</sup></span>
               <span><i class="icon-bath"></i><%= show_house.style %></span>
               <span><i class="icon-garage"></i>￥<%= show_house.price %>元</span>
             </div>
