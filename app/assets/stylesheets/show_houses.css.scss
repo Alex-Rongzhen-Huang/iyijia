@@ -1,7 +1,7 @@
 // Place all the styles related to the ShowHouses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$link-background-color: #ec894d;
+$link-background-color: #fd970f;
 
 #overview .property-item .wrap {
   background-color: #252a2b;
@@ -11,7 +11,7 @@ $link-background-color: #ec894d;
   color: white;
 }
 #overview .property-item .wrap .area, #overview .property-item .wrap .lowest-price {
-  color: #ec894d;
+  color: $link-background-color;
 }
 #overview .property-item .area, #overview .property-item .lowest-price {
   float: left;

@@ -15,7 +15,10 @@
     color: white;
 }
 .header-wrapper {
-    background-color: #1f2b3b !important;
+    background-color: #161a36 !important;
+}
+.header-wrapper .container, .header-wrapper .container #logo,  .header-wrapper .container #logo img {
+    height: 48px;
 }
 .main-menu ul li.current-menu-ancestor > a, .main-menu ul li.current-menu-parent > a, .main-menu ul li.current-menu-item > a, .main-menu ul li.current_page_item > a, .main-menu ul li:hover > a {
     color: white;

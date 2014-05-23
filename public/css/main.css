@@ -3,13 +3,13 @@ a:hover {
 }
 
 ::-moz-selection {
-  background: #ec894d;
+  background: #fd970f;
   color: white;
   text-shadow: none;
 }
 
 ::selection {
-  background: #ec894d;
+  background: #fd970f;
   color: white;
   text-shadow: none;
 }
@@ -126,7 +126,7 @@ a img.aligncenter {
   box-shadow: none;
   text-shadow: none;
   background-image: none;
-  background-color: #ec894d;
+  background-color: #fd970f;
 }
 .real-btn:hover, .btn-blue:hover, .btn-grey:hover, .real-btn.current, .current.btn-blue, .current.btn-grey {
   background-color: #e3712c;
@@ -292,7 +292,7 @@ body {
 }
 
 .rss a:hover {
-  background-color: #ec894d;
+  background-color: #fd970f;
 }
 
 .gplus a:hover {
@@ -369,7 +369,7 @@ body {
 }
 .main-menu ul li.current-menu-ancestor > a, .main-menu ul li.current-menu-parent > a, .main-menu ul li.current-menu-item > a, .main-menu ul li.current_page_item > a, .main-menu ul li:hover > a {
   color: white;
-  background-color: #ec894d;
+  background-color: #fd970f;
 }
 .main-menu ul li a {
   font-family: "Lato", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -381,7 +381,7 @@ body {
 }
 .main-menu ul li ul {
   display: none;
-  background-color: #ec894d;
+  background-color: #fd970f;
   width: 220px;
   padding: 0;
   position: absolute;
@@ -768,7 +768,7 @@ textarea:focus {
   color: white;
   font-size: 13px;
   padding: 2px 9px;
-  background-color: #ec894d;
+  background-color: #fd970f;
 }
 .property-item .detail {
   float: right;
@@ -1895,7 +1895,7 @@ p.wp-caption-text {
   color: #394041;
 }
 .post-meta a {
-  color: #ec894d;
+  color: #fd970f;
 }
 .post-meta a:hover {
   color: #394041;
@@ -1910,7 +1910,7 @@ p.wp-caption-text {
   color: #394041;
 }
 .post-meta span.author-link a:hover {
-  color: #ec894d;
+  color: #fd970f;
 }
 
 .post-meta.thumb-not-exist {
@@ -2041,7 +2041,7 @@ p.wp-caption-text {
 }
 
 article h1 span, article h2 span, article h3 span, article h4 span, article .property-item h4 a span, .property-item h4 article a span, article h5 span, article h6 span {
-  color: #ec894d;
+  color: #fd970f;
 }
 
 .common-list, .disc-list ul, .arrow-list ul, .small-arrow-list ul, .tick-list ul {
@@ -2117,7 +2117,7 @@ address {
   color: #394041;
 }
 #comments a:hover {
-  color: #ec894d;
+  color: #fd970f;
 }
 #comments .commentlist {
   margin: 0;
@@ -2377,7 +2377,7 @@ address {
   color: #686665;
 }
 .contact-details .contacts-list li a:hover {
-  color: #ec894d;
+  color: #fd970f;
 }
 .contact-details .contacts-list li.phone {
   background: url(../images/icon-phone2.png) no-repeat 2px center;
@@ -2459,7 +2459,7 @@ address {
   color: #394041;
 }
 .services-list li .title a:hover {
-  color: #ec894d;
+  color: #fd970f;
 }
 .services-list li p {
   line-height: 23px;
@@ -2619,7 +2619,7 @@ address {
   color: #394041;
 }
 #overview .property-item .printer-icon a:hover {
-  color: #ec894d;
+  color: #fd970f;
 }
 #overview .property-item .content {
   padding: 0 20px;
@@ -2857,7 +2857,7 @@ address {
   line-height: 24px;
 }
 .columns h1.title, .columns h2.title, .columns h3.title, .columns h4.title, .columns .property-item h4 a.title, .property-item h4 .columns a.title, .columns h5.title, .columns h6.title {
-  color: #ec894d;
+  color: #fd970f;
 }
 
 .columns {
@@ -2931,8 +2931,8 @@ address {
 #filter-by a:focus, #filter-by a.active, #filter-by a:hover {
   outline: 0;
   color: #fff;
-  border-color: #ec894d;
-  background-color: #ec894d;
+  border-color: #fd970f;
+  background-color: #fd970f;
   -webkit-transition: 0.3s ease-in-out;
   -moz-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
@@ -3008,7 +3008,7 @@ address {
   color: #394041;
 }
 .gallery-item .item-title a:hover {
-  color: #ec894d;
+  color: #fd970f;
 }
 
 .gallery-2-columns,
