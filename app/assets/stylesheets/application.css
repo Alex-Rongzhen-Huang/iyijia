@@ -30,3 +30,22 @@
 .main-menu ul li ul li:hover > a {
     background-color:  #ec894d !important;
 }
+
+/*
+* icon image style change
+*/
+.property-item .property-meta span [class^="icon-"], .property-item .property-meta span [class*=" icon-"] {
+    width: 24px !important; /*changed the default icon, so override the css in main.css*/
+    height: 24px !important;
+}
+#home-flexslider .flex-direction-nav li a {
+    display: block;
+    text-indent: -999em;
+    width: 48px;
+    height: 54px !important; /*we changed the default picture, thus need override the css in main.css*/
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    z-index: 150;
+    cursor: pointer;
+}
