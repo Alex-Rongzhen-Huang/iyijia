@@ -2,9 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $link-background-color: #fd970f;
-
+$header-background-color: #161a36;
 #overview .property-item .wrap {
-  background-color: #252a2b;
+  background-color: $header-background-color;
   color: #ffffff;
 }
 #overview .property-item .wrap .title {
@@ -181,3 +181,32 @@ color: white;
   background-color: $link-background-color;
   color: white;
 }
+
+/*------------------------------------------------------*/
+/* Detail Page
+/*------------------------------------------------------*/
+//#property-detail-flexslider {
+//  background-color: $header-background-color;
+//  overflow: hidden;
+//  height: 349px;
+//}
+//#property-detail-flexslider .jcarousel-container-vertical {
+//  float: right;
+//  width: 77px;
+//  padding: 7px;
+//  background-color: $header-background-color;
+//  margin: 0;
+//}
+//#overview .property-item .price .status-label {
+//  margin-right: -5px;
+//  padding-right: 28px;
+//  padding-left: 7px;
+//  background: url(../images/arrow-left.png) $header-background-color no-repeat right 0;
+//}
+//#overview .property-item .price .status-label {
+//  background: $header-background-color;
+//  padding-left: 18px;
+//  padding-right: 18px;
+//  display: inline-block;
+//  margin: 0;
+//}
