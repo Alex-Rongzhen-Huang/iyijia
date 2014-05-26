@@ -138,7 +138,7 @@
               <p style="float: right;">
                 <% unless @show_house.main_material_brands.nil? %>
                     <% @show_house.main_material_brands.each do |mmb| %>
-                          <img src="<%= mmb.logo_path %>" alt="<%= mmb.name %>"><br>
+                          <img src="<%= mmb.logo_path %>" alt="<%= mmb.name %>" width="250px"><br>
                     <% end %>
 
                 <% end %>
