@@ -38,11 +38,14 @@ ActiveAdmin.register ShowHouse do
       f.input :house_type, :as => :select, collection: ShowHouse::HOUSE_TYPES
       f.input :price
       f.input :style, :as => :select, collection: ShowHouse::STYLE_TYPES
-      f.input :concept
-      f.input :usage
-      f.input :need_to_know, :as => :ckeditor
-      f.input :overview, :as => :ckeditor
+
+      f.input :usage, :as => :select, collection: ShowHouse::USAGE_TYPES
+
+
+
       f.input :brief, :as => :ckeditor
+      f.input :overview, :as => :ckeditor
+      f.input :need_to_know, :as => :ckeditor
 
       f.inputs do
         f.has_many :show_house_pictures, :allow_destroy => true, :heading => 'Pictures', :new_record => true do |cf|

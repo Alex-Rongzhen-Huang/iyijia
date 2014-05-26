@@ -1,6 +1,6 @@
 # coding: utf-8
 class ShowHouse < ActiveRecord::Base
-  attr_accessible :area, :brief, :house_type, :need_to_know, :overview, :price, :style, :concept, :usage, :title
+  attr_accessible :area, :brief, :house_type, :need_to_know, :overview, :price, :style, :usage, :title
 
   belongs_to :decorate_company
   attr_accessible :decorate_company_id
@@ -15,6 +15,7 @@ class ShowHouse < ActiveRecord::Base
 
   HOUSE_TYPES = %w[一室一厅一卫 两室一厅一卫 两室两厅一卫 两室两厅两卫 三室一厅一卫 三室两厅一卫 三室两厅两卫 其他豪宅]
   STYLE_TYPES = %w[现代简约 田园风格 地中海风格 欧式风格 美式风格 中式风格 ]
+  USAGE_TYPES = %w[住宅 商业 ]
 
   scope :style_as, lambda { |style| where("style = ?", style) }
   scope :usage_as, lambda { |usage| where("usage = ?", usage) }

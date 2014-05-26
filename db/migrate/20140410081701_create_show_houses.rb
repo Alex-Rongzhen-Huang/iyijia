@@ -7,7 +7,6 @@ class CreateShowHouses < ActiveRecord::Migration
       t.text :brief
       t.text :overview
       t.string :style
-      t.string :concept
       t.string :usage
       t.integer :price
       t.text :need_to_know

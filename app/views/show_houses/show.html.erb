@@ -29,7 +29,7 @@
           </h5>
         </div>
         <div class="wrap clearfix">
-          <div class="concept"> <%= @show_house.concept.html_safe unless @show_house.concept.nil? %></div>
+          <div class="concept"> </div>
           <div class="decorate-company">
             <%= image_tag(@show_house.decorate_company.logo_path, size: "128x128") unless @show_house.decorate_company.nil? %>
             &nbsp;&nbsp;<label><%=@show_house.decorate_company.name unless @show_house.decorate_company.nil? %></label>
@@ -134,6 +134,15 @@
         <div class="tab-content">
           <div class="tab-pane active" id="show-house-overview">
             <div class="content clearfix">
+              <p><%= @show_house.style %> | <%= @show_house.usage %> </p>
+              <p style="float: right;">
+                <% unless @show_house.main_material_brands.nil? %>
+                    <% @show_house.main_material_brands.each do |mmb| %>
+                          <img src="<%= mmb.logo_path %>" alt="<%= mmb.name %>"><br>
+                    <% end %>
+
+                <% end %>
+              </p>
               <p>
                 <%= @show_house.overview.html_safe unless @show_house.overview.nil? %>
               </p>
