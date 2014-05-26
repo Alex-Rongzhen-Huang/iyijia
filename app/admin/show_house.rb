@@ -35,7 +35,10 @@ ActiveAdmin.register ShowHouse do
       f.input :title
       f.input :decorate_company_id, as: :select, collection: DecorateCompany.all()
       f.input :area
-      f.input :house_type, :as => :select, collection: ShowHouse::HOUSE_TYPES
+      #f.input :house_type, :as => :select, collection:  ShowHouse::HOUSE_TYPES
+      f.input :bedroom, :as => :select, collection:  options_for_select(ShowHouse::ROOM_TYPES, f.object.bedroom.nil? ? ShowHouse::ROOM_TYPES.first : f.object.bedroom)
+      f.input :livingroom, :as => :select, collection: options_for_select(ShowHouse::ROOM_TYPES, f.object.livingroom.nil? ? ShowHouse::ROOM_TYPES.first : f.object.livingroom)
+      f.input :bathroom, :as => :select, collection: options_for_select(ShowHouse::ROOM_TYPES, f.object.bathroom.nil? ? ShowHouse::ROOM_TYPES.first : f.object.bathroom)
       f.input :price
       f.input :style, :as => :select, collection: ShowHouse::STYLE_TYPES
 

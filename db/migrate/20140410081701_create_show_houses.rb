@@ -3,7 +3,9 @@ class CreateShowHouses < ActiveRecord::Migration
     create_table :show_houses do |t|
       t.string :title
       t.string :area
-      t.string :house_type
+      t.string :bedroom
+      t.string :livingroom
+      t.string :bathroom
       t.text :brief
       t.text :overview
       t.string :style
