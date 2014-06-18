@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  picture: MyString
+  main_material_brand: 
+  type: 
+  price: 1.5
+  type_of_work: MyString
+  decorate_company: 
+
+two:
+  name: MyString
+  picture: MyString
+  main_material_brand: 
+  type: 
+  price: 1.5
+  type_of_work: MyString
+  decorate_company: 

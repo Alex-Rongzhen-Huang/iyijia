@@ -1,0 +1,29 @@
+<h1>Listing construction_items</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type of work</th>
+    <th>Process description</th>
+    <th>Unit</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @construction_items.each do |construction_item| %>
+  <tr>
+    <td><%= construction_item.name %></td>
+    <td><%= construction_item.type_of_work %></td>
+    <td><%= construction_item.process_description %></td>
+    <td><%= construction_item.unit %></td>
+    <td><%= link_to 'Show', construction_item %></td>
+    <td><%= link_to 'Edit', edit_construction_item_path(construction_item) %></td>
+    <td><%= link_to 'Destroy', construction_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Construction item', new_construction_item_path %>

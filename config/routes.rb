@@ -1,4 +1,16 @@
 Iyijia::Application.routes.draw do
+  resources :quotation_template_items
+
+
+  resources :quotation_templates
+
+
+  resources :construction_items
+
+
+  resources :main_materials
+
+
   resources :home_image_settings
 
 

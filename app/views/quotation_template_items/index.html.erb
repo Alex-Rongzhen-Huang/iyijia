@@ -1,0 +1,43 @@
+<h1>Listing quotation_template_items</h1>
+
+<table>
+  <tr>
+    <th>Construction item</th>
+    <th>Construction item number</th>
+    <th>Main material</th>
+    <th>Main material total price</th>
+    <th>Supplementary material type</th>
+    <th>Supplementary material price</th>
+    <th>Supplementary material total price</th>
+    <th>Labour cost</th>
+    <th>Labour cost total</th>
+    <th>Total price</th>
+    <th>Note</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quotation_template_items.each do |quotation_template_item| %>
+  <tr>
+    <td><%= quotation_template_item.construction_item %></td>
+    <td><%= quotation_template_item.construction_item_number %></td>
+    <td><%= quotation_template_item.main_material %></td>
+    <td><%= quotation_template_item.main_material_total_price %></td>
+    <td><%= quotation_template_item.supplementary_material_type %></td>
+    <td><%= quotation_template_item.supplementary_material_price %></td>
+    <td><%= quotation_template_item.supplementary_material_total_price %></td>
+    <td><%= quotation_template_item.labour_cost %></td>
+    <td><%= quotation_template_item.labour_cost_total %></td>
+    <td><%= quotation_template_item.total_price %></td>
+    <td><%= quotation_template_item.note %></td>
+    <td><%= link_to 'Show', quotation_template_item %></td>
+    <td><%= link_to 'Edit', edit_quotation_template_item_path(quotation_template_item) %></td>
+    <td><%= link_to 'Destroy', quotation_template_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Quotation template item', new_quotation_template_item_path %>

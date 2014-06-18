@@ -1,0 +1,17 @@
+<%= form_for(@quotation_template) do |f| %>
+  <% if @quotation_template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quotation_template.errors.count, "error") %> prohibited this quotation_template from being saved:</h2>
+
+      <ul>
+      <% @quotation_template.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

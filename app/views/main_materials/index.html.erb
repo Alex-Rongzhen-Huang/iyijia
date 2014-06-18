@@ -1,0 +1,35 @@
+<h1>Listing main_materials</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Picture</th>
+    <th>Main material brand</th>
+    <th>Type</th>
+    <th>Price</th>
+    <th>Type of work</th>
+    <th>Decorate company</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @main_materials.each do |main_material| %>
+  <tr>
+    <td><%= main_material.name %></td>
+    <td><%= main_material.picture %></td>
+    <td><%= main_material.main_material_brand %></td>
+    <td><%= main_material.type %></td>
+    <td><%= main_material.price %></td>
+    <td><%= main_material.type_of_work %></td>
+    <td><%= main_material.decorate_company %></td>
+    <td><%= link_to 'Show', main_material %></td>
+    <td><%= link_to 'Edit', edit_main_material_path(main_material) %></td>
+    <td><%= link_to 'Destroy', main_material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Main material', new_main_material_path %>

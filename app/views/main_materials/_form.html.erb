@@ -1,0 +1,45 @@
+<%= form_for(@main_material) do |f| %>
+  <% if @main_material.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@main_material.errors.count, "error") %> prohibited this main_material from being saved:</h2>
+
+      <ul>
+      <% @main_material.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :picture %><br />
+    <%= f.text_field :picture %>
+  </div>
+  <div class="field">
+    <%= f.label :main_material_brand %><br />
+    <%= f.text_field :main_material_brand %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of_work %><br />
+    <%= f.text_field :type_of_work %>
+  </div>
+  <div class="field">
+    <%= f.label :decorate_company %><br />
+    <%= f.text_field :decorate_company %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

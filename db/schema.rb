@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140516070806) do
+ActiveRecord::Schema.define(:version => 20140617080546) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(:version => 20140516070806) do
     t.datetime "updated_at",          :null => false
   end
 
+  create_table "construction_items", :force => true do |t|
+    t.string   "name"
+    t.string   "type_of_work"
+    t.string   "process_description"
+    t.string   "unit"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
   create_table "decorate_companies", :force => true do |t|
     t.string   "name"
     t.text     "brief"
@@ -107,6 +116,18 @@ ActiveRecord::Schema.define(:version => 20140516070806) do
     t.string "logo_path"
   end
 
+  create_table "main_materials", :force => true do |t|
+    t.string   "name"
+    t.string   "picture"
+    t.string   "type"
+    t.float    "price"
+    t.string   "type_of_work"
+    t.integer  "main_material_brand_id"
+    t.integer  "decorate_company_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.integer  "decorate_company_id"
@@ -114,6 +135,32 @@ ActiveRecord::Schema.define(:version => 20140516070806) do
     t.integer  "house_fitment_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+  end
+
+  create_table "quotation_template_items", :force => true do |t|
+    t.integer "quotation_template_id"
+    t.integer "construction_item_id"
+    t.integer "main_material_id"
+    t.integer "construction_item_number"
+    t.string  "category"
+    t.float   "main_material_total_price"
+    t.string  "supplementary_material_type"
+    t.float   "supplementary_material_price"
+    t.float   "supplementary_material_total_price"
+    t.float   "labour_cost"
+    t.float   "labour_cost_total"
+    t.float   "total_price"
+    t.string  "note"
+  end
+
+  add_index "quotation_template_items", ["construction_item_id"], :name => "index_quotation_template_items_on_construction_item_id"
+  add_index "quotation_template_items", ["main_material_id"], :name => "index_quotation_template_items_on_main_material_id"
+  add_index "quotation_template_items", ["quotation_template_id"], :name => "index_quotation_template_items_on_quotation_template_id"
+
+  create_table "quotation_templates", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "show_house_main_material_brands", :force => true do |t|

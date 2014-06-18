@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @construction_item.name %>
+</p>
+
+<p>
+  <b>Type of work:</b>
+  <%= @construction_item.type_of_work %>
+</p>
+
+<p>
+  <b>Process description:</b>
+  <%= @construction_item.process_description %>
+</p>
+
+<p>
+  <b>Unit:</b>
+  <%= @construction_item.unit %>
+</p>
+
+
+<%= link_to 'Edit', edit_construction_item_path(@construction_item) %> |
+<%= link_to 'Back', construction_items_path %>
