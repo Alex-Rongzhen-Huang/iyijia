@@ -37,6 +37,7 @@
       order: "订单"
       admin_user: "超级管理员"
       user: "用户"
+      user_profile: "用户资料"
       main_material: "主材"
       main_material_brand: "主材品牌"
       home_image_setting: "主页图片设置"
@@ -103,3 +104,9 @@
         process_description: "工艺描述"
         type_of_work: "工种"
         unit: "单位"
+      user_profile:
+        avatar: "头像"
+        nickname: "昵称"
+        gender: "性别"
+        location: "区域"
+        mobile: "手机号"

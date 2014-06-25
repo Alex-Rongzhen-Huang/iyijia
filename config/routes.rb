@@ -1,4 +1,7 @@
 Iyijia::Application.routes.draw do
+  resources :user_profiles
+
+
   resources :quotation_template_items
 
 
