@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
-    user_profiles_path  # can change to customized path like user info stuff
+    if resource.instance_of? User
+      user_profiles_path # can change to customized path like user info stuff
+    elsif resource.instance_of? AdminUser
+      admin_dashboard_path
+    end
   end
 end
