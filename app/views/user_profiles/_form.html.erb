@@ -1,4 +1,8 @@
-<%= form_for(@user_profile) do |f| %>
+
+<%= form_for(@user_profile,  html: {class: "form-horizontal"}) do |f| %>
+    <fieldset>
+      <legend>更新用户资料</legend>
+    </fieldset>
   <% if @user_profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
@@ -10,32 +14,48 @@
       </ul>
     </div>
   <% end %>
+    <div class="control-group">
+      <%= f.label :avatar, class:"control-label" %>
+      <div class="controls">
+        <%= f.text_field :avatar, placeholder:"头像" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :nickname, class:"control-label" %>
+      <div class="controls">
+        <%= f.text_field :nickname, placeholder:"昵称" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :gender, class:"control-label" %>
+      <div class="controls">
+        <%= f.radio_button :gender,'男',checked:'checked' %>男
+        <%= f.radio_button :gender,'女' %>女
+        <%= f.radio_button :gender,'其他' %>其他
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :location, class:"control-label" %>
+      <div class="controls">
+        <%= f.text_field :location, placeholder:"区域" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :mobile, class:"control-label" %>
+      <div class="controls">
+        <%= f.text_field :mobile, placeholder:"手机号" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.text_field :avatar %>
-  </div>
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile %><br />
-    <%= f.text_field :mobile %>
-  </div>
-  <div class="field">
+  <div class="field" style="display: none;">
     <%= f.label :user %><br />
-    <%= f.text_field :user %>
+    <%= f.text_field :user_id %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit '更新用户资料', :class=>'btn btn-blue' %>
+      </div>
+    </div>
+
+
 <% end %>

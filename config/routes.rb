@@ -43,6 +43,8 @@ Iyijia::Application.routes.draw do
 
   resources :show_houses
 
+  match '/show_houses/like/:id' => 'show_houses#like'
+  match '/show_houses/unlike/:id' => 'show_houses#unlike'
 
   resources :decorate_companies
 

@@ -13,6 +13,8 @@ class ShowHouse < ActiveRecord::Base
   has_many :main_material_brands, :through => :show_house_main_material_brands
   attr_accessible :main_material_brand_ids
 
+  acts_as_votable
+
   HOUSE_TYPES = %w[一室一厅一卫 两室一厅一卫 两室两厅一卫 两室两厅两卫 三室一厅一卫 三室两厅一卫 三室两厅两卫 其他豪宅]
   STYLE_TYPES = %w[现代简约 田园风格 地中海风格 欧式风格 美式风格 中式风格 ]
   USAGE_TYPES = %w[住宅 商业 ]

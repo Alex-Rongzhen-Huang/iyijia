@@ -10,6 +10,7 @@ gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.7.0'
 gem 'ckeditor', '4.0.11'
 gem 'kaminari', '~> 0.15.0'
+gem 'acts_as_votable', '~> 0.10.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
