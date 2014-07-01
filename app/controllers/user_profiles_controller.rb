@@ -3,7 +3,7 @@ class UserProfilesController < InheritedResources::Base
   def index
 
     @user_profile = UserProfile.where(:user_id => current_user.id).first()
-    @user_profile ||= UserProfile.create()
+    @user_profile ||= UserProfile.create(:user_id=>current_user.id)
 
     @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
 
