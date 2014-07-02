@@ -1,0 +1,61 @@
+<%= form_for(@quotation_template_item) do |f| %>
+  <% if @quotation_template_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quotation_template_item.errors.count, "error") %> prohibited this quotation_template_item from being saved:</h2>
+
+      <ul>
+      <% @quotation_template_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :construction_item %><br />
+    <%= f.text_field :construction_item %>
+  </div>
+  <div class="field">
+    <%= f.label :construction_item_number %><br />
+    <%= f.number_field :construction_item_number %>
+  </div>
+  <div class="field">
+    <%= f.label :main_material %><br />
+    <%= f.text_field :main_material %>
+  </div>
+  <div class="field">
+    <%= f.label :main_material_total_price %><br />
+    <%= f.text_field :main_material_total_price %>
+  </div>
+  <div class="field">
+    <%= f.label :supplementary_material_type %><br />
+    <%= f.text_field :supplementary_material_type %>
+  </div>
+  <div class="field">
+    <%= f.label :supplementary_material_price %><br />
+    <%= f.text_field :supplementary_material_price %>
+  </div>
+  <div class="field">
+    <%= f.label :supplementary_material_total_price %><br />
+    <%= f.text_field :supplementary_material_total_price %>
+  </div>
+  <div class="field">
+    <%= f.label :labour_cost %><br />
+    <%= f.text_field :labour_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :labour_cost_total %><br />
+    <%= f.text_field :labour_cost_total %>
+  </div>
+  <div class="field">
+    <%= f.label :total_price %><br />
+    <%= f.text_field :total_price %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_field :note %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

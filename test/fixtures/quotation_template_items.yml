@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  construction_item: 
+  construction_item_number: 1
+  main_material: 
+  main_material_total_price: 1.5
+  supplementary_material_type: MyString
+  supplementary_material_price: 1.5
+  supplementary_material_total_price: 1.5
+  labour_cost: 1.5
+  labour_cost_total: 1.5
+  total_price: 1.5
+  note: MyString
+
+two:
+  construction_item: 
+  construction_item_number: 1
+  main_material: 
+  main_material_total_price: 1.5
+  supplementary_material_type: MyString
+  supplementary_material_price: 1.5
+  supplementary_material_total_price: 1.5
+  labour_cost: 1.5
+  labour_cost_total: 1.5
+  total_price: 1.5
+  note: MyString

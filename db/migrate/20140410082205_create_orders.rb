@@ -6,6 +6,9 @@ class CreateOrders < ActiveRecord::Migration
       t.references :decorate_company
       t.references :show_house
       t.references :house_fitment
+      t.string :measure_status
+      t.string :quotation_status
+      t.string :quotation_link
 
       t.timestamps
     end

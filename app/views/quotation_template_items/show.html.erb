@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Construction item:</b>
+  <%= @quotation_template_item.construction_item %>
+</p>
+
+<p>
+  <b>Construction item number:</b>
+  <%= @quotation_template_item.construction_item_number %>
+</p>
+
+<p>
+  <b>Main material:</b>
+  <%= @quotation_template_item.main_material %>
+</p>
+
+<p>
+  <b>Main material total price:</b>
+  <%= @quotation_template_item.main_material_total_price %>
+</p>
+
+<p>
+  <b>Supplementary material type:</b>
+  <%= @quotation_template_item.supplementary_material_type %>
+</p>
+
+<p>
+  <b>Supplementary material price:</b>
+  <%= @quotation_template_item.supplementary_material_price %>
+</p>
+
+<p>
+  <b>Supplementary material total price:</b>
+  <%= @quotation_template_item.supplementary_material_total_price %>
+</p>
+
+<p>
+  <b>Labour cost:</b>
+  <%= @quotation_template_item.labour_cost %>
+</p>
+
+<p>
+  <b>Labour cost total:</b>
+  <%= @quotation_template_item.labour_cost_total %>
+</p>
+
+<p>
+  <b>Total price:</b>
+  <%= @quotation_template_item.total_price %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @quotation_template_item.note %>
+</p>
+
+
+<%= link_to 'Edit', edit_quotation_template_item_path(@quotation_template_item) %> |
+<%= link_to 'Back', quotation_template_items_path %>

@@ -27,10 +27,17 @@
                <%= @show_house.style %></small>
             </span>
           </h5>
+          <% if current_user %>
+
+              <a class="btn btn-blue" id="show-house-dislike" href="#" style="<%= (current_user.voted_up_on? @show_house)?'':'display:none;' %>"><i class="icon-heart" style="color: red"></i>&nbsp;&nbsp;取消收藏</a>
+
+              <a class="btn btn-blue" id="show-house-like" href="#" style="<%= (current_user.voted_up_on? @show_house)?'display:none;':'' %>"><i class="icon-heart"></i>&nbsp;&nbsp;收藏</a>
+
+          <% end %>
         </div>
         <div class="wrap clearfix">
           <div class="concept"> </div>
-          <div class="decorate-company">
+          <div class="decorate-company" style="display: none;">
             <%= image_tag(@show_house.decorate_company.logo_path, size: "128x128") unless @show_house.decorate_company.nil? %>
             &nbsp;&nbsp;<label><%=@show_house.decorate_company.name unless @show_house.decorate_company.nil? %></label>
             <br>
@@ -189,3 +196,32 @@
 </div><!-- End contents row -->
 
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+
+      $('#show-house-like').on('click',function(){
+          $.post( "/show_houses/like/<%= @show_house.id %>", function( data ) {
+              $("#show-house-like").hide();
+              $("#show-house-dislike").show();
+              //.removeClass('btn-blue').addClass('btn-grey').html( "<i class='icon-heart' style='color: red;'></i> 已收藏" );
+          });
+
+      });
+
+      $('#show-house-dislike').on('click',function(){
+          $.post( "/show_houses/unlike/<%= @show_house.id %>", function( data ) {
+              $("#show-house-dislike").hide();
+              $("#show-house-like").show();
+              //.removeClass('btn-blue').addClass('btn-grey').html( "<i class='icon-heart' style='color: red;'></i> 已收藏" );
+          });
+
+      });
+  });
+
+</script>

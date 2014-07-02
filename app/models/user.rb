@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role
   # attr_accessible :title, :body
 
+  acts_as_voter
+  # @user.votes.up.for_type(ShowHouse).votables
+  # @user.likes @show_house
+
   ROLES = %w[decorator customer]
 
   def to_s

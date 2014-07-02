@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  type_of_work: MyString
+  process_description: MyString
+  unit: MyString
+
+two:
+  name: MyString
+  type_of_work: MyString
+  process_description: MyString
+  unit: MyString

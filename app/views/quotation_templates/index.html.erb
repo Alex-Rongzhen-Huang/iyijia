@@ -1,0 +1,21 @@
+<h1>Listing quotation_templates</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quotation_templates.each do |quotation_template| %>
+  <tr>
+    <td><%= link_to 'Show', quotation_template %></td>
+    <td><%= link_to 'Edit', edit_quotation_template_path(quotation_template) %></td>
+    <td><%= link_to 'Destroy', quotation_template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Quotation template', new_quotation_template_path %>

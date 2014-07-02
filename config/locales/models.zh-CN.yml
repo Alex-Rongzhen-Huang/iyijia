@@ -25,6 +25,7 @@
       show_house_management: "样板房管理"
       decorate_company_management: "装修公司管理"
       user_management: "用户管理"
+      quotation_management: "报价单管理"
   activerecord:
     models:
       decorate_company: "装修公司"
@@ -36,8 +37,14 @@
       order: "订单"
       admin_user: "超级管理员"
       user: "用户"
+      user_profile: "用户资料"
+      main_material: "主材"
       main_material_brand: "主材品牌"
       home_image_setting: "主页图片设置"
+      construction_item: "施工项"
+      quotation_template: "报价单模板"
+      quotation_template_item: "报价单条目"
+      quotataion: "报价单"
 
     attributes:
       decorate_company:
@@ -84,3 +91,22 @@
          img3: "图片（3）"
          img4: "图片（4）"
          img5: "图片（5）"
+      main_material:
+        name: "主材名称"
+        picture: "主材图片"
+        price: "主材价格"
+        type: "主材规格"
+        type_of_work: "工种"
+        decorate_company_id: "装修公司"
+        main_material_brand_id: "主材品牌"
+      construction_item:
+        name: "施工项名称"
+        process_description: "工艺描述"
+        type_of_work: "工种"
+        unit: "单位"
+      user_profile:
+        avatar: "头像"
+        nickname: "昵称"
+        gender: "性别"
+        location: "区域"
+        mobile: "手机号"

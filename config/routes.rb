@@ -1,4 +1,19 @@
 Iyijia::Application.routes.draw do
+  resources :user_profiles
+
+
+  resources :quotation_template_items
+
+
+  resources :quotation_templates
+
+
+  resources :construction_items
+
+
+  resources :main_materials
+
+
   resources :home_image_settings
 
 
@@ -28,6 +43,8 @@ Iyijia::Application.routes.draw do
 
   resources :show_houses
 
+  match '/show_houses/like/:id' => 'show_houses#like'
+  match '/show_houses/unlike/:id' => 'show_houses#unlike'
 
   resources :decorate_companies
 

@@ -7,10 +7,6 @@
 
   <%= csrf_meta_tags %>
 
-  <!-- Google Web Font -->
-  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-
   <!-- Include the bootstrap stylesheet -->
   <link href="/css/bootstrap.css" rel="stylesheet" media="all">
 
@@ -77,7 +73,7 @@
             <ul id="menu-main-menu" class="clearfix">
               <li <%=  (request.fullpath=='/')? 'class="current-menu-item current_page_item"'.html_safe():''  %> ><a href="/">首页</a></li>
               <li <%=  (request.fullpath=~ /\/show_houses.*/)? 'class="current-menu-item current_page_item"'.html_safe():''  %>>
-                <a href="/show_houses?style=all&usage=all&area=all&price=all&view=list">样板房</a>
+                <a href="/show_houses?style=all&usage=all&area=all&price=all&view=grid">样板房</a>
                 <ul>
                   <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=list">列表视图</a></li>
                   <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=grid">大图视图</a></li>

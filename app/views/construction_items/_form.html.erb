@@ -1,0 +1,33 @@
+<%= form_for(@construction_item) do |f| %>
+  <% if @construction_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@construction_item.errors.count, "error") %> prohibited this construction_item from being saved:</h2>
+
+      <ul>
+      <% @construction_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of_work %><br />
+    <%= f.text_field :type_of_work %>
+  </div>
+  <div class="field">
+    <%= f.label :process_description %><br />
+    <%= f.text_field :process_description %>
+  </div>
+  <div class="field">
+    <%= f.label :unit %><br />
+    <%= f.text_field :unit %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

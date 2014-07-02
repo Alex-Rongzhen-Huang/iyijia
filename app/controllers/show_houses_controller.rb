@@ -24,6 +24,24 @@ class ShowHousesController < ApplicationController
     end
   end
 
+  def like
+    @show_house = ShowHouse.find(params[:id])
+    @show_house.liked_by current_user
+
+    respond_to do |format|
+      format.json { render json: @show_house }
+    end
+  end
+
+  def unlike
+    @show_house = ShowHouse.find(params[:id])
+    @show_house.downvote_from current_user
+
+    respond_to do |format|
+      format.json { render json: @show_house }
+    end
+  end
+
   # GET /show_houses/1
   # GET /show_houses/1.json
   def show

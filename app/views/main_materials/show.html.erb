@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @main_material.name %>
+</p>
+
+<p>
+  <b>Picture:</b>
+  <%= @main_material.picture %>
+</p>
+
+<p>
+  <b>Main material brand:</b>
+  <%= @main_material.main_material_brand %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @main_material.type %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @main_material.price %>
+</p>
+
+<p>
+  <b>Type of work:</b>
+  <%= @main_material.type_of_work %>
+</p>
+
+<p>
+  <b>Decorate company:</b>
+  <%= @main_material.decorate_company %>
+</p>
+
+
+<%= link_to 'Edit', edit_main_material_path(@main_material) %> |
+<%= link_to 'Back', main_materials_path %>

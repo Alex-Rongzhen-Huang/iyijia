@@ -5,7 +5,7 @@ class CreateHomeImageSettings < ActiveRecord::Migration
 
     if direction == :up then
       execute <<-SQL
-        insert into home_image_settings('img1','img2','img3','img4','img5')
+        insert into home_image_settings(img1,img2,img3,img4,img5)
         values( 'slider-image1.jpg',
                 'slider-image2.jpg',
                 'slider-image3.jpg',
