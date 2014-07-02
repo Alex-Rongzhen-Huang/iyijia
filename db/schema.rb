@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20140626055759) do
     t.integer  "decorate_company_id"
     t.integer  "show_house_id"
     t.integer  "house_fitment_id"
+    t.string   "status"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
