@@ -27,6 +27,17 @@
       user_management: "用户管理"
       quotation_management: "数据库管理"
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email: 
+              blank: "不能为空"
+            password:
+              confirmation: "两次输入的密码不一致"
+              too_short: "长度需要大于10"
+              blank: "不能为空"
+
     models:
       decorate_company: "装修公司"
       color_surface: "色面样板"
@@ -112,6 +123,10 @@
         gender: "性别"
         location: "区域"
         mobile: "手机号"
+      user:
+        username: "用户名"
+        password: "密码"
+        email: "邮箱"
       order:
         user: "待装修客户"
         decorate_company: "装修公司"
