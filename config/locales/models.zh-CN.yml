@@ -23,7 +23,7 @@
   admin:
     menu:
       show_house_management: "样板房管理"
-      decorate_company_management: "装修公司管理"
+      decorate_company_management: "订单管理"
       user_management: "用户管理"
       quotation_management: "数据库管理"
   activerecord:
@@ -45,6 +45,8 @@
       quotation_template: "报价单模板"
       quotation_template_item: "报价单条目"
       quotataion: "报价单"
+      decorate_scheme: "装修方案"
+      decorate_scheme_item: "装修方案条目"
 
     attributes:
       decorate_company:
@@ -118,3 +120,8 @@
         measure_status: "上门测量"
         quotation_status: "给出报价单"
         quotation_link: "报价单链接"
+      decorate_scheme:
+        name: "方案名称"
+      decorate_scheme_item:
+        path: "图片"
+        description: "描述"

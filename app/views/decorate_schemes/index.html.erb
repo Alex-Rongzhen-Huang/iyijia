@@ -1,0 +1,23 @@
+<h1>Listing decorate_schemes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @decorate_schemes.each do |decorate_scheme| %>
+  <tr>
+    <td><%= decorate_scheme.name %></td>
+    <td><%= link_to 'Show', decorate_scheme %></td>
+    <td><%= link_to 'Edit', edit_decorate_scheme_path(decorate_scheme) %></td>
+    <td><%= link_to 'Destroy', decorate_scheme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Decorate scheme', new_decorate_scheme_path %>

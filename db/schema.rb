@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140626055759) do
+ActiveRecord::Schema.define(:version => 20140704060457) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -91,6 +91,22 @@ ActiveRecord::Schema.define(:version => 20140626055759) do
     t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "decorate_scheme_items", :force => true do |t|
+    t.string   "path"
+    t.string   "description"
+    t.integer  "decorate_scheme_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "decorate_scheme_items", ["decorate_scheme_id"], :name => "index_decorate_scheme_items_on_decorate_scheme_id"
+
+  create_table "decorate_schemes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "home_image_settings", :force => true do |t|

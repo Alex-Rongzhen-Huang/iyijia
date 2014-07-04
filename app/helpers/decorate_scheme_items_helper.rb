@@ -1,0 +1,2 @@
+module DecorateSchemeItemsHelper
+end

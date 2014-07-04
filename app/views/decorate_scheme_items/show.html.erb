@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Path:</b>
+  <%= @decorate_scheme_item.path %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @decorate_scheme_item.description %>
+</p>
+
+<p>
+  <b>Decorate scheme:</b>
+  <%= @decorate_scheme_item.decorate_scheme %>
+</p>
+
+
+<%= link_to 'Edit', edit_decorate_scheme_item_path(@decorate_scheme_item) %> |
+<%= link_to 'Back', decorate_scheme_items_path %>
