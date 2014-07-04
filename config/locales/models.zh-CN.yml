@@ -25,7 +25,7 @@
       show_house_management: "样板房管理"
       decorate_company_management: "装修公司管理"
       user_management: "用户管理"
-      quotation_management: "报价单管理"
+      quotation_management: "数据库管理"
   activerecord:
     models:
       decorate_company: "装修公司"
@@ -110,3 +110,11 @@
         gender: "性别"
         location: "区域"
         mobile: "手机号"
+      order:
+        user: "待装修客户"
+        decorate_company: "装修公司"
+        show_house: "看中的样板房"
+        house_fitment: "待装修房信息"
+        measure_status: "上门测量"
+        quotation_status: "给出报价单"
+        quotation_link: "报价单链接"

@@ -33,12 +33,14 @@ ActiveAdmin.register_page "Dashboard" do
         panel "最近的订单" do
           table_for Order.order('id desc').limit(5) do |order|
 
-
-            column("客户") { |order| status_tag(order.user.email) }
-            column("装修公司") { |order| order.decorate_company.name }
+            column("订单号") { |order| link_to(order.id, admin_order_path(order))}
+            column("客户") { |order| order.user}
+            column("上门测量") { |order| status_tag(order.measure_status, order.measure_status=='未测量'?:orange : :green)}
+            column("给报价单") { |order| status_tag(order.quotation_status, order.quotation_status=='未报价'?:red : :green)}
+            column("装修公司") { |order| order.decorate_company }
             # column("装修公司") { |order| link_to(order.decorate_company, admin_decorate_company_path(order.decorate_company)) }
             # column("待装修房")   {|order| number_to_currency order.total_price                       }
-            column("待装修房") { |order| order.house_fitment.address }
+            column("待装修房") { |order| order.house_fitment }
           end
         end
 
