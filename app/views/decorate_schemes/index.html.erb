@@ -1,23 +1,32 @@
-<h1>Listing decorate_schemes</h1>
+<div class="row">
+  <div class="span12 info-block">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @decorate_schemes.each do |decorate_scheme| %>
-  <tr>
-    <td><%= decorate_scheme.name %></td>
-    <td><%= link_to 'Show', decorate_scheme %></td>
-    <td><%= link_to 'Edit', edit_decorate_scheme_path(decorate_scheme) %></td>
-    <td><%= link_to 'Destroy', decorate_scheme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <hr/>
+    <% @decorate_schemes.each do |decorate_scheme| %>
+        <div class="row">
 
-<br />
+          <div class="span3" style="padding-left: 20px;padding-bottom: 20px;">
 
-<%= link_to 'New Decorate scheme', new_decorate_scheme_path %>
+            <% if decorate_scheme.decorate_scheme_items.size == 0 %>
+                <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
+            <% else %>
+                <img src="<%= decorate_scheme.decorate_scheme_items.first.path %>" class="attachment-property-thumb-image wp-post-image" alt="<%= decorate_scheme.decorate_scheme_items.first.description %>" title="<%= decorate_scheme.decorate_scheme_items.first.description %>">
+            <% end %>
+
+          </div>
+          <div class="span8">
+            <p><%= decorate_scheme.name %><br/></p>
+          </div>
+
+        </div>
+    <% end %>
+    <div class="row">
+      <div class="span12 info-block">
+        <%= paginate @decorate_schemes  %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End row -->
+

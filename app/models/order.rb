@@ -9,4 +9,8 @@ class Order < ActiveRecord::Base
 
   MEASURE_STATUS = %w[未测量 已测量]
   QUOTATION_STATUS = %w[未报价 已报价]
+
+  def to_s
+    "[#{self.id}] - #{self.measure_status} - #{self.quotation_status} - #{self.user} -#{self.house_fitment}"
+  end
 end

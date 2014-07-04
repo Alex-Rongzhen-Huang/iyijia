@@ -4,7 +4,7 @@ ActiveAdmin.register DecorateScheme do
   form(:html => { :multipart=>true}) do |f|
     f.inputs DecorateScheme.model_name.human do
       f.input :name
-
+      f.input :order_id, as: :select, collection: Order.all()
 
       f.inputs do
         f.has_many :decorate_scheme_items, :allow_destroy => true, :heading => 'Pictures', :new_record => true do |cf|

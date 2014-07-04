@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>爱逸家</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+
+  <%= csrf_meta_tags %>
+
+  <!-- Include the bootstrap stylesheet -->
+  <link href="/css/bootstrap.css" rel="stylesheet" media="all">
+
+  <!-- Include the Bootstrap responsive utitlities stylesheet -->
+  <link href="/css/_responsive-utilities.css" rel="stylesheet" media="all">
+
+
+  <!-- Include the Awesome Font stylesheet -->
+  <link href="/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+  <!-- Include the bootstrap responsive stylesheet -->
+  <link href="/css/responsive.css" rel="stylesheet" media="all">
+
+  <!-- Flexslider stylesheet -->
+  <link href="/js/flexslider/flexslider.css" rel="stylesheet" media="all">
+
+  <!-- Pretty Photo stylesheet -->
+  <link href="/js/prettyphoto/prettyPhoto.css" rel="stylesheet" media="all">
+
+  <!-- Pretty Photo stylesheet -->
+  <link href="/js/swipebox/swipebox.css" rel="stylesheet" media="all">
+
+  <!-- Include the site main stylesheet -->
+  <link href="/css/main.css" rel="stylesheet" media="all">
+
+  <%= javascript_include_tag params[:controller] %>
+  <%= stylesheet_link_tag  params[:controller] %>
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+
+
+<!-- Start Header -->
+<div class="header-wrapper">
+
+  <div class="container"><!-- Start Header Container -->
+
+    <header id="header" class="clearfix">
+
+      <!-- Logo -->
+      <div id="logo">
+
+        <a title="爱逸家" href="/">
+          <img src="/images/logo.png" alt="爱逸家">
+        </a>
+
+      </div>
+
+
+      <div class="menu-and-contact-wrap">
+
+        <h3  class="contact-number" style="font-size: medium;"><i class="icon-user" style="padding:0px 10px;"></i>
+          <span class="outer-strip"></span>
+          <%= render :partial => 'layouts/user_info' %>
+        </h3>
+        <!-- Start Main Menu-->
+        <nav class="main-menu">
+          <div class="menu-main-menu-container">
+            <ul id="menu-main-menu" class="clearfix">
+              <li <%=  (request.fullpath=='/')? 'class="current-menu-item current_page_item"'.html_safe():''  %> ><a href="/">首页</a></li>
+              <li <%=  (request.fullpath=~ /\/show_houses.*/)? 'class="current-menu-item current_page_item"'.html_safe():''  %>>
+                <a href="/show_houses?style=all&usage=all&area=all&price=all&view=grid">样板房</a>
+                <ul>
+                  <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=list">列表视图</a></li>
+                  <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=grid">大图视图</a></li>
+                </ul>
+              </li>
+              <li><a href="#">施工队</a></li>
+              <li><a href="#">装修达人</a></li>
+              <li>
+                <form method="get" action="http://21jia.net/search.php" target="_blank" class="form-inline" style="margin: 0px; padding: 5px 20px;">
+                  <input placeholder="请输入报价单号" name="keywords" type="text" >
+                  <input type="submit" value="查询" class="btn btn-blue" style="margin-left: -4px;">
+                </form>
+              </li>
+
+            </ul>
+
+
+          </div>
+        </nav><!-- End Main Menu -->
+
+      </div><!-- End .menu-and-contact-wrap -->
+
+    </header>
+
+  </div> <!-- End Header Container -->
+
+</div><!-- End Header -->
+<% if not (notice.nil? || alert.nil?) %>
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+
+          <p class="notice"><%= notice %></p>
+
+          <p class="alert"><%= alert %></p>
+        </div>
+      </div>
+    </div>
+    <!--End notice bar -->
+<% end %>
+
+
+
+<div class="container contents listing-grid-layout">
+
+<div class="container page-carousel">
+  <div class="row">
+    <div class="span12">
+      <section class="brands-carousel  clearfix search-filter">
+        <p id="notice">&nbsp;<%= notice %></p>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+            });
+        </script>
+
+
+      </section>
+
+
+    </div>
+  </div>
+</div>
+
+<style>
+        /* for each row need border and white background*/
+    .span12.info-block {
+        border: 1px solid #dedede;background-color: white;
+    }
+</style>
+
+<div class="row">
+  <div class="span12 info-block">
+    <div class="row">
+      <div class="span2">
+        <img src="<%= @user_profile.avatar %>" style="height: 128px;width: 128px">
+
+      </div>
+      <div class="span8">
+        <h3 style="margin-top: 0px"><%= @user_profile.nickname %></h3>
+
+        <p>
+          <%= @user_profile.gender %>  | <i class="icon-map-marker">&nbsp;<%= @user_profile.location %></i> <br>
+          <%= @user_profile.mobile %>     <br>
+          <a class="btn-blue" href="<%= edit_user_profile_path(@user_profile) %>" style="display: none;"><i class="icon-cog"></i> 设置个人资料</a>
+          <!-- Button to trigger modal -->
+          <a href="#myModal" role="button" class="btn-blue" data-toggle="modal"><i class="icon-cog"></i>设置个人资料</a>
+          <!--
+          <a class="btn" href="#"><i class="icon-heart"></i> 样板房收藏夹</a>
+          -->
+        </p>
+
+      </div>
+      <div class="span2"></div>
+
+    </div>
+  </div>
+  <!-- End span12 -->
+
+</div>
+<!-- End row -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">更新用户资料</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for(@user_profile,  html: {class: "form-horizontal"}) do |f| %>
+        <% if @user_profile.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
+
+              <ul>
+                <% @user_profile.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <div class="control-group">
+          <%= f.label :avatar, class:"control-label" %>
+          <div class="controls">
+            <%= f.text_field :avatar, placeholder:"头像" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :nickname, class:"control-label" %>
+          <div class="controls">
+            <%= f.text_field :nickname, placeholder:"昵称" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :gender, class:"control-label" %>
+          <div class="controls">
+            <%= f.radio_button :gender,'男',checked:'checked' %>男
+            <%= f.radio_button :gender,'女' %>女
+            <%= f.radio_button :gender,'其他' %>其他
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :location, class:"control-label" %>
+          <div class="controls">
+            <%= f.text_field :location, placeholder:"区域" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :mobile, class:"control-label" %>
+          <div class="controls">
+            <%= f.text_field :mobile, placeholder:"手机号" %>
+          </div>
+        </div>
+
+        <div class="field" style="display: none;">
+          <%= f.label :user %><br />
+          <%= f.text_field :user_id, value:current_user.id %>
+        </div>
+        <div class="control-group" style="display: none;">
+          <div class="controls">
+            <%= f.submit '更新用户资料', :class=>'btn btn-blue' %>
+          </div>
+        </div>
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn-orange" data-dismiss="modal" aria-hidden="true">取消</button>
+          <%= f.submit '更新用户资料', :class=>'btn btn-blue' %>
+        </div>
+    <% end %>
+    </div>
+
+<br>
+
+<div class="row">
+  <div class="span12">
+    <div class="row" style="display: none">
+      <div class="span3 menu-level-2"><a href="#"><span>装修方案</span></a></div>
+      <div class="span3 menu-level-2"><a href="#"><span>装修报价单</span></a></div>
+      <div class="span3 menu-level-2"><a href="#"><span>我家的工程</span></a></div>
+      <div class="span3 menu-level-2"><a href="#"><span>我的帖子</span></a></div>
+    </div>
+    <div class="row">
+      <div class="navbar" style="margin-left: 30px;text-align: center; font-family: 'WenQuanYi Micro Hei'; font-size: x-large">
+        <div class="navbar-inner" style="padding: 0px 0px">
+
+          <ul class="nav" style="width: 100%">
+            <li <%=  (request.fullpath=~ /\/user_profiles.*/)? 'class="active"'.html_safe():''  %> style="width: 20%"><a href="<%= user_profiles_path %>"><span>样板房收藏夹</span></a></li>
+            <li <%=  (request.fullpath=~ /\/decorate_schemes.*/)? 'class="active"'.html_safe():''  %> style="width: 20%"><a href="<%= decorate_schemes_path %>"><span>装修方案</span></a></li>
+            <li style="width: 20%"><a href="#"><span>装修报价单</span></a></li>
+            <li style="width: 20%"><a href="#"><span>我家的工程</span></a></li>
+            <li style="width: 20%"><a href="#"><span>我的帖子</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- End row -->
+
+  <%= yield %>
+
+</div>
+
+
+
+<footer id="footer-wrapper">
+
+
+  <!-- Footer Bottom -->
+  <div id="footer-bottom" class="container">
+
+    <div class="row">
+      <div class="span12">
+        <p class="copyright" style="text-align: center">Copyright © <%= DateTime.now.year %>. <%= t("iyijia.site_title") %> All Rights Reserved.</p>
+      </div>
+    </div>
+
+  </div>
+  <!-- End Footer Bottom -->
+
+</footer>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/flexslider/jquery.flexslider.js"></script>
+<script src="/js/elastislide/jquery.easing.1.3.js"></script>
+<script src="/js/elastislide/jquery.elastislide.js"></script>
+<script src="/js/prettyphoto/jquery.prettyPhoto.js"></script>
+<script src="/js/swipebox/jquery.swipebox.min.js"></script>
+<script src="/js/jquery.isotope.min.js"></script>
+<script src="/js/jquery.jcarousel.min.js"></script>
+<script src="/js/jquery.validate.min.js"></script>
+<script src="/js/jquery.form.js"></script>
+<script src="/js/jquery.selectbox.js"></script>
+<script src="/js/jquery.transit.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/custom.js"></script>
+
+</body>
+</html>
