@@ -1,4 +1,10 @@
 Iyijia::Application.routes.draw do
+  resources :decorate_scheme_items
+
+
+  resources :decorate_schemes
+
+
   resources :user_profiles
 
 

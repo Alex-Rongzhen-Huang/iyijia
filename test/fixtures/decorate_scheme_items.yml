@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  path: MyString
+  description: MyString
+  decorate_scheme: 
+
+two:
+  path: MyString
+  description: MyString
+  decorate_scheme: 

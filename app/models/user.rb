@@ -15,6 +15,6 @@ class User < ActiveRecord::Base
   ROLES = %w[decorator customer]
 
   def to_s
-    "#{self.id} - #{self.email}"
+    "[#{self.id}] - #{self.email}"
   end
 end

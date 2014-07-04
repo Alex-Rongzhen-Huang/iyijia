@@ -1,5 +1,5 @@
 ActiveAdmin.register ColorSurface do
-  menu :priority => 2, :parent =>  I18n.t("admin.menu.decorate_company_management")
+  menu :priority => 2, :parent =>  I18n.t("admin.menu.show_house_management")
   #menu :priority => 2, :label => proc{ I18n.t("admin.color_surface") }
   #breadcrumb do
   #  [

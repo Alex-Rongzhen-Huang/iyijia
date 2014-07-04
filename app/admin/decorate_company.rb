@@ -1,5 +1,5 @@
 ActiveAdmin.register DecorateCompany do
-  menu :priority => 1, :parent =>  I18n.t("admin.menu.decorate_company_management")
+  menu :priority => 1, :parent =>  I18n.t("admin.menu.user_management")
   #menu :priority => 1, :label => proc{ I18n.t("admin.decorate_company") }
   #breadcrumb do
   #  [

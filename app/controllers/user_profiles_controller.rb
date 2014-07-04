@@ -12,7 +12,7 @@ class UserProfilesController < InheritedResources::Base
 
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout => 'user_admin'}# index.html.erb
       format.json { render json: @user_profile }
     end
   end

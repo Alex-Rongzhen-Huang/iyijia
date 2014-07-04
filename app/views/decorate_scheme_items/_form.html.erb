@@ -1,0 +1,29 @@
+<%= form_for(@decorate_scheme_item) do |f| %>
+  <% if @decorate_scheme_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@decorate_scheme_item.errors.count, "error") %> prohibited this decorate_scheme_item from being saved:</h2>
+
+      <ul>
+      <% @decorate_scheme_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :path %><br />
+    <%= f.text_field :path %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :decorate_scheme %><br />
+    <%= f.text_field :decorate_scheme %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
