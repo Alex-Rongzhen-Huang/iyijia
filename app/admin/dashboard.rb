@@ -54,7 +54,7 @@ ActiveAdmin.register_page "Dashboard" do
 
           div do
             br
-            text_node %{<iframe src="http://21jia.net" width="100%" height="500" scrolling="no" frameborder="no"></iframe>}.html_safe
+            text_node %{<iframe src="http://21jia.net/index.php" width="100%" height="500" scrolling="no" frameborder="no"></iframe>}.html_safe
           end
         end
       end

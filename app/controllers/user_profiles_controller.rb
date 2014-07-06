@@ -10,6 +10,9 @@ class UserProfilesController < InheritedResources::Base
     @show_houses = current_user.votes.up.for_type(ShowHouse).votables
     @show_houses = Kaminari.paginate_array(@show_houses).page(params[:page]).per(2)
 
+    @house_fitment = HouseFitment.where(:user_id => current_user.id).last()
+    @submitted_house_fitment = @house_fitment
+    @house_fitment ||= HouseFitment.create(:user_id=>current_user.id)
 
     respond_to do |format|
       format.html { render :layout => 'user_admin'}# index.html.erb
@@ -24,7 +27,7 @@ class UserProfilesController < InheritedResources::Base
 
     respond_to do |format|
       if @user_profile.update_attributes(params[:user_profile])
-        format.html { redirect_to user_profiles_path, notice: 'user profile was successfully updated.' }
+        format.html { redirect_to user_profiles_path, notice: 'User profile was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -32,4 +35,6 @@ class UserProfilesController < InheritedResources::Base
       end
     end
   end
+
+
 end
