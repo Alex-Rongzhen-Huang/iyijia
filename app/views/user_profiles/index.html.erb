@@ -5,10 +5,11 @@
     <h3 id="myModalLabel">申请上门测量</h3>
   </div>
   <div class="modal-body">
-    <%= form_for(@house_fitment,url: pre_order_path,  html: {class: "form-horizontal"}) do |f| %>
+    <%= form_for(@house_fitment, url: pre_order_path, html: {class: "form-horizontal"}) do |f| %>
         <% if @house_fitment.errors.any? %>
             <div id="error_explanation">
-              <h2><%= pluralize(@house_fitment.errors.count, "error") %> prohibited this house_fitment from being saved:</h2>
+              <h2><%= pluralize(@house_fitment.errors.count, "error") %> prohibited this house_fitment from being
+                saved:</h2>
 
               <ul>
                 <% @house_fitment.errors.full_messages.each do |msg| %>
@@ -19,153 +20,161 @@
         <% end %>
 
         <div class="control-group">
-          <%= f.label :contact, class:"control-label" %>
+          <%= f.label :contact, class: "control-label" %>
           <div class="controls">
-            <%= f.text_field :contact, placeholder:"联系人", value:@user_profile.nickname %>
+            <%= f.text_field :contact, placeholder: "联系人", value: @user_profile.nickname %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :phone, class:"control-label" %>
+          <%= f.label :phone, class: "control-label" %>
           <div class="controls">
-            <%= f.text_field :phone, placeholder:"联系电话",value:@user_profile.mobile %>
+            <%= f.text_field :phone, placeholder: "联系电话", value: @user_profile.mobile %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :email, class:"control-label" %>
+          <%= f.label :email, class: "control-label" %>
           <div class="controls">
-            <%= f.text_field :email, placeholder:"Email", value:current_user.email %>
+            <%= f.text_field :email, placeholder: "Email", value: current_user.email %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :address, class:"control-label" %>
+          <%= f.label :address, class: "control-label" %>
           <div class="controls">
-            <%= f.text_field :address, placeholder:"待测量房地址" %>
+            <%= f.text_field :address, placeholder: "待测量房地址" %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :budget, class:"control-label" %>
+          <%= f.label :budget, class: "control-label" %>
           <div class="controls">
-            <%= f.radio_button :budget,'5万以内' %>5万以内
-            <%= f.radio_button :budget,'5万-10万',checked:'checked' %>5万-10万
-            <%= f.radio_button :budget,'10万-15万' %>10万-15万
-            <%= f.radio_button :budget,'15万以上' %>15万以上
+            <%= f.radio_button :budget, '5万以内' %>5万以内
+            <%= f.radio_button :budget, '5万-10万', checked: 'checked' %>5万-10万
+            <%= f.radio_button :budget, '10万-15万' %>10万-15万
+            <%= f.radio_button :budget, '15万以上' %>15万以上
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :house_type, class:"control-label" %>
+          <%= f.label :house_type, class: "control-label" %>
           <div class="controls">
-            <%= f.radio_button :house_type,'一房' %>一房
-            <%= f.radio_button :house_type,'二房',checked:'checked' %>二房
-            <%= f.radio_button :house_type,'三房' %>三房
-            <%= f.radio_button :house_type,'四房' %>四房
-            <%= f.radio_button :house_type,'复式' %>复式
-            <%= f.radio_button :house_type,'别墅' %>别墅
+            <%= f.radio_button :house_type, '一房' %>一房
+            <%= f.radio_button :house_type, '二房', checked: 'checked' %>二房
+            <%= f.radio_button :house_type, '三房' %>三房
+            <%= f.radio_button :house_type, '四房' %>四房
+            <%= f.radio_button :house_type, '复式' %>复式
+            <%= f.radio_button :house_type, '别墅' %>别墅
           </div>
         </div>
 
 
-
         <div class="control-group">
-          <%= f.label :show_house_id, class:"control-label" %>
+          <%= f.label :show_house_id, class: "control-label" %>
           <div class="controls">
-            <input type="text" placeholder="看中的样板房" id="show_house_text" readonly="readonly" />
-            <%= f.text_field :show_house_id, type:'hidden', id:'show_house_id' %>
+            <input type="text" placeholder="看中的样板房" id="show_house_text" readonly="readonly"/>
+            <%= f.text_field :show_house_id, type: 'hidden', id: 'show_house_id' %>
           </div>
         </div>
         <div class="control-group" style="display: none">
-          <%= f.label :user_id, class:"control-label" %>
+          <%= f.label :user_id, class: "control-label" %>
           <div class="controls">
-            <%= f.text_field :user_id, value:current_user.id %>
+            <%= f.text_field :user_id, value: current_user.id %>
           </div>
         </div>
         <div class="control-group">
-          <%= f.label :notes, class:"control-label" %>
+          <%= f.label :notes, class: "control-label" %>
           <div class="controls">
-            <%= f.text_area :notes, style:"height:100px", placeholder:"备注信息" %>
+            <%= f.text_area :notes, style: "height:100px", placeholder: "备注信息" %>
           </div>
         </div>
 
         </div>
         <div class="modal-footer">
           <button class="btn-orange" data-dismiss="modal" aria-hidden="true">取消</button>
-          <%= f.submit '提交测量申请', :class=>'btn btn-blue' %>
+          <%= f.submit '提交测量申请', :class => 'btn btn-blue' %>
         </div>
     <% end %>
     </div>
 
 
 <div class="row">
-    <div class="span12 info-block">
-      <% if @show_houses.size == 0 && @submitted_house_fitment.nil? %>
+  <div class="span12 info-block">
+    <% if @show_houses.size == 0 && @submitted_house_fitment.nil? %>
         <div class="row">
-          <div class="span12" >
-            <a href="#myModal2" role="button" data-toggle="modal" class="btn-orange pre-order-link" style="display: inline-block; " >预约上门测量</a> <span>目前没有方案，请预约上门测量</span>
+          <div class="span12">
+            <a href="#myModal2" role="button" data-toggle="modal" class="btn-orange pre-order-link" style="display: inline-block; ">预约上门测量</a>
+            <span>目前没有方案，请预约上门测量</span>
           </div>
         </div>
         <hr/>
-      <% end %>
-      <% if not @submitted_house_fitment.nil? %>
-          <div class="row">
-            <div class="span12" style="padding-left: 20px;">
-                 <p> 预约提交时间:  <%= @submitted_house_fitment.created_at %> </p>
-                  <p> 待装修房地址:  <%= @submitted_house_fitment.address %> </p>
-                  <p> 联系人:  <%= @submitted_house_fitment.contact %> </p>
-              <p> 手机:  <%= @submitted_house_fitment.phone %> </p>
-              <p> 预算:  <%= @submitted_house_fitment.budget %> </p>
-              <p> 房型:  <%= @submitted_house_fitment.house_type %> </p>
-              </div>
-            </div>
-          <hr/>
-          <!--
-          <a href="#myModal2" role="button" data-toggle="modal" class="btn-orange pre-order-link" style="display: inline-block; " >编辑预约上门测量信息</a>
-          -->
-      <% end %>
-      <% @show_houses.each do |s| %>
-      <div class="row">
+    <% end %>
+    <% if not @submitted_house_fitment.nil? %>
+        <div class="row">
+          <div class="span12" style="padding-left: 20px;">
+            <p> 预约提交时间:  <%= @submitted_house_fitment.created_at %> </p>
 
-        <div class="span3" style="padding-left: 20px;padding-bottom: 20px;">
+            <p> 待装修房地址:  <%= @submitted_house_fitment.address %> </p>
 
-          <% if s.show_house_pictures.size == 0 %>
-              <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
-          <% else %>
-              <img src="<%= s.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" alt="<%= s.show_house_pictures.first.brief %>" title="<%= s.show_house_pictures.first.brief %>">
-          <% end %>
+            <p> 联系人:  <%= @submitted_house_fitment.contact %> </p>
+
+            <p> 手机:  <%= @submitted_house_fitment.phone %> </p>
+
+            <p> 预算:  <%= @submitted_house_fitment.budget %> </p>
+
+            <p> 房型:  <%= @submitted_house_fitment.house_type %> </p>
+          </div>
+        </div>
+        <hr/>
+        <!--
+        <a href="#myModal2" role="button" data-toggle="modal" class="btn-orange pre-order-link" style="display: inline-block; " >编辑预约上门测量信息</a>
+        -->
+    <% end %>
+
+    <% if @show_houses.size == 0 %>
+        <div class="row">
+          <h3 style="padding-left: 20px;">目前没有收藏过样板房，请到样板房页面收藏自己喜欢的风格</h3>
+        </div>
+    <% end %>
+
+    <% @show_houses.each do |s| %>
+        <div class="row">
+
+          <div class="span3" style="padding-left: 20px;padding-bottom: 20px;">
+
+            <% if s.show_house_pictures.size == 0 %>
+                <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
+            <% else %>
+                <img src="<%= s.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" alt="<%= s.show_house_pictures.first.brief %>" title="<%= s.show_house_pictures.first.brief %>">
+            <% end %>
+
+          </div>
+          <div class="span8">
+            <p id="hidden_show_house_text"><%= s.title %> - <%= s.style %><br/></p>
+            <input type="hidden" id="hidden_show_house_id" value="<%= s.id %>">
+            <a href="#myModal2" role="button" data-toggle="modal" class="btn-orange pre-order-link">预约上门测量</a>
+
+          </div>
 
         </div>
-        <div class="span8">
-          <p id="hidden_show_house_text"><%= s.title %> - <%= s.style %><br/></p>
-          <input type="hidden" id="hidden_show_house_id" value="<%= s.id %>">
-          <a href="#myModal2" role="button" data-toggle="modal" class="btn-orange pre-order-link">预约上门测量</a>
-          <a class="btn-orange">设计</a>
-          <a class="btn-green">风水</a>
-          <a class="btn-darkblue">修改平面图</a>
-          <a class="btn-black">复制</a>
-          <a class="btn-red">删除</a>
-        </div>
-
-      </div>
-      <% end %>
-      <div class="row">
-        <div class="span12 info-block">
-            <%= paginate @show_houses  %>
-        </div>
+    <% end %>
+    <div class="row">
+      <div class="span12 info-block">
+        <%= paginate @show_houses %>
       </div>
     </div>
   </div>
-  <!-- End row -->
+</div>
+<!-- End row -->
 
 <script type="text/javascript">
     $(document).ready(function () {
-         $('a.pre-order-link').on('click',function(){
-             var hidden_show_house_id = $(this).prev().val();
-             var hidden_show_house_text= $(this).prev().prev().text();
-             $('#myModal2 #show_house_id').val(hidden_show_house_id);
-             $('#myModal2 #show_house_text').val(hidden_show_house_text)
-         })
+        $('a.pre-order-link').on('click', function () {
+            var hidden_show_house_id = $(this).prev().val();
+            var hidden_show_house_text = $(this).prev().prev().text();
+            $('#myModal2 #show_house_id').val(hidden_show_house_id);
+            $('#myModal2 #show_house_text').val(hidden_show_house_text)
+        })
     });
 </script>

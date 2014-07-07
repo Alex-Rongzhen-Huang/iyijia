@@ -1,29 +1,31 @@
 <div class="row">
   <div class="span12 info-block">
 
-
-    <hr/>
-    <% @decorate_schemes.each do |decorate_scheme| %>
+    <% if @decorate_schemes.size == 0 %>
         <div class="row">
-
-          <div class="span3" style="padding-left: 20px;padding-bottom: 20px;">
-
-            <% if decorate_scheme.decorate_scheme_items.size == 0 %>
-                <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
-            <% else %>
-                <img src="<%= decorate_scheme.decorate_scheme_items.first.path %>" class="attachment-property-thumb-image wp-post-image" alt="<%= decorate_scheme.decorate_scheme_items.first.description %>" title="<%= decorate_scheme.decorate_scheme_items.first.description %>">
-            <% end %>
-
-          </div>
-          <div class="span8">
-            <p><%= decorate_scheme.name %><br/></p>
-          </div>
-
+          <h3 style="padding-left: 20px;">目前没有装修方案，如果您已经提交预约上门测量申请，装修公司更新后会通知您</h3>
         </div>
     <% end %>
+
+
+    <% @decorate_schemes.each do |decorate_scheme| %>
+        <div class="row-fluid">
+          <h3 style="padding-left: 20px;"><%= decorate_scheme.name %></h3>
+          <ul class="thumbnails">
+            <% decorate_scheme.decorate_scheme_items.each do |x| %>
+                <li class="span3">
+                  <a href="<%= x.path %>" download class="thumbnail"><img src="<%= x.path %>" style="width: 260px; height: 250px;"></a>
+
+                  <p style="text-align: center"><%= x.description %></p>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
     <div class="row">
       <div class="span12 info-block">
-        <%= paginate @decorate_schemes  %>
+        <%= paginate @decorate_schemes %>
       </div>
     </div>
   </div>
