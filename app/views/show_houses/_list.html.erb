@@ -8,7 +8,7 @@
   </div>
 
   <div class="list-container clearfix">
-    <div class="span6 ">
+    <div class="col-md-6 ">
       <article class="property-item clearfix">
 
         <h4><a href="#" title="15421 Southwest 39th Terrace">15421 Southwest 39th Terrace</a></h4>
@@ -33,7 +33,7 @@
       </article>
     </div>
     <% @show_houses.each do |show_house| %>
-        <div class="span6 ">
+        <div class="col-md-6 ">
           <article class="property-item clearfix">
 
             <h4><a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>"><%= show_house.title %></a></h4>

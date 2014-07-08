@@ -100,10 +100,10 @@
 
 
 <div class="row">
-  <div class="span12 info-block">
+  <div class="col-md-12 info-block">
     <% if @show_houses.size == 0 && @submitted_house_fitment.nil? %>
         <div class="row">
-          <div class="span12">
+          <div class="col-md-12">
             <a href="#myModal2" role="button" data-toggle="modal" class="btn-orange pre-order-link" style="display: inline-block; ">预约上门测量</a>
             <span>目前没有方案，请预约上门测量</span>
           </div>
@@ -112,7 +112,7 @@
     <% end %>
     <% if not @submitted_house_fitment.nil? %>
         <div class="row">
-          <div class="span12" style="padding-left: 20px;">
+          <div class="col-md-12" style="padding-left: 20px;">
             <p> 预约提交时间:  <%= @submitted_house_fitment.created_at %> </p>
 
             <p> 待装修房地址:  <%= @submitted_house_fitment.address %> </p>
@@ -141,7 +141,7 @@
     <% @show_houses.each do |s| %>
         <div class="row">
 
-          <div class="span3" style="padding-left: 20px;padding-bottom: 20px;">
+          <div class="col-md-3" style="padding-left: 20px;padding-bottom: 20px;">
 
             <% if s.show_house_pictures.size == 0 %>
                 <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
@@ -150,7 +150,7 @@
             <% end %>
 
           </div>
-          <div class="span8">
+          <div class="col-md-8">
             <p id="hidden_show_house_text"><%= s.title %> - <%= s.style %><br/></p>
             <input type="hidden" id="hidden_show_house_id" value="<%= s.id %>">
             <a href="#myModal2" role="button" data-toggle="modal" class="btn-orange pre-order-link">预约上门测量</a>
@@ -160,7 +160,7 @@
         </div>
     <% end %>
     <div class="row">
-      <div class="span12 info-block">
+      <div class="col-md-12 info-block">
         <%= paginate @show_houses %>
       </div>
     </div>
