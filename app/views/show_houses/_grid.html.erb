@@ -6,45 +6,49 @@
     <a class="order">最新</a>
     <a class="order">人气</a>
     <a class="order">价格</a>
-    <a class="list" ></a>
-    <a class="grid active" ></a>
+    <a class="list"></a>
+    <a class="grid active"></a>
   </div>
 
-  <div class="list-container clearfix">
-    <article class="property-item clearfix">
-      <figure>
-        <a href="#" >
+
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="col-md-12 ">
+        <a href="#" class="thumbnail">
           <img src="images/temp-images/property1.jpg" class="attachment-grid-view-image wp-post-image" alt="" title="">
         </a>
 
-      </figure>
-
-      <h4>
-        <a href="#" title="">演示用样板房</a>
-      </h4>
-      <p>这是一个演示用的样板房</p>
-      <span>￥18000元</span>
-    </article>
+      </div>
+      <div class="col-md-12 ">
+        <h4>
+          <a href="#" title="">演示用样板房</a>
+        </h4>
+        <p>这是一个演示用的样板房</p>
+        <span>￥18000元</span>
+      </div>
+    </div>
 
     <% @show_houses.each do |show_house| %>
-        <article class="property-item clearfix">
-          <figure>
-            <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>">
+        <div class="col-md-3">
+          <div class="col-md-12 ">
+            <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="thumbnail">
               <% if show_house.show_house_pictures.size == 0 %>
                   <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
               <% else %>
                   <img src="<%= show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
               <% end %>
             </a>
+          </div>
+          <div class="col-md-12 ">
+            <h4>
+              <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>"><%= show_house.title %></a>
+            </h4>
 
-            
-          </figure>
-
-          <h4><a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>"><%= show_house.title %></a></h4>
-
-          <p><%=h truncate(strip_tags(show_house.brief), :length => 40) %> </p>
-          <span>￥<%= show_house.price %>元 </span>
-        </article>
+            <p><%= h truncate(strip_tags(show_house.brief), :length => 40) %> </p>
+            <span>￥<%= show_house.price %>元 </span>
+          </div>
+        </div>
 
     <% end %>
   </div>

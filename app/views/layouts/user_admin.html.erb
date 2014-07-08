@@ -45,62 +45,9 @@
 
 
 <!-- Start Header -->
-<div class="header-wrapper">
+<%= render :partial => 'layouts/navbar' %>
+<!-- End Header -->
 
-  <div class="container"><!-- Start Header Container -->
-
-    <header id="header" class="clearfix">
-
-      <!-- Logo -->
-      <div id="logo">
-
-        <a title="爱逸家" href="/">
-          <img src="/images/logo.png" alt="爱逸家">
-        </a>
-
-      </div>
-
-
-      <div class="menu-and-contact-wrap">
-
-        <h3  class="contact-number" style="font-size: medium;"><i class="glyphicon glyphicon-user" style="padding:0px 10px;"></i>
-          <span class="outer-strip"></span>
-          <%= render :partial => 'layouts/user_info' %>
-        </h3>
-        <!-- Start Main Menu-->
-        <nav class="main-menu">
-          <div class="menu-main-menu-container">
-            <ul id="menu-main-menu" class="clearfix">
-              <li <%=  (request.fullpath=='/')? 'class="current-menu-item current_page_item"'.html_safe():''  %> ><a href="/">首页</a></li>
-              <li <%=  (request.fullpath=~ /\/show_houses.*/)? 'class="current-menu-item current_page_item"'.html_safe():''  %>>
-                <a href="/show_houses?style=all&usage=all&area=all&price=all&view=grid">样板房</a>
-                <ul>
-                  <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=list">列表视图</a></li>
-                  <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=grid">大图视图</a></li>
-                </ul>
-              </li>
-              <li><a href="#">施工队</a></li>
-              <li><a href="#">装修达人</a></li>
-              <li>
-                <form method="get" action="http://21jia.net/search.php" target="_blank" class="form-inline" style="margin: 0px; padding: 5px 20px;">
-                  <input placeholder="请输入报价单号" name="keywords" type="text" >
-                  <input type="submit" value="查询" class="btn btn-blue" style="margin-left: -4px;">
-                </form>
-              </li>
-
-            </ul>
-
-
-          </div>
-        </nav><!-- End Main Menu -->
-
-      </div><!-- End .menu-and-contact-wrap -->
-
-    </header>
-
-  </div> <!-- End Header Container -->
-
-</div><!-- End Header -->
 <% if not (notice.nil? || alert.nil?) %>
     <div class="container">
       <div class="row">

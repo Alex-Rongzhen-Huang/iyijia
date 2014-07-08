@@ -11,7 +11,7 @@
   <%= csrf_meta_tags %>
 
   <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Include the Awesome Font stylesheet -->
   <link href="/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -43,59 +43,9 @@
 </head>
 <body>
 
-
 <!-- Start Header -->
-<nav class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a title="爱逸家" href="/">
-        <img src="/images/logo.png" alt="爱逸家" style="height: 48px;">
-      </a>
-
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li <%=  (request.fullpath=='/')? 'class="current-menu-item current_page_item"'.html_safe():''  %> ><a href="/">首页</a></li>
-        <li <%=  (request.fullpath=~ /\/show_houses.*/)? 'class="current-menu-item current_page_item dropdown"'.html_safe():'dropdown'  %>>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">样板房 <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=list">列表视图</a></li>
-            <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=grid">大图视图</a></li>
-          </ul>
-        </li>
-        <li><a href="#">施工队</a></li>
-        <li><a href="#">装修达人</a></li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search" method="get" action="http://21jia.net/search.php" target="_blank" >
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="请输入报价单号" name="keywords" style="height: 32px;">
-        </div>
-        <button type="submit" class="btn btn-blue" style="margin-bottom: 0px;margin-left: -4px;">查询</button>
-      </form>
-
-
-      <ul class="nav navbar-nav navbar-right">
-        <li style="background-color: #4dc7ec;">
-          <h3 style="font-size: medium;"><i class="glyphicon glyphicon-user" style="padding:0px 10px;"></i>
-            <span class="outer-strip"></span>
-            <%= render :partial => 'layouts/user_info' %>
-          </h3>
-
-        </li>
-
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+<%= render :partial => 'layouts/navbar' %>
+<!-- End Header -->
 
 
 <% if not (notice.nil? || alert.nil?) %>
@@ -146,7 +96,7 @@
 <script src="/js/jquery.selectbox.js"></script>
 <script src="/js/jquery.transit.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <script src="/js/custom.js"></script>
 
 </body>
