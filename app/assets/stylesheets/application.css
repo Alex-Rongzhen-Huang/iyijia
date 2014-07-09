@@ -11,24 +11,40 @@
  *= require_self
  *= #require_tree .
  */
-.contact-number a {
-    color: white;
-}
-.header-wrapper {
+
+/* ------------------------------------------------------*/
+/* 定制顶层菜单的样式
+/* ------------------------------------------------------*/
+#navbar-top.navbar-inverse {
     background-color: #161a36 !important;
+    border-color: #161a36;
+    margin-bottom: 0px;
 }
-.header-wrapper .container, .header-wrapper .container #logo,  .header-wrapper .container #logo img {
-    height: 48px;
-}
-.main-menu ul li.current-menu-ancestor > a, .main-menu ul li.current-menu-parent > a, .main-menu ul li.current-menu-item > a, .main-menu ul li.current_page_item > a, .main-menu ul li:hover > a {
+#navbar-top ul.nav.navbar-nav li > a {
     color: white;
+}
+#navbar-top ul.nav.navbar-nav li.active > a, #navbar-top ul.nav.navbar-nav li > a:hover{
     background-color: #fd970f !important;
 }
-.main-menu ul li ul li > a {
-    background-color:  #fd970f !important;
+#navbar-top ul.nav.navbar-nav  li ul.dropdown-menu {
+    padding: 0px 0px;
+    margin: 0px 0px;
 }
-.main-menu ul li ul li:hover > a {
+#navbar-top ul.nav.navbar-nav li ul.dropdown-menu li > a {
+    background-color:  #fd970f !important;
+    height: 40px;
+    margin: 0px 0px;
+    padding-top: 10px;
+}
+#navbar-top ul.nav.navbar-nav  li ul.dropdown-menu li:hover > a {
     background-color:  #ec894d !important;
+}
+/* ------------------------------------------------------*/
+/* 定制footer的样式
+/* ------------------------------------------------------*/
+#footer-wrapper {
+    background: url("../images/background-outer-wrapper.png") repeat-x scroll bottom center transparent;
+    padding-bottom: 245px;
 }
 
 /* ------------------------------------------------------*/
