@@ -1,0 +1,190 @@
+/*------------------------------------------------------*/
+/* Property Item
+/*------------------------------------------------------*/
+.zoom_img_box {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.narrative {
+    padding: 0 30px;
+}
+
+.property-items {
+    background: url(../images/container-gradient.png) white repeat-x 0 0;
+    text-align: center;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+.property-items .span6 {
+    width: 440px;
+    margin-left: 19.3px;
+}
+.property-items .narrative {
+    padding: 42px 40px;
+    margin-bottom: 16px;
+}
+.property-items .narrative h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+}
+.property-items .narrative p {
+    line-height: 24px;
+}
+
+.property-item {
+    text-align: left;
+    border: 1px solid #dedede;
+    background-color: white;
+    padding: 10px 10px 0;
+    margin-bottom: 30px;
+    /*  min-height: 252px;
+      height:auto !important;
+      height: 252px;*/
+}
+.property-item h4, .property-item h4 a {
+    font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-weight: normal;
+    color: #394041;
+    text-transform: capitalize;
+    margin: 0 0 17px;
+    font-size: 18px;
+}
+.property-item h4 a:hover {
+    color: #df5400;
+}
+.property-item figure {
+    position: relative;
+    float: left;
+    margin: 0 0 20px 0;
+    width: 200px;
+}
+.property-item figure img {
+    display: block;
+}
+.property-item figure figcaption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: white;
+    font-size: 13px;
+    padding: 2px 9px;
+    background-color: #fd970f;
+}
+.property-item .detail {
+    float: right;
+    width: 49.6%;
+    padding-left: 10px;
+}
+.property-item .price {
+    padding: 8px 8px 10px 11px;
+    margin: 0 0 15px -11px;
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    background-color: #4dc7ec;
+}
+.property-item .price small {
+    font-size: 14px;
+    color: white;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+.property-item p {
+    font-size: 12px;
+    overflow: hidden;
+    line-height: 23px;
+}
+.property-item .property-meta {
+    overflow: hidden;
+    font-family: "Roboto", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    border-top: 1px solid #dedede;
+    background-color: #f5f5f5;
+    margin: 0 -10px;
+    padding: 0 10px;
+    clear: both;
+}
+.property-item .property-meta span {
+    float: left;
+    font-size: 12px;
+    color: #394041;
+    display: inline-block;
+    border-right: 1px solid #dedede;
+    padding: 10px 6px 11px 0;
+    margin-right: 6px;
+}
+.property-item .property-meta span:last-child {
+    border: none;
+    margin-right: 0;
+}
+.property-item .property-meta span [class^="icon-"], .property-item .property-meta span [class*=" icon-"] {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: -5px;
+}
+.property-item .property-meta span .icon-area {
+    background: url(../images/icon-size.png) no-repeat left center;
+}
+.property-item .property-meta span .icon-bed {
+    background: url(../images/icon-bed.png) no-repeat left center;
+}
+.property-item .property-meta span .icon-bath {
+    background: url(../images/icon-bath.png) no-repeat left center;
+}
+.property-item .property-meta span .icon-garage {
+    background: url(../images/icon-garage.png) no-repeat left center;
+}
+
+
+
+/**************   */
+/*
+/**************    */
+.page-carousel .brands-carousel {
+border: 1px solid #dedede;
+margin-bottom: 60px;
+}
+
+
+/**************   */
+/*
+/**************    */
+.lisitng-grid-layout .main {
+    margin: 52.5px 0 64px;
+}
+
+.lisitng-grid-layout .main {
+    border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    margin-bottom: 30px;
+}
+.lisitng-grid-layout .title-heading {
+    text-transform: capitalize;
+    background-color: #394041;
+    position: absolute;
+    font-size: 21px;
+    line-height: 48px;
+    min-height: 53px;
+    margin: 0;
+    padding: 0 30px 0 20px;
+    top: -53px;
+    left: 0;
+    color: white;
+    left: -1px;
+}
+.lisitng-grid-layout .pagination {
+    clear: both;
+    border-top: 1px solid #dedede;
+    margin: 20px 0;
+    padding: 20px 0 0;
+}
+
+.view-type {
+    position: absolute;
+    right: -1px;
+    top: 0px;
+    border: 1px solid #dedede;
+}

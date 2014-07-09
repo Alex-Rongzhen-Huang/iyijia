@@ -10,15 +10,8 @@
   <!-- Include the bootstrap stylesheet -->
   <link href="/css/bootstrap.css" rel="stylesheet" media="all">
 
-  <!-- Include the Bootstrap responsive utitlities stylesheet -->
-  <link href="/css/_responsive-utilities.css" rel="stylesheet" media="all">
-
-
   <!-- Include the Awesome Font stylesheet -->
   <link href="/css/font-awesome.min.css" rel="stylesheet" media="all">
-
-  <!-- Include the bootstrap responsive stylesheet -->
-  <link href="/css/responsive.css" rel="stylesheet" media="all">
 
   <!-- Flexslider stylesheet -->
   <link href="/js/flexslider/flexslider.css" rel="stylesheet" media="all">
@@ -29,15 +22,15 @@
   <!-- Pretty Photo stylesheet -->
   <link href="/js/swipebox/swipebox.css" rel="stylesheet" media="all">
 
-  <!-- Include the site main stylesheet -->
-  <link href="/css/main.css" rel="stylesheet" media="all">
 
   <%= javascript_include_tag params[:controller] %>
   <%= stylesheet_link_tag  params[:controller] %>
 
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
 </head>
@@ -107,7 +100,8 @@
           <%= @user_profile.mobile %>     <br>
           <a class="btn-blue" href="<%= edit_user_profile_path(@user_profile) %>" style="display: none;"><i class="glyphicon glyphicon-cog"></i> 设置个人资料</a>
           <!-- Button to trigger modal -->
-          <a href="#myModal" role="button" class="btn-blue" data-toggle="modal"><i class="glyphicon glyphicon-cog"></i>设置个人资料</a>
+          <a href="#myModal" role="button" class="btn-blue" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-cog"></i>设置个人资料</a>
+
           <!--
           <a class="btn" href="#"><i class="glyphicon glyphicon-heart"></i> 样板房收藏夹</a>
           -->
@@ -123,79 +117,80 @@
 </div>
 <!-- End row -->
 
-
 <!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">更新用户资料</h3>
-  </div>
-  <div class="modal-body">
-    <%= form_for(@user_profile,  html: {class: "form-horizontal"}) do |f| %>
-        <% if @user_profile.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
-
-              <ul>
-                <% @user_profile.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
-        <div class="control-group">
-          <%= f.label :avatar, class:"control-label" %>
-          <div class="controls">
-            <%= f.text_field :avatar, placeholder:"头像" %>
-          </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :nickname, class:"control-label" %>
-          <div class="controls">
-            <%= f.text_field :nickname, placeholder:"昵称" %>
-          </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :gender, class:"control-label" %>
-          <div class="controls">
-            <%= f.radio_button :gender,'男',checked:'checked' %>男
-            <%= f.radio_button :gender,'女' %>女
-            <%= f.radio_button :gender,'其他' %>其他
-          </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :location, class:"control-label" %>
-          <div class="controls">
-            <%= f.text_field :location, placeholder:"区域" %>
-          </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :mobile, class:"control-label" %>
-          <div class="controls">
-            <%= f.text_field :mobile, placeholder:"手机号" %>
-          </div>
-        </div>
-
-        <div class="field" style="display: none;">
-          <%= f.label :user %><br />
-          <%= f.text_field :user_id, value:current_user.id %>
-        </div>
-        <div class="control-group" style="display: none;">
-          <div class="controls">
-            <%= f.submit '更新用户资料', :class=>'btn btn-blue' %>
-          </div>
-        </div>
-
-        </div>
-        <div class="modal-footer">
-          <button class="btn-orange" data-dismiss="modal" aria-hidden="true">取消</button>
-          <%= f.submit '更新用户资料', :class=>'btn btn-blue' %>
-        </div>
-    <% end %>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">X</span></button>
+      <h4 class="modal-title" id="myModalLabel">更新用户资料</h4>
     </div>
+    <div class="modal-body">
+      <%= form_for(@user_profile,  html: {class: "form-horizontal"}) do |f| %>
+          <% if @user_profile.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
 
-<br>
+                <ul>
+                  <% @user_profile.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+          <div class="control-group">
+            <%= f.label :avatar, class:"control-label" %>
+            <div class="controls">
+              <%= f.text_field :avatar, placeholder:"头像" %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :nickname, class:"control-label" %>
+            <div class="controls">
+              <%= f.text_field :nickname, placeholder:"昵称" %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :gender, class:"control-label" %>
+            <div class="controls">
+              <%= f.radio_button :gender,'男',checked:'checked' %>男
+              <%= f.radio_button :gender,'女' %>女
+              <%= f.radio_button :gender,'其他' %>其他
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :location, class:"control-label" %>
+            <div class="controls">
+              <%= f.text_field :location, placeholder:"区域" %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :mobile, class:"control-label" %>
+            <div class="controls">
+              <%= f.text_field :mobile, placeholder:"手机号" %>
+            </div>
+          </div>
+
+          <div class="field" style="display: none;">
+            <%= f.label :user %><br />
+            <%= f.text_field :user_id, value:current_user.id %>
+          </div>
+          <div class="control-group" style="display: none;">
+            <div class="controls">
+              <%= f.submit '更新用户资料', :class=>'btn btn-blue' %>
+            </div>
+          </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      <%= f.submit '更新用户资料', :class=>'btn btn-blue' %>
+    </div>
+  </div>
+      <% end %>
+</div>
+</div>
+
 
 <div class="row">
   <div class="col-md-12">
@@ -263,8 +258,8 @@
 <script src="/js/jquery.form.js"></script>
 <script src="/js/jquery.selectbox.js"></script>
 <script src="/js/jquery.transit.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/js/bootstrap.min.js"></script>
-<script src="/js/custom.js"></script>
 
 </body>
 </html>
