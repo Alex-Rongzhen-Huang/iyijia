@@ -48,7 +48,7 @@ class ShowHousesController < ApplicationController
     @show_house = ShowHouse.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html {render :layout => 'legacy'}# show.html.erb
       format.json { render json: @show_house }
     end
   end

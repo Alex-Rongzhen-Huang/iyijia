@@ -106,7 +106,7 @@
 
 
 <div class="row">
-  <div class="col-md-12 info-block">
+  <div class="col-md-12">
     <% if @show_houses.size == 0 && @submitted_house_fitment.nil? %>
         <div class="row">
           <div class="col-md-12">
@@ -181,7 +181,7 @@
         </div>
     <% end %>
     <div class="row">
-      <div class="col-md-12 info-block">
+      <div class="col-md-12">
         <%= paginate @show_houses %>
       </div>
     </div>
@@ -191,7 +191,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('a.pre-order-link').on('click', function () {
+        $('.pre-order-link').on('click', function () {
             var hidden_show_house_id = $(this).prev().val();
             var hidden_show_house_text = $(this).prev().prev().text();
             $('#myModal2 #show_house_id').val(hidden_show_house_id);

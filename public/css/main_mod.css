@@ -156,24 +156,16 @@ margin-bottom: 60px;
     margin: 52.5px 0 64px;
 }
 
-.lisitng-grid-layout .main {
-    border-left: 1px solid #dedede;
-    border-right: 1px solid #dedede;
-    margin-bottom: 30px;
-}
 .lisitng-grid-layout .title-heading {
     text-transform: capitalize;
     background-color: #394041;
-    position: absolute;
     font-size: 21px;
     line-height: 48px;
     min-height: 53px;
     margin: 0;
-    padding: 0 30px 0 20px;
-    top: -53px;
-    left: 0;
+    padding: 0 30px 0 30px;
     color: white;
-    left: -1px;
+    width: 160px;
 }
 .lisitng-grid-layout .pagination {
     clear: both;
@@ -183,8 +175,6 @@ margin-bottom: 60px;
 }
 
 .view-type {
-    position: absolute;
-    right: -1px;
     top: 0px;
     border: 1px solid #dedede;
 }
