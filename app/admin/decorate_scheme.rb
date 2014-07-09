@@ -1,5 +1,5 @@
 ActiveAdmin.register DecorateScheme do
-  menu :priority => 1, :parent =>  I18n.t("admin.menu.decorate_company_management")
+  menu :priority => 3, :parent =>  I18n.t("admin.menu.decorate_company_management")
 
   form(:html => { :multipart=>true}) do |f|
     f.inputs DecorateScheme.model_name.human do

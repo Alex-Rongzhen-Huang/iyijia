@@ -51,6 +51,8 @@ Iyijia::Application.routes.draw do
 
   match '/show_houses/like/:id' => 'show_houses#like'
   match '/show_houses/unlike/:id' => 'show_houses#unlike'
+  match '/user_admin/pre_order', to: 'user_admin#pre_order', as: :pre_order
+  match '/user_admin/old_quotation', to: 'user_admin#old_quotation', as: :old_quotation
 
   resources :decorate_companies
 

@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20140704060457) do
 
   create_table "decorate_schemes", :force => true do |t|
     t.string   "name"
+    t.integer  "order_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -122,9 +123,13 @@ ActiveRecord::Schema.define(:version => 20140704060457) do
     t.string   "phone"
     t.string   "email"
     t.string   "address"
+    t.string   "budget"
+    t.string   "house_type"
     t.text     "notes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "show_house_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "main_material_brands", :force => true do |t|
