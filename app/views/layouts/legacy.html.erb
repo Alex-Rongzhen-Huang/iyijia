@@ -25,6 +25,8 @@
   <!-- Pretty Photo stylesheet -->
   <link href="/js/swipebox/swipebox.css" rel="stylesheet" media="all">
 
+  <!-- Include the site main stylesheet -->
+  <link href="/css/main.css" rel="stylesheet" media="all">
 
   <!-- Include the site main stylesheet -->
   <link href="/css/main_mod.css" rel="stylesheet" media="all">
@@ -47,24 +49,18 @@
 <%= render :partial => 'layouts/navbar' %>
 <!-- End Header -->
 
+
 <!--Start notice bar -->
 <%= render :partial => 'layouts/notice_bar' %>
 <!--End notice bar -->
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-        <div class="form-horizontal" style="margin: 0 auto; width: 400px;">
-          <%= yield %>
-        </div>
-    </div>
-  </div>
-</div>
-
+<%= yield %>
 
 <hr>
 <footer id="footer-wrapper">
+
+
   <!-- Footer Bottom -->
   <div id="footer-bottom" class="container">
 
