@@ -1,3 +1,4 @@
+# encoding: UTF-8
 ActiveAdmin.register DecorateScheme do
   menu :priority => 3, :parent =>  I18n.t("admin.menu.decorate_company_management")
 
@@ -25,7 +26,7 @@ ActiveAdmin.register DecorateScheme do
       row :name
 
       decorate_scheme.decorate_scheme_items.each_with_index do |x,index|
-        row "#{x.description}" do
+        row "#{x.description.blank? ? '未命名':x.description}" do
           link_to(image_tag(x.path, :width => "500px"), edit_admin_decorate_scheme_path(decorate_scheme.id))
         end
       end

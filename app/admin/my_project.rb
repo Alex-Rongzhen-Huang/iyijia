@@ -1,3 +1,4 @@
+# encoding: UTF-8
 ActiveAdmin.register MyProject do
   menu :priority => 4, :parent =>  I18n.t("admin.menu.decorate_company_management")
   
@@ -25,7 +26,7 @@ ActiveAdmin.register MyProject do
       row :name
 
       my_project.my_project_items.each_with_index do |x,index|
-        row "#{x.description}" do
+        row "#{x.description.blank? ? '未命名':x.description}" do
           link_to(image_tag(x.path, :width => "500px"), edit_admin_my_project_path(my_project.id))
         end
       end
