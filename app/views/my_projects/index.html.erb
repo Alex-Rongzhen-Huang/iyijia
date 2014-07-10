@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="span12 info-block">
+  <div class="col-md-12">
 
     <% if @my_projects.size == 0 %>
         <div class="row">
@@ -9,17 +9,18 @@
 
 
     <% @my_projects.each do |my_project| %>
-        <div class="row-fluid">
+        <div class="row">
           <h3 style="padding-left: 20px;"><%= my_project.name %></h3>
-          <ul class="thumbnails">
+          
+          <div class="row">
             <% my_project.my_project_items.each do |x| %>
-                <li class="span3">
+              <div class="col-xs-6 col-md-3">
                   <a href="<%= x.path %>" download class="thumbnail"><img src="<%= x.path %>" style="width: 260px; height: 250px;"></a>
 
                   <p style="text-align: center"><%= x.description %></p>
-                </li>
+              </div>
             <% end %>
-          </ul>
+          </div>
         </div>
     <% end %>
     
