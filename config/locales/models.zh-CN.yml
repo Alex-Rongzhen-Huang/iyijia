@@ -58,6 +58,9 @@
       quotataion: "报价单"
       decorate_scheme: "装修方案"
       decorate_scheme_item: "装修方案条目"
+      my_project: "工程进展"
+      my_project_item: "工程进展条目"
+
 
     attributes:
       decorate_company:
@@ -137,6 +140,17 @@
         quotation_link: "报价单链接"
       decorate_scheme:
         name: "方案名称"
+        order: "对应订单"
       decorate_scheme_item:
         path: "图片"
         description: "描述"
+      my_project:
+        name: "进展名称"
+        order: "对应订单"
+      my_project_item:
+        path: "图片"
+        description: "描述"
+
+
+
+

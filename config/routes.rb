@@ -1,4 +1,10 @@
 Iyijia::Application.routes.draw do
+  resources :my_project_items
+
+
+  resources :my_projects
+
+
   resources :decorate_scheme_items
 
 

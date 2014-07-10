@@ -1,0 +1,27 @@
+<h1>Listing my_project_items</h1>
+
+<table>
+  <tr>
+    <th>Path</th>
+    <th>Description</th>
+    <th>My project</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @my_project_items.each do |my_project_item| %>
+  <tr>
+    <td><%= my_project_item.path %></td>
+    <td><%= my_project_item.description %></td>
+    <td><%= my_project_item.my_project %></td>
+    <td><%= link_to 'Show', my_project_item %></td>
+    <td><%= link_to 'Edit', edit_my_project_item_path(my_project_item) %></td>
+    <td><%= link_to 'Destroy', my_project_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New My project item', new_my_project_item_path %>
