@@ -45,10 +45,10 @@ ActiveAdmin.register ShowHouse do
       f.inputs do
         "
 <br>
-<label for='show_house_area' style='margin-left:-26%;'>面积</label>
+<label for='show_house_area' style='margin-left:-26%;'>面积<abbr title='required'>*</abbr></label>
 <input id='show_house_area' maxlength='10' name='show_house[area]' value='#{f.object.area}' type='text' style='width: 10%;'> m<sup style='top: -0.5em;position: relative;font-size: 75%;line-height: 0;vertical-align: baseline;'>2</sup>
     <br><br>
-<label for='show_house_price' style='margin-left:-26%;'>房型</label>
+<label for='show_house_price' style='margin-left:-26%;'>房型<abbr title='required'>*</abbr></label>
 <select id='show_house_bedroom' name='show_house[bedroom]'><option value=''></option>
 <option value='一' #{f.object.bedroom=='一'?'selected=\'selected\'':''} >一</option>
 <option value='二' #{f.object.bedroom=='二'?'selected=\'selected\'':''} >二</option>
@@ -80,7 +80,7 @@ ActiveAdmin.register ShowHouse do
 <option value='八' #{f.object.bathroom=='八'?'selected=\'selected\'':''} >八</option>
 <option value='九' #{f.object.bathroom=='九'?'selected=\'selected\'':''} >九</option></select>&nbsp; 卫&nbsp;&nbsp;
         <br><br>
-        <label for='show_house_price' style='margin-left:-26%;'>最低造价</label>
+        <label for='show_house_price' style='margin-left:-26%;'>最低造价<abbr title='required'>*</abbr></label>
 <input id='show_house_price' maxlength='10' name='show_house[price]' value='#{f.object.price}' type='text' style='width: 10%;'>&nbsp;元 <br><br>"
         .html_safe
       end
@@ -107,5 +107,25 @@ ActiveAdmin.register ShowHouse do
     end
 
     f.buttons
+  end
+
+
+  index do
+    selectable_column
+    column :id
+    #column I18n.t("admin.show_house_picture.path"), :path
+    column :title
+    column :decorate_company
+    column :house_type
+    column :area
+    column :brief
+    column :price
+    column :style
+    column :usage
+
+    column :created_at
+    column :updated_at
+
+    default_actions
   end
 end
