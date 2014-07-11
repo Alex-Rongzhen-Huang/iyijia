@@ -9,7 +9,6 @@ class MyProject < ActiveRecord::Base
   attr_accessible :order_id
 
   validates :name, :order_id, :presence => true
-  validates_associated :my_project_items
 
 
   # CALLBACKS

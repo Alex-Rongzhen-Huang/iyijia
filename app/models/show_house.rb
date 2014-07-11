@@ -14,7 +14,6 @@ class ShowHouse < ActiveRecord::Base
   attr_accessible :main_material_brand_ids
 
   validates :area, :brief, :price, :style, :usage, :title, :bedroom, :livingroom, :bathroom, :presence => true
-  validates_associated :show_house_pictures
 
 
   acts_as_votable

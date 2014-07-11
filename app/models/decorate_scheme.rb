@@ -9,7 +9,6 @@ class DecorateScheme < ActiveRecord::Base
   attr_accessible :order_id
 
   validates :name, :order_id, :presence => true
-  validates_associated :decorate_scheme_items
 
   # CALLBACKS
   before_destroy do |obj|
