@@ -4,12 +4,15 @@ class UserAdminController < ApplicationController
   before_filter :authenticate_user!
 
   def order_new
+    @show_house = ShowHouse.find(params[:id])
+
     @user_profile = UserProfile.where(:user_id => current_user.id).first()
     @user_profile ||= UserProfile.create(:user_id=>current_user.id)
 
     @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
 
     @house_fitment = HouseFitment.new
+    @order = Order.new
 
     respond_to do |format|
       format.html # order_new.html.erb
