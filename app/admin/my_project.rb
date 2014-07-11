@@ -24,6 +24,7 @@ ActiveAdmin.register MyProject do
     attributes_table do
       row :id
       row :name
+      row :order
 
       my_project.my_project_items.each_with_index do |x,index|
         row "#{x.description.blank? ? '未命名':x.description}" do
@@ -36,5 +37,18 @@ ActiveAdmin.register MyProject do
     end
     active_admin_comments
   end
+
+  index do
+    selectable_column
+    column :id
+    #column I18n.t("admin.show_house_picture.path"), :path
+    column :name
+    column :order
+    column :created_at
+    column :updated_at
+
+    default_actions
+  end
+
 
 end
