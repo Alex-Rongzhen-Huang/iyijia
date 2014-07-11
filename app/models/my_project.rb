@@ -8,4 +8,15 @@ class MyProject < ActiveRecord::Base
   belongs_to :order
   attr_accessible :order_id
 
+  validates :name, :order_id, :presence => true
+  validates_associated :my_project_items
+
+
+  # CALLBACKS
+
+  before_destroy do |obj|
+    obj.my_project_items.each do |x|
+      x.destroy
+    end
+  end
 end

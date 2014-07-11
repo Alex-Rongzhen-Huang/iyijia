@@ -4,4 +4,6 @@ class MyProjectItem < ActiveRecord::Base
   
   require 'carrierwave/orm/activerecord'
   mount_uploader :path, ImageUploader
+
+  validates :description, :path, :presence => true
 end

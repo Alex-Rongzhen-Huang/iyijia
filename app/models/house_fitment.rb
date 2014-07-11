@@ -9,4 +9,6 @@ class HouseFitment < ActiveRecord::Base
   def to_s
     "#{self.id} - #{self.address} - #{self.contact} - #{self.phone}"
   end
+
+  validates :address, :contact, :phone, :email, :budget, :house_type, :presence => true
 end
