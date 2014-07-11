@@ -1,0 +1,2 @@
+module MyProjectItemsHelper
+end

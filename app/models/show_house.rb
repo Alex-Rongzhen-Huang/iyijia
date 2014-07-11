@@ -13,6 +13,10 @@ class ShowHouse < ActiveRecord::Base
   has_many :main_material_brands, :through => :show_house_main_material_brands
   attr_accessible :main_material_brand_ids
 
+  validates :area, :brief, :price, :style, :usage, :title, :bedroom, :livingroom, :bathroom, :presence => true
+  validates_associated :show_house_pictures
+
+
   acts_as_votable
 
   HOUSE_TYPES = %w[一室一厅一卫 两室一厅一卫 两室两厅一卫 两室两厅两卫 三室一厅一卫 三室两厅一卫 三室两厅两卫 其他豪宅]

@@ -1,14 +1,14 @@
 # encoding: UTF-8
-ActiveAdmin.register DecorateScheme do
-  menu :priority => 3, :parent =>  I18n.t("admin.menu.decorate_company_management")
-
+ActiveAdmin.register MyProject do
+  menu :priority => 4, :parent =>  I18n.t("admin.menu.decorate_company_management")
+  
   form(:html => { :multipart=>true}) do |f|
-    f.inputs DecorateScheme.model_name.human do
+    f.inputs MyProject.model_name.human do
       f.input :name
       f.input :order_id, as: :select, collection: Order.all()
 
       f.inputs do
-        f.has_many :decorate_scheme_items, :allow_destroy => true, :heading => 'Pictures', :new_record => true do |cf|
+        f.has_many :my_project_items, :allow_destroy => true, :heading => 'Pictures', :new_record => true do |cf|
           cf.input :path, :as => :file , :hint => image_tag(cf.object.path, width:"50%")
           cf.input :description
 
@@ -19,16 +19,16 @@ ActiveAdmin.register DecorateScheme do
 
     f.buttons
   end
-
-  show do |decorate_scheme|
+  
+  show do |my_project|
     attributes_table do
       row :id
       row :name
       row :order
 
-      decorate_scheme.decorate_scheme_items.each_with_index do |x,index|
+      my_project.my_project_items.each_with_index do |x,index|
         row "#{x.description.blank? ? '未命名':x.description}" do
-          link_to(image_tag(x.path, :width => "500px"), edit_admin_decorate_scheme_path(decorate_scheme.id))
+          link_to(image_tag(x.path, :width => "500px"), edit_admin_my_project_path(my_project.id))
         end
       end
 
@@ -37,7 +37,6 @@ ActiveAdmin.register DecorateScheme do
     end
     active_admin_comments
   end
-
 
   index do
     selectable_column
@@ -50,8 +49,6 @@ ActiveAdmin.register DecorateScheme do
 
     default_actions
   end
-
-
 
 
 end

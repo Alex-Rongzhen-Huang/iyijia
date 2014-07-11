@@ -58,6 +58,9 @@
       quotataion: "报价单"
       decorate_scheme: "装修方案"
       decorate_scheme_item: "装修方案条目"
+      my_project: "工程进展"
+      my_project_item: "工程进展条目"
+
 
     attributes:
       decorate_company:
@@ -80,6 +83,7 @@
         usage: "用途"
         need_to_know: "装修须知"
         decorate_company_id: "装修公司"
+        decorate_company:  "装修公司"
         main_material_brand_ids: "主材品牌"
       color_surface:
         decorate_company: "装修公司"
@@ -95,6 +99,12 @@
         email: "Email"
         address: "待装修房地址"
         notes: "备注信息"
+        budget: "装修预算"
+        house_type: "房型"
+        user: "客户"
+        user_id: "客户"
+        show_house: "样板房"
+        show_house_id : "样板房"
       main_material_brand:
         name: "主材名称"
         logo_path: "主材Logo"
@@ -137,6 +147,17 @@
         quotation_link: "报价单链接"
       decorate_scheme:
         name: "方案名称"
+        order: "对应订单"
       decorate_scheme_item:
         path: "图片"
         description: "描述"
+      my_project:
+        name: "进展名称"
+        order: "对应订单"
+      my_project_item:
+        path: "图片"
+        description: "描述"
+
+
+
+

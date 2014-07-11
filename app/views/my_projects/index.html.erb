@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <% if @my_projects.size == 0 %>
+        <div class="row">
+          <h3 style="padding-left: 20px;">目前没有工程进展，如果您已经提交预约上门测量申请，装修公司更新后会通知您</h3>
+        </div>
+    <% end %>
+
+
+    <% @my_projects.each do |my_project| %>
+        <div class="row">
+          <h3 style="padding-left: 20px;"><%= my_project.name %></h3>
+          
+          <div class="row">
+            <% my_project.my_project_items.each do |x| %>
+              <div class="col-xs-6 col-md-3">
+                  <a href="<%= x.path %>" download class="thumbnail"><img src="<%= x.path %>" style="width: 260px; height: 250px;"></a>
+
+                  <p style="text-align: center"><%= x.description %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+    
+    <div class="row">
+      <div class="span12 info-block">
+        <%= paginate @my_projects %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End row -->
