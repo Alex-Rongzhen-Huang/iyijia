@@ -1,78 +1,80 @@
-
 <div id="home-flexslider" class="clearfix">
   <div class="flexslider">
     <ul class="slides">
-        <%= render 'slides' %>
+      <%= render 'slides' %>
     </ul>
   </div>
 </div><!-- End Slider -->
 
 
 <div class="container contents">
-<div class="row">
-<div class="col-md-12">
-<div class="main">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main">
 
-<section class="property-items">
+        <section class="property-items">
 
-  <div class="col-md-8">
-    <h3>最IN推荐</h3>
+          <div class="col-md-8">
+            <h3>最IN推荐</h3>
 
-    <div class="property-items-container clearfix">
-      <div class="col-md-12 ">
-        <article class="property-item clearfix">
-          <div class="col-xs-6 col-md-4">
-            <a href="<%= show_house_path(1) %>" class="thumbnail" title="">
-              <img src="/images/temp-images/property1.jpg" alt="" title="">
-            </a>
+            <div class="property-items-container clearfix">
+              <% @show_houses.each do |show_house| %>
+                  <div class="col-md-12 ">
+                    <article class="property-item clearfix">
+                      <div class="col-xs-6 col-md-4">
+                        <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="thumbnail">
+                          <% if show_house.show_house_pictures.size == 0 %>
+                              <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
+                          <% else %>
+                              <img src="<%= show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
+                          <% end %>
+                        </a>
+                      </div>
+
+                      <div class="col-xs-6 col-md-8">
+                        <% if show_house.decorate_company.nil? %>
+                            <h5 class="">舒能实业装潢
+                              <small></small>
+                            </h5>
+                        <% else %>
+                            <h5 class=""><%= show_house.decorate_company.name %>
+                              <small></small>
+                            </h5>
+                        <% end %>
+                        <p><%= h truncate(strip_tags(show_house.brief), :length => 500) %> </p>
+
+                      </div>
+
+                      <div class="property-meta">
+                        <span><i class="icon-area"></i><%= show_house.area %>m<sup>2</sup></span>
+                        <span><i class="icon-bed"></i><%= show_house.style %></span>
+                        <span><i class="icon-bath"></i><%= show_house.house_type %>&nbsp;</span>
+                        <span><i class="icon-garage"></i>￥<%= show_house.price %>元</span>
+                      </div>
+                    </article>
+                  </div>
+              <% end %>
+
+            </div>
+            <!-- End .property-items-container -->
+
+
           </div>
 
-          <div class="col-xs-6 col-md-8">
-            <h5 class="">舒能实业装潢<small></small></h5>
-            <p>简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条...</p>
+          <div class="col-md-4">
 
+            <h3 style="">装修学前班</h3>
           </div>
+          <div class="clearfix"></div>
 
-          <div class="property-meta">
-            <span><i class="icon-area"></i>147m<sup>2</sup></span><span><i class="icon-bed"></i>美式</span><span><i class="icon-bath"></i>三室两厅</span><span><i class="icon-garage"></i>￥19000元</span>
-          </div>
-        </article>
+        </section>
+        <!-- End .property-items -->
+
       </div>
-      <div class="col-md-12 ">
-        <article class="property-item clearfix">
-          <div class="col-xs-6 col-md-4">
-            <a href="<%= show_house_path(2) %>" class="thumbnail" title="">
-              <img src="/images/temp-images/property1.jpg" alt="" title="">
-            </a>
-          </div>
-
-          <div class="col-xs-6 col-md-8">
-            <h5 class="">舒能实业装潢<small></small></h5>
-            <p>简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条...</p>
-
-          </div>
-
-          <div class="property-meta">
-            <span><i class="icon-area"></i>147m<sup>2</sup></span><span><i class="icon-bed"></i>美式</span><span><i class="icon-bath"></i>三室两厅</span><span><i class="icon-garage"></i>￥19000元</span>
-          </div>
-        </article>
-      </div>
-
-    </div><!-- End .property-items-container -->
-
-
+      <!-- End .main -->
+    </div>
+    <!-- End span12 -->
   </div>
-
-  <div class="col-md-4">
-
-    <h3 style="">装修学前班</h3>
-  </div>
-  <div class="clearfix"></div>
-
-</section><!-- End .property-items -->
-
-</div><!-- End .main -->
-</div><!-- End span12 -->
-</div><!-- End .row -->
+  <!-- End .row -->
 </div><!-- End .contents -->
 
