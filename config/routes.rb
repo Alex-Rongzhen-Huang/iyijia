@@ -1,44 +1,26 @@
 Iyijia::Application.routes.draw do
-  resources :my_project_items
-
-
+  #resources :my_project_items
   resources :my_projects
-
-
-  resources :decorate_scheme_items
-
-
+  #resources :decorate_scheme_items
   resources :decorate_schemes
+  #resources :quotation_template_items
+  #resources :quotation_templates
+  #resources :construction_items
+  #resources :main_materials
+  #resources :home_image_settings
+  #resources :main_material_brands
+  #resources :color_surfaces
+  resources :show_houses
+  #resources :decorate_companies
+  #resources :show_house_pictures
 
 
   resources :user_profiles
-
-
-  resources :quotation_template_items
-
-
-  resources :quotation_templates
-
-
-  resources :construction_items
-
-
-  resources :main_materials
-
-
-  resources :home_image_settings
-
-
-  resources :main_material_brands
-
-
   get "home/index"
 
   devise_for :users
 
   mount Ckeditor::Engine => '/ckeditor'
-
-  resources :show_house_pictures
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -46,14 +28,8 @@ Iyijia::Application.routes.draw do
 
   resources :orders
 
-
   resources :house_fitments
 
-
-  resources :color_surfaces
-
-
-  resources :show_houses
 
   match '/show_houses/like/:id' => 'show_houses#like'
   match '/show_houses/unlike/:id' => 'show_houses#unlike'
@@ -61,7 +37,7 @@ Iyijia::Application.routes.draw do
   match '/user_admin/pre_order', to: 'user_admin#pre_order', as: :pre_order
   match '/user_admin/old_quotation', to: 'user_admin#old_quotation', as: :old_quotation
 
-  resources :decorate_companies
+
 
 
   # The priority is based upon order of creation:
