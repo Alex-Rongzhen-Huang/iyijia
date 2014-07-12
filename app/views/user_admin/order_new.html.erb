@@ -1,113 +1,132 @@
-<%= form_for(@house_fitment, url: pre_order_path, html: {class: "form-horizontal"}) do |f| %>
-    <% if @house_fitment.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@house_fitment.errors.count, "error") %> prohibited this house_fitment from being
-            saved:</h2>
-
-          <ul>
-            <% @house_fitment.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
+<div style="auto">
+    初始化订单<br/>
+    <div style="float: left">
+    
+    <br/>
+    <br/>
+        订单创建流程简介：<br/><br/>
+        
+        Step1: 填写待装修房信息，预约上门测量 <br/>
+        Step2: 与您取得联系后安排上门测量<br/>
+        Step3: 我们的项目经理负责给您方案及报价<br/>
+        Step4: 确认订单<br/>
+        
+        您可以在订单管理中查看到状态更新
+        Bla,Bla......&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+    
+    </div>
+    <div style="float: left">
+    <%= form_for(@house_fitment, url: pre_order_path, html: {class: "form-horizontal"}) do |f| %>
+        <% if @house_fitment.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@house_fitment.errors.count, "error") %> prohibited this house_fitment from being
+                saved:</h2>
+    
+              <ul>
+                <% @house_fitment.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+    
+        <div class="control-group">
+          <%= f.label :contact, class: "control-label" %>
+          <div class="controls">
+            <%= f.text_field :contact, placeholder: "联系人", value: @user_profile.nickname %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :phone, class: "control-label" %>
+          <div class="controls">
+            <%= f.text_field :phone, placeholder: "联系电话", value: @user_profile.mobile %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :email, class: "control-label" %>
+          <div class="controls">
+            <%= f.text_field :email, placeholder: "Email", value: current_user.email %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :address, class: "control-label" %>
+          <div class="controls">
+            <%= f.text_field :address, placeholder: "待测量房地址" %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :budget, class: "control-label" %>
+          <div class="controls">
+            <%= f.radio_button :budget, '5万以内' %>5万以内
+            <%= f.radio_button :budget, '5万-10万', checked: 'checked' %>5万-10万
+            <%= f.radio_button :budget, '10万-15万' %>10万-15万
+            <%= f.radio_button :budget, '15万以上' %>15万以上
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :house_type, class: "control-label" %>
+          <div class="controls">
+            <%= f.radio_button :house_type, '一房' %>一房
+            <%= f.radio_button :house_type, '二房', checked: 'checked' %>二房
+            <%= f.radio_button :house_type, '三房' %>三房
+            <%= f.radio_button :house_type, '四房' %>四房
+            <%= f.radio_button :house_type, '复式' %>复式
+            <%= f.radio_button :house_type, '别墅' %>别墅
+          </div>
+        </div>
+    
+    
+        <div class="control-group">
+          <%= f.label :show_house_id, class: "control-label" %>
+          <div class="controls">
+            <input type="text" placeholder="看中的样板房" id="show_house_text" readonly="readonly"/>
+            <%= f.text_field :show_house_id, type: 'hidden', id: 'show_house_id' %>
+          </div>
+        </div>
+        <div class="control-group" style="display: none">
+          <%= f.label :user_id, class: "control-label" %>
+          <div class="controls">
+            <%= f.text_field :user_id, value: current_user.id %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :notes, class: "control-label" %>
+          <div class="controls">
+            <%= f.text_area :notes, style: "height:100px", placeholder: "备注信息" %>
+          </div>
+        </div>
+    
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <%= f.submit '提交测量申请', :class => 'btn btn-blue' %>
         </div>
     <% end %>
-
-    <div class="control-group">
-      <%= f.label :contact, class: "control-label" %>
-      <div class="controls">
-        <%= f.text_field :contact, placeholder: "联系人", value: @user_profile.nickname %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :phone, class: "control-label" %>
-      <div class="controls">
-        <%= f.text_field :phone, placeholder: "联系电话", value: @user_profile.mobile %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :email, class: "control-label" %>
-      <div class="controls">
-        <%= f.text_field :email, placeholder: "Email", value: current_user.email %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :address, class: "control-label" %>
-      <div class="controls">
-        <%= f.text_field :address, placeholder: "待测量房地址" %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :budget, class: "control-label" %>
-      <div class="controls">
-        <%= f.radio_button :budget, '5万以内' %>5万以内
-        <%= f.radio_button :budget, '5万-10万', checked: 'checked' %>5万-10万
-        <%= f.radio_button :budget, '10万-15万' %>10万-15万
-        <%= f.radio_button :budget, '15万以上' %>15万以上
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :house_type, class: "control-label" %>
-      <div class="controls">
-        <%= f.radio_button :house_type, '一房' %>一房
-        <%= f.radio_button :house_type, '二房', checked: 'checked' %>二房
-        <%= f.radio_button :house_type, '三房' %>三房
-        <%= f.radio_button :house_type, '四房' %>四房
-        <%= f.radio_button :house_type, '复式' %>复式
-        <%= f.radio_button :house_type, '别墅' %>别墅
-      </div>
-    </div>
-
-
-    <div class="control-group">
-      <%= f.label :show_house_id, class: "control-label" %>
-      <div class="controls">
-        <input type="text" placeholder="看中的样板房" id="show_house_text" readonly="readonly"/>
-        <%= f.text_field :show_house_id, type: 'hidden', id: 'show_house_id' %>
-      </div>
-    </div>
-    <div class="control-group" style="display: none">
-      <%= f.label :user_id, class: "control-label" %>
-      <div class="controls">
-        <%= f.text_field :user_id, value: current_user.id %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :notes, class: "control-label" %>
-      <div class="controls">
-        <%= f.text_area :notes, style: "height:100px", placeholder: "备注信息" %>
-      </div>
-    </div>
-
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-      <%= f.submit '提交测量申请', :class => 'btn btn-blue' %>
-    </div>
-<% end %>
-
-
-<%= form_for(@order) do |f| %>
-    <% if @order.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-          <ul>
-            <% @order.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
+    
+    
+    <%= form_for(@order) do |f| %>
+        <% if @order.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+    
+              <ul>
+                <% @order.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+    
+        <div class="actions">
+          <%= f.submit %>
         </div>
     <% end %>
-
-    <div class="actions">
-      <%= f.submit %>
     </div>
-<% end %>
-
+</div>
 
 
 

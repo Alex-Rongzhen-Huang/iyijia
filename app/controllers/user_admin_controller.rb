@@ -49,6 +49,7 @@ class UserAdminController < ApplicationController
         format.json { render json: @house_fitment.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   def edit_pre_order
