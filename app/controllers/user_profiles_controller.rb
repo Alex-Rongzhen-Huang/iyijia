@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class UserProfilesController < InheritedResources::Base
 
   def index
@@ -27,7 +28,7 @@ class UserProfilesController < InheritedResources::Base
 
     respond_to do |format|
       if @user_profile.update_attributes(params[:user_profile])
-        format.html { redirect_to user_profiles_path, notice: 'User profile was successfully updated.' }
+        format.html { redirect_to user_profiles_path, notice: '用户资料已更新！' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

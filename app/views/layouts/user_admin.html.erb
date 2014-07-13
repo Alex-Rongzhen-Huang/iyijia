@@ -55,7 +55,7 @@
   <div class="col-md-12 ">
     <div class="row">
       <div class="col-md-2">
-        <img src="<%= @user_profile.avatar %>" style="height: 128px;width: 128px">
+        <img src="<%= @user_profile.avatar %>" style="height: 128px;width: 128px" class="img-rounded">
 
       </div>
       <div class="col-md-8">
@@ -107,7 +107,7 @@
           <div class="control-group">
             <%= f.label :avatar, class:"control-label" %>
             <div class="controls">
-              <%= f.text_field :avatar, placeholder:"头像" %>
+              <%= f.file_field :avatar, placeholder:"头像" %>
             </div>
           </div>
           <div class="control-group">
@@ -127,7 +127,7 @@
           <div class="control-group">
             <%= f.label :location, class:"control-label" %>
             <div class="controls">
-              <%= f.text_field :location, placeholder:"区域" %>
+              <%= f.select :location, options_for_select(UserProfile::LOCATIONS), {}, {class:"form-control"} %>
             </div>
           </div>
           <div class="control-group">
