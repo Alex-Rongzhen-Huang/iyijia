@@ -28,6 +28,13 @@ class ShowHouse < ActiveRecord::Base
   scope :area_in, lambda { |from, to| where("area >= ? and area <= ?", from, to) }
   scope :price_in, lambda { |from, to| where("price >= ? and price <= ?", from, to) }
 
+  # 删除关联的记录，防止脏数据残留
+  before_destroy do |show_house|
+     show_house.show_house_main_material_brands.each do |record|
+       record.destroy
+     end
+  end
+
   public
   def house_type
      "#{bedroom}室#{livingroom}厅#{bathroom}卫"
