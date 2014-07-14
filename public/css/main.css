@@ -4122,11 +4122,13 @@ p.error {
   }
 
   #property-detail-flexslider {
-    height: 386px;
+    /*height: 386px;*/
+    height: 683px;
   }
   #property-detail-flexslider .flex-viewport {
     width: 768px;
-    height: 386px;
+    /*height: 386px;*/
+      height: 683px;
   }
   #property-detail-flexslider .flex-control-thumbs li {
     margin-bottom: 7px;
@@ -4137,7 +4139,8 @@ p.error {
     padding: 9px;
   }
   #property-detail-flexslider .jcarousel-clip-vertical {
-    height: 335px;
+    /*height: 335px;*/
+      height: 600px;
   }
   #property-detail-flexslider .jcarousel-next,
   #property-detail-flexslider .jcarousel-prev {
