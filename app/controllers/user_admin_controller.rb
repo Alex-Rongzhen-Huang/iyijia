@@ -23,30 +23,38 @@ class UserAdminController < ApplicationController
   #POST
   def pre_order
     @house_fitment = HouseFitment.new(params[:house_fitment])
-
+        @user_orders = Order.where(:user_id => current_user.id)
+    
     respond_to do |format|
       if @house_fitment.save
-        @order = Order.where(:user_id=>@house_fitment.user_id).limit(1).first()
-        if @order.nil?
-          @order = Order.create(
+        
+        @order = Order.new
+        
+        @order = Order.create(
               :house_fitment_id=>@house_fitment.id,
               :show_house_id=>@house_fitment.show_house_id,
               :user_id=>@house_fitment.user_id,
               :measure_status=>'未测量',
               :quotation_status=>'未报价'
           )
-        else
-          @order.update_attributes(:house_fitment_id=>@house_fitment.id,
-                                   :show_house_id=>@house_fitment.show_house_id,
-                                   :user_id=>@house_fitment.user_id,
-                                   :measure_status=>'未测量',
-                                   :quotation_status=>'未报价')
+        
+        unless @order.save
+          # TODO: Add hints for order save error
         end
-        format.html { redirect_to user_profiles_path, notice: 'House fitment was successfully created.' }
+
+        @user_orders = Order.where(:user_id=>@house_fitment.user_id)
+        #  @order.update_attributes(:house_fitment_id=>@house_fitment.id,
+        #                           :show_house_id=>@house_fitment.show_house_id,
+        #                           :user_id=>@house_fitment.user_id,
+        #                           :measure_status=>'未测量',
+        #                           :quotation_status=>'未报价')
+        
+        format.html { redirect_to user_orders_path, notice: 'House fitment was successfully created.' }
         format.json { render json: @house_fitment, status: :created, location: @house_fitment }
       else
-        format.html { render action: "new" }
-        format.json { render json: @house_fitment.errors, status: :unprocessable_entity }
+        # If save failed, required to input again.
+        # TODO: Add more hints for validation fail
+        format.html { redirect_to order_new_path(@house_fitment.show_house_id) }
       end
     end
 
