@@ -6,10 +6,7 @@ class UserAdminController < ApplicationController
   def order_new
     @show_house = ShowHouse.find(params[:id])
 
-    @user_profile = UserProfile.where(:user_id => current_user.id).first()
-    @user_profile ||= UserProfile.create(:user_id=>current_user.id)
-
-    @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
+    @user_profile = session[:user_profile]
 
     @house_fitment = HouseFitment.new
     @order = Order.new
@@ -69,11 +66,7 @@ class UserAdminController < ApplicationController
   end
 
   def old_quotation
-    @user_profile = UserProfile.where(:user_id => current_user.id).first()
-    @user_profile ||= UserProfile.create(:user_id=>current_user.id)
-
-    @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
-
+    @user_profile = session[:user_profile]
 
     @order = Order.where(:user_id=>current_user.id).limit(1).first()
     @quotation_link = @order.quotation_link

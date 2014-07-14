@@ -55,18 +55,18 @@
   <div class="col-md-12 ">
     <div class="row">
       <div class="col-md-2">
-        <img src="<%= @user_profile.avatar %>" style="height: 128px;width: 128px" class="img-rounded">
+        <img src="<%= session[:user_profile].avatar %>" style="height: 128px;width: 128px" class="img-rounded">
 
       </div>
       <div class="col-md-8">
-        <h3 style="margin-top: 0px"><%= @user_profile.nickname %></h3>
+        <h3 style="margin-top: 0px"><%= session[:user_profile].nickname %></h3>
 
         <p>
-          <%= @user_profile.gender %>  | <i class="glyphicon glyphicon-map-marker">&nbsp;<%= @user_profile.location %></i> <br>
-          <%= @user_profile.mobile %>     <br>
-          <a class="btn-blue" href="<%= edit_user_profile_path(@user_profile) %>" style="display: none;"><i class="glyphicon glyphicon-cog"></i> 设置个人资料</a>
+          <%= session[:user_profile].gender %>  | <i class="glyphicon glyphicon-map-marker">&nbsp;<%= session[:user_profile].location %></i> <br>
+          <%= session[:user_profile].mobile %>     <br>
+          <a class="btn-blue" href="<%= edit_user_profile_path(session[:user_profile]) %>" style="display: none;"><i class="glyphicon glyphicon-cog"></i> 设置个人资料</a>
           <!-- Button to trigger modal -->
-          <a href="#myModal" role="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-cog"></i> 设置个人资料</a>
+          <a href="#myModal" role="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-cog"></i> 设置个人资料</a>
 
           <!--
           <a class="btn" href="#"><i class="glyphicon glyphicon-heart"></i> 样板房收藏夹</a>
@@ -75,10 +75,9 @@
 
       </div>
       <div class="col-md-2"></div>
-
     </div>
   </div>
-  <!-- End span12 -->
+  <div class="col-md-12 " style="padding-bottom: 20px;"></div>
 
 </div>
 <!-- End row -->

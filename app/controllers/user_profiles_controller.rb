@@ -2,11 +2,7 @@
 class UserProfilesController < InheritedResources::Base
 
   def index
-
-    @user_profile = UserProfile.where(:user_id => current_user.id).first()
-    @user_profile ||= UserProfile.create(:user_id=>current_user.id)
-
-    @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
+    @user_profile ||= session[:user_profile]
 
     @show_houses = current_user.votes.up.for_type(ShowHouse).votables
     @show_houses = Kaminari.paginate_array(@show_houses).page(params[:page]).per(2)
@@ -28,6 +24,7 @@ class UserProfilesController < InheritedResources::Base
 
     respond_to do |format|
       if @user_profile.update_attributes(params[:user_profile])
+        session[:user_profile] = @user_profile
         format.html { redirect_to user_profiles_path, notice: '用户资料已更新！' }
         format.json { head :no_content }
       else
