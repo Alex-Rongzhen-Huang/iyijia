@@ -5,11 +5,11 @@ class ShowHouse < ActiveRecord::Base
   belongs_to :decorate_company
   attr_accessible :decorate_company_id
 
-  has_many :show_house_pictures
-  accepts_nested_attributes_for :show_house_pictures
+  has_many :show_house_pictures,  :dependent => :destroy
+  accepts_nested_attributes_for :show_house_pictures, allow_destroy: true
   attr_accessible :show_house_pictures_attributes
 
-  has_many :show_house_main_material_brands
+  has_many :show_house_main_material_brands,  :dependent => :destroy
   has_many :main_material_brands, :through => :show_house_main_material_brands
   attr_accessible :main_material_brand_ids
 
@@ -27,13 +27,6 @@ class ShowHouse < ActiveRecord::Base
   scope :usage_as, lambda { |usage| where("usage = ?", usage) }
   scope :area_in, lambda { |from, to| where("area >= ? and area <= ?", from, to) }
   scope :price_in, lambda { |from, to| where("price >= ? and price <= ?", from, to) }
-
-  # 删除关联的记录，防止脏数据残留
-  before_destroy do |show_house|
-     show_house.show_house_main_material_brands.each do |record|
-       record.destroy
-     end
-  end
 
   public
   def house_type
