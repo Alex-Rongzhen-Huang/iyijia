@@ -67,7 +67,7 @@
       <%= f.label :show_house_id, class: "control-label" %>
       <div class="controls">
         <input type="text" placeholder="看中的样板房" id="show_house_text" readonly="readonly"/>
-        <%= f.text_field :show_house_id, type: 'hidden', id: 'show_house_id' %>
+        <%= f.text_field :show_house_id, type: 'hidden', id: 'show_house_id', value: params[:id] %>
       </div>
     </div>
     <div class="control-group" style="display: none">

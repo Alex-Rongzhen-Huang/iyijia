@@ -23,6 +23,7 @@ class UserAdminController < ApplicationController
   #POST
   def pre_order
     @house_fitment = HouseFitment.new(params[:house_fitment])
+    puts   params[:house_fitment]
 
     respond_to do |format|
       if @house_fitment.save
@@ -45,7 +46,7 @@ class UserAdminController < ApplicationController
         format.html { redirect_to user_profiles_path, notice: 'House fitment was successfully created.' }
         format.json { render json: @house_fitment, status: :created, location: @house_fitment }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to order_new_path(@house_fitment.show_house_id) }
         format.json { render json: @house_fitment.errors, status: :unprocessable_entity }
       end
     end
