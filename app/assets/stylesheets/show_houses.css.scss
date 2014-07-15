@@ -39,6 +39,17 @@ $header-background-color: #161a36;
 #overview .property-item .decorate-company .lowest-price{
   float: right;
 }
+/*********************************************/
+/* 样板房展示页面自定义的样式                     */
+/*********************************************/
+#overview .property-item .title {
+  float: left;
+  margin-bottom: 0;
+  padding: 0 0 0 16px;
+  font-size: 24px;
+  line-height: 40px;
+}
+
 /* flexslider style*/
 #property-detail-flexslider .flexslider .slides img {
   margin: 0 auto;

@@ -17,16 +17,17 @@
 
         <div class="wrap clearfix">
           <h4 class="title"><%= @show_house.title %></h4>
-          <h4 class="area"><%= @show_house.area %>m<sup>2</sup></h4>
+          <h4 class="area"><%= @show_house.area %>m<sup>2</sup> &nbsp; <%= @show_house.house_type %></h4>
           <h4 class="lowest-price">￥ <%= @show_house.price %>元起</h4>
           <h5 class="price">
-            <span class="status-label">
+            <span class="status-label" style="display: none;">
                <%= @show_house.house_type %>
             </span>
             <span>
                <%= @show_house.style %></small>
             </span>
           </h5>
+          &nbsp;
           <% if current_user %>
 
               <a class="btn btn-blue" id="show-house-dislike" href="#" style="<%= (current_user.voted_up_on? @show_house)?'':'display:none;' %>"><i class="icon-heart" style="color: red"></i>&nbsp;&nbsp;取消收藏</a>
@@ -47,8 +48,8 @@
         </div>
 
         <div class="wrap clearfix" style="margin: -16px 0px 0px 0px;padding: 0px 16px;">  <%# TODO: fix style %>
-          <p><%=@show_house.brief.html_safe unless @show_house.brief.nil? %></p>
-
+          <div class="col-sm-12 col-md-8 col-lg-7" style="padding-left: 0px"><%=@show_house.brief.html_safe unless @show_house.brief.nil? %></div>
+          <div class="clearfix"></div>
           <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
           <div class="bdsharebuttonbox" style="display: inline-block;float: right;"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
 
@@ -131,12 +132,12 @@
           <span class="printer-icon"><a href="javascript:window.print()">Print this page</a></span>
         </div>
 
-        <ul class="nav nav-tabs">
-          <li><a href="#show-house-overview" data-toggle="tab"><i class="glyphicon glyphicon-adjust"></i>概述&nbsp;</a></li>
-          <li><a href="#show-house-progress" data-toggle="tab"><i class="glyphicon glyphicon-bell"></i>施工进程&nbsp;</a></li>
-          <li><a href="#show-house-price" data-toggle="tab"><i class="glyphicon glyphicon-paper-clip"></i>装修报价&nbsp;</a></li>
-          <li><a href="#show-house-need-to-know" data-toggle="tab"><i class="glyphicon glyphicon-inbox"></i>装修须知&nbsp;</a></li>
-          <li style="margin-left: 53%"><a href="javascript:window.print()"><i class="glyphicon glyphicon-print"></i>打印报价单</a></li>
+        <ul class="nav nav-tabs" role="tablist">
+          <li><a href="#show-house-overview" data-toggle="tab"><i class="glyphicon glyphicon-adjust"></i>&nbsp;概述&nbsp;</a></li>
+          <li><a href="#show-house-progress" data-toggle="tab"><i class="glyphicon glyphicon-bell"></i>&nbsp;施工进程&nbsp;</a></li>
+          <li><a href="#show-house-price" data-toggle="tab"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;装修报价&nbsp;</a></li>
+          <li><a href="#show-house-need-to-know" data-toggle="tab"><i class="glyphicon glyphicon-inbox"></i>&nbsp;装修须知&nbsp;</a></li>
+          <li style="float: right;"><a href="javascript:window.print()"><i class="glyphicon glyphicon-print"></i>&nbsp;打印报价单</a></li>
         </ul>
 
         <div class="tab-content">
