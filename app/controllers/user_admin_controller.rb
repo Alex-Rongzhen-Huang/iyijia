@@ -2,7 +2,40 @@
 class UserAdminController < ApplicationController
 
   before_filter :authenticate_user!
+  
+  def favorites
+    @user_profile = UserProfile.where(:user_id => current_user.id).first()
+    @user_profile ||= UserProfile.create(:user_id=>current_user.id)
 
+    @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
+
+    @show_houses = current_user.votes.up.for_type(ShowHouse).votables
+    @show_houses = Kaminari.paginate_array(@show_houses).page(params[:page]).per(8)
+
+    respond_to do |format|
+      format.html { render :layout => 'user_admin'}# index.html.erb
+      format.json { render json: @favorites }
+    end
+  end
+  
+  def like
+    @show_house = ShowHouse.find(params[:id])
+    @show_house.liked_by current_user
+
+    respond_to do |format|
+      format.json { render json: @show_house }
+    end
+  end
+
+  def unlike
+    @show_house = ShowHouse.find(params[:id])
+    @show_house.downvote_from current_user
+
+    respond_to do |format|
+      format.json { render json: @show_house }
+    end
+  end
+  
   def order_new
     @user_profile = UserProfile.where(:user_id => current_user.id).first()
     @user_profile ||= UserProfile.create(:user_id=>current_user.id)

@@ -60,6 +60,7 @@ Iyijia::Application.routes.draw do
   match '/user_admin/order/new', to: 'user_admin#order_new', as: :order_new
   match '/user_admin/pre_order', to: 'user_admin#pre_order', as: :pre_order
   match '/user_admin/old_quotation', to: 'user_admin#old_quotation', as: :old_quotation
+  match '/user_admin/favorites', to: 'user_admin#favorites', as: :favorites
 
   resources :decorate_companies
 

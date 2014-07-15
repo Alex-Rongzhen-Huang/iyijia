@@ -176,10 +176,10 @@
             <ul class="nav navbar-nav" style="width: 100%">
               <li <%=  (request.fullpath=~ /\/user_profiles.*/)? 'class="active"'.html_safe():''  %> style="width: 16%"><a href="<%= user_profiles_path %>"><span>我的订单</span></a></li>
               <li <%=  (request.fullpath=~ /\/decorate_schemes.*/)? 'class="active"'.html_safe():''  %> style="width: 16%"><a href="<%= decorate_schemes_path %>"><span>装修方案</span></a></li>
-              <li <%=  (request.fullpath=~ /\/user_admin.*/)? 'class="active"'.html_safe():''  %> style="width: 16%"><a href="<%= old_quotation_path %>"><span>装修报价单</span></a></li>
+              <li <%=  (request.fullpath=~ /\/user_admin\/old_quotation.*/)? 'class="active"'.html_safe():''  %> style="width: 16%"><a href="<%= old_quotation_path %>"><span>装修报价单</span></a></li>
               <li <%=  (request.fullpath=~ /\/my_projects.*/)? 'class="active"'.html_safe():''  %> style="width: 16%"><a href="<%= my_projects_path %>"><span>我家的工程</span></a></li>
               <li style="width: 16%"><a href="#"><span>我的帖子</span></a></li>
-              <li <%=  (request.fullpath=~ /\/user_admin\/favorites.*/)? 'class="active"'.html_safe():''  %> style="width: 20%"><a href="<%= user_profiles_path %>"><span>样板房收藏夹</span></a></li>
+              <li <%=  (request.fullpath=~ /\/user_admin\/favorites.*/)? 'class="active"'.html_safe():''  %> style="width: 20%"><a href="<%= favorites_path %>"><span>样板房收藏夹</span></a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>
