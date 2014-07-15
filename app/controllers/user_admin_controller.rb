@@ -21,13 +21,15 @@ class UserAdminController < ApplicationController
   end
   
   def user_orders
-    @house_fitment = HouseFitment.new(params[:house_fitment])
-    @user_orders = Order.where(:user_id=>@house_fitment.user_id)
-    
+    @user_orders = Order.where(:user_id=>current_user.id)
+
     @user_profile = UserProfile.where(:user_id => current_user.id).first()
     @user_profile ||= UserProfile.create(:user_id=>current_user.id)
-
     @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
+
+    @house_fitment = HouseFitment
+    
+    @show_house = ShowHouse
     
     respond_to do |format|
       format.html # user_orders.html.erb
