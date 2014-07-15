@@ -41,7 +41,9 @@ $header-background-color: #161a36;
 }
 /* flexslider style*/
 #property-detail-flexslider .flexslider .slides img {
-  width: 1024px;
+  margin: 0 auto;
+  max-width: 1024px;
+  max-height: 683px;
 }
 #property-detail-flexslider .flex-viewport {
   width: 1024px;
