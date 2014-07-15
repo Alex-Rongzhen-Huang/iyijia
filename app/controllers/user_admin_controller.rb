@@ -19,6 +19,22 @@ class UserAdminController < ApplicationController
       format.json { render json: @house_fitment }
     end
   end
+  
+  def user_orders
+    @house_fitment = HouseFitment.new(params[:house_fitment])
+    @user_orders = Order.where(:user_id=>@house_fitment.user_id)
+    
+    @user_profile = UserProfile.where(:user_id => current_user.id).first()
+    @user_profile ||= UserProfile.create(:user_id=>current_user.id)
+
+    @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
+    
+    respond_to do |format|
+      format.html # user_orders.html.erb
+      format.json { render json: @user_orders }
+    end
+    
+  end
 
   #POST
   def pre_order
@@ -41,8 +57,7 @@ class UserAdminController < ApplicationController
         unless @order.save
           # TODO: Add hints for order save error
         end
-
-        @user_orders = Order.where(:user_id=>@house_fitment.user_id)
+        
         #  @order.update_attributes(:house_fitment_id=>@house_fitment.id,
         #                           :show_house_id=>@house_fitment.show_house_id,
         #                           :user_id=>@house_fitment.user_id,
