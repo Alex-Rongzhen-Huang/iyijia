@@ -25,6 +25,13 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.instance_of? User
+      # store user_profile to session
+      @user_profile = UserProfile.where(:user_id => current_user.id).first()
+      @user_profile ||= UserProfile.create(:user_id=>current_user.id)
+      @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
+      session[:user_profile] = @user_profile
+      puts session[:user_profile]
+
       session[:previous_url] || user_profiles_path # can change to customized path like user info stuff
     elsif resource.instance_of? AdminUser
       admin_dashboard_path

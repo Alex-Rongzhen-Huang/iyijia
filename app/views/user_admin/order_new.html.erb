@@ -33,14 +33,14 @@
         <div class="control-group">
           <%= f.label :contact, class: "control-label" %>
           <div class="controls">
-            <%= f.text_field :contact, placeholder: "联系人", value: @user_profile.nickname %>
+            <%= f.text_field :contact, placeholder: "联系人", value: session[:user_profile].nickname %>
           </div>
         </div>
     
         <div class="control-group">
           <%= f.label :phone, class: "control-label" %>
           <div class="controls">
-            <%= f.text_field :phone, placeholder: "联系电话", value: @user_profile.mobile %>
+            <%= f.text_field :phone, placeholder: "联系电话", value: session[:user_profile].mobile %>
           </div>
         </div>
     
@@ -85,7 +85,7 @@
           <%= f.label :show_house_id, class: "control-label" %>
           <div class="controls">
             <input type="text" placeholder="看中的样板房" id="show_house_text" readonly="readonly" value = <%= params[:id]%> />
-            <%= f.text_field :show_house_id, type: 'hidden', id: 'show_house_id', :value =>params[:id] %>
+              <%= f.text_field :show_house_id, type: 'hidden', id: 'show_house_id', :value =>params[:id] %>
           </div>
         </div>
         <div class="control-group" style="display: none">

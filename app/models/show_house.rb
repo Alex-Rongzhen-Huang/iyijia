@@ -5,22 +5,21 @@ class ShowHouse < ActiveRecord::Base
   belongs_to :decorate_company
   attr_accessible :decorate_company_id
 
-  has_many :show_house_pictures
-  accepts_nested_attributes_for :show_house_pictures
+  has_many :show_house_pictures,  :dependent => :destroy
+  accepts_nested_attributes_for :show_house_pictures, allow_destroy: true
   attr_accessible :show_house_pictures_attributes
 
-  has_many :show_house_main_material_brands
+  has_many :show_house_main_material_brands,  :dependent => :destroy
   has_many :main_material_brands, :through => :show_house_main_material_brands
   attr_accessible :main_material_brand_ids
 
   validates :area, :brief, :price, :style, :usage, :title, :bedroom, :livingroom, :bathroom, :presence => true
-  validates_associated :show_house_pictures
 
 
   acts_as_votable
 
   HOUSE_TYPES = %w[一室一厅一卫 两室一厅一卫 两室两厅一卫 两室两厅两卫 三室一厅一卫 三室两厅一卫 三室两厅两卫 其他豪宅]
-  STYLE_TYPES = %w[现代简约 田园风格 地中海风格 欧式风格 美式风格 中式风格 ]
+  STYLE_TYPES = %w[现代简约 田园风格 现代奢华 欧式风格 美式风格 中式风格 ]
   USAGE_TYPES = %w[住宅 商业 ]
   ROOM_TYPES =  %w[一 二 三 四 五 六 七 八 九]
 

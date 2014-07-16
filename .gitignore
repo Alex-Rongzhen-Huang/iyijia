@@ -15,6 +15,7 @@
 /tmp
 
 public/uploads/**
+**.bak
 
 # ignore compiled assets by default
 public/assets/**

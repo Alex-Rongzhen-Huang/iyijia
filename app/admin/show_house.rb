@@ -118,12 +118,11 @@ ActiveAdmin.register ShowHouse do
     column :decorate_company
     column :house_type
     column :area
-    column :brief
+
     column :price
     column :style
     column :usage
 
-    column :created_at
     column :updated_at
 
     default_actions

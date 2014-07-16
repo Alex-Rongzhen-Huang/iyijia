@@ -5,5 +5,5 @@ class DecorateSchemeItem < ActiveRecord::Base
   require 'carrierwave/orm/activerecord'
   mount_uploader :path, ImageUploader
 
-  validates :description, :path, :presence => true
+  validates :path, :presence => true
 end

@@ -2,29 +2,36 @@
               <h2 style="text-align: center">注册</h2>
 
               <%= devise_error_messages! %>
+              
+    <div>
+    	 <br>
+    	 <br>
+    </div>
 
-
-              <div class="control-group">
-                <label class="control-label" for="inputEmail">邮箱</label>
-                <div class="controls">
-                  <%= f.email_field :email, autofocus: true %></div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="inputEmail">邮箱</label>
+                  <div class="col-sm-8">
+                    <%= f.email_field :email, autofocus: true, placeholder: 'Email', class: "form-control" %>
+                  </div>
               </div>
 
-              <div class="control-group">
-                <label class="control-label" for="inputPassword">密码</label>
-                <div class="controls">
-                  <%= f.password_field :password, autocomplete: "off" %></div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="inputPassword">密码</label>
+                  <div class="col-sm-8">
+                    <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: "form-control" %>
+                  </div>
               </div>
 
-              <div class="control-group">
-                <label class="control-label" for="inputPassword">确认密码</label>
-                <div class="controls">
-                  <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="inputPassword">确认密码</label>
+                  <div class="col-sm-8">
+                    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password', class: "form-control" %>
+                  </div>
               </div>
 
-              <div class="control-group">
-                <div class="controls">
-                  <button type="submit" class="btn">注册</button>
+              <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                  <button type="submit" class="btn btn btn-primary">注册</button>
                 </div>
               </div>
           <% end %>
