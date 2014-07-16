@@ -4,10 +4,7 @@ class UserAdminController < ApplicationController
   before_filter :authenticate_user!
   
   def favorites
-    @user_profile = UserProfile.where(:user_id => current_user.id).first()
-    @user_profile ||= UserProfile.create(:user_id=>current_user.id)
-
-    @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
+    @user_profile = session[:user_profile]
 
     @show_houses = current_user.votes.up.for_type(ShowHouse).votables
     @show_houses = Kaminari.paginate_array(@show_houses).page(params[:page]).per(8)
@@ -38,7 +35,6 @@ class UserAdminController < ApplicationController
   
   def order_new
     @show_house = ShowHouse.find(params[:id])
-
     @user_profile = session[:user_profile]
 
     @house_fitment = HouseFitment.new
@@ -126,7 +122,7 @@ class UserAdminController < ApplicationController
     @user_profile = session[:user_profile]
 
     @order = Order.where(:user_id=>current_user.id).limit(1).first()
-    @quotation_link = @order.quotation_link
+    @quotation_link = @order.quotation_link unless @order.nil?
     @quotation_link ||= 'http://21jia.net/index.php'
 
     respond_to do |format|
