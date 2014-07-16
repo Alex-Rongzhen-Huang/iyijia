@@ -2,14 +2,44 @@
 class UserAdminController < ApplicationController
 
   before_filter :authenticate_user!
-
-  def order_new
-    @show_house = ShowHouse.find(params[:id])
-
+  
+  def favorites
     @user_profile = UserProfile.where(:user_id => current_user.id).first()
     @user_profile ||= UserProfile.create(:user_id=>current_user.id)
 
     @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
+
+    @show_houses = current_user.votes.up.for_type(ShowHouse).votables
+    @show_houses = Kaminari.paginate_array(@show_houses).page(params[:page]).per(8)
+
+    respond_to do |format|
+      format.html { render :layout => 'user_admin'}# index.html.erb
+      format.json { render json: @favorites }
+    end
+  end
+  
+  def like
+    @show_house = ShowHouse.find(params[:id])
+    @show_house.liked_by current_user
+
+    respond_to do |format|
+      format.json { render json: @show_house }
+    end
+  end
+
+  def unlike
+    @show_house = ShowHouse.find(params[:id])
+    @show_house.downvote_from current_user
+
+    respond_to do |format|
+      format.json { render json: @show_house }
+    end
+  end
+  
+  def order_new
+    @show_house = ShowHouse.find(params[:id])
+
+    @user_profile = session[:user_profile]
 
     @house_fitment = HouseFitment.new
     @order = Order.new
@@ -41,7 +71,8 @@ class UserAdminController < ApplicationController
   #POST
   def pre_order
     @house_fitment = HouseFitment.new(params[:house_fitment])
-        @user_orders = Order.where(:user_id => current_user.id)
+    puts   params[:house_fitment]
+    @user_orders = Order.where(:user_id => current_user.id)
     
     respond_to do |format|
       if @house_fitment.save
@@ -94,11 +125,7 @@ class UserAdminController < ApplicationController
   end
 
   def old_quotation
-    @user_profile = UserProfile.where(:user_id => current_user.id).first()
-    @user_profile ||= UserProfile.create(:user_id=>current_user.id)
-
-    @user_profile.avatar = "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(current_user.email)+"?d=retro" unless @user_profile.avatar.blank?
-
+    @user_profile = session[:user_profile]
 
     @order = Order.where(:user_id=>current_user.id).limit(1).first()
     @quotation_link = @order.quotation_link

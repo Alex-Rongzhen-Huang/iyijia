@@ -3,42 +3,21 @@
   <h3 class="title-heading">列表视图</h3>
 
   <div class="view-type clearfix">
-    <a class="list active" ></a>
-    <a class="grid" ></a>
+    <a class="list active"></a>
+    <a class="grid"></a>
   </div>
 
   <div class="row">
     <div class="col-md-12" style="height: 20px;"></div>
 
-    <div class="col-md-6 ">
-      <article class="property-item clearfix">
 
-        <h4><a href="#" title="15421 Southwest 39th Terrace">15421 Southwest 39th Terrace</a></h4>
-
-        <div class="col-xs-6 col-md-4">
-          <a href="#" title="15421 Southwest 39th Terrace" class="thumbnail">
-            <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
-          </a>
-          
-        </div>
-
-        <div class="col-xs-6 col-md-8">
-          <h5 class="">舒能实业装潢<small></small></h5>
-          <p>三室两厅 | 美式 | 147m<sup>2</sup> | ￥19000元</p><p>简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条，简单粗旷的线条...</p>
-
-        </div>
-
-        <div class="property-meta">
-          <span><i class="icon-area"></i>2800 sq ft&nbsp;</span><span><i class="icon-bed"></i>2&nbsp;Bedrooms</span><span><i class="icon-bath"></i>3&nbsp;Bathrooms</span><span><i class="icon-garage"></i>2&nbsp;Garages</span>
-        </div>
-
-      </article>
-    </div>
     <% @show_houses.each do |show_house| %>
         <div class="col-md-6 ">
           <article class="property-item clearfix">
 
-            <h4><a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>"><%= show_house.title %></a></h4>
+            <h4>
+              <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>"><%= show_house.title %></a>
+            </h4>
 
             <div class="col-xs-6 col-md-4">
               <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="thumbnail">
@@ -48,7 +27,7 @@
                     <img src="<%= show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
                 <% end %>
               </a>
-              
+
             </div>
 
             <div class="col-xs-6 col-md-8">
@@ -58,9 +37,10 @@
                   </h5>
               <% else %>
                   <h5 class=""><%= show_house.decorate_company.name %>
-                    <small></small></h5>
+                    <small></small>
+                  </h5>
               <% end %>
-              <p><%=h truncate(strip_tags(show_house.brief), :length => 500) %> </p>
+              <p><%= h truncate(strip_tags(show_house.brief), :length => 500) %> </p>
             </div>
 
             <div class="property-meta">
@@ -75,6 +55,6 @@
 
   </div>
 
-    <%= paginate @show_houses %>
+  <%= paginate @show_houses %>
 </section>
      
