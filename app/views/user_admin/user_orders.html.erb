@@ -13,18 +13,18 @@
         <div class="row">
           <div class="col-md-4" style="padding-left: 20px;padding-bottom: 20px;">
 
-            <a href="<%= show_house_path(each_order.show_house_id) %>" title="<%= @show_house.find(each_order.show_house_id).title %>" class="thumbnail">
-              <% if @show_house.find(each_order.show_house_id).show_house_pictures.size == 0 %>
+            <a href="<%= show_house_path(each_order.show_house_id) %>" title="<%= each_order.show_house.title %>" class="thumbnail">
+              <% if each_order.show_house.show_house_pictures.size == 0 %>
                   <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
               <% else %>
-                  <img src="<%= @show_house.find(each_order.show_house_id).show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" 
-                  alt="<%= @show_house.find(each_order.show_house_id).show_house_pictures.first.brief %>" title="<%= @show_house.find(each_order.show_house_id).show_house_pictures.first.brief %>">
+                  <img src="<%= each_order.show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" 
+                  alt="<%= each_order.show_house.show_house_pictures.first.brief %>" title="<%= each_order.show_house.show_house_pictures.first.brief %>">
               <% end %>
             </a>
           </div>
           <div class="col-md-8">
-            <p id="hidden_show_house_text"><%= @show_house.find(each_order.show_house_id).title %> - <%= @show_house.find(each_order.show_house_id).style %><br/></p>
-            <input type="hidden" id="hidden_show_house_id" value="<%= @show_house.find(each_order.show_house_id).id %>">
+            <p id="hidden_show_house_text"><%= each_order.show_house.title %> - <%= each_order.show_house.style %><br/></p>
+            <input type="hidden" id="hidden_show_house_id" value="<%= each_order.show_house.id %>">
           </div>
           <div class="col-md-8">
               <p id="hidden_show_house_text"><%= HouseFitment.find(each_order.house_fitment_id).address %><br/></p>

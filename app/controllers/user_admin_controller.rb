@@ -50,11 +50,7 @@ class UserAdminController < ApplicationController
     @user_orders = Order.where(:user_id=>current_user.id)
 
     @user_profile = session[:user_profile]
-    
-    @house_fitment = HouseFitment
-    
-    @show_house = ShowHouse
-    
+  
     respond_to do |format|
       format.html # user_orders.html.erb
       format.json { render json: @user_orders }
