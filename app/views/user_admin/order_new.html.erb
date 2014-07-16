@@ -1,4 +1,4 @@
-<div style="auto">
+<div class="auto">
     初始化订单<br/>
     <div style="float: left">
     
@@ -84,8 +84,17 @@
         <div class="control-group">
           <%= f.label :show_house_id, class: "control-label" %>
           <div class="controls">
-            <input type="text" placeholder="看中的样板房" id="show_house_text" readonly="readonly" value = <%= params[:id]%> />
+            <input type="text" placeholder="看中的样板房" id="show_house_text" readonly="readonly" value = <%= @show_house.title %> />
               <%= f.text_field :show_house_id, type: 'hidden', id: 'show_house_id', :value =>params[:id] %>
+
+            <a href="<%= show_house_path(@show_house.id) %>" title="<%= @show_house.title %>" class="thumbnail">
+              <% if @show_house.show_house_pictures.size == 0 %>
+                  <img src="images/temp-images/property1.jpg" style="max-width: 260px; max-height: 250px;">
+              <% else %>
+                  <img src="<%= @show_house.show_house_pictures.first.path %>" style="max-width: 260px; max-height: 250px;">
+              <% end %>
+            </a>
+
           </div>
         </div>
         <div class="control-group" style="display: none">
@@ -108,23 +117,7 @@
     <% end %>
     
     
-    <%= form_for(@order) do |f| %>
-        <% if @order.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-    
-              <ul>
-                <% @order.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
-    
-        <div class="actions">
-          <%= f.submit %>
-        </div>
-    <% end %>
+
     </div>
 </div>
 
