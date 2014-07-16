@@ -50,6 +50,15 @@ $header-background-color: #161a36;
   line-height: 40px;
 }
 
+#property-detail-flexslider .jcarousel-prev {
+  background: url(../images/slideshow-nav-left.png) #141616 no-repeat center 6px;
+  float: left;
+}
+#property-detail-flexslider .jcarousel-next {
+  background: url(../images/slideshow-nav-right.png) #141616 no-repeat center 6px;
+  float: right;
+}
+
 /* flexslider style*/
 #property-detail-flexslider .flexslider .slides img {
   margin: 0 auto;
