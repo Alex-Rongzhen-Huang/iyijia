@@ -1,21 +1,21 @@
 <div class="auto">
-    初始化订单<br/>
-    <div style="float: left">
+    
+    <div class="col-md-4">
     
     <br/>
     <br/>
-        订单创建流程简介：<br/><br/>
-        
-        Step1: 填写待装修房信息，预约上门测量 <br/>
-        Step2: 与您取得联系后安排上门测量<br/>
-        Step3: 我们的项目经理负责给您方案及报价<br/>
-        Step4: 确认订单<br/>
-        
-        您可以在订单管理中查看到状态更新
-        Bla,Bla......&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+        订单创建流程简介：<br/>
+        <br/>
+        步骤1: 填写待装修房信息，预约上门测量 <br/>
+        步骤2: 与您取得联系后安排上门测量<br/>
+        步骤3: 我们的项目经理负责给您方案及报价<br/>
+        步骤4: 确认订单<br/>
+        <br/>
+        您可以在"我的订单"中查看到状态更新
+        <br/>
     
     </div>
-    <div style="float: left">
+    <div class="col-md-8">
     <%= form_for(@house_fitment, url: pre_order_path, html: {class: "form-horizontal"}) do |f| %>
         <% if @house_fitment.errors.any? %>
             <div id="error_explanation">
@@ -84,7 +84,7 @@
         <div class="control-group">
           <%= f.label :show_house_id, class: "control-label" %>
           <div class="controls">
-            <input type="text" placeholder="看中的样板房" id="show_house_text" readonly="readonly" value = <%= @show_house.title %> />
+            <input type="text" placeholder="看中的样板房" id="show_house_text" readonly="readonly" value="<%= @show_house.title %>" />
               <%= f.text_field :show_house_id, type: 'hidden', id: 'show_house_id', :value =>params[:id] %>
 
             <a href="<%= show_house_path(@show_house.id) %>" title="<%= @show_house.title %>" class="thumbnail">
