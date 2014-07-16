@@ -11,7 +11,7 @@
     
     <% @user_orders.each do |each_order| %>
         <div class="row">
-          <div class="col-md-4" style="padding-left: 20px;padding-bottom: 20px;">
+          <div class="col-md-2" style="padding-left: 20px;padding-bottom: 20px;">
 
             <a href="<%= show_house_path(each_order.show_house_id) %>" title="<%= each_order.show_house.title %>" class="thumbnail">
               <% if each_order.show_house.show_house_pictures.size == 0 %>
@@ -22,23 +22,28 @@
               <% end %>
             </a>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-2">
             <p id="hidden_show_house_text"><%= each_order.show_house.title %> - <%= each_order.show_house.style %><br/></p>
             <input type="hidden" id="hidden_show_house_id" value="<%= each_order.show_house.id %>">
           </div>
-          <div class="col-md-8">
-              <p id="hidden_show_house_text"><%= HouseFitment.find(each_order.house_fitment_id).address %><br/></p>
+          <div class="col-md-4">
+              <p id="hidden_show_house_text"><%= each_order.house_fitment.address %><br/></p>
               
               <button class="btn btn-orange pre-order-link" data-toggle="modal" data-target="#myModal2">
                 更新待装修房信息
               </button>
               
           </div>
-          <div class="col-md-8">
-              <p><br/><%= each_order.measure_status %><br/></p>
+          <div class="col-md-2">
+              <span class= "<%= each_order.measure_status == "未测量" ? "label label-default" : "label label-success" %>">
+                <%= each_order.measure_status %>
+              </span>
+              
           </div>
-          <div class="col-md-8">
-              <p><%= each_order.quotation_status %><br/></p>
+          <div class="col-md-2">
+              <span class= "<%= each_order.quotation_status == "未报价" ? "label label-default" : "label label-success" %>">
+                <%= each_order.quotation_status %>
+              </span>
           </div>              
 
         </div>
