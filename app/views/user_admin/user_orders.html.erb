@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-12">
+    <% if @user_orders.size == 0 %>
+        <div class="row">
+          <div class="col-md-12">
+            <span>目前没有订单，可以先到样板房中看看有没有中意的哦~</span>
+          </div>
+        </div>
+        <hr/>
+    <% end %>
+    
+    <% @user_orders.each do |each_order| %>
+        <div class="row">
+          <div class="col-md-4" style="padding-left: 20px;padding-bottom: 20px;">
+
+            <a href="<%= show_house_path(each_order.show_house_id) %>" title="<%= @show_house.find(each_order.show_house_id).title %>" class="thumbnail">
+              <% if @show_house.find(each_order.show_house_id).show_house_pictures.size == 0 %>
+                  <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
+              <% else %>
+                  <img src="<%= @show_house.find(each_order.show_house_id).show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" 
+                  alt="<%= @show_house.find(each_order.show_house_id).show_house_pictures.first.brief %>" title="<%= @show_house.find(each_order.show_house_id).show_house_pictures.first.brief %>">
+              <% end %>
+            </a>
+          </div>
+          <div class="col-md-8">
+            <p id="hidden_show_house_text"><%= @show_house.find(each_order.show_house_id).title %> - <%= @show_house.find(each_order.show_house_id).style %><br/></p>
+            <input type="hidden" id="hidden_show_house_id" value="<%= @show_house.find(each_order.show_house_id).id %>">
+          </div>
+          <div class="col-md-8">
+              <p id="hidden_show_house_text"><%= HouseFitment.find(each_order.house_fitment_id).address %><br/></p>
+              
+              <button class="btn btn-orange pre-order-link" data-toggle="modal" data-target="#myModal2">
+                更新待装修房信息
+              </button>
+              
+          </div>
+          <div class="col-md-8">
+              <p><br/><%= each_order.measure_status %><br/></p>
+          </div>
+          <div class="col-md-8">
+              <p><%= each_order.quotation_status %><br/></p>
+          </div>              
+
+        </div>
+    <% end %>
+  </div>
