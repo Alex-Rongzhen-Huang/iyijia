@@ -3,7 +3,11 @@ class MyProjectsController < InheritedResources::Base
     @user_profile ||= session[:user_profile]
 
     @order = Order.where(:user_id => current_user.id).first()
-    @my_projects = MyProject.where(:order_id => @order.id).all()
+    unless @order.nil?
+      @my_projects = MyProject.where(:order_id => @order.id).all()
+    else
+      @my_projects = []
+    end
     @my_projects = Kaminari.paginate_array(@my_projects).page(params[:page]).per(2)
 
 
