@@ -31,13 +31,14 @@
       models:
         user:
           attributes:
+            current_password:
+              invalid: "输入错误"
             email: 
               blank: "不能为空"
             password:
               confirmation: "两次输入的密码不一致"
               too_short: "长度需要大于10"
               blank: "不能为空"
-
     models:
       decorate_company: "装修公司"
       color_surface: "色面样板"
@@ -137,6 +138,7 @@
         username: "用户名"
         password: "密码"
         email: "邮箱"
+        current_password: "原始密码"
       order:
         user: "待装修客户"
         decorate_company: "装修公司"
