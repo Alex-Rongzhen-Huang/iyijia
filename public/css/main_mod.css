@@ -178,3 +178,31 @@ margin-bottom: 60px;
     top: 0px;
     border: 1px solid #dedede;
 }
+
+/* Slider Nav
+-------------------------------------------------------------------------*/
+#home-flexslider .flex-direction-nav li a {
+  display: block;
+  text-indent: -999em;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  z-index: 150;
+  cursor: pointer;
+}
+#home-flexslider .flex-direction-nav li a.flex-next {
+  background: url(../images/slider-nav-right.png) no-repeat 0px 0px;
+  right: 30px;
+}
+#home-flexslider .flex-direction-nav li a.flex-next:hover {
+  background-position: bottom;
+}
+#home-flexslider .flex-direction-nav li a.flex-prev {
+  background: url(../images/slider-nav-left.png) no-repeat 0px 0px;
+  left: 30px;
+}
+#home-flexslider .flex-direction-nav li a.flex-prev:hover {
+  background-position: bottom;
+}
