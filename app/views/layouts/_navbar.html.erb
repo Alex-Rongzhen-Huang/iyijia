@@ -19,13 +19,7 @@
     <div class="collapse navbar-collapse" style="margin-left: 20%">
       <ul class="nav navbar-nav">
         <li <%=  (request.fullpath=='/')? 'class="active"'.html_safe():''  %> ><a href="/">首页</a></li>
-        <li <%=  (request.fullpath=~ /\/show_houses.*/)? 'class="active dropdown"'.html_safe():'dropdown'  %>>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">样板房 <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=list">列表视图</a></li>
-            <li><a href="/show_houses?style=all&usage=all&area=all&price=all&view=grid">大图视图</a></li>
-          </ul>
-        </li>
+        <li <%=  (request.fullpath=~ /\/show_houses.*/)? 'class="active"'.html_safe():''  %> ><a href="/show_houses?style=all&usage=all&area=all&price=all&view=grid">样板房</a></li>
         <li><a href="#">施工队</a></li>
         <li><a href="#">装修达人</a></li>
       </ul>
