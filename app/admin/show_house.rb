@@ -106,7 +106,7 @@ ActiveAdmin.register ShowHouse do
 
     end
 
-    f.buttons
+    f.actions
   end
 
 
@@ -125,6 +125,6 @@ ActiveAdmin.register ShowHouse do
 
     column :updated_at
 
-    default_actions
+    actions
   end
 end

@@ -26,7 +26,7 @@ ActiveAdmin.register HomeImageSetting do
       f.input :img5, :as => :file, :hint => content_tag(:span,"为了显示效果，请上传分辨率为 1770x627 的图片")+content_tag(:br)+image_tag(f.object.img5, width:"50%")
 
     end
-    f.buttons
+    f.actions
   end
 
   show do |cs|
@@ -69,6 +69,6 @@ ActiveAdmin.register HomeImageSetting do
     end
 
 
-    default_actions
+    actions
   end
 end
