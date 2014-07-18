@@ -41,12 +41,13 @@ ActiveAdmin.register ShowHouse do
       #f.input :bedroom, :as => :select, collection:  options_for_select(ShowHouse::ROOM_TYPES, f.object.bedroom.nil? ? ShowHouse::ROOM_TYPES.first : f.object.bedroom)
       #f.input :livingroom, :as => :select, collection: options_for_select(ShowHouse::ROOM_TYPES, f.object.livingroom.nil? ? ShowHouse::ROOM_TYPES.first : f.object.livingroom)
       #f.input :bathroom, :as => :select, collection: options_for_select(ShowHouse::ROOM_TYPES, f.object.bathroom.nil? ? ShowHouse::ROOM_TYPES.first : f.object.bathroom)
-      #f.input :price, :input_html => { :maxlength => 10 }, :hint => content_tag(:span,"价格 元")
+      #f.input :price, as: :string , :input_html => { :style => "width:100px;", :maxlength => 10  },  :hint => content_tag(:span,"价格 元")
       f.inputs do
         "
 <br>
 <label for='show_house_area' style='margin-left:-26%;'>面积<abbr title='required'>*</abbr></label>
 <input id='show_house_area' maxlength='10' name='show_house[area]' value='#{f.object.area}' type='text' style='width: 10%;'> m<sup style='top: -0.5em;position: relative;font-size: 75%;line-height: 0;vertical-align: baseline;'>2</sup>
+<p class='inline-errors' style='margin-left:0px'>#{f.object.errors[:area].first unless f.object.errors[:area].empty?}</p>
     <br><br>
 <label for='show_house_price' style='margin-left:-26%;'>房型<abbr title='required'>*</abbr></label>
 <select id='show_house_bedroom' name='show_house[bedroom]'><option value=''></option>
@@ -79,9 +80,14 @@ ActiveAdmin.register ShowHouse do
 <option value='七' #{f.object.bathroom=='七'?'selected=\'selected\'':''} >七</option>
 <option value='八' #{f.object.bathroom=='八'?'selected=\'selected\'':''} >八</option>
 <option value='九' #{f.object.bathroom=='九'?'selected=\'selected\'':''} >九</option></select>&nbsp; 卫&nbsp;&nbsp;
+<p class='inline-errors' style='margin-left:0px'>#{f.object.errors[:bedroom].first unless f.object.errors[:bedroom].empty?}</p>
+<p class='inline-errors' style='margin-left:0px'>#{f.object.errors[:livingroom].first unless f.object.errors[:livingroom].empty?}</p>
+<p class='inline-errors' style='margin-left:0px'>#{f.object.errors[:bathroom].first unless f.object.errors[:bathroom].empty?}</p>
         <br><br>
         <label for='show_house_price' style='margin-left:-26%;'>最低造价<abbr title='required'>*</abbr></label>
-<input id='show_house_price' maxlength='10' name='show_house[price]' value='#{f.object.price}' type='text' style='width: 10%;'>&nbsp;元 <br><br>"
+<input id='show_house_price' maxlength='10' name='show_house[price]' value='#{f.object.price}' type='text' style='width: 10%;'>&nbsp;元
+<p class='inline-errors' style='margin-left:0px'>#{f.object.errors[:price].first unless f.object.errors[:price].empty?}</p>
+<br><br>"
         .html_safe
       end
       f.input :style, :as => :select, collection: ShowHouse::STYLE_TYPES
