@@ -1,6 +1,78 @@
-<h1>Editing house_fitment</h1>
+<h2 style="text-align: center">修改订单信息</h2>
+<br>
+<%= form_for(@house_fitment, html: {class: "form-horizontal"}) do |f| %>
+  <% if @house_fitment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@house_fitment.errors.count, "error") %> prohibited this house_fitment from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @house_fitment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @house_fitment %> |
-<%= link_to 'Back', house_fitments_path %>
+        <div class="form-group">
+          <%= f.label :contact, class: "col-sm-5 control-label" %>
+          <div class="col-sm-3">
+            <%= f.text_field :contact, class: "form-control", placeholder: "联系人" %>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <%= f.label :phone, class: "col-sm-5 control-label" %>
+          <div class="col-sm-3">
+            <%= f.text_field :phone, class: "form-control", placeholder: "联系电话" %>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <%= f.label :email, class: "col-sm-5 control-label" %>
+          <div class="col-sm-3">
+            <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <%= f.label :address, class: "col-sm-5 control-label" %>
+          <div class="col-sm-3">
+            <%= f.text_field :address, class: "form-control", placeholder: "待测量房地址" %>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <%= f.label :budget, class: "col-sm-5 control-label" %>
+          <div class="col-sm-3">
+            <%= f.radio_button :budget, '5万以内' %>5万以内
+            <%= f.radio_button :budget, '5万-10万', checked: 'checked' %>5万-10万
+            <%= f.radio_button :budget, '10万-15万' %>10万-15万
+            <%= f.radio_button :budget, '15万以上' %>15万以上
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <%= f.label :house_type, class: "col-sm-5 control-label" %>
+          <div class="col-sm-3">
+            <%= f.radio_button :house_type, '一房' %>一房
+            <%= f.radio_button :house_type, '二房', checked: 'checked' %>二房
+            <%= f.radio_button :house_type, '三房' %>三房
+            <%= f.radio_button :house_type, '四房' %>四房
+            <%= f.radio_button :house_type, '复式' %>复式
+            <%= f.radio_button :house_type, '别墅' %>别墅
+          </div>
+        </div>
+     
+        <div class="form-group">
+          <%= f.label :notes, class: "col-sm-5 control-label" %>
+          <div class="col-sm-3">
+            <%= f.text_area :notes, style: "height:100px", placeholder: "备注信息" %>
+          </div>
+        </div>
+       
+        <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-5 modal-footer">
+      <button type="submit" class="btn btn btn-primary">修改订单</button>
+    </div>
+  </div>
+<% end %>
