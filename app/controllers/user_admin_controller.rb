@@ -84,9 +84,12 @@ class UserAdminController < ApplicationController
 
       if @order.save
         
-        @my_project = MyProject.new
-        
         @my_project = MyProject.create(
+              :name=>"未维护",
+              :order_id=>@order.id
+          )
+          
+        @decorate_scheme = DecorateScheme.create(
               :name=>"未维护",
               :order_id=>@order.id
           )
@@ -94,22 +97,12 @@ class UserAdminController < ApplicationController
         unless @my_project.save
           # TODO: Add hints for order save error
         end
-      end
-       
-      if @order.save
-        
-        @decorate_scheme = DecorateScheme.new
-        
-        @decorate_scheme = DecorateScheme.create(
-              :name=>"未维护",
-              :order_id=>@order.id
-          )
         
         unless @decorate_scheme.save
           # TODO: Add hints for order save error
         end
       end
-      
+            
         #  @order.update_attributes(:house_fitment_id=>@house_fitment.id,
         #                           :show_house_id=>@house_fitment.show_house_id,
         #                           :user_id=>@house_fitment.user_id,
