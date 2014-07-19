@@ -14,7 +14,11 @@
     <div class="col-md-12" style="padding-top: 10px; border:solid 1px #F8F8F8; height: 40px; background: #F8F8F8;" >
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span><%= each_order.created_at.strftime("%Y-%m-%d") %></span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <span>订单号：<%= each_order.id %></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <% if each_order.house_fitment == nil %>
+      <span></span>
+      <% else %>
       <span>预定日期：<%= each_order.house_fitment.created_at.strftime("%Y-%m-%d") %></span>
+      <% end %>
     </div>
     <div class="col-md-12" style="border:solid 1px #F8F8F8;">
       <div class="col-md-2" style="padding-top: 15px; height: 130px;" align="center">
@@ -31,11 +35,17 @@
         <p id="hidden_show_house_text"><%= each_order.show_house.style %> - <%= each_order.show_house.title %><br/></p>
         <input type="hidden" id="hidden_show_house_id" value="<%= each_order.show_house.id %>">
       </div>
+      <% if each_order.house_fitment == nil %>
+      <div class="col-md-4" style="padding-top: 20px; height: 130px;">
+        <p><h2>测量申请已被删除</h2></p>
+      </div>
+      <% else %>
       <div class="col-md-4" style="padding-top: 20px; height: 130px;">
       	<p id="hidden_show_house_text"><strong>联系人：</strong><%= each_order.house_fitment.contact %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>联系电话：</strong><%= each_order.house_fitment.phone %><br/></p>
         <p id="hidden_show_house_text"><strong>项目地址：</strong><%= each_order.house_fitment.address %><br/></p>
         <p id="hidden_show_house_text"><strong>预算金额：</strong><%= each_order.house_fitment.budget %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>房型：</strong><%= each_order.house_fitment.house_type %><br/></p>
       </div>
+      <% end %>
       <div class="col-md-1" style="padding-top: 20px; border:solid 1px #F8F8F8; height: 130px;" align="center">
         <p><strong>订单状态</strong></p>
         <p>
@@ -52,6 +62,8 @@
       <div class="col-md-2" style="padding-top: 20px; border:solid 1px #F8F8F8; height: 130px;" align="center">
       	<% if each_order.decorate_scheme == nil %>
       	<p style="color: grey">装修方案</p>
+      	<% elsif each_order.decorate_scheme.name == "未维护" %>
+      	<p style="color: grey">装修方案</p>
       	<% else %>
         <p><a href="<%= decorate_scheme_path(each_order.decorate_scheme.id) %>" target="blank">装修方案</a></p>
         <% end %>
@@ -59,16 +71,24 @@
         <p><a href="#">装修报价</a></p>
         
         <% if each_order.my_project == nil %>
+        <p style="color: grey">工程进度</p>
+        <% elsif each_order.my_project.name == "未维护" %>
       	<p style="color: grey">工程进度</p>
       	<% else %>
         <p><a href="<%= my_project_path(each_order.my_project.id) %>" target="blank">工程进度</a></p>
         <% end %>
       </div>  
+      <% if each_order.house_fitment == nil %>
+       <div class="col-md-1" style="padding-top: 51px; height: 130px;" align="center">
+       	<p></p>
+       </div>
+      <% else %>
        <div class="col-md-1" style="padding-top: 51px; height: 130px;" align="center">
        	<p><a href="<%= edit_house_fitment_path(each_order.house_fitment) %>" target="blank">&nbsp;&nbsp;修改订单</a></p>
-      </div>  
-    </div>
+       </div>
+      <% end %>   
   </div>
+</div>
   <br>
   <% end %>
   <div class="row">

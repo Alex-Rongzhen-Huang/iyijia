@@ -5,9 +5,9 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :decorate_company
   belongs_to :show_house
-  belongs_to :house_fitment
-  has_one :decorate_scheme
-  has_one :my_project
+  belongs_to :house_fitment,  :dependent => :destroy
+  has_one :decorate_scheme,  :dependent => :destroy
+  has_one :my_project,  :dependent => :destroy
 
   MEASURE_STATUS = %w[未测量 已测量]
   QUOTATION_STATUS = %w[未报价 已报价]
