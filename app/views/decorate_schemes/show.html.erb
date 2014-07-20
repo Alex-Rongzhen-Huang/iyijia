@@ -1,10 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @decorate_scheme.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_decorate_scheme_path(@decorate_scheme) %> |
-<%= link_to 'Back', decorate_schemes_path %>
+  <p id="notice"><%= notice %></p>
+  
+  <div class="row col-md-12">
+    <h2 style="padding-left: 20px;" align="center"><%= @decorate_scheme.name %></h2>
+    <br>
+      <div class="row">
+        <% @decorate_scheme.decorate_scheme_items.each do |x| %>
+          <div class="col-xs-6 col-md-3">
+            <a href="<%= x.path %>" download class="thumbnail"><img src="<%= x.path %>" style="width: 280px; height: 186px;"></a>
+            <p style="text-align: center"><%= x.description %></p>
+          </div>
+        <% end %>
+      </div>
+      <div align="center">
+      <a class="btn btn-primary btn-lg" href="<%= user_orders_path %>">返回</a>
+      </div>
+      <br>
+      <br>     
+  </div>

@@ -75,9 +75,10 @@ class UserAdminController < ApplicationController
     @user_orders = Order.where(:user_id=>current_user.id)
 
     @user_profile = session[:user_profile]
-  
+    @user_orders = Kaminari.paginate_array(@user_orders).page(params[:page]).per(8)
+ 
     respond_to do |format|
-      format.html # user_orders.html.erb
+      format.html { render :layout => 'user_admin'} # user_orders.html.erb
       format.json { render json: @user_orders }
     end
     
@@ -112,7 +113,7 @@ class UserAdminController < ApplicationController
         #                           :measure_status=>'未测量',
         #                           :quotation_status=>'未报价')
         
-        format.html { redirect_to user_orders_path, notice: 'House fitment was successfully created.' }
+        format.html { redirect_to user_orders_path, notice: '已成功生成订单.' }
         format.json { render json: @house_fitment, status: :created, location: @house_fitment }
       else
         # If save failed, required to input again.

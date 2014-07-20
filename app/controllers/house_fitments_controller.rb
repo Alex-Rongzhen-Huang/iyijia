@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class HouseFitmentsController < ApplicationController
   # GET /house_fitments
   # GET /house_fitments.json
@@ -60,7 +61,7 @@ class HouseFitmentsController < ApplicationController
 
     respond_to do |format|
       if @house_fitment.update_attributes(params[:house_fitment])
-        format.html { redirect_to @house_fitment, notice: 'House fitment was successfully updated.' }
+        format.html { redirect_to user_orders_path, notice: '订单信息修改成功.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
