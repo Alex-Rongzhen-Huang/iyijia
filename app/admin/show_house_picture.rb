@@ -23,7 +23,7 @@ ActiveAdmin.register ShowHousePicture do
     column :brief
     column :show_house
 
-    default_actions
+    actions
   end
 
   index :as => :grid do |product|

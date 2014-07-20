@@ -5,7 +5,8 @@ source 'http://ruby.taobao.org'
 gem 'rails', '3.2.17'
 gem 'devise', '3.2.4'
 gem 'cancan', '1.6.10'
-gem 'activeadmin', '~> 0.6.3'
+#gem 'activeadmin', '~> 0.6.3'
+gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git'
 gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.7.0'
 gem 'ckeditor', '4.0.11'
@@ -33,7 +34,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~>3.1.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
