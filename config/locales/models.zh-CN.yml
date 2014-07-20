@@ -147,6 +147,8 @@
         measure_status: "上门测量"
         quotation_status: "给出报价单"
         quotation_link: "报价单链接"
+        decorate_scheme: "装修方案"
+        my_project: "工程进展"
       decorate_scheme:
         name: "方案名称"
         order: "对应订单"

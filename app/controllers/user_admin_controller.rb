@@ -81,7 +81,28 @@ class UserAdminController < ApplicationController
         unless @order.save
           # TODO: Add hints for order save error
         end
+
+      if @order.save
         
+        @my_project = MyProject.create(
+              :name=>"未维护",
+              :order_id=>@order.id
+          )
+          
+        @decorate_scheme = DecorateScheme.create(
+              :name=>"未维护",
+              :order_id=>@order.id
+          )
+        
+        unless @my_project.save
+          # TODO: Add hints for order save error
+        end
+        
+        unless @decorate_scheme.save
+          # TODO: Add hints for order save error
+        end
+      end
+            
         #  @order.update_attributes(:house_fitment_id=>@house_fitment.id,
         #                           :show_house_id=>@house_fitment.show_house_id,
         #                           :user_id=>@house_fitment.user_id,
