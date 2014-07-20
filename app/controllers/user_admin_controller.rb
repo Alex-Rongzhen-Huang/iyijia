@@ -33,6 +33,29 @@ class UserAdminController < ApplicationController
     end
   end
   
+  def order_del
+    @order = Order.where(:id=>params[:id]).limit(1).first()
+    @user_profile = session[:user_profile]
+    
+    @return_msg = "Unknown return result"
+    
+    if @order.user_id = @user_profile.user_id
+      if @order.destroy
+        @return_msg = "Order was successfully deleted."
+      else
+        @return_msg = "Order delete fail."
+      end
+    else
+      @return_msg = "This order is not belong to you!"
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to user_orders_path, notice: @return_msg }
+      format.json { render json: @order.errors, status: :unprocessable_entity }
+    end
+      
+  end
+  
   def order_new
     @show_house = ShowHouse.find(params[:id])
     @user_profile = session[:user_profile]
@@ -45,6 +68,8 @@ class UserAdminController < ApplicationController
       format.json { render json: @house_fitment }
     end
   end
+  
+
   
   def user_orders
     @user_orders = Order.where(:user_id=>current_user.id)
