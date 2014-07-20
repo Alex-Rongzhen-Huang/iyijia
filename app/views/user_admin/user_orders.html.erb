@@ -26,7 +26,7 @@
             <p id="hidden_show_house_text"><%= each_order.show_house.title %> - <%= each_order.show_house.style %><br/></p>
             <input type="hidden" id="hidden_show_house_id" value="<%= each_order.show_house.id %>">
           </div>
-          <div class="col-md-4">
+          <div class="col-md-5">
               <p id="hidden_show_house_text"><%= each_order.house_fitment.address %><br/></p>
               
               <button class="btn btn-orange pre-order-link" data-toggle="modal" data-target="#myModal2">
@@ -34,18 +34,22 @@
               </button>
               
           </div>
-          <div class="col-md-2">
+          <div class="col-md-1">
               <span class= "<%= each_order.measure_status == "未测量" ? "label label-default" : "label label-success" %>">
                 <%= each_order.measure_status %>
               </span>
               
           </div>
-          <div class="col-md-2">
+          <div class="col-md-1">
               <span class= "<%= each_order.quotation_status == "未报价" ? "label label-default" : "label label-success" %>">
                 <%= each_order.quotation_status %>
               </span>
-          </div>              
-
+          </div>
+          
+          <div class="col-md-1">
+            <a href="/user_admin/order_del/<%= each_order.id %>" class="member_link delete_link" data-confirm="确定删除?" data-method="delete" rel="nofollow">删除</a>
+          </div>
+          
         </div>
     <% end %>
   </div>
