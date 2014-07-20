@@ -1,55 +1,93 @@
 <div class="row">
-  <div class="col-md-12">
-    <% if @user_orders.size == 0 %>
+    <div class="col-md-12">
+        <% if @user_orders.size == 0 %>
         <div class="row">
-          <div class="col-md-12">
-            <span>目前没有订单，可以先到样板房中看看有没有中意的哦~</span>
-          </div>
+            <div class="col-md-12">
+                <span>目前没有订单，可以先到样板房中看看有没有中意的哦~</span>
+            </div>
         </div>
         <hr/>
-    <% end %>
-    
-    <% @user_orders.each do |each_order| %>
-        <div class="row">
-          <div class="col-md-2" style="padding-left: 20px;padding-bottom: 20px;">
+        <% end %>
 
-            <a href="<%= show_house_path(each_order.show_house_id) %>" title="<%= each_order.show_house.title %>" class="thumbnail">
-              <% if each_order.show_house.show_house_pictures.size == 0 %>
-                  <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
-              <% else %>
-                  <img src="<%= each_order.show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" 
-                  alt="<%= each_order.show_house.show_house_pictures.first.brief %>" title="<%= each_order.show_house.show_house_pictures.first.brief %>">
-              <% end %>
-            </a>
-          </div>
-          <div class="col-md-2">
-            <p id="hidden_show_house_text"><%= each_order.show_house.title %> - <%= each_order.show_house.style %><br/></p>
-            <input type="hidden" id="hidden_show_house_id" value="<%= each_order.show_house.id %>">
-          </div>
-          <div class="col-md-5">
-              <p id="hidden_show_house_text"><%= each_order.house_fitment.address %><br/></p>
-              
-              <button class="btn btn-orange pre-order-link" data-toggle="modal" data-target="#myModal2">
-                更新待装修房信息
-              </button>
-              
-          </div>
-          <div class="col-md-1">
-              <span class= "<%= each_order.measure_status == "未测量" ? "label label-default" : "label label-success" %>">
-                <%= each_order.measure_status %>
-              </span>
-              
-          </div>
-          <div class="col-md-1">
-              <span class= "<%= each_order.quotation_status == "未报价" ? "label label-default" : "label label-success" %>">
-                <%= each_order.quotation_status %>
-              </span>
-          </div>
-          
-          <div class="col-md-1">
-            <a href="/user_admin/order_del/<%= each_order.id %>" class="member_link delete_link" data-confirm="确定删除?" data-method="delete" rel="nofollow">删除</a>
-          </div>
-          
+        <% @user_orders.each do |each_order| %>
+        <div class="row" style="border:solid 1px #F8F8F8;">
+            <div class="col-md-12" style="padding-top: 10px; border:solid 1px #F8F8F8; height: 40px; background: #F8F8F8;" >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span><%= each_order.created_at.strftime("%Y-%m-%d") %></span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>订单号：<%= each_order.id %></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>预定日期：<%= each_order.house_fitment.created_at.strftime("%Y-%m-%d") %></span>
+            </div>
+            <div class="col-md-12" style="border:solid 1px #F8F8F8;">
+                <div class="col-md-2" style="padding-top: 15px; height: 130px;" align="center">
+                    <a href="<%= show_house_path(each_order.show_house_id) %>" title="<%= each_order.show_house.title %>" class="thumbnail"> <% if each_order.show_house.show_house_pictures.size == 0 %> <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace"> <% else %> <img src="<%= each_order.show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image"
+                    alt="<%= each_order.show_house.show_house_pictures.first.brief %>" title="<%= each_order.show_house.show_house_pictures.first.brief %>" width="150px"> <% end %> </a>
+                </div>
+                <div class="col-md-2" style="padding-top: 50px; height: 130px;" align="center">
+                    <p id="hidden_show_house_text">
+                        <%= each_order.show_house.style %> - <%= each_order.show_house.title %>
+                        <br/>
+                    </p>
+                    <input type="hidden" id="hidden_show_house_id" value="<%= each_order.show_house.id %>">
+                </div>
+                <div class="col-md-4" style="padding-top: 20px; height: 130px;">
+                    <p id="hidden_show_house_text">
+                        <strong>联系人：</strong><%= each_order.house_fitment.contact %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>联系电话：</strong><%= each_order.house_fitment.phone %>
+                        <br/>
+                    </p>
+                    <p id="hidden_show_house_text">
+                        <strong>项目地址：</strong><%= each_order.house_fitment.address %>
+                        <br/>
+                    </p>
+                    <p id="hidden_show_house_text">
+                        <strong>预算金额：</strong><%= each_order.house_fitment.budget %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>房型：</strong><%= each_order.house_fitment.house_type %>
+                        <br/>
+                    </p>
+                </div>
+                <div class="col-md-1" style="padding-top: 20px; border:solid 1px #F8F8F8; height: 130px;" align="center">
+                    <p>
+                        <strong>订单状态</strong>
+                    </p>
+                    <p>
+                        <span class= "<%= each_order.measure_status == "未测量" ? "label label-default" : "label label-success" %>"> <%= each_order.measure_status %> </span>
+                    </p>
+                    <p>
+                        <span class= "<%= each_order.quotation_status == "未报价" ? "label label-default" : "label label-success" %>"> <%= each_order.quotation_status %> </span>
+                    </p>
+                </div>
+                <div class="col-md-2" style="padding-top: 20px; border:solid 1px #F8F8F8; height: 130px;" align="center">
+                    <% if each_order.decorate_scheme == nil %>
+                    <p style="color: grey">
+                        装修方案
+                    </p>
+                    <% else %>
+                    <p>
+                        <a href="<%= decorate_scheme_path(each_order.decorate_scheme.id) %>" target="blank">装修方案</a>
+                    </p>
+                    <% end %>
+
+                    <p>
+                        <a href="#">装修报价</a>
+                    </p>
+
+                    <% if each_order.my_project == nil %>
+                    <p style="color: grey">
+                        工程进度
+                    </p>
+                    <% else %>
+                    <p>
+                        <a href="<%= my_project_path(each_order.my_project.id) %>" target="blank">工程进度</a>
+                    </p>
+                    <% end %>
+                </div>
+                <div class="col-md-1" style="padding-top: 51px; height: 130px;" align="center">
+                    <p>
+                        <a href="<%= edit_house_fitment_path(each_order.house_fitment) %>" target="blank">&nbsp;&nbsp;修改订单</a>
+                        <a href="/user_admin/order_del/<%= each_order.id %>" class="member_link delete_link" data-confirm="确定删除?" data-method="delete" rel="nofollow">&nbsp;&nbsp;删除订单</a>
+                    </p>
+                </div>
+            </div>
         </div>
-    <% end %>
-  </div>
+        <br>
+        <% end %>
+        <div class="row">
+            <div class="col-md-12">
+                <%= paginate @user_orders %>
+            </div>
+        </div>
