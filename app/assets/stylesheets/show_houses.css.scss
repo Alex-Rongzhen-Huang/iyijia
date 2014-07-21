@@ -40,7 +40,7 @@ $header-background-color: #161a36;
   float: right;
 }
 /*********************************************/
-/* 样板房展示页面自定义的样式                     */
+/* 样板房展示页面自定义的样式  @media( min-width: 1200px )   */
 /*********************************************/
 #overview .property-item .title {
   float: left;
@@ -63,11 +63,33 @@ $header-background-color: #161a36;
 #property-detail-flexslider .flexslider .slides img {
   margin: 0 auto;
   max-width: 1024px;
-  max-height: 683px;
+  /*max-height: 431px;*/
 }
 #property-detail-flexslider .flex-viewport {
   width: 1024px;
+  height: 431px;
 }
+#property-detail-flexslider {
+  height: 431px;
+}
+
+#property-detail-flexslider .flex-control-thumbs li {
+  margin-bottom: 7px;
+  height: 60px;
+}
+#property-detail-flexslider .jcarousel-container-vertical {
+  width: 100px;
+  padding: 9px;
+}
+#property-detail-flexslider .jcarousel-clip-vertical {
+  height: 380px;
+}
+#property-detail-flexslider .jcarousel-next,
+#property-detail-flexslider .jcarousel-prev {
+  margin: 5.2px 0 0;
+  width: 40px;
+}
+
 /* search filter style*/
 
 .search-filter {

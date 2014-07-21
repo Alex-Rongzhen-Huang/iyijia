@@ -17,7 +17,7 @@ ActiveAdmin.register MyProject do
 
     end
 
-    f.buttons
+    f.actions
   end
   
   show do |my_project|
@@ -47,7 +47,7 @@ ActiveAdmin.register MyProject do
     column :created_at
     column :updated_at
 
-    default_actions
+    actions
   end
 
 

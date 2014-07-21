@@ -15,12 +15,15 @@
               <% end %>
         </a>
               <p style="text-align: center"><%= s.title %> - <%= s.style %></p>
-              <p style="text-align: center"><input type="hidden" id="hidden_show_house_id" value="<%= s.id %>">
+              <p style="text-align: center"><input type="hidden" id="hidden_show_house_id" class="guiyi" value="<%= s.id %>">
               	  <% if current_user %>
               	  <a class="btn btn-blue show-house-dislike" id="show-house-dislike" href="#" style="<%= (current_user.voted_up_on? s)?'':'display:none;' %>"><i class="icon-heart" style="color: red"></i>&nbsp;&nbsp;取消收藏</a>
                   <a class="btn btn-blue show-house-like" id="show-house-like" href="#" style="<%= (current_user.voted_up_on? s)?'display:none;':'' %>"><i class="icon-heart"></i>&nbsp;&nbsp;收藏</a>
+              <p style="text-align: center"><a class="btn-orange" id="order" href="<%= order_new_path(s.id) %>" ><i class="icon-shopping-cart"></i>&nbsp;&nbsp;我想装修成这样</a></p>
                   <% end %>
+                  
               </p>
+              
       </div>
 
     <% end %>
@@ -39,7 +42,7 @@
               'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
           }
       });
-
+      
       $('.show-house-like').on('click',function(){
       	  var $temporary_like=$(this);
       	  var $likeid = $(this).prev().prev().val();
@@ -47,20 +50,17 @@
               $temporary_like.hide();
               $temporary_like.prev().show();
               //.removeClass('btn-blue').addClass('btn-grey').html( "<i class='icon-heart' style='color: red;'></i> 已收藏" );
-          });
-      
+          });      
       });
+      
       $('.show-house-dislike').on('click',function(){
       	  var $temporary_dislike=$(this);
       	  var $dislikeid = $(this).prev().val();
           $.post( "/show_houses/unlike/"+$dislikeid, function( data ) {
               $temporary_dislike.hide();
               $temporary_dislike.next().show();
-
               //.removeClass('btn-blue').addClass('btn-grey').html( "<i class='icon-heart' style='color: red;'></i> 已收藏" );
           });
-
       });
   });
-
 </script>

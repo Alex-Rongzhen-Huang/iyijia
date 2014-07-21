@@ -37,7 +37,7 @@ ActiveAdmin.register DecorateCompany do
 
     end
 
-    f.buttons
+    f.actions
   end
 
 

@@ -17,7 +17,7 @@ ActiveAdmin.register DecorateScheme do
 
     end
 
-    f.buttons
+    f.actions
   end
 
   show do |decorate_scheme|
@@ -48,7 +48,7 @@ ActiveAdmin.register DecorateScheme do
     column :created_at
     column :updated_at
 
-    default_actions
+    actions
   end
 
 

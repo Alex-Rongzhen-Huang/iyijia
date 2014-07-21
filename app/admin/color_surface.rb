@@ -23,7 +23,7 @@ ActiveAdmin.register ColorSurface do
          f.input :picture5, :as => :file, :hint => image_tag(f.object.picture5, width:"50%")
 
        end
-       f.buttons
+       f.actions
    end
 
    show do |cs|

@@ -31,8 +31,10 @@ ActiveAdmin.register Order do
     column :decorate_company
     column :show_house
     column :house_fitment
+    column :decorate_scheme
+    column :my_project
 
-             default_actions
+             actions
   end
 
   form(:html => { :multipart=>true}) do |f|
@@ -48,7 +50,7 @@ ActiveAdmin.register Order do
 
     end
 
-    f.buttons
+    f.actions
   end
 
 
