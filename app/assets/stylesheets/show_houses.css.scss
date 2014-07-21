@@ -100,17 +100,20 @@ $header-background-color: #161a36;
   margin: -20px 0px 20px 0px;
 }
 .search-filter p span {
+  font-family: "微软雅黑";
   margin-left: 30px;
   margin-right: 40px;
   font-weight: bold;
 }
 .search-filter a {
+  color: black;
+  font-family: "微软雅黑";
   display: inline-block;
   padding: 4px 10px;
   text-decoration: none;
 }
 .search-filter a:hover, .search-filter a.active {
-  background-color: $link-background-color;
+  background-color: #4dc7ec;
   color: white;
 }
 /*------------------------------------------------------*/
