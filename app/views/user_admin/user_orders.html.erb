@@ -26,7 +26,7 @@
                 <% if each_order.show_house.show_house_pictures.size == 0 %>
                     <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
                 <% else %>
-                    <img src="<%= each_order.show_house.show_house_pictures.first.path %>" style="max-width: 150px; max-height: 100px;" class="attachment-property-thumb-image wp-post-image"
+                    <img src="<%= each_order.show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image image_keep_ratio_for_user_orders"
                          alt="<%= each_order.show_house.show_house_pictures.first.brief %>" title="<%= each_order.show_house.show_house_pictures.first.brief %>">
                 <% end %> </a>
             </div>

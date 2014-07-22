@@ -71,6 +71,37 @@
 }
 
 /* ------------------------------------------------------*/
+/* 各显示图片页面的图片显示模式调整（等比缩放）
+/* ------------------------------------------------------*/
+.image_keep_ratio_for_decorate_schemes{
+  max-width: 280px;
+  max-height: 186px;
+}
+.image_keep_ratio_for_index{
+  max-width: 186px;
+  max-height: 124px;
+}
+.image_keep_ratio_for_user_admin{
+  max-width: 128px;
+  max-height: 128px;
+}
+.image_keep_ratio_for_show_house_grid{
+  max-width: 224px;
+  max-height: 149px;
+}
+.image_keep_ratio_for_show_house_list{
+  max-width: 140px;
+  max-height: 93px;
+}
+.image_keep_ratio_for_favorites{
+  max-width: 245px;
+  max-height: 163px;
+}
+.image_keep_ratio_for_user_orders{
+  max-width: 150px;
+  max-height: 100px;
+}
+/* ------------------------------------------------------*/
 /* icon image style change
 /* ------------------------------------------------------*/
 .property-item .property-meta span [class^="icon-"], .property-item .property-meta span [class*=" icon-"] {
