@@ -18,11 +18,11 @@
     <% @show_houses.each do |show_house| %>
         <div class="col-md-3">
           <div class="col-md-12 ">
-            <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="thumbnail">
+            <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="thumbnail no-border">
               <% if show_house.show_house_pictures.size == 0 %>
-                  <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
+                  <img src="images/temp-images/property1.jpg" class="image_keep_ratio_for_big_image img-rounded" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
               <% else %>
-                  <img src="<%= show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image image_keep_ratio_for_big_image" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
+                  <img src="<%= show_house.show_house_pictures.first.path %>" class="image_keep_ratio_for_big_image img-rounded" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
               <% end %>
             </a>
           </div>
@@ -38,6 +38,52 @@
 
     <% end %>
   </div>
+
+  <div class="clear-fix"></div>
+  <div class="row" style="display: none;">
+
+    <div class="col-md-12" style="height: 20px;"></div>
+    <style type="text/css">
+      #container_img     { width:341px;height: 341px; background:orange;overflow:hidden; }
+      #container_img img { display:block; position:relative; left:50%; border:1px solid #FFF; }
+
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $("#container_img > img").each(function() {
+              $(this).load(function(){
+                  var element = $(this);
+                  element.css({'margin-left': -(element.width()/2)});
+              })  ;
+          });
+      });
+    </script>
+    <% @show_houses.each do |show_house| %>
+        <div class="col-md-3">
+          <div class="col-md-12 " >
+            <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="thumbnail no-border">
+            <div id="container_img" >
+              <% if show_house.show_house_pictures.size == 0 %>
+                  <img src="images/temp-images/property1.jpg" class="" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
+              <% else %>
+                  <img src="<%= show_house.show_house_pictures.first.path %>" class="" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
+              <% end %>
+            </div>
+                </a>
+          </div>
+          <div class="col-md-12 ">
+            <h4>
+              <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>"><%= show_house.title %></a>
+            </h4>
+
+            <p><%= h truncate(strip_tags(show_house.brief), :length => 40) %> </p>
+            <span>￥<%= show_house.price %>元 </span>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+
 
   <%= paginate @show_houses %>
 </section>

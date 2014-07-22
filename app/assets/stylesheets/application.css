@@ -85,6 +85,9 @@
   max-width: 140px;
   max-height: 93px;
 }
+.thumbnail.no-border{
+    border: none;
+}
 /* ------------------------------------------------------*/
 /* icon image style change
 /* ------------------------------------------------------*/
