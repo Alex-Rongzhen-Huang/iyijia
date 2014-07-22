@@ -6,7 +6,7 @@
       <div class="row">
         <% @my_project.my_project_items.each do |x| %>
           <div class="col-xs-6 col-md-3">
-            <a href="<%= x.path %>" download class="thumbnail"><img src="<%= x.path %>" class="image_keep_ratio_for_decorate_schemes"></a>
+            <a href="<%= x.path %>" download class="thumbnail"><img src="<%= x.path %>" class="image_keep_ratio_for_big_image"></a>
             <p style="text-align: center"><%= x.description %></p>
           </div>
         <% end %>

@@ -11,7 +11,7 @@
               <% if s.show_house_pictures.size == 0 %>
                   <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
               <% else %>
-                  <img src="<%= s.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image image_keep_ratio_for_favorites" alt="<%= s.show_house_pictures.first.brief %>" title="<%= s.show_house_pictures.first.brief %>">
+                  <img src="<%= s.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image image_keep_ratio_for_big_image" alt="<%= s.show_house_pictures.first.brief %>" title="<%= s.show_house_pictures.first.brief %>">
               <% end %>
         </a>
               <p style="text-align: center"><%= s.title %> - <%= s.style %></p>
