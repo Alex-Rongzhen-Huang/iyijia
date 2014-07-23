@@ -35,7 +35,7 @@
               <a class="btn btn-blue" id="show-house-like" href="#" style="<%= (current_user.voted_up_on? @show_house)?'display:none;':'' %>"><i class="icon-heart"></i>&nbsp;&nbsp;收藏</a>
 
           <% end %>
-          <a class="btn-orange" id="order" href="<%= order_new_path %>" target="_blank"><i class="icon-shopping-cart"></i>&nbsp;&nbsp;我想装修成这样</a>
+          <a class="btn-orange" id="order" href="<%= order_new_path %>" target="_blank"><i class="icon-shopping-cart"></i>&nbsp;&nbsp;在线预约测量</a>
         </div>
         <div class="wrap clearfix">
           <div class="concept"> </div>
@@ -48,14 +48,11 @@
         </div>
 
         <div class="wrap clearfix" style="margin: -16px 0px 0px 0px;padding: 0px 16px;">  <%# TODO: fix style %>
-          <div class="col-sm-12 col-md-8 col-lg-7" style="padding-left: 0px"><%=@show_house.brief.html_safe unless @show_house.brief.nil? %></div>
+          <div class="col-sm-12 col-md-8 col-lg-7" style="padding-left: 0px;font-size: 12px !important;text-indent: 2em;"><%=sanitize(@show_house.brief,:tags =>%w()) unless @show_house.brief.nil? %></div>
+
           <div class="clearfix"></div>
           <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
           <div class="bdsharebuttonbox" style="display: inline-block;float: right;"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
-
-          <p>
-          <span><%= @show_house.created_at.strftime("%Y-%m-%d") %> </span>
-          </p>
         </div>
       </div>
     </article>

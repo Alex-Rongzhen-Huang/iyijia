@@ -2,7 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $link-background-color: #fd970f;
-$header-background-color: #161a36;
+$header-background-color: #2d2d2d;
+/********************************************/
+/* 样板房展示页面顶部navbar的index要大于flex控件的index
+/********************************************/
+#navbar-top.navbar-inverse {
+  z-index: 5001; /*.flex-control-nav {z-index: 5000;}*/
+}
+
+
 #overview .property-item .wrap {
   background-color: $header-background-color;
   color: #ffffff;
