@@ -20,9 +20,7 @@
     border: 0px;
 /*    border-color: #161a36; */
     margin-bottom: 0px;
-    position: fixed;
-    width: 100%;
-    z-index: 2;
+
 }
 #navbar-top ul.nav.navbar-nav li > a {
     color: white;
