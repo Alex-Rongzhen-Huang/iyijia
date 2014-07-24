@@ -48,6 +48,38 @@
 
 
 
+
+    <link rel='stylesheet' href='/plugin1/css/justifiedgallery.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/plugin1/css/swipebox.css' type='text/css' media='screen' />
+    <link rel='stylesheet' href='/plugin1/css/colorbox.css' type='text/css' media='screen' />
+    <script src='/plugin1/js/jquery.min.js'></script>
+    <script src='/plugin1/js/justifiedgallery.js'></script>
+    <script src='/plugin1/js/jquery.swipebox.min.js'></script>
+    <script src='/plugin1/js/jquery.colorbox-min.js'></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#remotetest').justifiedGallery({rel: 'gal0'}).on('jg.rowflush', function () {
+                $(this).find('a').colorbox({
+                    maxWidth : '80%',
+                    maxHeight : '80%',
+                    opacity : 0.8,
+                    transition : 'elastic',
+                    current : ''
+                });
+            });
+        });
+    </script>
+
+    <div class="row" id="remotetest"  style="border: 1px solid black;">
+      <% @decorate_schemes.each do |decorate_scheme| %>
+          <% decorate_scheme.decorate_scheme_items.each do |x| %>
+              <a href="<%= x.path %>" title="<%= x.description %>">
+                <img alt="This is the colors I love" src="<%= x.path %>" style="height: 120px;"/>
+              </a>
+          <% end %>
+      <% end %>
+    </div>
+
     <div class="row">
       <div class="col-md-12 ">
         <%= paginate @decorate_schemes %>
