@@ -63,49 +63,49 @@
           <ul class="slides">
             <% if @show_house.show_house_pictures.nil? %>
                 <li data-thumb="/images/temp-images/property1.jpg">
-                  <a href="/images/temp-images/property1.jpg" class="swipebox">
+                  <a href="/images/temp-images/property1.jpg" class="colorbox">
                     <img src="/images/temp-images/property1.jpg" alt="image1">
                   </a>
                 </li>
                 <li data-thumb="/images/temp-images/property2.jpg">
-                  <a href="/images/temp-images/property2.jpg" class="swipebox">
+                  <a href="/images/temp-images/property2.jpg" class="colorbox">
                     <img src="/images/temp-images/property2.jpg" alt="image2">
                   </a>
                 </li>
                 <li data-thumb="/images/temp-images/property3.jpg">
-                  <a href="/images/temp-images/property3.jpg" class="swipebox">
+                  <a href="/images/temp-images/property3.jpg" class="colorbox">
                     <img src="/images/temp-images/property3.jpg" alt="image3">
                   </a>
                 </li>
                 <li data-thumb="/images/temp-images/property4.jpg">
-                  <a href="/images/temp-images/property4.jpg" class="swipebox">
+                  <a href="/images/temp-images/property4.jpg" class="colorbox">
                     <img src="/images/temp-images/property4.jpg" alt="image4">
                   </a>
                 </li>
                 <li data-thumb="/images/temp-images/property5.jpg">
-                  <a href="/images/temp-images/property5.jpg" class="swipebox">
+                  <a href="/images/temp-images/property5.jpg" class="colorbox">
                     <img src="/images/temp-images/property5.jpg" alt="image5">
                   </a>
                 </li>
                 <li data-thumb="/images/temp-images/property6.jpg">
-                  <a href="/images/temp-images/property6.jpg" class="swipebox">
+                  <a href="/images/temp-images/property6.jpg" class="colorbox">
                     <img src="/images/temp-images/property6.jpg" alt="image5">
                   </a>
                 </li>
                 <li data-thumb="/images/temp-images/property7.jpg">
-                  <a href="/images/temp-images/property7.jpg" class="swipebox">
+                  <a href="/images/temp-images/property7.jpg" class="colorbox">
                     <img src="/images/temp-images/property7.jpg" alt="image5">
                   </a>
                 </li>
                 <li data-thumb="/images/temp-images/property8.jpg">
-                  <a href="/images/temp-images/property8.jpg" class="swipebox">
+                  <a href="/images/temp-images/property8.jpg" class="colorbox">
                     <img src="/images/temp-images/property8.jpg" alt="image5">
                   </a>
                 </li>
             <% else %>
                 <% @show_house.show_house_pictures.each do |picture| %>
                     <li data-thumb="<%= picture.path %>">
-                      <a href="<%= picture.path %>" class="swipebox">
+                      <a href="<%= picture.path %>" class="colorbox" title="<%= picture.brief %>">
                         <img src="<%= picture.path %>" alt="<%= picture.brief %>">
                       </a>
                     </li>
@@ -116,6 +116,11 @@
         </div>
       </div>
 
+      <link rel='stylesheet' href='/js/colorbox/css/colorbox.css' type='text/css' media='screen' />
+      <script src='/js/colorbox/jquery.colorbox-min.js'></script>
+      <script type="text/javascript">
+          $('a.colorbox').colorbox({rel:'gal'});
+      </script>
       <article class="property-item clearfix">
 
         <ul class="nav nav-tabs" role="tablist">
