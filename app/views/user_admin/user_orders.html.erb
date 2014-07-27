@@ -2,9 +2,10 @@
   <div class="col-md-12">
     <% if @user_orders.size == 0 %>
         <div class="row">
-          <div class="col-md-12">
-            <span>目前没有订单，可以先到样板房中看看有没有中意的哦~</span>
+          <div class="alert alert-warning" role="alert">
+            <strong>注意!</strong> 目前没有订单，可以先到样板房中看看有没有中意的哦~
           </div>
+
         </div>
         <hr/>
     <% end %>

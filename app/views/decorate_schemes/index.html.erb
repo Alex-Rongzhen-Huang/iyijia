@@ -3,7 +3,9 @@
 
     <% if @decorate_schemes.size == 0 %>
         <div class="row">
-          <h3 style="padding-left: 20px;">目前没有装修方案，如果您已经提交预约上门测量申请，装修公司更新后会通知您</h3>
+          <div class="alert alert-warning" role="alert">
+            <strong>注意!</strong> 目前没有装修方案，如果您已经提交预约上门测量申请，装修公司更新后会通知您。
+          </div>
         </div>
     <% end %>
 

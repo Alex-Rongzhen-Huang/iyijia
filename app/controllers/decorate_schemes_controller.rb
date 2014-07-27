@@ -3,7 +3,7 @@ class DecorateSchemesController < InheritedResources::Base
     @user_profile ||= session[:user_profile]
     @order = Order.where(:user_id => current_user.id).first()
     unless @order.nil?
-      @decorate_schemes = DecorateScheme.where(:order_id => @order.id).all()
+      @decorate_schemes = DecorateScheme.where(:order_id => @order.id).order('created_at DESC').all()
     else
       @decorate_schemes = []
     end

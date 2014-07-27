@@ -4,7 +4,7 @@ class MyProjectsController < InheritedResources::Base
 
     @order = Order.where(:user_id => current_user.id).first()
     unless @order.nil?
-      @my_projects = MyProject.where(:order_id => @order.id).all()
+      @my_projects = MyProject.where(:order_id => @order.id).order('created_at DESC').all()
     else
       @my_projects = []
     end
