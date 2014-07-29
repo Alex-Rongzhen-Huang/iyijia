@@ -67,7 +67,7 @@
               </p>
             </div>
             <div class="col-md-2 user_orders_div_border user_orders_under_div" style="padding-top: 20px;">
-              <% if each_order.decorate_schemes.nil? %>
+              <% if each_order.decorate_schemes.size == 0 %>
                   <p></p>
               <% elsif each_order.decorate_schemes.first.name == "未维护" %>
                   <p></p>
@@ -75,7 +75,7 @@
                   <p><a href="<%= decorate_scheme_path(each_order.id) %>" target="_blank">装修方案</a></p>
               <% end %>
               <p><a href="<%= old_quotation_path %>">装修报价</a></p>
-              <% if each_order.my_projects.nil? %>
+              <% if each_order.my_projects.size == 0 %>
                   <p></p>
               <% elsif each_order.my_projects.first.name == "未维护" %>
                   <p></p>
