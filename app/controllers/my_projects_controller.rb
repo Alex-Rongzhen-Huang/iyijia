@@ -16,4 +16,13 @@ class MyProjectsController < InheritedResources::Base
       format.json { render json: @my_projects }
     end
   end
+  
+  def show
+    @my_projects = MyProject.where(:order_id => params[:id]).all()
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @my_projects }
+    end
+  end
 end

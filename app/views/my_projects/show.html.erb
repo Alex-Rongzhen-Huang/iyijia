@@ -1,19 +1,19 @@
-  <p id="notice"><%= notice %></p>
-  
-  <div class="row col-md-12" style="padding-top: 40px">
-    <h2 style="padding-left: 20px;" align="center"><%= @my_project.name %></h2>
-    <br>
-      <div class="row">
-        <% @my_project.my_project_items.each do |x| %>
-          <div class="col-xs-6 col-md-3">
-            <a href="<%= x.path %>" download class="thumbnail"><img src="<%= x.path %>" class="image_keep_ratio_for_big_image"></a>
-            <p style="text-align: center"><%= x.description %></p>
-          </div>
-        <% end %>
-      </div>
-      <div align="center">
-      <a class="btn btn-primary btn-lg" href="<%= user_orders_path %>">返回</a>
-      </div>
-      <br>
-      <br>     
-  </div>
+<p id="notice"><%= notice %></p>
+
+<div class="row col-md-12" style="padding-top: 40px">
+  <% @my_projects.each do |my_project| %>
+    <h3 align="center"><%= my_project.name %></h3>
+    <div class="row">
+      <% my_project.my_project_items.each do |x| %>
+        <div class="col-xs-6 col-md-3" align="center">
+          <a href="<%= x.path %>"  download><img src="<%= x.path %>" class="image_keep_ratio_for_big_image img-rounded" ></a>
+          <p style="text-align: center"><%= x.description %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div align="center">
+  <a class="btn btn-primary btn-lg" href="<%= user_orders_path %>">返回</a>
+</div>
