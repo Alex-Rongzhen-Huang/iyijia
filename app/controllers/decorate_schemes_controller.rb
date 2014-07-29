@@ -14,5 +14,14 @@ class DecorateSchemesController < InheritedResources::Base
       format.json { render json: @decorate_schemes }
     end
   end
+  
+  def show
+    @decorate_schemes = DecorateScheme.where(:order_id => params[:id]).all()
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @decorate_schemes }
+    end
+  end
 
 end

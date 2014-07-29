@@ -22,11 +22,11 @@
           </div>
           <div class="col-md-12 user_orders_div_border">
             <div class="col-md-2 user_orders_under_div" style="padding-top: 15px;">
-              <a href="<%= show_house_path(each_order.show_house_id) %>" title="<%= each_order.show_house.title %>" class="thumbnail">
+              <a href="<%= show_house_path(each_order.show_house_id) %>" title="<%= each_order.show_house.title %>" >
                 <% if each_order.show_house.show_house_pictures.size == 0 %>
                     <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
                 <% else %>
-                    <img src="<%= each_order.show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image image_keep_ratio_for_small_image"
+                    <img src="<%= each_order.show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image image_keep_ratio_for_small_image img-rounded"
                          alt="<%= each_order.show_house.show_house_pictures.first.brief %>" title="<%= each_order.show_house.show_house_pictures.first.brief %>">
                 <% end %> </a>
             </div>
@@ -67,20 +67,20 @@
               </p>
             </div>
             <div class="col-md-2 user_orders_div_border user_orders_under_div" style="padding-top: 20px;">
-              <% if each_order.decorate_scheme.nil? %>
-                  <p style="color: grey">装修方案</p>
-              <% elsif each_order.decorate_scheme.name == "未维护" %>
+              <% if each_order.decorate_schemes.nil? %>
+                  <p></p>
+              <% elsif each_order.decorate_schemes.first.name == "未维护" %>
                   <p></p>
               <% else %>
-                  <p><a href="<%= decorate_scheme_path(each_order.decorate_scheme.id) %>" target="_blank">装修方案</a></p>
+                  <p><a href="<%= decorate_scheme_path(each_order.id) %>" target="_blank">装修方案</a></p>
               <% end %>
               <p><a href="<%= old_quotation_path %>">装修报价</a></p>
-              <% if each_order.my_project.nil? %>
-                  <p style="color: grey">工程进度</p>
-              <% elsif each_order.my_project.name == "未维护" %>
+              <% if each_order.my_projects.nil? %>
+                  <p></p>
+              <% elsif each_order.my_projects.first.name == "未维护" %>
                   <p></p>
               <% else %>
-                  <p><a href="<%= my_project_path(each_order.my_project.id) %>" target="_blank">工程进度</a></p>
+                  <p><a href="<%= my_project_path(each_order.id) %>" target="_blank">工程进度</a></p>
               <% end %>
             </div>
             <% if each_order.house_fitment.nil? %>
