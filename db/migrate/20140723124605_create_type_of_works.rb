@@ -12,12 +12,10 @@ class CreateTypeOfWorks < ActiveRecord::Migration
     # Create a default settings
 
     if direction == :up then
-      TypeOfWork.create!(:name => '瓦工')
-      TypeOfWork.create!(:name => '电工')
+      TypeOfWork.create!(:name => '水电工')
+      TypeOfWork.create!(:name => '砖瓦工')
       TypeOfWork.create!(:name => '木工')
-      TypeOfWork.create!(:name => '水暖工')
       TypeOfWork.create!(:name => '油漆工')
-      TypeOfWork.create!(:name => '其他')
     end
   end
 
