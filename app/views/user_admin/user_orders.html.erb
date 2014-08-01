@@ -73,7 +73,7 @@
               <% elsif each_order.decorate_schemes.first.name == "未维护" %>
                   <p></p>
               <% else %>
-                  <p><a href="<%= decorate_scheme_path(each_order.id) %>" target="_blank">装修方案</a></p>
+                  <p><a href="<%= decorate_schemes_path %>" >装修方案</a></p>
               <% end %>
               <p><a href="<%= old_quotation_path %>">装修报价</a></p>
               <% if each_order.my_projects.size == 0 %>
@@ -81,7 +81,7 @@
               <% elsif each_order.my_projects.first.name == "未维护" %>
                   <p></p>
               <% else %>
-                  <p><a href="<%= my_project_path(each_order.id) %>" target="_blank">工程进度</a></p>
+                  <p><a href="<%= my_projects_path %>" >工程进度</a></p>
               <% end %>
             </div>
             <% if each_order.house_fitment.nil? %>

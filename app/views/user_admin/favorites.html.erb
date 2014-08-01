@@ -7,19 +7,19 @@
     <% end %>
     <% @show_houses.each do |s| %>
       <div class="col-xs-6 col-md-3">
-      	<a href="<%= show_house_path(s.id) %>" title="<%= s.title %>" class="thumbnail">
+      	<a href="<%= show_house_path(s.id) %>" title="<%= s.title %>" class="thumbnail no-border">
               <% if s.show_house_pictures.size == 0 %>
                   <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
               <% else %>
-                  <img src="<%= s.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image image_keep_ratio_for_big_image" alt="<%= s.show_house_pictures.first.brief %>" title="<%= s.show_house_pictures.first.brief %>">
+                  <img src="<%= s.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image image_keep_ratio_for_big_image img-rounded" alt="<%= s.show_house_pictures.first.brief %>" title="<%= s.show_house_pictures.first.brief %>">
               <% end %>
         </a>
               <p style="text-align: center"><%= s.title %> - <%= s.style %></p>
               <p style="text-align: center"><input type="hidden" id="hidden_show_house_id" class="guiyi" value="<%= s.id %>">
               	  <% if current_user %>
-              	  <a class="btn btn-blue show-house-dislike" id="show-house-dislike" href="#" style="<%= (current_user.voted_up_on? s)?'':'display:none;' %>"><i class="icon-heart" style="color: red"></i>&nbsp;&nbsp;取消收藏</a>
-                  <a class="btn btn-blue show-house-like" id="show-house-like" href="#" style="<%= (current_user.voted_up_on? s)?'display:none;':'' %>"><i class="icon-heart"></i>&nbsp;&nbsp;收藏</a>
-              <p style="text-align: center"><a class="btn-orange" id="order" href="<%= order_new_path(s.id) %>" ><i class="icon-shopping-cart"></i>&nbsp;&nbsp;在线预约测量</a></p>
+              	  <a class="btn btn-info show-house-dislike" id="show-house-dislike" href="#" style="<%= (current_user.voted_up_on? s)?'':'display:none;' %>"><i class="icon-heart" style="color: red"></i>&nbsp;&nbsp;取消收藏</a>
+                  <a class="btn btn-info show-house-like" id="show-house-like" href="#" style="<%= (current_user.voted_up_on? s)?'display:none;':'' %>"><i class="icon-heart"></i>&nbsp;&nbsp;收藏</a>
+              <p style="text-align: center"><a class="btn btn-warning" id="order" href="<%= order_new_path(s.id) %>" ><i class="icon-shopping-cart"></i>&nbsp;&nbsp;在线预约测量</a></p>
                   <% end %>
                   
               </p>
@@ -49,8 +49,7 @@
           $.post( "/show_houses/like/"+$likeid, function( data ) {
               $temporary_like.hide();
               $temporary_like.prev().show();
-              //.removeClass('btn-blue').addClass('btn-grey').html( "<i class='icon-heart' style='color: red;'></i> 已收藏" );
-          });      
+          });
       });
       
       $('.show-house-dislike').on('click',function(){
@@ -59,7 +58,6 @@
           $.post( "/show_houses/unlike/"+$dislikeid, function( data ) {
               $temporary_dislike.hide();
               $temporary_dislike.next().show();
-              //.removeClass('btn-blue').addClass('btn-grey').html( "<i class='icon-heart' style='color: red;'></i> 已收藏" );
           });
       });
   });

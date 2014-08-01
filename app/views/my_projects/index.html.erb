@@ -11,7 +11,7 @@
 
     <% @my_projects.each do |my_project| %>
         <div class="row">
-          <h3 style="padding-left: 20px;"><%= my_project.name %></h3>
+          <h3 style="padding-left: 20px;"><%= my_project.created_at.strftime("%Y-%m-%d")%> - <%= my_project.name %></h3>
 
           <div class="row" id="justifiedGallery<%= my_project.id %>"  style="border: 1px solid #ddd;margin-left: 0px;">
             <% my_project.my_project_items.each do |x| %>
