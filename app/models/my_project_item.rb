@@ -3,7 +3,7 @@ class MyProjectItem < ActiveRecord::Base
   attr_accessible :description, :path, :my_project_id
   
   require 'carrierwave/orm/activerecord'
-  mount_uploader :path, ImageUploader
+  mount_uploader :path, ThumbImageUploader
 
   validates :path, :presence => true
 end

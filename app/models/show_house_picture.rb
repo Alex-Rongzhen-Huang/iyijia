@@ -6,4 +6,7 @@ class ShowHousePicture < ActiveRecord::Base
   mount_uploader :path, ImageUploader
 
   validates :path, :presence => true
+
+
+
 end
