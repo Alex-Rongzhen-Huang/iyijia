@@ -43,7 +43,8 @@
           }
       });
       
-      $('.show-house-like').on('click',function(){
+      $('.show-house-like').on('click',function(event){
+          event.preventDefault();
       	  var $temporary_like=$(this);
       	  var $likeid = $(this).prev().prev().val();
           $.post( "/show_houses/like/"+$likeid, function( data ) {
@@ -52,7 +53,8 @@
           });
       });
       
-      $('.show-house-dislike').on('click',function(){
+      $('.show-house-dislike').on('click',function(event){
+          event.preventDefault();
       	  var $temporary_dislike=$(this);
       	  var $dislikeid = $(this).prev().val();
           $.post( "/show_houses/unlike/"+$dislikeid, function( data ) {

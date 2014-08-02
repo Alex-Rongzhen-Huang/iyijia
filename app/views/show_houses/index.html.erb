@@ -85,6 +85,8 @@
       <div class="main">
         <% if params[:view]=='list' then %>
             <%= render 'list' %>
+        <% elsif params[:view]=='grid' then %>
+            <%= render 'nine' %>
         <% else %>
             <%= render 'grid' %>
         <% end %>
