@@ -12,12 +12,15 @@ gem 'mini_magick', '3.7.0'
 gem 'ckeditor', '4.0.11'
 gem 'kaminari', '~> 0.15.0'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'jslint_on_rails',    '~> 1.0.6'
+gem 'jquery-ui-rails'
+gem 'rails3-jquery-autocomplete'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'pg'
+#gem 'pg'
 
 # heroku adapt ref: https://devcenter.heroku.com/articles/getting-started-with-rails3
 gem 'rails_12factor', group: :production
