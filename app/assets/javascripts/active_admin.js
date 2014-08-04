@@ -18,13 +18,3 @@ $(document).ready(function() {
   	}
   });
 });
-
-$(document).ready(function(){
-	$(".ui-menu-item").hide();
-  $(".ui-menu-item").mouseover(function(){
-    $(".ui-menu-item").css("background-color","yellow");
-  });
-  $(".ui-menu-item").mouseout(function(){
-    $(".ui-menu-item").css("background-color","#E9E9E4");
-  });
-});
