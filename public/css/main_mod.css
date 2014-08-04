@@ -158,14 +158,14 @@ margin-bottom: 60px;
 
 .lisitng-grid-layout .title-heading {
     text-transform: capitalize;
-    background-color: #394041;
+    background-color: #24292c;
     font-size: 21px;
     line-height: 48px;
     min-height: 53px;
     margin: 0;
     padding: 0 30px 0 30px;
     color: white;
-    width: 160px;
+    width: 180px;
 }
 .lisitng-grid-layout .pagination {
     clear: both;

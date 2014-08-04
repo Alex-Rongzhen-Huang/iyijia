@@ -1,6 +1,6 @@
 <section class="listing-layout">
 
-  <h3 class="title-heading">列表视图</h3>
+  <h3 class="title-heading"><%= ShowHouse.count %>间样板房</h3>
 
   <div class="view-type clearfix">
     <a class="list active"></a>
@@ -20,11 +20,11 @@
             </h4>
 
             <div class="col-xs-6 col-md-4">
-              <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="thumbnail">
+              <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="thumbnail no-border">
                 <% if show_house.show_house_pictures.size == 0 %>
-                    <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
+                    <img src="images/temp-images/property1.jpg" class="image_keep_ratio_for_big_image img-rounded" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
                 <% else %>
-                    <img src="<%= show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
+                    <img src="<%= show_house.show_house_pictures.first.path %>" class="image_keep_ratio_for_big_image img-rounded" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
                 <% end %>
               </a>
 
@@ -40,7 +40,7 @@
                     <small></small>
                   </h5>
               <% end %>
-              <p><%= h truncate(strip_tags(show_house.brief), :length => 500) %> </p>
+              <p style="height: 146px"><%= h truncate(strip_tags(show_house.brief), :length => 500) %> </p>
             </div>
 
             <div class="property-meta">

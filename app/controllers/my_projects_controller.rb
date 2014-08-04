@@ -4,7 +4,7 @@ class MyProjectsController < InheritedResources::Base
 
     @order = Order.where(:user_id => current_user.id).first()
     unless @order.nil?
-      @my_projects = MyProject.where(:order_id => @order.id).all()
+      @my_projects = MyProject.where(:order_id => @order.id).order('created_at DESC').all()
     else
       @my_projects = []
     end
@@ -13,6 +13,15 @@ class MyProjectsController < InheritedResources::Base
 
     respond_to do |format|
       format.html { render  :layout => 'user_admin'}# index.html.erb
+      format.json { render json: @my_projects }
+    end
+  end
+  
+  def show
+    @my_projects = MyProject.where(:order_id => params[:id]).all()
+
+    respond_to do |format|
+      format.html # show.html.erb
       format.json { render json: @my_projects }
     end
   end

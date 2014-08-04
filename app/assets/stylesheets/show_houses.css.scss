@@ -2,7 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $link-background-color: #fd970f;
-$header-background-color: #161a36;
+$header-background-color: #2d2d2d;
+/********************************************/
+/* 样板房展示页面顶部navbar的index要大于flex控件的index
+/********************************************/
+#navbar-top.navbar-inverse {
+  z-index: 5001; /*.flex-control-nav {z-index: 5000;}*/
+}
+
+
 #overview .property-item .wrap {
   background-color: $header-background-color;
   color: #ffffff;
@@ -63,7 +71,7 @@ $header-background-color: #161a36;
 #property-detail-flexslider .flexslider .slides img {
   margin: 0 auto;
   max-width: 1024px;
-  /*max-height: 431px;*/
+  max-height: 431px;
 }
 #property-detail-flexslider .flex-viewport {
   width: 1024px;
@@ -100,17 +108,20 @@ $header-background-color: #161a36;
   margin: -20px 0px 20px 0px;
 }
 .search-filter p span {
+  font-family: "微软雅黑";
   margin-left: 30px;
   margin-right: 40px;
   font-weight: bold;
 }
 .search-filter a {
+  color: black;
+  font-family: "微软雅黑";
   display: inline-block;
   padding: 4px 10px;
   text-decoration: none;
 }
 .search-filter a:hover, .search-filter a.active {
-  background-color: $link-background-color;
+  background-color: #4dc7ec;
   color: white;
 }
 /*------------------------------------------------------*/

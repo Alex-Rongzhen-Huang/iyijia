@@ -3,7 +3,9 @@
 
     <% if @decorate_schemes.size == 0 %>
         <div class="row">
-          <h3 style="padding-left: 20px;">目前没有装修方案，如果您已经提交预约上门测量申请，装修公司更新后会通知您</h3>
+          <div class="alert alert-warning" role="alert">
+            <strong>注意!</strong> 目前没有装修方案，如果您已经提交预约上门测量申请，装修公司更新后会通知您。
+          </div>
         </div>
     <% end %>
 
@@ -12,17 +14,36 @@
         <div class="row">
           <h3 style="padding-left: 20px;"><%= decorate_scheme.name %></h3>
 
-          <div class="row">
+          <div class="row" id="justifiedGallery<%= decorate_scheme.id %>"  style="border: 1px solid #ddd;margin-left: 0px;">
             <% decorate_scheme.decorate_scheme_items.each do |x| %>
-            <div class="col-xs-6 col-md-3">
-              <a href="<%= x.path %>" download class="thumbnail"><img src="<%= x.path %>" style="width: 260px; height: 250px;"></a>
-              <p style="text-align: center"><%= x.description %></p>
-            </div>
+                <a href="<%= x.path %>" title="<%= x.description %>">
+                  <img alt="<%= x.description %>" src="<%= x.path.t.url %>" />
+                </a>
             <% end %>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#justifiedGallery<%= decorate_scheme.id %>').justifiedGallery({rel: 'gal0'}).on('jg.rowflush', function () {
+                        $(this).find('a').colorbox({
+                            maxWidth : '80%',
+                            maxHeight : '80%',
+                            opacity : 0.8,
+                            transition : 'elastic',
+                            current : ''
+                        });
+                    });
+                });
+            </script>
+
             </div>
 
         </div>
     <% end %>
+
+
+    <link rel='stylesheet' href='/js/justifiedgallery/justifiedgallery.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/js/colorbox/css/colorbox.css' type='text/css' media='screen' />
+    <script src='/js/justifiedgallery/justifiedgallery.js'></script>
+    <script src='/js/colorbox/jquery.colorbox-min.js'></script>
 
     <div class="row">
       <div class="col-md-12 ">

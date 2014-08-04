@@ -3,7 +3,10 @@ class ShowHousePicture < ActiveRecord::Base
   belongs_to :show_house
 
   require 'carrierwave/orm/activerecord'
-  mount_uploader :path, ImageUploader
+  mount_uploader :path, ShowHouseImageUploader
 
   validates :path, :presence => true
+
+
+
 end

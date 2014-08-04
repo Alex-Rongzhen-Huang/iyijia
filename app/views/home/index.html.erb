@@ -22,11 +22,11 @@
                   <div class="col-md-12 ">
                     <article class="property-item clearfix">
                       <div class="col-xs-6 col-md-4">
-                        <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="thumbnail">
+                        <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="thumbnail no-border">
                           <% if show_house.show_house_pictures.size == 0 %>
-                              <img src="images/temp-images/property1.jpg" class="attachment-property-thumb-image wp-post-image" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
+                              <img src="images/temp-images/property1.jpg" class="image_keep_ratio_for_big_image img-rounded" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
                           <% else %>
-                              <img src="<%= show_house.show_house_pictures.first.path %>" class="attachment-property-thumb-image wp-post-image" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
+                              <img src="<%= show_house.show_house_pictures.first.path %>"  class="image_keep_ratio_for_big_image img-rounded" alt="<%= show_house.show_house_pictures.first.brief %>" title="<%= show_house.show_house_pictures.first.brief %>">
                           <% end %>
                         </a>
                       </div>

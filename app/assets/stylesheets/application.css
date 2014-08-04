@@ -16,28 +16,33 @@
 /* 定制顶层菜单的样式
 /* ------------------------------------------------------*/
 #navbar-top.navbar-inverse {
-    background-color: #161a36 !important;
-    border-color: #161a36;
+    background-color: #24292c  !important;
+    border: 0px;
+/*    border-color: #161a36; */
     margin-bottom: 0px;
+
 }
 #navbar-top ul.nav.navbar-nav li > a {
     color: white;
+    font-family: "微软雅黑";
+    font-weight: bold;
+    font-size: 14px;
 }
 #navbar-top ul.nav.navbar-nav li.active > a, #navbar-top ul.nav.navbar-nav li > a:hover{
-    background-color: #fd970f !important;
+    background-color: #4dc7ec !important;
 }
 #navbar-top ul.nav.navbar-nav  li ul.dropdown-menu {
     padding: 0px 0px;
     margin: 0px 0px;
 }
 #navbar-top ul.nav.navbar-nav li ul.dropdown-menu li > a {
-    background-color:  #fd970f !important;
+    background-color:  #4dc7ec !important;
     height: 40px;
     margin: 0px 0px;
     padding-top: 10px;
 }
 #navbar-top ul.nav.navbar-nav  li ul.dropdown-menu li:hover > a {
-    background-color:  #ec894d !important;
+    background-color:  #0988ae !important;
 }
 /* ------------------------------------------------------*/
 /* 定制footer的样式
@@ -47,6 +52,40 @@
     padding-bottom: 245px;
 }
 
+/* ------------------------------------------------------*/
+/* 用户订单界面（user_orders）样式
+/* ------------------------------------------------------*/
+.user_orders_top_bar{
+  border:solid 1px #F8F8F8;
+  height: 40px;
+  background: #F8F8F8;
+}
+.user_orders_div_border{
+  border:solid 1px #F8F8F8;
+}
+.user_orders_under_div{
+  height: 130px;
+  text-align: center;
+}
+
+/* ------------------------------------------------------*/
+/* 各显示图片页面的图片显示模式调整（等比缩放）
+/* ------------------------------------------------------*/
+.image_keep_ratio_for_avatar{
+  max-width: 128px;
+  max-height: 128px;
+}
+.image_keep_ratio_for_big_image{
+  max-width: 245px;
+  max-height: 163px;
+}
+.image_keep_ratio_for_small_image{
+  max-width: 140px;
+  max-height: 93px;
+}
+.thumbnail.no-border{
+    border: none;
+}
 /* ------------------------------------------------------*/
 /* icon image style change
 /* ------------------------------------------------------*/

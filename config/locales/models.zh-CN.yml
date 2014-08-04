@@ -61,7 +61,7 @@
       decorate_scheme_item: "装修方案条目"
       my_project: "工程进展"
       my_project_item: "工程进展条目"
-
+      type_of_work: "工种分类"
 
     attributes:
       decorate_company:
@@ -161,6 +161,8 @@
       my_project_item:
         path: "图片"
         description: "描述"
+      type_of_work:
+        name: "工种名称"
 
 
 

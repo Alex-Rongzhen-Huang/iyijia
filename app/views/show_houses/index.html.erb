@@ -1,11 +1,10 @@
 
-<div class="container contents lisitng-grid-layout">
+<div class="container contents lisitng-grid-layout" style="padding-top: 40px">
 
   <div class="container page-carousel">
     <div class="row">
       <div class="col-md-12">
         <section class="brands-carousel  clearfix search-filter" >
-          <h2><%= ShowHouse.count %>个样板房</h2>
           <p class="search-style">
             <span>风格</span> <a data-style="all">全部</a>
             <% ShowHouse::STYLE_TYPES.each do |s| %> <a data-style="<%= s %>"><%= s %></a>
@@ -86,6 +85,8 @@
       <div class="main">
         <% if params[:view]=='list' then %>
             <%= render 'list' %>
+        <% elsif params[:view]=='grid' then %>
+            <%= render 'nine' %>
         <% else %>
             <%= render 'grid' %>
         <% end %>

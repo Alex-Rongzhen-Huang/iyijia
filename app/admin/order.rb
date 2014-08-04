@@ -31,8 +31,12 @@ ActiveAdmin.register Order do
     column :decorate_company
     column :show_house
     column :house_fitment
-    column :decorate_scheme
-    column :my_project
+    column :decorate_scheme do |order|
+      link_to('查看此订单装修方案', admin_decorate_schemes_path+"?q%5Border_id_eq%5D=#{order.id}")
+    end
+    column :my_project do |order|
+      link_to('查看此订单工程进展', admin_my_projects_path+"?q%5Border_id_eq%5D=#{order.id}")
+    end
 
              actions
   end
