@@ -5,7 +5,7 @@ ActiveAdmin.register MainMaterial do
   collection_action :autocomplete_main_material_specifications, :method => :get
 
   controller do
-    autocomplete :main_material, :specifications, :full => true, :limit => 10
+    autocomplete :main_material, :specifications, :full => true, :limit => 10, :scopes => [:uniquely_named]
   end
 
   filter :main_material_name
@@ -43,17 +43,22 @@ ActiveAdmin.register MainMaterial do
     end
     actions
   end
-
-
+  
   form(:html => { :multipart=>true}) do |f|
     f.inputs MainMaterial.model_name.human do
+      
       f.input :main_material_name_id, :as => :select, :collection => MainMaterialName.all
       f.input :main_material_brand_id, :as => :select, :collection => option_groups_from_collection_for_select(MainMaterialName.all, :main_material_brands, :name, :id, :name, :selected => (main_material.main_material_brand_id if !main_material.main_material_brand_id.nil?))
+      within @head do
+        script :src => javascript_path('autocomplete-rails.js'), :type => "text/javascript"
+        script :src => javascript_path('jquery-ui.js'), :type => "text/javascript"
+      end
       f.input :specifications, :as => :autocomplete, :url => autocomplete_main_material_specifications_admin_main_materials_path
       f.input :price
       f.input :type_of_work_id, :as => :select, collection: TypeOfWork.order('name asc').all()
       f.input :decorate_company_id, :as => :select, collection: DecorateCompany.all()
       f.input :picture, :hint => image_tag(main_material.picture, :width => "250px")
+
     end
     f.actions
   end

@@ -6,6 +6,7 @@ class MainMaterial < ActiveRecord::Base
   belongs_to :main_material_name
   belongs_to :type_of_work
   
+  scope :uniquely_named, group(:specifications)
   require 'carrierwave/orm/activerecord'
   mount_uploader :picture, ImageUploader
 end
