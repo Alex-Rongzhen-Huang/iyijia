@@ -52,6 +52,7 @@
       user_profile: "用户资料"
       main_material: "主材"
       main_material_brand: "主材品牌"
+      main_material_name: "主材名称"
       home_image_setting: "主页图片设置"
       construction_item: "施工项"
       quotation_template: "报价单模板"
@@ -107,8 +108,12 @@
         show_house: "样板房"
         show_house_id : "样板房"
       main_material_brand:
-        name: "主材名称"
-        logo_path: "主材Logo"
+        name: "主材品牌"
+        logo_path: "品牌Logo"
+        main_material_name: "主材名称"
+        main_material_name_id: "主材名称"
+      main_material_name:
+        name: "主材名称"      
       home_image_setting:
          img1: "图片（1）"
          img2: "图片（2）"
@@ -119,10 +124,16 @@
         name: "主材名称"
         picture: "主材图片"
         price: "主材价格"
-        type: "主材规格"
+        specifications: "主材规格"
         type_of_work: "工种"
-        decorate_company_id: "装修公司"
+        type_of_work_id: "工种"
+        main_material_name: "主材名称"
+        main_material_name_id: "主材名称"
+        main_material_brand: "主材品牌"
         main_material_brand_id: "主材品牌"
+        decorate_company: "装修公司"
+        decorate_company_id: "装修公司"
+        
       construction_item:
         name: "施工项名称"
         process_description: "工艺描述"
