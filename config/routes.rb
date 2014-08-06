@@ -1,4 +1,5 @@
 Iyijia::Application.routes.draw do
+
   #resources :my_project_items
   resources :my_projects
   #resources :decorate_scheme_items
@@ -39,7 +40,7 @@ Iyijia::Application.routes.draw do
   match '/user_admin/pre_order', to: 'user_admin#pre_order', as: :pre_order
   match '/user_admin/old_quotation', to: 'user_admin#old_quotation', as: :old_quotation
   match '/user_admin/favorites', to: 'user_admin#favorites', as: :favorites
-
+  match '/faq', to: 'faq#index', as: :faq
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
