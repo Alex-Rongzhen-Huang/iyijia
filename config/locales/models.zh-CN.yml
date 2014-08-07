@@ -63,6 +63,7 @@
       my_project: "工程进展"
       my_project_item: "工程进展条目"
       type_of_work: "工种分类"
+      faq_item: "流程解答设置"
 
     attributes:
       decorate_company:
@@ -174,7 +175,9 @@
         description: "描述"
       type_of_work:
         name: "工种名称"
-
+      faq_item:
+        title: "问题"
+        description: "详细解答"
 
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140723131232) do
+ActiveRecord::Schema.define(:version => 20140807130754) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -110,6 +110,13 @@ ActiveRecord::Schema.define(:version => 20140723131232) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "faq_items", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "home_image_settings", :force => true do |t|
     t.string "img1"
     t.string "img2"
@@ -133,20 +140,27 @@ ActiveRecord::Schema.define(:version => 20140723131232) do
   end
 
   create_table "main_material_brands", :force => true do |t|
-    t.string "name"
-    t.string "logo_path"
+    t.string  "name"
+    t.string  "logo_path"
+    t.integer "main_material_name_id"
+  end
+
+  create_table "main_material_names", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "main_materials", :force => true do |t|
-    t.string   "name"
     t.string   "picture"
-    t.string   "type"
     t.float    "price"
-    t.string   "type_of_work"
     t.integer  "main_material_brand_id"
     t.integer  "decorate_company_id"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
+    t.string   "specifications"
+    t.integer  "main_material_name_id"
+    t.integer  "type_of_work_id"
   end
 
   create_table "my_project_items", :force => true do |t|
