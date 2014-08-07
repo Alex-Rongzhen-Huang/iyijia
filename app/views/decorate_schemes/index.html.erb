@@ -12,7 +12,19 @@
 
     <% @decorate_schemes.each do |decorate_scheme| %>
         <div class="row">
-          <h3 style="padding-left: 20px;"><%= decorate_scheme.name %></h3>
+          <h3 style="padding-left: 20px;"><%= decorate_scheme.name %>
+            <input type="hidden" id="hidden_decorate_scheme_id" class="hidden_decorate_scheme_id" value="<%= decorate_scheme.id %>">
+          	<% if decorate_scheme.confirm_status == "未确认" and @confirm_status_count == 0 %>
+              <a class="btn btn-info confirm-decorate-scheme" id="confirm-decorate-scheme" href="#">确认此方案</a>
+              <span class="label label-success for_jquery"></span>
+            <% elsif decorate_scheme.confirm_status == "未确认" and @confirm_status_count != 0 %>
+            
+            <% else %>
+              <span class="label label-success">已确认</span>
+            <% end %>
+
+          </h3>
+          
 
           <div class="row" id="justifiedGallery<%= decorate_scheme.id %>"  style="border: 1px solid #ddd;margin-left: 0px;">
             <% decorate_scheme.decorate_scheme_items.each do |x| %>
@@ -39,13 +51,12 @@
         </div>
     <% end %>
 
-
     <link rel='stylesheet' href='/js/justifiedgallery/justifiedgallery.min.css' type='text/css' media='all' />
     <link rel='stylesheet' href='/js/colorbox/css/colorbox.css' type='text/css' media='screen' />
     <script src='/js/justifiedgallery/justifiedgallery.js'></script>
     <script src='/js/colorbox/jquery.colorbox-min.js'></script>
 
-    <div class="row">
+    <div class="row" align="center">
       <div class="col-md-12 ">
         <%= paginate @decorate_schemes %>
       </div>
@@ -54,3 +65,18 @@
 </div>
 <!-- End row -->
 
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.confirm-decorate-scheme').on('click',function(event){
+      	if(confirm("确定选择该装修方案？")){
+          event.preventDefault();
+      	  var temporary_confirm=$(this);
+      	  var $confirmid = $(this).prev().val();
+          $.post( "/decorate_schemes/confirm/"+$confirmid, function( data ) {
+            $('.confirm-decorate-scheme').hide();
+            $(temporary_confirm).next().append("已确认");
+          });
+        }
+      });
+  });
+</script>

@@ -33,6 +33,7 @@ Iyijia::Application.routes.draw do
 
   match '/show_houses/like/:id' => 'show_houses#like'
   match '/show_houses/unlike/:id' => 'show_houses#unlike'
+  match '/decorate_schemes/confirm/:id' => 'decorate_schemes#confirm'
   match '/user_admin/order/new/:id', to: 'user_admin#order_new', as: :order_new # id is show house id
   match '/user_admin/order_del/:id' => 'user_admin#order_del' # id is order id
   match '/user_admin/user_orders', to: 'user_admin#user_orders', as: :user_orders  

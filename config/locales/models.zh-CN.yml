@@ -163,6 +163,8 @@
       decorate_scheme:
         name: "方案名称"
         order: "对应订单"
+        order_id: "对应订单"
+        confirm_status: "客户确认状态"
       decorate_scheme_item:
         path: "图片"
         description: "描述"

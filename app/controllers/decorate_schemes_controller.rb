@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class DecorateSchemesController < InheritedResources::Base
   def index
     @user_profile ||= session[:user_profile]
@@ -7,7 +8,8 @@ class DecorateSchemesController < InheritedResources::Base
     else
       @decorate_schemes = []
     end
-    @decorate_schemes = Kaminari.paginate_array(@decorate_schemes).page(params[:page]).per(2)
+    @decorate_schemes = Kaminari.paginate_array(@decorate_schemes).page(params[:page]).per(4)
+    @confirm_status_count = DecorateScheme.where(:confirm_status => "已确认").count()
 
     respond_to do |format|
       format.html { render  :layout => 'user_admin'}# index.html.erb
@@ -21,6 +23,16 @@ class DecorateSchemesController < InheritedResources::Base
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @decorate_schemes }
+    end
+  end
+  
+  def confirm
+    @decorate_scheme = DecorateScheme.find(params[:id])
+    @decorate_scheme.update_attributes(
+               :confirm_status=>"已确认"
+               )
+    respond_to do |format|
+      format.json { render json: @decorate_scheme }
     end
   end
 
