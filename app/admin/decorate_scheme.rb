@@ -6,6 +6,7 @@ ActiveAdmin.register DecorateScheme do
     f.inputs DecorateScheme.model_name.human do
       f.input :name
       f.input :order_id, as: :select, collection: Order.all()
+      f.input :confirm_status, as: :select, collection: DecorateScheme::CONFIRM_STATUS
 
       f.inputs do
         f.has_many :decorate_scheme_items, :allow_destroy => true, :heading => 'Pictures', :new_record => true do |cf|
@@ -45,6 +46,9 @@ ActiveAdmin.register DecorateScheme do
     #column I18n.t("admin.show_house_picture.path"), :path
     column :name
     column :order
+    column :confirm_status do |cs|
+      status_tag(cs.confirm_status, cs.confirm_status=='未确认'?:orange : :green)
+    end
     column :created_at
     column :updated_at
 

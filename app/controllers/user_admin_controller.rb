@@ -116,7 +116,8 @@ class UserAdminController < ApplicationController
           
         @decorate_scheme = DecorateScheme.create(
               :name=>"未维护",
-              :order_id=>@order.id
+              :order_id=>@order.id,
+              :confirm_status=>"未确认"
           )
         
         unless @my_project.save
