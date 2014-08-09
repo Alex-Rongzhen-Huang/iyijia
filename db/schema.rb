@@ -106,8 +106,9 @@ ActiveRecord::Schema.define(:version => 20140807130754) do
   create_table "decorate_schemes", :force => true do |t|
     t.string   "name"
     t.integer  "order_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "confirm_status"
   end
 
   create_table "faq_items", :force => true do |t|

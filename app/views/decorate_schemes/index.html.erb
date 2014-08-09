@@ -33,17 +33,13 @@
         <div class="row">
           <h3 style="padding-left: 20px;"><%= decorate_scheme.name %>
             <input type="hidden" value="<%= decorate_scheme.id %>">
-          	<% if decorate_scheme.confirm_status == "未确认" and @confirm_status_count == 0 %>
+          	<% if decorate_scheme.confirm_status == "未确认" %>
               <a class="btn btn-info confirm-decorate-scheme" role="button" href="#myModal3" data-toggle="modal">确认此方案</a>
               <span class="label label-success"></span>
-            <% elsif decorate_scheme.confirm_status == "未确认" and @confirm_status_count != 0 %>
-            
             <% else %>
               <span class="label label-success">已确认</span>
             <% end %>
-
           </h3>
-          
 
           <div class="row" id="justifiedGallery<%= decorate_scheme.id %>"  style="border: 1px solid #ddd;margin-left: 0px;">
             <% decorate_scheme.decorate_scheme_items.each do |x| %>
@@ -55,8 +51,8 @@
                 $(document).ready(function() {
                     $('#justifiedGallery<%= decorate_scheme.id %>').justifiedGallery({rel: 'gal0'}).on('jg.rowflush', function () {
                         $(this).find('a').colorbox({
-                            maxWidth : '80%',
-                            maxHeight : '80%',
+                            maxWidth : '99%',
+                            maxHeight : '99%',
                             opacity : 0.8,
                             transition : 'elastic',
                             current : ''
@@ -93,7 +89,7 @@
       });
       $('.for-confirm').on('click',function(){
           $.post( "/decorate_schemes/confirm/"+$confirmid, function( data ) {
-            $('.confirm-decorate-scheme').hide();
+            $temporary_confirm.hide();
             $temporary_confirm.next().text("已确认");
           });
       });

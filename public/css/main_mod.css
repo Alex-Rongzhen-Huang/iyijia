@@ -35,10 +35,14 @@
 
 .property-item {
     text-align: left;
-    border: 1px solid #dedede;
+    /*border: 1px solid #dedede;*/
     background-color: white;
     padding: 10px 10px 0;
     margin-bottom: 30px;
+
+    border: solid 1px lightgray;
+    -webkit-box-shadow: 3px 3px 10px gray;
+    box-shadow: 3px 3px 10px gray;
     /*  min-height: 252px;
       height:auto !important;
       height: 252px;*/

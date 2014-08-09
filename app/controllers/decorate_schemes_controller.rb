@@ -9,7 +9,7 @@ class DecorateSchemesController < InheritedResources::Base
       @decorate_schemes = []
     end
     @decorate_schemes = Kaminari.paginate_array(@decorate_schemes).page(params[:page]).per(4)
-    @confirm_status_count = DecorateScheme.where(:confirm_status => "已确认").count()
+    #@confirm_decorate_schemes = @decorate_schemes.select {|x| x.confirm_status=="已确认"}
 
     respond_to do |format|
       format.html { render  :layout => 'user_admin'}# index.html.erb
