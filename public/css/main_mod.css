@@ -41,8 +41,8 @@
     margin-bottom: 30px;
 
     border: solid 1px lightgray;
-    -webkit-box-shadow: 3px 3px 10px gray;
-    box-shadow: 3px 3px 10px gray;
+    -webkit-box-shadow: 3px 3px 10px lightgray;
+    box-shadow: 3px 3px 10px lightgray;
     /*  min-height: 252px;
       height:auto !important;
       height: 252px;*/
