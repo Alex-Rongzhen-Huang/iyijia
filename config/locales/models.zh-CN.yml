@@ -64,6 +64,7 @@
       my_project_item: "工程进展条目"
       type_of_work: "工种分类"
       faq_item: "流程解答设置"
+      main_material_price: "主材价格分类"
 
     attributes:
       decorate_company:
@@ -134,7 +135,14 @@
         main_material_brand_id: "主材品牌"
         decorate_company: "装修公司"
         decorate_company_id: "装修公司"
-        
+      main_material_price:
+        main_material_name:  "主材名称"
+        economy: "经济型标价"
+        economy_cost: "经济型成本"
+        comfort: "舒适型标价"
+        comfort_cost: "舒适型成本"
+        luxury:  "豪华型标价"
+        luxury_cost:  "豪华型成本"
       construction_item:
         name: "施工项名称"
         process_description: "工艺描述"

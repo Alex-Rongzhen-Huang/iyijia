@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140812103049) do
+ActiveRecord::Schema.define(:version => 20140812130558) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -156,6 +156,20 @@ ActiveRecord::Schema.define(:version => 20140812103049) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "main_material_prices", :force => true do |t|
+    t.integer  "main_material_name_id"
+    t.float    "economy"
+    t.float    "economy_cost"
+    t.float    "comfort"
+    t.float    "comfort_cost"
+    t.float    "luxury"
+    t.float    "luxury_cost"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  add_index "main_material_prices", ["main_material_name_id"], :name => "index_main_material_prices_on_main_material_name_id"
 
   create_table "main_materials", :force => true do |t|
     t.string   "picture"
