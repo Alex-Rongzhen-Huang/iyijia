@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140807130754) do
+ActiveRecord::Schema.define(:version => 20140812103049) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -124,6 +124,11 @@ ActiveRecord::Schema.define(:version => 20140807130754) do
     t.string "img3"
     t.string "img4"
     t.string "img5"
+    t.string "link1"
+    t.string "link2"
+    t.string "link3"
+    t.string "link4"
+    t.string "link5"
   end
 
   create_table "house_fitments", :force => true do |t|
