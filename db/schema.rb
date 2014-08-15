@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140812130558) do
+ActiveRecord::Schema.define(:version => 20140814140746) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -210,6 +210,21 @@ ActiveRecord::Schema.define(:version => 20140812130558) do
     t.string   "quotation_link"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+  end
+
+  create_table "package_prices", :force => true do |t|
+    t.integer  "rooms",              :default => 1
+    t.integer  "doors",              :default => 3
+    t.integer  "bathrooms",          :default => 1
+    t.integer  "max_usable_area",    :default => 40
+    t.integer  "kitchen_area",       :default => 5
+    t.integer  "bathroom_area",      :default => 5
+    t.string   "covered_area_range", :default => "S≤50"
+    t.float    "economy_price"
+    t.float    "comfort_price"
+    t.float    "luxury_price"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   create_table "quotation_template_items", :force => true do |t|

@@ -22,7 +22,7 @@ class CreateMainMaterialPrices < ActiveRecord::Migration
     MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('厨房水槽龙头').id, :economy_cost => 450, :comfort_cost => 800, :luxury_cost => 0, :economy => 600, :comfort => 1000, :luxury => 0)
     MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('卫浴洁具柜组合').id, :economy_cost => 2500, :comfort_cost => 6000, :luxury_cost => 0, :economy => 3000, :comfort => 7000, :luxury => 0)
     MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('卫浴五金').id, :economy_cost => 400, :comfort_cost => 400, :luxury_cost => 0, :economy => 500, :comfort => 500, :luxury => 0)
-    MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('集成吊顶').id, :economy_cost => 300, :comfort_cost => 1000, :luxury_cost => 0, :economy => 400, :comfort => 2000, :luxury => 0)
+    MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('集成吊顶').id, :economy_cost => 110, :comfort_cost => 110, :luxury_cost => 0, :economy => 150, :comfort => 150, :luxury => 0)
 
   end
   def down

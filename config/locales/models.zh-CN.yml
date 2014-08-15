@@ -65,7 +65,7 @@
       type_of_work: "工种分类"
       faq_item: "流程解答设置"
       main_material_price: "主材价格分类"
-
+      package_price: "打包价"
     attributes:
       decorate_company:
         name: "公司名称"
@@ -143,6 +143,17 @@
         comfort_cost: "舒适型成本"
         luxury:  "豪华型标价"
         luxury_cost:  "豪华型成本"
+      package_price:
+        rooms: "房"
+        bathrooms: "卫浴空间"
+        doors: "室内门数"
+        kitchen_area: "厨房面积"
+        bathroom_area: "卫生间面积"
+        comfort_price: "舒适型主材包"
+        covered_area_range: "建筑面积（S）平米"
+        economy_price: "经济型主材包"
+        luxury_price: "豪华型主材包"
+        max_usable_area: "最大面积(得房率*0.8）"
       construction_item:
         name: "施工项名称"
         process_description: "工艺描述"
