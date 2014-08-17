@@ -3,8 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .property-items .col-md-8 h3, .property-items .col-md-4 h3 {
+  font-family: "microsoft yahei";
   text-align: left;
-  border-bottom: 2px slategray solid;
+  padding-bottom: 5px;
+  border-bottom: 1px lightgray solid;
 }
 
 /************************************/
@@ -23,6 +25,27 @@
 .list-group .list-group-item p {
   font-size: 12px;
 }
+
 .list-group .list-group-item img {
   padding: 6px;
+}
+
+/************************************/
+/* 装修花费样式                       */
+/************************************/
+.property-items h3.first-header {
+  border-bottom: none;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  line-height: 42px;
+}
+
+.property-items .tab-content.header-mod {
+  border: 1px solid #ddd;
+  border-radius: 4px 0px 4px 4px;
+  margin-top: -1px;
+  -webkit-box-shadow: 3px 3px 10px lightgray;
+  box-shadow: 3px 3px 10px lightgray;
+  background-color: #fff;
 }

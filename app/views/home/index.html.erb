@@ -15,10 +15,35 @@
         <section class="property-items">
 
           <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-12" style="height: 10px;"><!-- place holder --></div>
+              <div class="col-md-4"><h3 class="first-header">装修花费，马上知道</h3></div>
+              <div class="col-md-8">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs nav-justified" role="tablist" id="tablist">
+                  <li <%= (request.fullpath=='/') ? 'class="active"'.html_safe() : '' %>>
+                    <a href="#home" role="tab" data-toggle="tab">一口价查询</a></li>
+                  <li>
+                    <a href="#order" role="tab" data-toggle="tab">免费预约</a></li>
+                  <li><a href="#messages" role="tab" data-toggle="tab">主材样式</a></li>
+                </ul>
+              </div>
+              <div class="col-md-12">
+                <!-- Tab panes -->
+                <div class="tab-content header-mod">
+                  <div class="tab-pane active" id="home"></div>
+                  <div class="tab-pane" id="order">
+                    <%= render 'pre_order' %>
+                  </div>
+                  <div class="tab-pane" id="messages"></div>
+                </div>
+              </div>
+            </div>
             <h3>最IN推荐</h3>
+
             <div class="row">
               <% @show_houses.each do |show_house| %>
-                  <div class="col-md-6" style="" >
+                  <div class="col-md-6" style="">
                     <div class="col-md-12" style="margin: 20px 20px 0px 0px;border: solid 1px lightgray;-webkit-box-shadow: 3px 3px 10px lightgray;box-shadow: 3px 3px 10px lightgray;">
                       <div class="col-md-7 " style="font-family: '微软雅黑';padding: 0px 0px;">
                         <h4>
@@ -33,7 +58,7 @@
                       </div>
 
                       <div class="col-md-12 " style="height: 220px;padding: 0px 0px;">
-                        <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="" >
+                        <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="">
                           <% if show_house.show_house_pictures.size == 0 %>
                               <img src="images/temp-images/property1.jpg" class="" style="width: 100%;height: 100%" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
                           <% else %>
@@ -42,12 +67,12 @@
                         </a>
                       </div>
                       <div class="col-md-12 " style="padding: 0px 0px;margin: 5px 0px;">
-                        <% show_house.show_house_pictures[1,4].each do |show_house_picture| %>
+                        <% show_house.show_house_pictures[1, 4].each do |show_house_picture| %>
                             <div class="col-md-3 " style="padding:2px 2px;">
                               <img src="<%= show_house_picture.path.t.url %>" style="width: 100%;height: 100%" class="" alt="<%= show_house_picture.brief %>" title="<%= show_house_picture.brief %>">
                             </div>
                         <% end %>
-                        <% for i in 1..(4-show_house.show_house_pictures[1,4].size) do  %>
+                        <% for i in 1..(4-show_house.show_house_pictures[1, 4].size) do %>
                             <div class="col-md-3 " style="padding:2px 2px;">
                               <!--
                               <img src="http://dummyimage.com/100x100" class="" style="width: 100%;height: 100%">
@@ -61,19 +86,23 @@
 
                         <input type="hidden" id="hidden_show_house_id" class="guiyi" value="<%= show_house.id %>">
                         <% if current_user %>
-                            <a class="btn btn-info show-house-dislike pull-left" id="show-house-dislike" href="#" style="<%= (current_user.voted_up_on? show_house)?'':'display:none;' %>"><i class="icon-heart" style="color: red"></i>&nbsp;&nbsp;取消收藏</a>
-                            <a class="btn btn-info show-house-like pull-left" id="show-house-like" href="#" style="<%= (current_user.voted_up_on? show_house)?'display:none;':'' %>"><i class="icon-heart"></i>&nbsp;&nbsp;收藏</a>
+                            <a class="btn btn-info show-house-dislike pull-left" id="show-house-dislike" href="#" style="<%= (current_user.voted_up_on? show_house) ? '' : 'display:none;' %>"><i class="icon-heart" style="color: red"></i>&nbsp;&nbsp;取消收藏</a>
+                            <a class="btn btn-info show-house-like pull-left" id="show-house-like" href="#" style="<%= (current_user.voted_up_on? show_house) ? 'display:none;' : '' %>"><i class="icon-heart"></i>&nbsp;&nbsp;收藏</a>
 
                         <% end %>
-                        <p class="pull-right" style="text-align: center"><a class="btn btn-warning" id="order" href="<%= order_new_path(show_house.id) %>" ><i class="icon-shopping-cart"></i>&nbsp;&nbsp;在线预约测量</a></p>
+                        <p class="pull-right" style="text-align: center">
+                          <a class="btn btn-warning" id="order" href="<%= order_new_path(show_house.id) %>"><i class="icon-shopping-cart"></i>&nbsp;&nbsp;在线预约测量</a>
+                        </p>
 
                       </div>
                     </div>
                   </div>
 
               <% end %>
-            </div>     <!-- End .row -->
-          </div><!-- End .col-md-8 -->
+            </div>
+            <!-- End .row -->
+          </div>
+          <!-- End .col-md-8 -->
 
           <div class="col-md-4">
 
@@ -82,31 +111,37 @@
             <div class="list-group">
               <a href="<%= show_houses_path+"?style=all&usage=all&area=all&price=all&view=grid" %>" target="_blank" class="list-group-item">
                 <h4 class="list-group-item-heading">选择样板房风格</h4>
+
                 <p class="list-group-item-text">多种样板房图片供您参考</p>
-                <img src="images/home/product-fleches.png">
+                <img src="/images/home/product-fleches.png">
               </a>
-              <a href="<%= order_new_path(:id=>ShowHouse.first.id) %>" target="_blank" class="list-group-item">
+              <a href="<%= order_new_path(:id => ShowHouse.first.id) %>" target="_blank" class="list-group-item">
                 <h4 class="list-group-item-heading">免费预约测量</h4>
+
                 <p class="list-group-item-text">在线提交测量申请</p>
-                <img src="images/home/product-fleches.png">
+                <img src="/images/home/product-fleches.png">
               </a>
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">免费出方案报价</h4>
+
                 <p class="list-group-item-text">方案一口价全包，保证不增项，不加价</p>
-                <img src="images/home/product-fleches.png">
+                <img src="/images/home/product-fleches.png">
               </a>
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">在线选择主材包</h4>
+
                 <p class="list-group-item-text">多种主材包可供选择，自由组合变换</p>
-                <img src="images/home/product-fleches.png">
+                <img src="/images/home/product-fleches.png">
               </a>
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">线下实体看主材</h4>
+
                 <p class="list-group-item-text">实体主材供挑选，把材料看个明白，使用放心</p>
-                <img src="images/home/product-fleches.png">
+                <img src="/images/home/product-fleches.png">
               </a>
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">方案确定签合同</h4>
+
                 <p class="list-group-item-text">方案全部决定后再签约，首付只需总价20%</p>
               </a>
             </div>
@@ -124,4 +159,14 @@
   </div>
   <!-- End .row -->
 </div><!-- End .contents -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        <% if  (request.fullpath=~ /\/home\/order.*/) %>
+            $('#tablist a[href="#order"]').tab('show');
+        <% else %>
+            $('#tablist a[href="#home"]').tab('show');
+        <% end %>
+    });
+</script>
 

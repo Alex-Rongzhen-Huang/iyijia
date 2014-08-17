@@ -42,6 +42,7 @@ Iyijia::Application.routes.draw do
   match '/user_admin/old_quotation', to: 'user_admin#old_quotation', as: :old_quotation
   match '/user_admin/favorites', to: 'user_admin#favorites', as: :favorites
   match '/faq', to: 'faq#index', as: :faq
+  match '/home/order' => 'home#pre_order', :as => :home_order
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

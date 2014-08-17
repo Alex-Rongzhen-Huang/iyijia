@@ -1,0 +1,75 @@
+<%= form_for(@house_fitment, url: home_order_path, html: {class: "form-horizontal", style:"text-align:left;"}) do |f| %>
+    <legend style="text-align: center;">省心装修，立即填写测量申请，全程透明在线管理</legend>
+    <% if @house_fitment.errors.any? %>
+        <div class="alert alert-warning fade in" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h4>注意: <%= @house_fitment.errors.count  %> 个错误</h4>
+          <ul>
+            <% @house_fitment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <div class="form-group">
+      <%= f.label :contact, class: "col-sm-4 control-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :contact, class: "form-control", placeholder: "怎么称呼您？" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :phone, class: "col-sm-4 control-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :phone, class: "form-control", placeholder: "联系电话" %>
+        <p class="help-block">工作人员会尽快与您取得联系，然后安排上门测量</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, class: "col-sm-4 control-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+        <p class="help-block">邮箱地址可以用来登陆本站，全程跟踪项目进度</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :address, class: "col-sm-4 control-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :address, class: "form-control", placeholder: "待测量房地址" %>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :budget, class: "col-sm-4 control-label" %>
+      <div class="col-sm-6">
+        <%= f.radio_button :budget, '5万以内' %>5万以内
+        <%= f.radio_button :budget, '5万-10万', checked: 'checked' %>5万-10万
+        <%= f.radio_button :budget, '10万-15万' %>10万-15万
+        <%= f.radio_button :budget, '15万以上' %>15万以上
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :house_type, class: "col-sm-4 control-label" %>
+      <div class="col-sm-6">
+        <%= f.radio_button :house_type, '一房' %>一房
+        <%= f.radio_button :house_type, '二房', checked: 'checked' %>二房
+        <%= f.radio_button :house_type, '三房' %>三房
+        <%= f.radio_button :house_type, '四房' %>四房
+        <%= f.radio_button :house_type, '复式' %>复式
+        <%= f.radio_button :house_type, '别墅' %>别墅
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-6">
+        <%= f.submit '提交测量申请', :class => 'btn btn-primary' %>
+      </div>
+    </div>
+
+<% end %>
