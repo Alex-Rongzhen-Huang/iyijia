@@ -10,12 +10,10 @@ class HomeController < ApplicationController
   #POST
   def pre_order
     @house_fitment = HouseFitment.new(params[:house_fitment])
-    #generated_password = Devise.friendly_token.first(8)
-    generated_password = 12345678
+    generated_password = Devise.friendly_token.first(8)
     @user = User.create(:email => params[:house_fitment][:email], :password => generated_password)
     if @user.save
-      # TODO: send user about register information
-      # RegistrationMailer.welcome(user, generated_password).deliver
+      UserMailer.first_order_email(@user, generated_password).deliver
     else
       puts '此邮箱已有关联用户存在.'
       @user = User.find_by_email (params[:house_fitment][:email])
