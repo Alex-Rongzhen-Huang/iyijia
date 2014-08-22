@@ -22,7 +22,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-justified" role="tablist" id="tablist">
                   <li <%= (request.fullpath=='/') ? 'class="active"'.html_safe() : '' %>>
-                    <a href="#home" role="tab" data-toggle="tab">一口价查询</a></li>
+                    <a href="#price" role="tab" data-toggle="tab">一口价查询</a></li>
                   <li>
                     <a href="#order" role="tab" data-toggle="tab">免费预约</a></li>
                   <li><a href="#messages" role="tab" data-toggle="tab">主材样式</a></li>
@@ -31,7 +31,9 @@
               <div class="col-md-12">
                 <!-- Tab panes -->
                 <div class="tab-content header-mod">
-                  <div class="tab-pane active" id="home"></div>
+                  <div class="tab-pane active" id="price">
+                    <%= render 'simple_price' %>
+                  </div>
                   <div class="tab-pane" id="order">
                     <%= render 'pre_order' %>
                   </div>

@@ -1,9 +1,12 @@
 # encoding: UTF-8
 class PackagePrice < ActiveRecord::Base
-  attr_accessible :rooms, :bathrooms, :doors, :kitchen_area, :bathroom_area, :comfort_price, :covered_area_range, :economy_price, :luxury_price, :max_usable_area
+  attr_accessible :rooms, :bathrooms, :doors, :kitchen_area, :bathroom_area, :comfort_price, :covered_area_range, :economy_price, :luxury_price, :max_usable_area, :construction_price
   # currently 2 column validate is OK, might need another field later which is also ok by setting :scope=>[:field1, :field2]
-  validates :covered_area_range, :presence => true, :uniqueness => {:scope => :bathrooms,:message=>'Should be unique per bathroom type'}
+  validates :covered_area_range, :presence => true, :uniqueness => {:scope => :bathrooms, :message => 'Should be unique per bathroom type'}
   before_save :calculate
+
+  AREA_RANGE_TYPES = %w[S≤50 50＜S≤55 55＜S≤60 60＜S≤65 65＜S≤70 70＜S≤75 75＜S≤80 80＜S≤85 85＜S≤90 90＜S≤95 95＜S≤100 100＜S≤105  105＜S≤110  110＜S≤115  115＜S≤120  120＜S≤125  125＜S≤130  130＜S≤135  135＜S≤140  140＜S≤145  145＜S≤150]
+  ROOM_TYPES = %w[1 2 3 4 5 6 7 8 9]
 
   protected
   def calculate
@@ -26,7 +29,7 @@ class PackagePrice < ActiveRecord::Base
     price = sum(price_of_door, price_of_floor, price_of_ceramic_tile,
                 price_of_skirting_line, price_of_cabinet, price_of_kitchen_sink,
                 price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling)
-    price+= 400  # 浴霸
+    price+= 400 # 浴霸
     self.economy_price= price.round
   end
 
@@ -44,7 +47,7 @@ class PackagePrice < ActiveRecord::Base
     price = sum(price_of_door, price_of_floor, price_of_ceramic_tile,
                 price_of_skirting_line, price_of_cabinet, price_of_kitchen_sink,
                 price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling)
-    price+= 1200  # 浴霸
+    price+= 1200 # 浴霸
     self.comfort_price= price.round
   end
 
@@ -60,10 +63,10 @@ class PackagePrice < ActiveRecord::Base
     price_of_integrated_ceiling = get_main_material_price('集成吊顶').luxury
 
     price = sum(price_of_door, price_of_floor, price_of_ceramic_tile,
-        price_of_skirting_line, price_of_cabinet, price_of_kitchen_sink,
-        price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling)
+                price_of_skirting_line, price_of_cabinet, price_of_kitchen_sink,
+                price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling)
 
-    price+= 1200  # 浴霸 TODO:
+    price+= 1200 # 浴霸 TODO:
     self.luxury_price= price.round
   end
 

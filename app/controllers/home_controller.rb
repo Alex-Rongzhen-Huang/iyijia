@@ -7,6 +7,15 @@ class HomeController < ApplicationController
     @house_fitment = HouseFitment.new
   end
 
+  #GET
+  def query
+     @package_price = PackagePrice.find_by_covered_area_range_and_bathrooms(params[:covered_area_range], params[:bathrooms])
+     @package_price ||= PackagePrice.first
+     respond_to do |format|
+       format.json { render json: @package_price }
+     end
+  end
+
   #POST
   def pre_order
     @house_fitment = HouseFitment.new(params[:house_fitment])

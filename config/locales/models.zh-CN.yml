@@ -154,6 +154,7 @@
         economy_price: "经济型主材包"
         luxury_price: "豪华型主材包"
         max_usable_area: "最大面积(得房率*0.8）"
+        construction_price: "施工一口价"
       construction_item:
         name: "施工项名称"
         process_description: "工艺描述"

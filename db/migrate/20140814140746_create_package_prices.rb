@@ -12,6 +12,7 @@ class CreatePackagePrices < ActiveRecord::Migration
       t.float :economy_price
       t.float :comfort_price
       t.float :luxury_price
+      t.float :construction_price, :default => 29999
 
       t.timestamps
     end

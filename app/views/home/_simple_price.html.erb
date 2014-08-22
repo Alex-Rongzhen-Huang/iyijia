@@ -1,0 +1,117 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th colspan="3">
+      <form class="form-inline" role="form">
+        <div class="checkbox">
+          <label>您的豪宅建筑面积多大？</label>
+          <%= select_tag(:covered_area_range, options_for_select(PackagePrice::AREA_RANGE_TYPES, "95＜S≤100"), class: 'form-control') %>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="checkbox">
+          <label>您的豪宅有几个卫生间？</label>
+          <%= select_tag(:bathrooms, options_for_select(PackagePrice::ROOM_TYPES, "1"), class: 'form-control') %>
+        </div>
+      </form>
+    </th>
+
+  </tr>
+  <tr class="blue-bg">
+    <th style="width: 20%">方案</th>
+    <th style="width: 40%">经济型</th>
+    <th style="width: 40%">舒适型</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>精装总价</td>
+    <td>
+      <h5 style="color: #fd970f;">
+        <label id="esum">69999</label><span style="color:lightgray; font-size: small;"> 元 </span>
+        <img src="/images/home/simple_price.png"></h5>
+        <a class="btn btn-warning btn-xs"  onclick="$('a[href=#order]').tab('show')" style="position: relative;top:-20px;left:-50px;">免费预约测量</a>
+
+    </td>
+    <td>
+      <h5 style="color: #fd970f;">
+        <label id="csum">109999</label><span style="color:lightgray; font-size: small;"> 元 </span>
+        <img src="/images/home/simple_price.png"></h5>
+        <a class="btn btn-warning btn-xs"  onclick="$('a[href=#order]').tab('show')" style="position: relative;top:-20px;left:-50px;">免费预约测量</a>
+
+    </td>
+  </tr>
+  <tr>
+    <td>施工一口价</td>
+    <td><h5 style="color: #fd970f;">
+      <label class="bp">29999</label><span style="color:lightgray; font-size: small;"> 元 </span>
+      <img src="/images/home/simple_price.png"></h5></td>
+    <td><h5 style="color: #fd970f;">
+      <label class="bp">29999</label><span style="color:lightgray; font-size: small;"> 元 </span>
+      <img src="/images/home/simple_price.png"></h5></td>
+  </tr>
+  <tr>
+    <td>主材包</td>
+    <td><h5 style="color: #fd970f;"> <label id="ep">40000</label><span style="color:lightgray; font-size: small;"> 元 </span>
+      <img src="/images/home/simple_price.png" style="visibility: hidden"></h5></td>
+    <td><h5 style="color: #fd970f;"> <label id="cp">80000</label><span style="color:lightgray; font-size: small;"> 元 </span>
+      <img src="/images/home/simple_price.png" style="visibility: hidden"></h5></td>
+  </tr>
+  <tr>
+    <td>主材品牌</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  </tbody>
+</table>
+
+<style type="text/css">
+  table {
+      font-family: "microsoft yahei";
+  }
+  tbody tr:hover {
+      background-color: #d9edf7;
+  }
+  thead tr td,thead tr th {
+      text-align: center;
+      font-weight: normal;
+  }
+  thead tr th form {
+      font-size: 18px;
+  }
+  thead tr.blue-bg {
+      font-size: 18px;
+      color: white;
+      background-color: royalblue;
+  }
+</style>
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+      function updateQuery() {
+          var p1 = $('#covered_area_range').val();
+          var p2 =  $('#bathrooms').val();
+
+          $.get( "/home/query?covered_area_range="+encodeURI(p1)+"&bathrooms="+encodeURI(p2), function( data ) {
+              var bp = parseInt(data.construction_price);
+              var ep = parseInt(data.economy_price);
+              var cp = parseInt(data.comfort_price);
+              (bp==NaN)?bp=0:bp;
+              (ep==NaN)?ep=0:ep;
+              (cp==NaN)?cp=0:cp;
+              $('.bp').text(bp);
+              $('#ep').text(ep);
+              $('#cp').text(cp);
+              $('#esum').text(bp+ep);
+              $('#csum').text(bp+cp);
+              //.removeClass('btn-blue').addClass('btn-grey').html( "<i class='icon-heart' style='color: red;'></i> 已收藏" );
+          });
+      };
+
+      updateQuery();
+      $('#covered_area_range').on('change',updateQuery);
+      $('#bathrooms').on('change',updateQuery);
+
+  });
+</script>

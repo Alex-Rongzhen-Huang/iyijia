@@ -223,6 +223,7 @@ ActiveRecord::Schema.define(:version => 20140814140746) do
     t.float    "economy_price"
     t.float    "comfort_price"
     t.float    "luxury_price"
+    t.float    "construction_price"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
