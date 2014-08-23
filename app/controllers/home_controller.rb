@@ -5,6 +5,8 @@ class HomeController < ApplicationController
     @show_houses = ShowHouse.limit(4)
 
     @house_fitment = HouseFitment.new
+    @main_material_brands_e = MainMaterialBrand.order('name desc').limit(4)
+    @main_material_brands_c = MainMaterialBrand.order('name asc').limit(4)
   end
 
   #GET

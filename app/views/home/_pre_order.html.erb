@@ -1,5 +1,5 @@
 <%= form_for(@house_fitment, url: home_order_path, html: {class: "form-horizontal", style:"text-align:left;"}) do |f| %>
-    <legend style="text-align: center;">省心装修，立即填写测量申请，全程透明在线管理</legend>
+    <legend style="text-align: center;padding:10px 0px;">省心装修，立即填写测量申请，全程透明在线管理</legend>
     <% if @house_fitment.errors.any? %>
         <div class="alert alert-warning fade in" role="alert">
           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>

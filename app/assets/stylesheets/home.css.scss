@@ -8,7 +8,10 @@
   padding-bottom: 5px;
   border-bottom: 1px lightgray solid;
 }
-
+span.currency {
+  color: lightgray;
+  font-size: small;
+}
 /************************************/
 /* 装修学前班字体样式                  */
 /************************************/
@@ -49,3 +52,34 @@
   box-shadow: 3px 3px 10px lightgray;
   background-color: #fff;
 }
+
+/************************************/
+/* 一口价查询样式                      */
+/************************************/
+table.simple_price {
+  font-family: "microsoft yahei";
+}
+
+table.simple_price tbody tr:hover {
+  background-color: #d9edf7;
+}
+
+table.simple_price thead tr td, thead tr th {
+  text-align: center;
+  font-weight: normal;
+}
+
+table.simple_price thead tr th form {
+  font-size: 18px;
+}
+
+table.simple_price thead tr.blue-bg {
+  font-size: 18px;
+  color: white;
+  background-color: royalblue;
+}
+
+table.simple_price  h5 {
+  color: #fd970f;
+}
+

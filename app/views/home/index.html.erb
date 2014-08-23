@@ -25,7 +25,6 @@
                     <a href="#price" role="tab" data-toggle="tab">一口价查询</a></li>
                   <li>
                     <a href="#order" role="tab" data-toggle="tab">免费预约</a></li>
-                  <li><a href="#messages" role="tab" data-toggle="tab">主材样式</a></li>
                 </ul>
               </div>
               <div class="col-md-12">
@@ -55,7 +54,7 @@
                       </div>
                       <div class="col-md-5 " style="font-family: '微软雅黑';padding: 0px 0px;padding-top: 10px;">
                         <h4 style="color: #fd970f;text-align: right;">
-                          ￥<%= show_house.price %><span style="color:lightgray; font-size: small;"> 起 </span>
+                          ￥<%= show_house.price %><span class="currency"> 起 </span>
                         </h4>
                       </div>
 
@@ -167,7 +166,7 @@
         <% if  (request.fullpath=~ /\/home\/order.*/) %>
             $('#tablist a[href="#order"]').tab('show');
         <% else %>
-            $('#tablist a[href="#home"]').tab('show');
+            $('#tablist a[href="#price"]').tab('show');
         <% end %>
     });
 </script>
