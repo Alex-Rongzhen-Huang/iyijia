@@ -63,7 +63,9 @@ table.simple_price {
 table.simple_price tbody tr:hover {
   background-color: #d9edf7;
 }
-
+table.simple_price tbody tr td {
+  vertical-align: middle;
+}
 table.simple_price thead tr td, thead tr th {
   text-align: center;
   font-weight: normal;
@@ -76,7 +78,7 @@ table.simple_price thead tr th form {
 table.simple_price thead tr.blue-bg {
   font-size: 18px;
   color: white;
-  background-color: royalblue;
+  background-color: #4dc7ec ;
 }
 
 table.simple_price  h5 {

@@ -10,7 +10,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div class="checkbox">
           <label>您的豪宅有几个卫生间？</label>
-          <%= select_tag(:bathrooms, options_for_select(PackagePrice::ROOM_TYPES, "1"), class: 'form-control') %>
+          <%= select_tag(:bathrooms, options_for_select(PackagePrice::BATHROOM_TYPES, "1"), class: 'form-control') %>
         </div>
       </form>
     </th>
@@ -24,24 +24,25 @@
   </thead>
   <tbody>
   <tr>
-    <td>精装总价</td>
+    <td><h4>精装总价</h4></td>
     <td>
       <h5>
-        <label id="esum">69999</label><span class="currency"> 元 </span>
-        <img src="/images/home/simple_price.png"></h5>
-      <a class="btn btn-warning btn-xs" onclick="$('a[href=#order]').tab('show')" style="position: relative;top:-20px;left:-50px;">免费预约测量</a>
+        <label id="esum">69999</label><span class="currency"> 元 </span>&nbsp;&nbsp;
+        <a class="btn btn-warning btn-xs" onclick="$('a[href=#order]').tab('show')" >免费预约测量</a>
+        </h5>
+
 
     </td>
     <td>
       <h5>
-        <label id="csum">109999</label><span class="currency"> 元 </span>
-        <img src="/images/home/simple_price.png"></h5>
-      <a class="btn btn-warning btn-xs" onclick="$('a[href=#order]').tab('show')" style="position: relative;top:-20px;left:-50px;">免费预约测量</a>
+        <label id="csum">109999</label><span class="currency"> 元 </span>&nbsp;&nbsp;
+        <a class="btn btn-warning btn-xs" onclick="$('a[href=#order]').tab('show')" >免费预约测量</a>
+        </h5>
 
     </td>
   </tr>
   <tr>
-    <td>施工一口价</td>
+    <td><h4>施工一口价</h4></td>
     <td><h5>
       <label class="bp">29999</label><span class="currency"> 元 </span>
       <img src="/images/home/simple_price.png"></h5></td>
@@ -50,22 +51,22 @@
       <img src="/images/home/simple_price.png"></h5></td>
   </tr>
   <tr>
-    <td>主材包</td>
+    <td><h4>主材包</h4></td>
     <td><h5><label id="ep">40000</label><span class="currency"> 元 </span>
-      <img src="/images/home/simple_price.png" style="visibility: hidden"></h5></td>
+      <span style="width: 96px;display: inline-block;"></span></h5></td>
     <td><h5><label id="cp">80000</label><span class="currency"> 元 </span>
-      <img src="/images/home/simple_price.png" style="visibility: hidden"></h5></td>
+      <span style="width: 96px;display: inline-block;"></span></h5></td>
   </tr>
   <tr>
-    <td>主材品牌</td>
+    <td><h4>主材品牌</h4></td>
     <td>
       <% @main_material_brands_e.each do |x| %>
-          <img src="<%= x.logo_path %>" style="height: 100px;width: 100px;display: inline-block;" class="thumbnail">
+          <img src="<%= x.logo_path %>" style="max-height: 100px;max-width: 100px;display: inline-block;" class="thumbnail no-border">
       <% end %>
     </td>
     <td>
       <% @main_material_brands_c.each do |x| %>
-          <img src="<%= x.logo_path %>" style="height: 100px;width: 100px;display: inline-block;" class="thumbnail">
+          <img src="<%= x.logo_path %>" style="max-height: 100px;max-width: 100px;display: inline-block;" class="thumbnail no-border">
       <% end %>
     </td>
   </tr>
