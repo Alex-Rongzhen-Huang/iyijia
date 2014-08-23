@@ -79,6 +79,10 @@
         function updateQuery() {
             var p1 = $('#covered_area_range').val();
             var p2 = $('#bathrooms').val();
+            if("S≤50|50＜S≤55|55＜S≤60|60＜S≤65|65＜S≤70|70＜S≤75|75＜S≤80|80＜S≤85|85＜S≤90".indexOf(p1) != -1) {
+              p2 = "1";
+              $('#bathrooms option[value='+p2+']').attr("selected", true);
+            }
 
             $.get("/home/query?covered_area_range=" + encodeURI(p1) + "&bathrooms=" + encodeURI(p2), function (data) {
                 var bp = parseInt(data.construction_price);
@@ -92,7 +96,6 @@
                 $('#cp').text(cp);
                 $('#esum').text(bp + ep);
                 $('#csum').text(bp + cp);
-                //.removeClass('btn-blue').addClass('btn-grey').html( "<i class='icon-heart' style='color: red;'></i> 已收藏" );
             });
         };
 

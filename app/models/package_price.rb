@@ -6,7 +6,7 @@ class PackagePrice < ActiveRecord::Base
   before_save :calculate
 
   AREA_RANGE_TYPES = %w[S≤50 50＜S≤55 55＜S≤60 60＜S≤65 65＜S≤70 70＜S≤75 75＜S≤80 80＜S≤85 85＜S≤90 90＜S≤95 95＜S≤100 100＜S≤105  105＜S≤110  110＜S≤115  115＜S≤120  120＜S≤125  125＜S≤130  130＜S≤135  135＜S≤140  140＜S≤145  145＜S≤150]
-  ROOM_TYPES = %w[1 2 3 4 5 6 7 8 9]
+  ROOM_TYPES = %w[1 2]
 
   protected
   def calculate
