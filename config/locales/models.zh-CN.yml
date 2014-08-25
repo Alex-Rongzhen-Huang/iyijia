@@ -66,6 +66,7 @@
       faq_item: "流程解答设置"
       main_material_price: "主材价格分类"
       package_price: "打包价"
+      main_material_package: "主材包"
     attributes:
       decorate_company:
         name: "公司名称"
@@ -143,6 +144,10 @@
         comfort_cost: "舒适型成本"
         luxury:  "豪华型标价"
         luxury_cost:  "豪华型成本"
+      main_material_package:
+        name: "主材包名称"
+        main_material_name:  "主材名称"
+        main_material:       "主材"
       package_price:
         rooms: "房"
         bathrooms: "卫浴空间"

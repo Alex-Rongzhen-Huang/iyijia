@@ -5,6 +5,8 @@ class MainMaterial < ActiveRecord::Base
   belongs_to :main_material_brand
   belongs_to :main_material_name
   belongs_to :type_of_work
+
+  has_many :main_material_packages
   
   scope :uniquely_named, group(:specifications)
   require 'carrierwave/orm/activerecord'
