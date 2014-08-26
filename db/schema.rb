@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140825122620) do
+ActiveRecord::Schema.define(:version => 20140826130632) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -82,6 +82,19 @@ ActiveRecord::Schema.define(:version => 20140825122620) do
     t.datetime "updated_at",          :null => false
     t.integer  "type_of_work_id"
   end
+
+  create_table "custom_construction_items", :force => true do |t|
+    t.integer  "order_quotation_id"
+    t.integer  "construction_item_id"
+    t.string   "description"
+    t.float    "price"
+    t.integer  "count"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "custom_construction_items", ["construction_item_id"], :name => "index_custom_construction_items_on_construction_item_id"
+  add_index "custom_construction_items", ["order_quotation_id"], :name => "index_custom_construction_items_on_order_quotation_id"
 
   create_table "decorate_companies", :force => true do |t|
     t.string   "name"
@@ -210,6 +223,18 @@ ActiveRecord::Schema.define(:version => 20140825122620) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "order_quotations", :force => true do |t|
+    t.integer  "order_id"
+    t.string   "main_material_package_type"
+    t.integer  "confirmed_area"
+    t.string   "constructor"
+    t.string   "constructor_contact"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "order_quotations", ["order_id"], :name => "index_order_quotations_on_order_id"
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"

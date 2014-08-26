@@ -67,6 +67,8 @@
       main_material_price: "主材价格分类"
       package_price: "打包价"
       main_material_package: "主材包"
+      order_quotation:  "报价单"
+      custom_construction_item: "自定义施工项"
     attributes:
       decorate_company:
         name: "公司名称"
@@ -186,6 +188,18 @@
         quotation_link: "报价单链接"
         decorate_scheme: "装修方案"
         my_project: "工程进展"
+      order_quotation:
+        order: "订单号"
+        main_material_package_type: "主材包名称"
+        confirmed_area: "确认建筑面积"
+        constructor:  "施工方"
+        constructor_contact:  "施工方联系方式"
+      custom_construction_item:
+        order_quotation: "某订单的报价单"
+        construction_item : "施工项"
+        description: "具体施工项目"
+        price: "单价"
+        count: "数量"
       decorate_scheme:
         name: "方案名称"
         order: "对应订单"

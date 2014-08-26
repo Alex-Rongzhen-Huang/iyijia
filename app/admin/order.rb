@@ -9,10 +9,10 @@ ActiveAdmin.register Order do
   #  ]
   #end
   scope :all, default: true
-  scope('未测量订单') { |scope| scope.where(:measure_status => '未测量') }
-  scope('已测量订单') { |scope| scope.where(:measure_status => '已测量') }
-  scope('已报价订单') { |scope| scope.where(:quotation_status => '已报价') }
-  scope('未报价订单') { |scope| scope.where(:quotation_status => '未报价') }
+  scope('1.未测量订单') { |scope| scope.where(:measure_status => '未测量') }
+  scope('2.已测量订单') { |scope| scope.where(:measure_status => '已测量') }
+  scope('3.已报价订单') { |scope| scope.where(:quotation_status => '已报价') }
+  scope('4.未报价订单') { |scope| scope.where(:quotation_status => '未报价') }
 
   index do
     selectable_column
