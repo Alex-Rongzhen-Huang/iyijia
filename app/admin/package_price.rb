@@ -21,4 +21,17 @@ ActiveAdmin.register PackagePrice do
     f.actions
   end
 
+  index do
+    selectable_column
+    column :id do  |object|
+      link_to(object.id, admin_package_price_path(object))
+    end
+    column :covered_area_range
+    column :construction_price
+    column :economy_price
+    column :comfort_price
+    column :luxury_price
+    actions
+  end
+
 end

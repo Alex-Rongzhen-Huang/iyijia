@@ -22,8 +22,9 @@ class PackagePrice < ActiveRecord::Base
     price_of_ceramic_tile= get_main_material_price('瓷砖').economy
     price_of_skirting_line= get_main_material_price('全屋踢脚线').economy
     price_of_cabinet= get_main_material_price('整体橱柜').economy
-    price_of_kitchen_sink= get_main_material_price('厨房水槽龙头').economy
-    price_of_bathroom_cabinet= get_main_material_price('卫浴洁具柜组合').economy
+    price_of_kitchen_sink= get_main_material_price('厨房水槽（带龙头组合）').economy
+    price_of_bathroom_cabinet= get_main_material_price('卫浴洁具（坐便器、台盆及柜体）').economy
+    #TODO:
     price_of_bathroom_hardware= get_main_material_price('卫浴五金').economy
     price_of_integrated_ceiling = get_main_material_price('集成吊顶').economy
 
@@ -40,8 +41,8 @@ class PackagePrice < ActiveRecord::Base
     price_of_ceramic_tile= get_main_material_price('瓷砖').comfort
     price_of_skirting_line= get_main_material_price('全屋踢脚线').comfort
     price_of_cabinet= get_main_material_price('整体橱柜').comfort
-    price_of_kitchen_sink= get_main_material_price('厨房水槽龙头').comfort
-    price_of_bathroom_cabinet= get_main_material_price('卫浴洁具柜组合').comfort
+    price_of_kitchen_sink= get_main_material_price('厨房水槽（带龙头组合）').comfort
+    price_of_bathroom_cabinet= get_main_material_price('卫浴洁具（坐便器、台盆及柜体）').comfort
     price_of_bathroom_hardware= get_main_material_price('卫浴五金').comfort
     price_of_integrated_ceiling = get_main_material_price('集成吊顶').comfort
 
@@ -58,8 +59,8 @@ class PackagePrice < ActiveRecord::Base
     price_of_ceramic_tile= get_main_material_price('瓷砖').luxury
     price_of_skirting_line= get_main_material_price('全屋踢脚线').luxury
     price_of_cabinet= get_main_material_price('整体橱柜').luxury
-    price_of_kitchen_sink= get_main_material_price('厨房水槽龙头').luxury
-    price_of_bathroom_cabinet= get_main_material_price('卫浴洁具柜组合').luxury
+    price_of_kitchen_sink= get_main_material_price('厨房水槽（带龙头组合）').luxury
+    price_of_bathroom_cabinet= get_main_material_price('卫浴洁具（坐便器、台盆及柜体）').luxury
     price_of_bathroom_hardware= get_main_material_price('卫浴五金').luxury
     price_of_integrated_ceiling = get_main_material_price('集成吊顶').luxury
 
@@ -90,8 +91,9 @@ class PackagePrice < ActiveRecord::Base
     p4 = max_usable_area*0.05*price_of_cabinet
     # 厨房水槽龙头组合
     p5 = price_of_kitchen_sink
-    # 卫浴洁具柜组合（两卫×2）
+    # 卫浴洁具（坐便器、台盆及柜体）（两卫×2）
     p6 = price_of_bathroom_cabinet*bathrooms
+    #TODO
     # 卫浴五金组合（两卫×2）
     p7 = price_of_bathroom_hardware*bathrooms
     # 集成吊顶单价×厨房面积

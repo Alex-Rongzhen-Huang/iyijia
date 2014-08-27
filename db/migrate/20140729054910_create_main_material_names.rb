@@ -18,10 +18,12 @@ class CreateMainMaterialNames < ActiveRecord::Migration
       MainMaterialName.create!(:name => '瓷砖')
       MainMaterialName.create!(:name => '全屋踢脚线')
       MainMaterialName.create!(:name => '整体橱柜')
-      MainMaterialName.create!(:name => '厨房水槽龙头')
-      MainMaterialName.create!(:name => '卫浴洁具柜组合')
+      MainMaterialName.create!(:name => '厨房水槽（带龙头组合）')
+      MainMaterialName.create!(:name => '卫浴洁具（坐便器、台盆及柜体）')
+      MainMaterialName.create!(:name => '卫浴龙头及淋浴花洒组合')
       MainMaterialName.create!(:name => '卫浴五金')
       MainMaterialName.create!(:name => '集成吊顶')
+      MainMaterialName.create!(:name => '浴霸')
     end
   end
   

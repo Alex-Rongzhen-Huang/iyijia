@@ -19,10 +19,12 @@ class CreateMainMaterialPrices < ActiveRecord::Migration
     MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('瓷砖').id, :economy_cost => 60, :comfort_cost => 100, :luxury_cost => 0, :economy => 90, :comfort => 142, :luxury => 0)
     MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('全屋踢脚线').id, :economy_cost => 10, :comfort_cost => 25, :luxury_cost => 0, :economy => 15, :comfort => 35, :luxury => 0)
     MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('整体橱柜').id, :economy_cost => 900, :comfort_cost => 1200, :luxury_cost => 0, :economy => 1200, :comfort => 1900, :luxury => 0)
-    MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('厨房水槽龙头').id, :economy_cost => 450, :comfort_cost => 800, :luxury_cost => 0, :economy => 600, :comfort => 1000, :luxury => 0)
-    MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('卫浴洁具柜组合').id, :economy_cost => 2500, :comfort_cost => 6000, :luxury_cost => 0, :economy => 3000, :comfort => 7000, :luxury => 0)
+    MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('厨房水槽（带龙头组合）').id, :economy_cost => 450, :comfort_cost => 800, :luxury_cost => 0, :economy => 600, :comfort => 1000, :luxury => 0)
+    MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('卫浴洁具（坐便器、台盆及柜体）').id, :economy_cost => 1800, :comfort_cost => 4200, :luxury_cost => 0, :economy => 2000, :comfort => 4600, :luxury => 0)
+    MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('卫浴龙头及淋浴花洒组合').id, :economy_cost => 700, :comfort_cost => 1800, :luxury_cost => 0, :economy => 1000, :comfort => 2400, :luxury => 0)
     MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('卫浴五金').id, :economy_cost => 400, :comfort_cost => 400, :luxury_cost => 0, :economy => 500, :comfort => 500, :luxury => 0)
     MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('集成吊顶').id, :economy_cost => 110, :comfort_cost => 110, :luxury_cost => 0, :economy => 150, :comfort => 150, :luxury => 0)
+    MainMaterialPrice.create!(:main_material_name_id => MainMaterialName.find_by_name('浴霸').id, :economy_cost => 300, :comfort_cost => 1000, :luxury_cost => 0, :economy => 400, :comfort => 1200, :luxury => 0)
 
   end
   def down
