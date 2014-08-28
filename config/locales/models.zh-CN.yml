@@ -197,7 +197,7 @@
       custom_construction_item:
         order_quotation: "某订单的报价单"
         construction_item : "施工项"
-        description: "具体施工项目"
+        description: "名称"
         price: "单价"
         count: "数量"
       decorate_scheme:

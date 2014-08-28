@@ -24,14 +24,16 @@ class PackagePrice < ActiveRecord::Base
     price_of_cabinet= get_main_material_price('整体橱柜').economy
     price_of_kitchen_sink= get_main_material_price('厨房水槽（带龙头组合）').economy
     price_of_bathroom_cabinet= get_main_material_price('卫浴洁具（坐便器、台盆及柜体）').economy
-    #TODO:
+    price_of_bathroom_shower_stuff = get_main_material_price('卫浴龙头及淋浴花洒组合').economy
     price_of_bathroom_hardware= get_main_material_price('卫浴五金').economy
     price_of_integrated_ceiling = get_main_material_price('集成吊顶').economy
+    price_of_bathroom_heater = get_main_material_price('浴霸').economy
 
     price = sum(price_of_door, price_of_floor, price_of_ceramic_tile,
                 price_of_skirting_line, price_of_cabinet, price_of_kitchen_sink,
-                price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling)
-    price+= 400 # 浴霸
+                price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling,
+                price_of_bathroom_shower_stuff, price_of_bathroom_heater)
+
     self.economy_price= price.round
   end
 
@@ -43,13 +45,16 @@ class PackagePrice < ActiveRecord::Base
     price_of_cabinet= get_main_material_price('整体橱柜').comfort
     price_of_kitchen_sink= get_main_material_price('厨房水槽（带龙头组合）').comfort
     price_of_bathroom_cabinet= get_main_material_price('卫浴洁具（坐便器、台盆及柜体）').comfort
+    price_of_bathroom_shower_stuff = get_main_material_price('卫浴龙头及淋浴花洒组合').comfort
     price_of_bathroom_hardware= get_main_material_price('卫浴五金').comfort
     price_of_integrated_ceiling = get_main_material_price('集成吊顶').comfort
+    price_of_bathroom_heater = get_main_material_price('浴霸').comfort
 
     price = sum(price_of_door, price_of_floor, price_of_ceramic_tile,
                 price_of_skirting_line, price_of_cabinet, price_of_kitchen_sink,
-                price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling)
-    price+= 1200 # 浴霸
+                price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling,
+                price_of_bathroom_shower_stuff, price_of_bathroom_heater)
+
     self.comfort_price= price.round
   end
 
@@ -61,14 +66,16 @@ class PackagePrice < ActiveRecord::Base
     price_of_cabinet= get_main_material_price('整体橱柜').luxury
     price_of_kitchen_sink= get_main_material_price('厨房水槽（带龙头组合）').luxury
     price_of_bathroom_cabinet= get_main_material_price('卫浴洁具（坐便器、台盆及柜体）').luxury
+    price_of_bathroom_shower_stuff = get_main_material_price('卫浴龙头及淋浴花洒组合').luxury
     price_of_bathroom_hardware= get_main_material_price('卫浴五金').luxury
     price_of_integrated_ceiling = get_main_material_price('集成吊顶').luxury
+    price_of_bathroom_heater = get_main_material_price('浴霸').luxury
 
     price = sum(price_of_door, price_of_floor, price_of_ceramic_tile,
                 price_of_skirting_line, price_of_cabinet, price_of_kitchen_sink,
-                price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling)
+                price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling,
+                price_of_bathroom_shower_stuff, price_of_bathroom_heater)
 
-    price+= 1200 # 浴霸 TODO:
     self.luxury_price= price.round
   end
 
@@ -78,7 +85,8 @@ class PackagePrice < ActiveRecord::Base
 
   def sum(price_of_door, price_of_floor, price_of_ceramic_tile,
       price_of_skirting_line, price_of_cabinet, price_of_kitchen_sink,
-      price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling)
+      price_of_bathroom_cabinet, price_of_bathroom_hardware, price_of_integrated_ceiling,
+      price_of_bathroom_shower_stuff, price_of_bathroom_heater)
     # 室内门单价×室内门数
     p1 = price_of_door*doors
     # 地板和地砖单价平均数×最大面积
@@ -93,18 +101,20 @@ class PackagePrice < ActiveRecord::Base
     p5 = price_of_kitchen_sink
     # 卫浴洁具（坐便器、台盆及柜体）（两卫×2）
     p6 = price_of_bathroom_cabinet*bathrooms
-    #TODO
+    #卫浴龙头及淋浴花洒组合
+    p61 = price_of_bathroom_shower_stuff*bathrooms
     # 卫浴五金组合（两卫×2）
     p7 = price_of_bathroom_hardware*bathrooms
     # 集成吊顶单价×厨房面积
     p81 = price_of_integrated_ceiling*kitchen_area
-    # 集成吊顶单价×卫生间面积 ，这里的浴霸价格包含在内，可能导致不够精确
-    p82 = price_of_integrated_ceiling*bathroom_area
+    # 集成吊顶单价×卫生间面积
+    p82 = price_of_integrated_ceiling*bathroom_area*bathrooms
     # 门套线踢脚线, TODO: correct?
     p9 = 300*3
     # 浴霸 单独hard code
+    p10 = price_of_bathroom_heater*bathrooms
 
-    return (p1+p21+p22+p3+p4+p5+p6+p7+p81+p82+p9)
+    return (p1+p21+p22+p3+p4+p5+p6+p7+p81+p82+p9+p61+p10)
 
   end
 end
