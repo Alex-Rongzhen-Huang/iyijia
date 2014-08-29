@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140826130632) do
+ActiveRecord::Schema.define(:version => 20140829121921) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -164,6 +164,15 @@ ActiveRecord::Schema.define(:version => 20140826130632) do
     t.integer "main_material_name_id"
   end
 
+  create_table "main_material_name_sub_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "main_material_name_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  add_index "main_material_name_sub_categories", ["main_material_name_id"], :name => "index_main_material_name_sub_categories_on_main_material_name_id"
+
   create_table "main_material_names", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -196,15 +205,19 @@ ActiveRecord::Schema.define(:version => 20140826130632) do
   add_index "main_material_prices", ["main_material_name_id"], :name => "index_main_material_prices_on_main_material_name_id"
 
   create_table "main_materials", :force => true do |t|
+    t.string   "name"
     t.string   "picture"
+    t.string   "type"
     t.float    "price"
-    t.integer  "main_material_brand_id"
-    t.integer  "decorate_company_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.string   "package_type"
+    t.string   "description"
     t.string   "specifications"
     t.integer  "main_material_name_id"
+    t.integer  "main_material_brand_id"
+    t.integer  "decorate_company_id"
     t.integer  "type_of_work_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "my_project_items", :force => true do |t|

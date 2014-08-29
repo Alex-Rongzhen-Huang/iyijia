@@ -69,6 +69,7 @@
       main_material_package: "主材包"
       order_quotation:  "报价单"
       custom_construction_item: "自定义施工项"
+      main_material_name_sub_category: "主材二级分类"
     attributes:
       decorate_company:
         name: "公司名称"
@@ -118,7 +119,11 @@
         main_material_name: "主材名称"
         main_material_name_id: "主材名称"
       main_material_name:
-        name: "主材名称"      
+        name: "主材名称"
+        main_material_name_sub_category: "主材二级分类"
+        main_material_name_sub_category_id: "主材二级分类"
+      main_material_name_sub_category:
+        name: "二级分类名称"
       home_image_setting:
          img1: "图片（1）"
          img2: "图片（2）"
@@ -126,14 +131,16 @@
          img4: "图片（4）"
          img5: "图片（5）"
       main_material:
-        name: "主材名称"
+        name: "主材名"
         picture: "主材图片"
+        description: "其他说明"
         price: "主材价格"
         specifications: "主材规格"
         type_of_work: "工种"
         type_of_work_id: "工种"
-        main_material_name: "主材名称"
-        main_material_name_id: "主材名称"
+        main_material_name: "所属主材包"
+        package_type: "所属档次"
+        main_material_name_id: "所属主材包"
         main_material_brand: "主材品牌"
         main_material_brand_id: "主材品牌"
         decorate_company: "装修公司"
@@ -148,7 +155,8 @@
         luxury_cost:  "豪华型成本"
       main_material_package:
         name: "主材包名称"
-        main_material_name:  "主材名称"
+        main_material_brand: "主材品牌"
+        main_material_name:  "主材分类"
         main_material:       "主材"
       package_price:
         rooms: "房"

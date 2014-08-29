@@ -25,6 +25,8 @@ ActiveAdmin.register MainMaterialPackage do
     column :name
     column :main_material_name
     column :main_material_brand do |main_material_package|
+      puts  main_material_package.main_material
+
       link_to(main_material_package.main_material.main_material_brand.name, admin_main_material_brand_path(main_material_package.main_material.main_material_brand))
 
     end

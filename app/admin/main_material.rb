@@ -23,8 +23,8 @@ ActiveAdmin.register MainMaterial do
 # custom scope not defined on the model
 #  scope("Inactive") { |scope| scope.where(active: false) }
   scope :all, default: true
-  scope("1.单价>=1000") { |scope| scope.where('price >= 1000') }
-  scope("2.单价<1000") { |scope| scope.where('price < 1000') }
+  scope("1.经济型") { |scope| scope.where('package_type = "经济型"') }
+  scope("2.舒适型") { |scope| scope.where('package_type = "舒适型"') }
 
 # conditionally show a custom controller scope
 #  scope "Published", :if => proc { current_admin_user.can? :manage, Posts } do |posts|
@@ -34,23 +34,28 @@ ActiveAdmin.register MainMaterial do
   index do
     selectable_column
     column :id
+    column :name
+    column :package_type
     column :main_material_name
     column :main_material_brand
     column :specifications
     column :price
-    column :type_of_work
-    column :decorate_company
+    #column :type_of_work
+    #column :decorate_company
+    column :description
     column :picture do |s|
       image_tag(s.picture, :width => "150px")
     end
     actions
   end
-  
+
   form(:html => { :multipart=>true}) do |f|
     f.inputs MainMaterial.model_name.human do
-      
-      f.input :main_material_name_id, :as => :select, :collection => MainMaterialName.all
-      f.input :main_material_brand_id, :as => :select, :collection => option_groups_from_collection_for_select(MainMaterialName.all, :main_material_brands, :name, :id, :name, :selected => (main_material.main_material_brand_id if !main_material.main_material_brand_id.nil?))
+      f.input :name
+      f.input :package_type, :as => :select, collection: MainMaterial::PACKAGE_TYPES
+
+      f.input :main_material_name, :as => :select, :collection => MainMaterialName.all
+      f.input :main_material_brand, :as => :select, :collection => option_groups_from_collection_for_select(MainMaterialName.all, :main_material_brands, :name, :id, :name, :selected => (main_material.main_material_brand_id if !main_material.main_material_brand_id.nil?))
       within @head do
         script :src => javascript_path('autocomplete-rails.js'), :type => "text/javascript"
         script :src => javascript_path('jquery-ui.js'), :type => "text/javascript"
@@ -59,6 +64,7 @@ ActiveAdmin.register MainMaterial do
       f.input :price
       f.input :type_of_work_id, :as => :select, collection: TypeOfWork.order('name asc').all()
       f.input :decorate_company_id, :as => :select, collection: DecorateCompany.all()
+      f.input :description
       f.input :picture, :hint => image_tag(main_material.picture, :width => "250px")
 
     end
@@ -69,12 +75,15 @@ ActiveAdmin.register MainMaterial do
   show do
     attributes_table do
       row :id
+      row :name
+      row :package_type
       row :main_material_name
       row :main_material_brand
       row :specifications
       row :price
       row :type_of_work
       row :decorate_company
+      row :description
       row :picture do |s|
         image_tag(s.picture, :width => "250px")
       end
