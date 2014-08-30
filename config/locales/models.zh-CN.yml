@@ -227,6 +227,7 @@
       faq_item:
         title: "问题"
         description: "详细解答"
+        weight: "排序权重"
 
 
 

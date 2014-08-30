@@ -1,5 +1,5 @@
 class FaqController < ApplicationController
   def index
-    @faq_items = FaqItem.all
+    @faq_items = FaqItem.order('weight DESC')
   end
 end
