@@ -6,6 +6,8 @@ class CreateMainMaterialNameSubCategories < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :main_material_name_sub_categories, :main_material_name_id
+
+    #postgre index length issue
+    #add_index :main_material_name_sub_categories, :main_material_name_id
   end
 end
