@@ -44,21 +44,21 @@
 
             <div class="row">
               <% @show_houses.each do |show_house| %>
-                  <div class="col-md-6" style="">
-                    <div class="col-md-12" style="margin: 20px 20px 0px 0px;border: solid 1px lightgray;-webkit-box-shadow: 3px 3px 10px lightgray;box-shadow: 3px 3px 10px lightgray;">
-                      <div class="col-md-7 " style="font-family: '微软雅黑';padding: 0px 0px;">
+                  <div class="col-md-6 col-xs-12" style="">
+                    <div class="col-md-12 col-xs-12" style="margin: 20px 20px 0px 0px;border: solid 1px lightgray;-webkit-box-shadow: 3px 3px 10px lightgray;box-shadow: 3px 3px 10px lightgray;">
+                      <div class="col-md-7 col-xs-12" style="font-family: '微软雅黑';padding: 0px 0px;">
                         <h4>
                           <%= show_house.title %> <br>
                           <%= show_house.style %>
                         </h4>
                       </div>
-                      <div class="col-md-5 " style="font-family: '微软雅黑';padding: 0px 0px;padding-top: 10px;">
+                      <div class="col-md-5 col-xs-12" style="font-family: '微软雅黑';padding: 0px 0px;padding-top: 10px;">
                         <h4 style="color: #fd970f;text-align: right;">
                           ￥<%= show_house.price %><span class="currency"> 起 </span>
                         </h4>
                       </div>
 
-                      <div class="col-md-12 " style="height: 220px;padding: 0px 0px;">
+                      <div class="col-md-12 col-xs-12" style="height: 220px;padding: 0px 0px;">
                         <a href="<%= show_house_path(show_house.id) %>" title="<%= show_house.title %>" class="">
                           <% if show_house.show_house_pictures.size == 0 %>
                               <img src="images/temp-images/property1.jpg" class="" style="width: 100%;height: 100%" alt="15421 Southwest 39th Terrace" title="15421 Southwest 39th Terrace">
@@ -67,14 +67,14 @@
                           <% end %>
                         </a>
                       </div>
-                      <div class="col-md-12 " style="padding: 0px 0px;margin: 5px 0px;">
+                      <div class="col-md-12 col-xs-12" style="padding: 0px 0px;margin: 5px 0px;">
                         <% show_house.show_house_pictures[1, 4].each do |show_house_picture| %>
-                            <div class="col-md-3 " style="padding:2px 2px;">
+                            <div class="col-md-3 col-xs-3" style="padding:2px 2px;">
                               <img src="<%= show_house_picture.path.t.url %>" style="width: 100%;height: 100%" class="" alt="<%= show_house_picture.brief %>" title="<%= show_house_picture.brief %>">
                             </div>
                         <% end %>
                         <% for i in 1..(4-show_house.show_house_pictures[1, 4].size) do %>
-                            <div class="col-md-3 " style="padding:2px 2px;">
+                            <div class="col-md-3 col-xs-3" style="padding:2px 2px;">
                               <!--
                               <img src="http://dummyimage.com/100x100" class="" style="width: 100%;height: 100%">
                               -->
