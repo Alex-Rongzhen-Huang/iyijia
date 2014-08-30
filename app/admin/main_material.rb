@@ -23,8 +23,8 @@ ActiveAdmin.register MainMaterial do
 # custom scope not defined on the model
 #  scope("Inactive") { |scope| scope.where(active: false) }
   scope :all, default: true
-  scope("1.经济型") { |scope| scope.where('package_type = "经济型"') }
-  scope("2.舒适型") { |scope| scope.where('package_type = "舒适型"') }
+  #scope("1.经济型") { |scope| scope.where('package_type = "经济型"') }
+  #scope("2.舒适型") { |scope| scope.where('package_type = "舒适型"') }
 
 # conditionally show a custom controller scope
 #  scope "Published", :if => proc { current_admin_user.can? :manage, Posts } do |posts|
