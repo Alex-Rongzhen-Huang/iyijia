@@ -37,6 +37,7 @@ ActiveAdmin.register MainMaterial do
     column :name
     column :package_type
     column :main_material_name
+    column :main_material_name_sub_category
     column :main_material_brand
     column :specifications
     column :price
@@ -55,6 +56,7 @@ ActiveAdmin.register MainMaterial do
       f.input :package_type, :as => :select, collection: MainMaterial::PACKAGE_TYPES
 
       f.input :main_material_name, :as => :select, :collection => MainMaterialName.all
+      f.input :main_material_name_sub_category, :as => :select, :collection => option_groups_from_collection_for_select(MainMaterialName.all, :main_material_name_sub_categories, :name,  :id,:name, :selected => (main_material.main_material_name_sub_category_id if !main_material.main_material_name_sub_category_id.nil?))
       f.input :main_material_brand, :as => :select, :collection => option_groups_from_collection_for_select(MainMaterialName.all, :main_material_brands, :name, :id, :name, :selected => (main_material.main_material_brand_id if !main_material.main_material_brand_id.nil?))
       within @head do
         script :src => javascript_path('autocomplete-rails.js'), :type => "text/javascript"
@@ -78,6 +80,7 @@ ActiveAdmin.register MainMaterial do
       row :name
       row :package_type
       row :main_material_name
+      row :main_material_name_sub_category
       row :main_material_brand
       row :specifications
       row :price

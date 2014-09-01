@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140830112729) do
+ActiveRecord::Schema.define(:version => 20140901121936) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -217,8 +217,9 @@ ActiveRecord::Schema.define(:version => 20140830112729) do
     t.integer  "main_material_brand_id"
     t.integer  "decorate_company_id"
     t.integer  "type_of_work_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.integer  "main_material_name_sub_category_id"
   end
 
   create_table "my_project_items", :force => true do |t|

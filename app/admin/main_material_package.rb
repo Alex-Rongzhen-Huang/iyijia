@@ -26,13 +26,22 @@ ActiveAdmin.register MainMaterialPackage do
     column :main_material_name
     column :main_material_brand do |main_material_package|
       puts  main_material_package.main_material
-
-      link_to(main_material_package.main_material.main_material_brand.name, admin_main_material_brand_path(main_material_package.main_material.main_material_brand))
+      main_material =  main_material_package.main_material
+      if main_material.nil?
+        content_tag('p','empty')
+      else
+        main_material_brand = main_material.main_material_brand
+        link_to(main_material_brand.name, admin_main_material_brand_path(main_material_brand)) unless main_material_brand.nil?
+      end
 
     end
     column :main_material do |main_material_package|
-      link_to(main_material_package.main_material.specifications, admin_main_material_path(main_material_package.main_material));
-
+      main_material =  main_material_package.main_material
+      if main_material.nil?
+        content_tag('p','empty')
+      else
+        link_to(main_material_package.main_material.specifications, admin_main_material_path(main_material_package.main_material))
+      end
     end
 
     actions

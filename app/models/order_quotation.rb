@@ -7,5 +7,8 @@ class OrderQuotation < ActiveRecord::Base
   attr_accessible :custom_construction_items_attributes
 
   attr_accessible :order_id,:main_material_package_type,:confirmed_area, :constructor, :constructor_contact
+
+  validates :order_id,:main_material_package_type,:confirmed_area, :presence => true
+
   PACKAGE_TYPES = %w[经济型 舒适型 豪华型]
 end

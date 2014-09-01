@@ -141,6 +141,7 @@
         main_material_name: "所属主材包"
         package_type: "所属档次"
         main_material_name_id: "所属主材包"
+        main_material_name_sub_category: "主材二级分类"
         main_material_brand: "主材品牌"
         main_material_brand_id: "主材品牌"
         decorate_company: "装修公司"
