@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 ActiveAdmin.register HomeImageSetting do
-  menu :priority => 4
+  menu :priority => 1, :parent =>  I18n.t("admin.menu.site_management")
   # , :parent =>  I18n.t("admin.menu.home_image_setting")
 
   # 去除创建按钮，但是在没有任何记录的时候保留创建链接，see: http://stackoverflow.com/questions/7815319/activeadmin-disabling-the-new-resource-method

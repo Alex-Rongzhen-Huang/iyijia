@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140901121936) do
+ActiveRecord::Schema.define(:version => 20140902131752) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -130,6 +130,13 @@ ActiveRecord::Schema.define(:version => 20140901121936) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "weight",      :default => 1
+  end
+
+  create_table "home_brand_settings", :force => true do |t|
+    t.string   "path"
+    t.string   "package_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "home_image_settings", :force => true do |t|

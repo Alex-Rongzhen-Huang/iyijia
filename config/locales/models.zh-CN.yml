@@ -26,6 +26,7 @@
       decorate_company_management: "订单管理"
       user_management: "用户管理"
       quotation_management: "数据库管理"
+      site_management: " 网站设置"
   activerecord:
     errors:
       models:
@@ -54,6 +55,7 @@
       main_material_brand: "主材品牌"
       main_material_name: "主材分类"
       home_image_setting: "主页图片设置"
+      home_brand_setting: "一口价品牌Logo设置"
       construction_item: "施工项"
       quotation_template: "报价单模板"
       quotation_template_item: "报价单条目"
@@ -130,6 +132,9 @@
          img3: "图片（3）"
          img4: "图片（4）"
          img5: "图片（5）"
+      home_brand_setting:
+        package_type: "一口价类型"
+        path: "图片"
       main_material:
         name: "主材名"
         picture: "主材图片"

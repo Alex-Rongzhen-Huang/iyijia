@@ -1,6 +1,6 @@
 # encoding: UTF-8
 ActiveAdmin.register FaqItem do
-  menu :priority => 5
+  menu :priority => 3, :parent =>  I18n.t("admin.menu.site_management")
 
   form(:html => { :multipart=>true}) do |f|
     f.inputs ShowHouse.model_name.human do
