@@ -5,8 +5,10 @@ class HomeController < ApplicationController
     @show_houses = ShowHouse.limit(4)
 
     @house_fitment = HouseFitment.new
-    @main_material_brands_e = MainMaterialBrand.order('name desc').limit(4)
-    @main_material_brands_c = MainMaterialBrand.order('name asc').limit(4)
+    #@main_material_brands_e = MainMaterialBrand.order('name desc').limit(4)
+    #@main_material_brands_c = MainMaterialBrand.order('name asc').limit(4)
+    @home_image_settings_e = HomeBrandSetting.find_all_by_package_type('经济型')
+    @home_image_settings_c = HomeBrandSetting.find_all_by_package_type('舒适型')
   end
 
   #GET

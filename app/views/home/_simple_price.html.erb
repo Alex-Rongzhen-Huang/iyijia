@@ -60,13 +60,13 @@
   <tr>
     <td><h4>主材品牌</h4></td>
     <td>
-      <% @main_material_brands_e.each do |x| %>
-          <img src="<%= x.logo_path %>" style="max-height: 100px;max-width: 100px;display: inline-block;" class="thumbnail no-border">
+      <% @home_image_settings_e.each do |x| %>
+          <img src="<%= x.path.t.url %>" style="max-height: 100px;max-width: 100px;display: inline-block;" class="thumbnail no-border">
       <% end %>
     </td>
     <td>
-      <% @main_material_brands_c.each do |x| %>
-          <img src="<%= x.logo_path %>" style="max-height: 100px;max-width: 100px;display: inline-block;" class="thumbnail no-border">
+      <% @home_image_settings_c.each do |x| %>
+          <img src="<%= x.path.t.url %>" style="max-height: 100px;max-width: 100px;display: inline-block;" class="thumbnail no-border">
       <% end %>
     </td>
   </tr>
