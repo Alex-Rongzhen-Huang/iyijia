@@ -45,4 +45,18 @@ $(document).ready(function () {
         }
     });
 
+    // 根据选择的主材名称，过滤主材二级分类信息
+    var $subs = $('#main_material_package_main_material_name_sub_category_id').html();
+    $('#main_material_package_main_material_name_id').change(function () {
+        var $name = $('#main_material_package_main_material_name_id :selected').text();
+        var $options = $($subs).filter("optgroup[label = '" + $name + "']").html();
+        if ($options) {
+            $('#main_material_package_main_material_name_sub_category_id').html($options);
+        }
+        else {
+            alert("'" + $name + "'暂无相关主材二级分类信息，如有需求请先编辑主材二级分类");
+            $('#main_material_package_main_material_name_sub_category_id').html($subs);
+        }
+    });
+
 });

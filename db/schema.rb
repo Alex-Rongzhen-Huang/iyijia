@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140902131752) do
+ActiveRecord::Schema.define(:version => 20140904133313) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -191,8 +191,9 @@ ActiveRecord::Schema.define(:version => 20140902131752) do
     t.string   "name"
     t.integer  "main_material_name_id"
     t.integer  "main_material_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.integer  "main_material_name_sub_category_id"
   end
 
   add_index "main_material_packages", ["main_material_id"], :name => "index_main_material_packages_on_main_material_id"

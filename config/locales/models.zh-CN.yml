@@ -163,6 +163,7 @@
         name: "主材包名称"
         main_material_brand: "主材品牌"
         main_material_name:  "主材分类"
+        main_material_name_sub_category: "主材二级分类"
         main_material:       "主材"
       package_price:
         rooms: "房"
