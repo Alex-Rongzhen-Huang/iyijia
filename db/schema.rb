@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140904133313) do
+ActiveRecord::Schema.define(:version => 20140904142403) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -286,6 +286,22 @@ ActiveRecord::Schema.define(:version => 20140904133313) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
+
+  create_table "quotation_selected_items", :force => true do |t|
+    t.integer  "order_quotation_id"
+    t.integer  "main_material_name_id"
+    t.integer  "main_material_name_sub_category_id"
+    t.integer  "main_material_id"
+    t.boolean  "upgrade"
+    t.float    "delta_price"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  add_index "quotation_selected_items", ["main_material_id"], :name => "by_main_material_id"
+  add_index "quotation_selected_items", ["main_material_name_id"], :name => "by_name_id"
+  add_index "quotation_selected_items", ["main_material_name_sub_category_id"], :name => "by_sub_category_id"
+  add_index "quotation_selected_items", ["order_quotation_id"], :name => "by_order_quotation_id"
 
   create_table "quotation_template_items", :force => true do |t|
     t.integer "quotation_template_id"
