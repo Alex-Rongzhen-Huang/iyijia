@@ -24,3 +24,10 @@
 </div> <!-- end of row -->
 
     </div><!-- end of container -->
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        //console.log(location.hash.slice(1));
+        $('#myTab a[href="#'+location.hash.slice(1)+'"]').tab('show');
+    });
+</script>
