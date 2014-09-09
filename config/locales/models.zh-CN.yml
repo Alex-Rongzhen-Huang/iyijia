@@ -72,6 +72,7 @@
       order_quotation:  "报价单"
       custom_construction_item: "自定义施工项"
       main_material_name_sub_category: "主材二级分类"
+      quotation_selected_item: "选择的主材"
     attributes:
       decorate_company:
         name: "公司名称"
@@ -209,6 +210,13 @@
         confirmed_area: "确认建筑面积"
         constructor:  "施工方"
         constructor_contact:  "施工方联系方式"
+      quotation_selected_item:
+        main_material_name: "主材分类"
+        main_material_name_sub_category: "主材二级分类"
+        main_material: "主材"
+        order_quotation: "报价单"
+        delta_price: "差价"
+        upgrade: "是否选择升级包"
       custom_construction_item:
         order_quotation: "某订单的报价单"
         construction_item : "施工项"

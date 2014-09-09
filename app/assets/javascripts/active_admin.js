@@ -59,4 +59,7 @@ $(document).ready(function () {
         }
     });
 
+
+    // 报价单页面暂未支持，id太复杂
+
 });
