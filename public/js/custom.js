@@ -58,7 +58,7 @@ jQuery(document).ready(function(){
             slideshowSpeed: 7000,
             animationSpeed:	1500,
             directionNav: true,
-            controlNav: false,
+            controlNav: true,
             keyboardNav: true
         });
 
