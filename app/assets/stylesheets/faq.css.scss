@@ -1,0 +1,14 @@
+// Place all the styles related to the faq controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/********************************************/
+/* 定制bootstrap .nav-pills的样式
+/********************************************/
+
+$nav-pills-background-color: #4dc7ec;
+$header-background-color: #2d2d2d;
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+  color: white;
+  background-color: $nav-pills-background-color;
+}

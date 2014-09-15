@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140723131232) do
+ActiveRecord::Schema.define(:version => 20140904142403) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -83,6 +83,19 @@ ActiveRecord::Schema.define(:version => 20140723131232) do
     t.integer  "type_of_work_id"
   end
 
+  create_table "custom_construction_items", :force => true do |t|
+    t.integer  "order_quotation_id"
+    t.integer  "construction_item_id"
+    t.string   "description"
+    t.float    "price"
+    t.integer  "count"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "custom_construction_items", ["construction_item_id"], :name => "index_custom_construction_items_on_construction_item_id"
+  add_index "custom_construction_items", ["order_quotation_id"], :name => "index_custom_construction_items_on_order_quotation_id"
+
   create_table "decorate_companies", :force => true do |t|
     t.string   "name"
     t.text     "brief"
@@ -106,8 +119,24 @@ ActiveRecord::Schema.define(:version => 20140723131232) do
   create_table "decorate_schemes", :force => true do |t|
     t.string   "name"
     t.integer  "order_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "confirm_status"
+  end
+
+  create_table "faq_items", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "weight",      :default => 1
+  end
+
+  create_table "home_brand_settings", :force => true do |t|
+    t.string   "path"
+    t.string   "package_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "home_image_settings", :force => true do |t|
@@ -116,6 +145,11 @@ ActiveRecord::Schema.define(:version => 20140723131232) do
     t.string "img3"
     t.string "img4"
     t.string "img5"
+    t.string "link1"
+    t.string "link2"
+    t.string "link3"
+    t.string "link4"
+    t.string "link5"
   end
 
   create_table "house_fitments", :force => true do |t|
@@ -133,20 +167,67 @@ ActiveRecord::Schema.define(:version => 20140723131232) do
   end
 
   create_table "main_material_brands", :force => true do |t|
-    t.string "name"
-    t.string "logo_path"
+    t.string  "name"
+    t.string  "logo_path"
+    t.integer "main_material_name_id"
   end
+
+  create_table "main_material_name_sub_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "main_material_name_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  add_index "main_material_name_sub_categories", ["main_material_name_id"], :name => "index_main_material_name_sub_categories_on_main_material_name_id"
+
+  create_table "main_material_names", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "main_material_packages", :force => true do |t|
+    t.string   "name"
+    t.integer  "main_material_name_id"
+    t.integer  "main_material_id"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.integer  "main_material_name_sub_category_id"
+  end
+
+  add_index "main_material_packages", ["main_material_id"], :name => "index_main_material_packages_on_main_material_id"
+  add_index "main_material_packages", ["main_material_name_id"], :name => "index_main_material_packages_on_main_material_name_id"
+
+  create_table "main_material_prices", :force => true do |t|
+    t.integer  "main_material_name_id"
+    t.float    "economy"
+    t.float    "economy_cost"
+    t.float    "comfort"
+    t.float    "comfort_cost"
+    t.float    "luxury"
+    t.float    "luxury_cost"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  add_index "main_material_prices", ["main_material_name_id"], :name => "index_main_material_prices_on_main_material_name_id"
 
   create_table "main_materials", :force => true do |t|
     t.string   "name"
     t.string   "picture"
     t.string   "type"
     t.float    "price"
-    t.string   "type_of_work"
+    t.string   "package_type"
+    t.string   "description"
+    t.string   "specifications"
+    t.integer  "main_material_name_id"
     t.integer  "main_material_brand_id"
     t.integer  "decorate_company_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.integer  "type_of_work_id"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.integer  "main_material_name_sub_category_id"
   end
 
   create_table "my_project_items", :force => true do |t|
@@ -166,6 +247,18 @@ ActiveRecord::Schema.define(:version => 20140723131232) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "order_quotations", :force => true do |t|
+    t.integer  "order_id"
+    t.string   "main_material_package_type"
+    t.integer  "confirmed_area"
+    t.string   "constructor"
+    t.string   "constructor_contact"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "order_quotations", ["order_id"], :name => "index_order_quotations_on_order_id"
+
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.integer  "decorate_company_id"
@@ -177,6 +270,38 @@ ActiveRecord::Schema.define(:version => 20140723131232) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+
+  create_table "package_prices", :force => true do |t|
+    t.integer  "rooms",              :default => 1
+    t.integer  "doors",              :default => 3
+    t.integer  "bathrooms",          :default => 1
+    t.integer  "max_usable_area",    :default => 40
+    t.integer  "kitchen_area",       :default => 5
+    t.integer  "bathroom_area",      :default => 5
+    t.string   "covered_area_range", :default => "S≤50"
+    t.float    "economy_price"
+    t.float    "comfort_price"
+    t.float    "luxury_price"
+    t.float    "construction_price"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  create_table "quotation_selected_items", :force => true do |t|
+    t.integer  "order_quotation_id"
+    t.integer  "main_material_name_id"
+    t.integer  "main_material_name_sub_category_id"
+    t.integer  "main_material_id"
+    t.boolean  "upgrade"
+    t.float    "delta_price"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  add_index "quotation_selected_items", ["main_material_id"], :name => "by_main_material_id"
+  add_index "quotation_selected_items", ["main_material_name_id"], :name => "by_name_id"
+  add_index "quotation_selected_items", ["main_material_name_sub_category_id"], :name => "by_sub_category_id"
+  add_index "quotation_selected_items", ["order_quotation_id"], :name => "by_order_quotation_id"
 
   create_table "quotation_template_items", :force => true do |t|
     t.integer "quotation_template_id"

@@ -1,4 +1,5 @@
 Iyijia::Application.routes.draw do
+
   #resources :my_project_items
   resources :my_projects
   #resources :decorate_scheme_items
@@ -33,13 +34,16 @@ Iyijia::Application.routes.draw do
 
   match '/show_houses/like/:id' => 'show_houses#like'
   match '/show_houses/unlike/:id' => 'show_houses#unlike'
+  match '/decorate_schemes/confirm/:id' => 'decorate_schemes#confirm'
   match '/user_admin/order/new/:id', to: 'user_admin#order_new', as: :order_new # id is show house id
   match '/user_admin/order_del/:id' => 'user_admin#order_del' # id is order id
   match '/user_admin/user_orders', to: 'user_admin#user_orders', as: :user_orders  
   match '/user_admin/pre_order', to: 'user_admin#pre_order', as: :pre_order
   match '/user_admin/old_quotation', to: 'user_admin#old_quotation', as: :old_quotation
   match '/user_admin/favorites', to: 'user_admin#favorites', as: :favorites
-
+  match '/faq', to: 'faq#index', as: :faq
+  match '/home/order' => 'home#pre_order', :as => :home_order
+  match '/home/query' => 'home#query', :as => :home_query
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

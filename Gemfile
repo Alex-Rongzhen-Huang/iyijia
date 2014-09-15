@@ -13,6 +13,9 @@ gem 'ckeditor', '4.0.11'
 gem 'kaminari', '~> 0.15.0'
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'jquery-ui-rails'
+gem 'rails3-jquery-autocomplete'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

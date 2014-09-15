@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>欢迎来到 21jia.net, <%= @user.email %></h1>
+<p>
+  您已经成功提交预约信息，使用您的邮箱可以登陆本站：<b><%= @user.email %></b><br>
+  我们为您自动生成了一个初始密码, <b><%= @generated_password %></b><br>
+</p>
+<p>
+  为了安全起见，首次登陆之后请修改密码 <%= @url %>.
+</p>
+<p>Thanks for joining and have a great day!</p>
+</body>
+</html>

@@ -5,10 +5,14 @@ class CreateMainMaterials < ActiveRecord::Migration
       t.string :picture
       t.string :type
       t.float :price
-      t.string :type_of_work
+      t.string :package_type
+      t.string :description
+      t.string :specifications
 
+      t.references :main_material_name
       t.references :main_material_brand
       t.references :decorate_company
+      t.references :type_of_work
       t.timestamps
     end
   end

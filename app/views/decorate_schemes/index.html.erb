@@ -1,3 +1,22 @@
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+        <h4 class="modal-title" id="myModalLabel">装修方案确认</h4>
+      </div>
+      <div class="modal-body" align="center">
+        <h3><strong>确定选择该装修方案吗？</strong></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary for-confirm" data-dismiss="modal">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="row">
   <div class="col-md-12">
 
@@ -12,7 +31,15 @@
 
     <% @decorate_schemes.each do |decorate_scheme| %>
         <div class="row">
-          <h3 style="padding-left: 20px;"><%= decorate_scheme.name %></h3>
+          <h3 style="padding-left: 20px;"><%= decorate_scheme.name %>
+            <input type="hidden" value="<%= decorate_scheme.id %>">
+          	<% if decorate_scheme.confirm_status == "未确认" %>
+              <a class="btn btn-info confirm-decorate-scheme" role="button" href="#myModal3" data-toggle="modal">确认此方案</a>
+              <span class="label label-success"></span>
+            <% else %>
+              <span class="label label-success">已确认</span>
+            <% end %>
+          </h3>
 
           <div class="row" id="justifiedGallery<%= decorate_scheme.id %>"  style="border: 1px solid #ddd;margin-left: 0px;">
             <% decorate_scheme.decorate_scheme_items.each do |x| %>
@@ -24,8 +51,8 @@
                 $(document).ready(function() {
                     $('#justifiedGallery<%= decorate_scheme.id %>').justifiedGallery({rel: 'gal0'}).on('jg.rowflush', function () {
                         $(this).find('a').colorbox({
-                            maxWidth : '80%',
-                            maxHeight : '80%',
+                            maxWidth : '99%',
+                            maxHeight : '99%',
                             opacity : 0.8,
                             transition : 'elastic',
                             current : ''
@@ -39,13 +66,12 @@
         </div>
     <% end %>
 
-
     <link rel='stylesheet' href='/js/justifiedgallery/justifiedgallery.min.css' type='text/css' media='all' />
     <link rel='stylesheet' href='/js/colorbox/css/colorbox.css' type='text/css' media='screen' />
     <script src='/js/justifiedgallery/justifiedgallery.js'></script>
     <script src='/js/colorbox/jquery.colorbox-min.js'></script>
 
-    <div class="row">
+    <div class="row" align="center">
       <div class="col-md-12 ">
         <%= paginate @decorate_schemes %>
       </div>
@@ -54,3 +80,18 @@
 </div>
 <!-- End row -->
 
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.confirm-decorate-scheme').on('click',function(event){
+          event.preventDefault();
+      	  $temporary_confirm=$(this);
+      	  $confirmid = $(this).prev().val();
+      });
+      $('.for-confirm').on('click',function(){
+          $.post( "/decorate_schemes/confirm/"+$confirmid, function( data ) {
+            $temporary_confirm.hide();
+            $temporary_confirm.next().text("已确认");
+          });
+      });
+  });
+</script>

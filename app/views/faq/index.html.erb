@@ -1,0 +1,33 @@
+<div class="container" style="min-height: 600px;">
+<div class="row" style="padding: 20px;"></div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-2">
+      <ul id="myTab" class="nav nav-pills nav-stacked" role="tablist">
+        <% @faq_items.each_with_index do |faq_item,index| %>
+            <li class="<%= index==0?'active':'' %>"><a href="#tab<%= index %>" role="tab" data-toggle="tab"><%= faq_item.title %></a></li>
+        <% end %>
+      </ul>
+
+    </div>
+    <div class="col-md-10">
+      <div id="myTabContent" class="tab-content" style="">
+        <% @faq_items.each_with_index do |faq_item,index| %>
+            <div class="tab-pane fade <%= index==0?'active':'' %> in" id="tab<%= index %>">
+              <p><%= faq_item.description.html_safe %></p>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div> <!-- end of row -->
+
+    </div><!-- end of container -->
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        //console.log(location.hash.slice(1));
+        $('#myTab a[href="#'+location.hash.slice(1)+'"]').tab('show');
+    });
+</script>

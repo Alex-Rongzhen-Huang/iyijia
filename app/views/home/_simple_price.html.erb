@@ -1,0 +1,108 @@
+<table class="table table-bordered simple_price">
+  <thead>
+  <tr>
+    <th colspan="3">
+      <form class="form-inline" role="form">
+        <div class="checkbox">
+          <label>您的豪宅建筑面积多大？</label>
+          <%= select_tag(:covered_area_range, options_for_select(PackagePrice::AREA_RANGE_TYPES, "95＜S≤100"), class: 'form-control') %>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="checkbox">
+          <label>您的豪宅有几个卫生间？</label>
+          <%= select_tag(:bathrooms, options_for_select(PackagePrice::BATHROOM_TYPES, "1"), class: 'form-control') %>
+        </div>
+      </form>
+    </th>
+
+  </tr>
+  <tr class="blue-bg">
+    <th style="width: 20%">方案</th>
+    <th style="width: 40%">经济型</th>
+    <th style="width: 40%">舒适型</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><h4>精装总价</h4></td>
+    <td>
+      <h5>
+        <label id="esum">69999</label><span class="currency"> 元 </span>&nbsp;&nbsp;
+        <a class="btn btn-warning btn-xs" onclick="$('a[href=#order]').tab('show')" >免费预约测量</a>
+        </h5>
+
+
+    </td>
+    <td>
+      <h5>
+        <label id="csum">109999</label><span class="currency"> 元 </span>&nbsp;&nbsp;
+        <a class="btn btn-warning btn-xs" onclick="$('a[href=#order]').tab('show')" >免费预约测量</a>
+        </h5>
+
+    </td>
+  </tr>
+  <tr>
+    <td><h4>施工一口价</h4></td>
+    <td><h5>
+      <label class="bp">29999</label><span class="currency"> 元 </span>
+      <img src="/images/home/simple_price.png"></h5></td>
+    <td><h5>
+      <label class="bp">29999</label><span class="currency"> 元 </span>
+      <img src="/images/home/simple_price.png"></h5></td>
+  </tr>
+  <tr>
+    <td><h4>主材包</h4></td>
+    <td><h5><label id="ep">40000</label><span class="currency"> 元 </span>
+      <span style="width: 96px;display: inline-block;"></span></h5></td>
+    <td><h5><label id="cp">80000</label><span class="currency"> 元 </span>
+      <span style="width: 96px;display: inline-block;"></span></h5></td>
+  </tr>
+  <tr>
+    <td><h4>主材品牌</h4></td>
+    <td>
+      <% @home_image_settings_e.each do |x| %>
+          <img src="<%= x.path.t.url %>" style="max-height: 100px;max-width: 100px;display: inline-block;" class="thumbnail no-border">
+      <% end %>
+    </td>
+    <td>
+      <% @home_image_settings_c.each do |x| %>
+          <img src="<%= x.path.t.url %>" style="max-height: 100px;max-width: 100px;display: inline-block;" class="thumbnail no-border">
+      <% end %>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        function updateQuery() {
+            var p1 = $('#covered_area_range').val();
+            var p2 = $('#bathrooms').val();
+            if("S≤50|50＜S≤55|55＜S≤60|60＜S≤65|65＜S≤70|70＜S≤75|75＜S≤80|80＜S≤85|85＜S≤90".indexOf(p1) != -1) {
+              p2 = "1";
+              $('#bathrooms option[value='+p2+']').attr("selected", true);
+            }
+
+            $.get("/home/query?covered_area_range=" + encodeURI(p1) + "&bathrooms=" + encodeURI(p2), function (data) {
+                var bp = parseInt(data.construction_price);
+                var ep = parseInt(data.economy_price);
+                var cp = parseInt(data.comfort_price);
+                (bp == NaN) ? bp = 0 : bp;
+                (ep == NaN) ? ep = 0 : ep;
+                (cp == NaN) ? cp = 0 : cp;
+                $('.bp').text(bp);
+                $('#ep').text(ep);
+                $('#cp').text(cp);
+                $('#esum').text(bp + ep);
+                $('#csum').text(bp + cp);
+            });
+        };
+
+        updateQuery();
+        $('#covered_area_range').on('change', updateQuery);
+        $('#bathrooms').on('change', updateQuery);
+
+    });
+</script>

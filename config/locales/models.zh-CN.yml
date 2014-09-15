@@ -26,6 +26,7 @@
       decorate_company_management: "订单管理"
       user_management: "用户管理"
       quotation_management: "数据库管理"
+      site_management: " 网站设置"
   activerecord:
     errors:
       models:
@@ -52,7 +53,9 @@
       user_profile: "用户资料"
       main_material: "主材"
       main_material_brand: "主材品牌"
+      main_material_name: "主材分类"
       home_image_setting: "主页图片设置"
+      home_brand_setting: "一口价品牌Logo设置"
       construction_item: "施工项"
       quotation_template: "报价单模板"
       quotation_template_item: "报价单条目"
@@ -62,7 +65,14 @@
       my_project: "工程进展"
       my_project_item: "工程进展条目"
       type_of_work: "工种分类"
-
+      faq_item: "流程解答设置"
+      main_material_price: "主材包价格"
+      package_price: "打包价"
+      main_material_package: "主材包"
+      order_quotation:  "报价单"
+      custom_construction_item: "自定义施工项"
+      main_material_name_sub_category: "主材二级分类"
+      quotation_selected_item: "选择的主材"
     attributes:
       decorate_company:
         name: "公司名称"
@@ -107,22 +117,67 @@
         show_house: "样板房"
         show_house_id : "样板房"
       main_material_brand:
+        name: "主材品牌"
+        logo_path: "品牌Logo"
+        main_material_name: "主材名称"
+        main_material_name_id: "主材名称"
+      main_material_name:
         name: "主材名称"
-        logo_path: "主材Logo"
+        main_material_name_sub_category: "主材二级分类"
+        main_material_name_sub_category_id: "主材二级分类"
+      main_material_name_sub_category:
+        name: "二级分类名称"
       home_image_setting:
          img1: "图片（1）"
          img2: "图片（2）"
          img3: "图片（3）"
          img4: "图片（4）"
          img5: "图片（5）"
+      home_brand_setting:
+        package_type: "一口价类型"
+        path: "图片"
       main_material:
-        name: "主材名称"
+        name: "主材名"
         picture: "主材图片"
+        description: "其他说明"
         price: "主材价格"
-        type: "主材规格"
+        specifications: "主材规格"
         type_of_work: "工种"
-        decorate_company_id: "装修公司"
+        type_of_work_id: "工种"
+        main_material_name: "所属主材包"
+        package_type: "所属档次"
+        main_material_name_id: "所属主材包"
+        main_material_name_sub_category: "主材二级分类"
+        main_material_brand: "主材品牌"
         main_material_brand_id: "主材品牌"
+        decorate_company: "装修公司"
+        decorate_company_id: "装修公司"
+      main_material_price:
+        main_material_name:  "主材名称"
+        economy: "经济型标价"
+        economy_cost: "经济型成本"
+        comfort: "舒适型标价"
+        comfort_cost: "舒适型成本"
+        luxury:  "豪华型标价"
+        luxury_cost:  "豪华型成本"
+      main_material_package:
+        name: "主材包名称"
+        main_material_brand: "主材品牌"
+        main_material_name:  "主材分类"
+        main_material_name_sub_category: "主材二级分类"
+        main_material:       "主材"
+      package_price:
+        rooms: "房"
+        bathrooms: "卫浴空间"
+        doors: "室内门数"
+        kitchen_area: "厨房面积"
+        bathroom_area: "卫生间面积"
+        comfort_price: "舒适型主材包"
+        covered_area_range: "建筑面积（S）平米"
+        economy_price: "经济型主材包"
+        luxury_price: "豪华型主材包"
+        max_usable_area: "最大面积(得房率*0.8）"
+        construction_price: "施工一口价"
       construction_item:
         name: "施工项名称"
         process_description: "工艺描述"
@@ -149,9 +204,30 @@
         quotation_link: "报价单链接"
         decorate_scheme: "装修方案"
         my_project: "工程进展"
+      order_quotation:
+        order: "订单号"
+        main_material_package_type: "主材包名称"
+        confirmed_area: "确认建筑面积"
+        constructor:  "施工方"
+        constructor_contact:  "施工方联系方式"
+      quotation_selected_item:
+        main_material_name: "主材分类"
+        main_material_name_sub_category: "主材二级分类"
+        main_material: "主材"
+        order_quotation: "报价单"
+        delta_price: "差价"
+        upgrade: "是否选择升级包"
+      custom_construction_item:
+        order_quotation: "某订单的报价单"
+        construction_item : "施工项"
+        description: "名称"
+        price: "单价"
+        count: "数量"
       decorate_scheme:
         name: "方案名称"
         order: "对应订单"
+        order_id: "对应订单"
+        confirm_status: "客户确认状态"
       decorate_scheme_item:
         path: "图片"
         description: "描述"
@@ -163,7 +239,10 @@
         description: "描述"
       type_of_work:
         name: "工种名称"
-
+      faq_item:
+        title: "问题"
+        description: "详细解答"
+        weight: "排序权重"
 
 
 

@@ -15,6 +15,17 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
-#cke_show_house_need_to_know, #cke_show_house_overview, #cke_show_house_brief {
+/**********************************************/
+/* 定制ckeditor样式                             */
+/**********************************************/
+#cke_show_house_need_to_know, #cke_show_house_overview, #cke_show_house_brief, #cke_faq_item_description {
   margin-left: 20%;
+}
+.ui-helper-hidden-accessible{
+  display: none;
+}
+.ui-autocomplete{
+  width: 300px;
+  background-color: #FAFAFA;
+  border:solid 1px #C1C1C1;
 }

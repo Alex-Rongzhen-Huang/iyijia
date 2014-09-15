@@ -17,8 +17,9 @@
 /* ------------------------------------------------------*/
 #navbar-top.navbar-inverse {
     background-color: #24292c  !important;
-    border: 0px;
-/*    border-color: #161a36; */
+    border: solid 1px #161a36;
+    -webkit-box-shadow: 1px 1px 5px #161a36;
+    box-shadow: 1px 1px 5px #161a36;
     margin-bottom: 0px;
 
 }
@@ -103,6 +104,9 @@
     margin-top: -22px;
     z-index: 150;
     cursor: pointer;
+}
+#home-flexslider .flex-control-nav.flex-control-paging {
+    bottom: 10px !important;
 }
 
 /*------------------------------------------------------*/
